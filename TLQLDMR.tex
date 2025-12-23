@@ -1,0 +1,438 @@
+\documentclass[a4paper]{cas-sc}
+
+% \usepackage[numbers]{natbib}
+\usepackage[authoryear]{natbib}
+%\usepackage[authoryear,longnamesfirst]{natbib}
+
+% Author macros
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+\tsc{WGM}
+\tsc{QE}
+
+\usepackage{amssymb}
+\usepackage{amsmath,amsfonts}
+\usepackage{caption}
+\captionsetup[figure]{name={Fig.},labelsep=period,singlelinecheck=off}
+% \usepackage{algorithmic}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage{array}
+% \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfsetup{outdir=./build/}
+\graphicspath{{./}{./build/}}
+% \usepackage{subcaption}
+%\usepackage{cite}
+%\usepackage{biblatex}  
+\usepackage{natbib}
+%\usepackage[options]{natbib}
+%\addbibresource{ref.bib}
+% \hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+% updated with editorial comments 8/9/2021
+%\usepackage{hyperref}
+\usepackage{subfigure} %By myself
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+%\usepackage{mathptmx}
+\usepackage{amsthm}
+\newtheorem{myDef}{Definition}
+\newtheorem{myTheo}{Theorem}
+\newtheorem{mypro}{Proposition}
+\newtheorem{myex}{Example}
+%\usepackage{booktabs}
+% \usepackage{algorithmic}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{array, caption, threeparttable}
+\usepackage[font=small,labelfont=bf]{caption}
+\captionsetup[table]{
+  labelsep=newline,
+  singlelinecheck=false,
+}
+\usepackage{algpseudocode} 
+\usepackage{threeparttable}
+\usepackage{hyperref}
+\hypersetup{%hypertex=true,
+            colorlinks=true,
+            linkcolor=blue,
+            anchorcolor=blue,
+            citecolor=blue}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+\newtheorem{remark}{Remark}   
+\renewcommand{\qedsymbol}{}
+%reference
+\usepackage{hyperref}
+\usepackage{threeparttable}
+
+% Keep abstract in main.tex to make SyncTeX jump to the source file.
+\makeatletter
+\ExplSyntaxOn
+\tl_new:N \g__cas_abs_tl
+
+\RenewDocumentEnvironment { abstract } { o +b }
+{
+  \IfNoValueTF { #1 } { }
+   { \tex_gdef:D \abstracttitle { #1 } }
+  \tl_gset:Nn \g__cas_abs_tl { #2 }
+}
+{ }
+
+\RenewDocumentCommand \MaketitleBox { O{} }
+{
+  \tl_if_blank:nTF { #1 } { }
+  { \keys_set:nn { stm / mktitle } { #1 } }
+  \processbreakafter
+  \tex_def:D \baselinestretch{1}
+  \group_begin:
+  \@title
+  \group_end:
+  %
+  \bool_if:NTF \g_stm_blind_bool
+  { \vspace* { 10 mm } }
+  {
+    \group_begin:
+    \normalsize \stmauthors \par
+    \stmcollab \par
+    \footnotesize \itshape \stmaddress \par
+    \group_end:
+    \bool_if:NTF \g_stm_breakafter_auaff_bool
+    { \newpage } { }
+  }
+  % \printFirstPageNotes
+  %
+  \dashrule{0pt}{3pt}
+  \begin{Abstract}
+    \noindent \ignorespaces
+    \tl_use:N \g__cas_abs_tl
+  \end{Abstract}
+  \dashrule{6pt}{3pt}
+  \bool_if:NTF \g_stm_breakafter_abstract_bool
+  { \newpage } { }
+}
+
+\RenewDocumentCommand \LongMaketitleBox { O{} }
+{
+  \tl_if_blank:nTF { #1 } { }
+  { \keys_set:nn { stm / mktitle } { #1 } }
+  \vbox_gset:Nn \g_stm_front_box
+  {
+    \tex_def:D \baselinestretch{1}
+    \group_begin:
+    \@title
+    \group_end:
+    %
+    \bool_if:NTF \g_stm_blind_bool
+     { \vspace* { 10 mm } }
+     { \group_begin:
+       \normalsize \stmauthors \par
+       \stmcollab \par
+       \footnotesize \itshape \stmaddress \par
+       \group_end:
+     }
+  %
+  \dashrule{0pt}{3pt}
+  \begin{Abstract}
+    \noindent \ignorespaces
+    \tl_use:N \g__cas_abs_tl
+  \end{Abstract}
+  \dashrule{3pt}{3pt}
+  }
+  \vbox_gset:Nn \g_stm_notes_box
+  {  \cs_set_eq:NN \footnotetext \__fn_text:n  \printFirstPageNotes }
+   \dim_gset:Nn \g_tmpb_dim { \box_ht:N \g_stm_notes_box }
+   % \iow_term:x { ...~[ht: \dim_use:N \g_tmpb_dim  ] }
+   \dim_gadd:Nn \g_tmpb_dim { \box_dp:N \g_stm_notes_box }
+   % \iow_term:x { ...~[ht+dp: \dim_use:N \g_tmpb_dim  ] }
+   \ifbool{sc}{\dim_gadd:Nn \g_tmpb_dim { 12pt } } { }
+}
+\ExplSyntaxOff
+\makeatother
+
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+%------------------------ Title ------------------------
+
+% \title [mode = title]{Subspace Learning Based on Cross-Domain Large Margin Distribution Machine}
+\title [mode = title]{TLQLDMR: A Transfer Learning Quantile Regression Model for Wind Power Forecasting under Extreme Weather Conditions}
+
+%------------------------ Authors ------------------------
+% short author
+\shortauthors{Junlin Chen et~al.}
+
+%% ---- First Author ----
+\author[1]{***}
+\credit{Methodology, Software, Writing - original draft}
+\affiliation[1]{
+    organization={Schoo of Artificial Intelligence, Southwest University},
+    city={Chongqing},
+    citysep={},
+    postcode={400715}, 
+    country={China}}
+
+\affiliation[2]{
+    organization={Business school, Jiangsu open University},
+    city={Jiangsu},
+    citysep={},
+    postcode={210036}, 
+    country={China}}
+
+%% ---- Second Author ----
+\author[1]{***}
+\credit{Visualization, Data curation}
+
+
+%% ---- Third Author ----
+\author[2]{***}
+\credit{Formal analysis, Software}
+
+
+%% ---- Fourth Author ----
+\author[1]{***}
+\credit{Writing – review $\&$ editing}
+
+
+%% ---- Fifth Author ----
+\author[1]{***}
+\credit{Funding acquisition, Validation, Supervision}
+\cormark[1]
+\cortext[cor1]{Corresponding author: ***\\
+\qquad \qquad E-mail address: ***
+}
+
+
+%------------------------ Abstract ------------------------
+\begin{abstract}
+In the current context of new energy power systems, wind power generation forecasting under extreme weather conditions faces severe challenges such as historical sample scarcity and significant data distribution shifts. Traditional support vector regression (SVR) based prediction models are mostly based on the assumption that the training and testing data are evenly distributed, which makes it difficult to effectively deal with the distribution differences between the source domain (conventional weather) and the target domain (extreme weather). Therefore, in practical applications, the generalization performance is limited, and the prediction accuracy decreases significantly.
+To address the above issues, this paper proposes to extend the Large Margin Distribution Machine for Regression (LDMR) to transfer learning frameworks and construct a probability prediction model with cross domain adaptability. On the basis of inheriting LDMR to optimize the marginal distribution variance and mean, thereby enhancing the model's generalization ability, this model introduces a domain adaptation mechanism to explicitly reduce the feature distribution difference between the source domain and the target domain. In addition, by introducing quantile regression strategy, point prediction can be extended to probability prediction, which can quantify the uncertainty in wind power output in the form of prediction intervals, providing richer decision-making basis for power grid scheduling and risk prevention under extreme weather conditions.
+\end{abstract}
+
+
+%------------------------ Keywords ------------------------
+\begin{keywords}
+Wind power forecasting\\
+Large margin distribution machine\\
+Quantile Regression\\
+Transfer learning\\
+
+
+
+\end{keywords}
+
+\maketitle
+%% \linenumbers
+
+%% main text
+%------------------------ Introduction ------------------------
+\section{Introduction}
+
+
+
+%------------------------ Related work ------------------------
+
+\section{ Related Work}\label{rel}
+
+
+\section{Proposed Methodology}\label{novel}
+In this section, we elaborate on the construction of the Transfer Learning Quantile Regression Model (TLQLDMR). We first define the necessary notations, then present the final objective function which integrates Structural Risk, Distribution Variance, Domain Adaptation (MMD), and Weighted Pinball Loss. Finally, we describe the constraints introduced to handle the non-differentiability of the Quantile Loss.
+
+\subsection{Notations}\label{not}
+In the field of machine learning, a domain $\mathcal{D}$ consists of a feature space $\mathcal{X}$ and a marginal probabilistic distribution $P(\boldsymbol{X})$ on the feature space, i.e., $\mathcal{D} = \{ \mathcal{X}, P(\boldsymbol{X})\}$. Given a domain, a task $\mathcal{T}$ consists of a label space $\mathcal{Y}$ and an objective prediction function $f(\cdot)$, represented as $\mathcal{T} = \{\mathcal{Y}, f(\cdot)\}$. From the perspective of probability theory, the objective prediction function can be expressed as $P(Y | \boldsymbol{X})$, and the task is represented as $\mathcal{T}=\{\mathcal{Y}, P(Y | \boldsymbol{X})\}$.
+
+In the problem of wind power forecasting under extreme weather, there are two crucial concepts corresponding to the different data distributions. The \textbf{Source Domain (Normal Weather)} is represented as $D_{S} = \{(\boldsymbol{x}_{S,i}, y_{S,i})\}_{i=1}^{n_S}$, containing a large amount of conventional weather samples. The \textbf{Target Domain (Extreme Weather)} is represented as $D_{T} = \{(\boldsymbol{x}_{T,j}, y_{T,j})\}_{j=1}^{n_T}$, containing a small number of extreme weather samples. Here, the input space $\mathcal{X} \subseteq \mathbb{R}^d$ represents the feature vectors constructed after sliding window processing, and the output space $\mathcal{Y} \subseteq \mathbb{R}$ represents the wind power. $n_S$ and $n_T$ denote the number of samples in the source and target domains, respectively, satisfying $n_T \ll n_S$.
+
+Although the source and target domains belong to the same type of forecasting task, their data distributions exhibit distinct characteristics due to the drastic meteorological changes during extreme events, i.e., $P_S(\boldsymbol{X}_S, \boldsymbol{Y}_S) \neq P_T(\boldsymbol{X}_T, \boldsymbol{Y}_T)$. This distribution discrepancy implies that a model trained solely on $P_S$ will fail on $P_T$.
+We define a feature mapping $\phi: \mathcal{X} \to \mathcal{H}$ that maps the input to a high-dimensional Reproducing Kernel Hilbert Space (RKHS). The prediction model is defined as:
+\begin{equation}
+f(\boldsymbol{x}) = \boldsymbol{w}^T \phi(\boldsymbol{x}) + b,
+\end{equation}
+where $\boldsymbol{w}$ is the weight vector and $b$ is the bias. The quantile $\tau \in (0, 1)$ is set to a specific value (e.g., $\tau=0.95$) for interval prediction (e.g., predicting the upper bound).
+
+\subsection{TLQLDMR Model Formulation}\label{MODEL}
+\subsubsection{Final Objective Function}
+Our optimization goal is to find the optimal $\boldsymbol{w}, b$ and slack variables $\boldsymbol{\xi}, \boldsymbol{\xi}^*$ to minimize the following objective function $J$:
+\begin{equation}
+\label{eq:objective}
+\begin{aligned}
+\min_{\boldsymbol{w}, b, \boldsymbol{\xi}, \boldsymbol{\xi}^*} \quad J = & \underbrace{\frac{1}{2} \|\boldsymbol{w}\|^2}_{\text{(1) Structural Risk}} \\
+& + \underbrace{\lambda_1 \sum_{i=1}^{n_S} \left( (y_{S,i} - \boldsymbol{w}^T\phi(\boldsymbol{x}_{S,i}) - b) - \bar{u}_S \right)^2}_{\text{(2) Distribution Variance (LDMR Core)}} \\
+& + \underbrace{\lambda_2 \left\| \frac{1}{n_S} \sum_{i=1}^{n_S} \phi(\boldsymbol{x}_{S,i}) - \frac{1}{n_T} \sum_{j=1}^{n_T} \phi(\boldsymbol{x}_{T,j}) \right\|_{\mathcal{H}}^2}_{\text{(3) Domain Adaptation (MMD)}} \\
+& + \underbrace{C_S \sum_{i=1}^{n_S} L_{\tau}(y_{S,i}, f(\boldsymbol{x}_{S,i})) + C_T \sum_{j=1}^{n_T} L_{\tau}(y_{T,j}, f(\boldsymbol{x}_{T,j}))}_{\text{(4) Weighted Pinball Loss}}
+\end{aligned}
+\end{equation}
+The physical meaning of each term is as follows:
+\begin{enumerate}
+    \item \textbf{Structural Risk}: This term controls the complexity of the model and prevents overfitting, embodying the maximum margin principle of SVM.
+    \item \textbf{Distribution Variance}: This term is the core of our proposed Quantile LDMR (QLDMR), incorporating a critical modification to the original LDMR variance.
+    \begin{itemize}
+        \item \textbf{Theoretical Conflict}: The original LDMR minimizes the variance of absolute residuals, which assumes a symmetric error distribution suitable for mean regression. However, this symmetry contradicts the inherent asymmetry of Quantile Regression (governed by $\tau$). Applying a symmetric variance penalty would force the residual distribution towards the center, degrading the skewness required for accurate quantile estimation.
+        \item \textbf{Asymmetric Modification}: To resolve this, we employ an \textbf{Asymmetric Variance} regularization based on the algebraic (signed) residuals. This design allows the model to reduce error dispersion (compactness) without constraining the distribution's direction, thereby preserving the non-symmetric properties essential for the Pinball Loss and improving interval coverage.
+    \end{itemize}
+    \item \textbf{Domain Adaptation (MMD)}: In the context of wind power forecasting under extreme weather conditions, our primary objective is to mitigate the differences in data distributions across various domains by means of learning a feature transformation. Consequently, the effective measurement of distribution disparities between domains becomes a paramount concern. In this pursuit, it is crucial to select a method suitable for quantifying distribution dissimilarity, while ensuring that the chosen method is computationally efficient and easily integrated into the optimization problem of our model. Maximum Mean Discrepancy (MMD) has been demonstrated as an effective approach for estimating the distance between two distributions, offering a relatively straightforward implementation with fast computation speed. It targets the input space $\mathcal{X}$ to minimize the distance between the distribution centers of the source and target domains.
+    \item \textbf{Weighted Pinball Loss}: This term targets the output space $\mathcal{Y}$ and acts as the decisive component for ``Supervised Transfer Learning''. Unlike unsupervised transfer which relies solely on feature alignment, we explicitly incorporate the target domain samples $D_T$ into the loss calculation for the following reasons:
+    \begin{itemize}
+        \item \textbf{Corrective Anchors}: The target samples act as ``anchors for correction''. The source domain data ($D_S$) teaches the model general laws (e.g., higher wind speed leads to higher power), but extreme weather samples ($D_T$) often violate these laws (e.g., high wind speed causing cut-out and zero power). If $D_T$ were excluded from the loss, the model, driven implicitly by $D_S$, would wrongly predict full power during extreme events. Including $D_T$ in the loss imposes a heavy penalty for such mispredictions, forcing the model to learn the specific mapping of extreme events.
+        \item \textbf{Differentiation from MMD}: While MMD brings the ``appearance'' (features) of normal and extreme weather closer, the Pinball Loss ensures the ``content'' (labels) is accurate. It forces the regression curve to correctly envelope the rare data points that MMD cannot correct on its own.
+        \item \textbf{Asymmetric Weighted Strategy}: We employ a weighted strategy to address the extreme sample imbalance ($n_T \ll n_S$). By setting $C_T \gg C_S$ (e.g., $C_T = 100 C_S$), we essentially tell the model that ``mispredicting one extreme sample is as grave as mispredicting a hundred normal samples''. This forces the optimizer to prioritize the scarce extreme data, preventing them from being drowned out by the massive conventional data.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Constraints}
+To handle the non-differentiability of the Pinball Loss, we introduce slack variables $\xi_k, \xi_k^*$ to transform it into linear constraints. For every sample $k$ in the training set $D = D_S \cup D_T$:
+\begin{equation}
+\label{eq:constraints}
+\begin{cases}
+y_k - (\boldsymbol{w}^T\phi(\boldsymbol{x}_k) + b) \le \xi_k, & \forall k \in \{1, \dots, n_S + n_T\} \\
+(\boldsymbol{w}^T\phi(\boldsymbol{x}_k) + b) - y_k \le \xi_k^*, & \forall k \in \{1, \dots, n_S + n_T\} \\
+\xi_k \ge 0, \quad \xi_k^* \ge 0
+\end{cases}
+\end{equation}
+In the objective function, the term $L_{\tau}(y_k, f(\boldsymbol{x}_k))$ corresponds to $\tau \xi_k + (1-\tau) \xi_k^*$.
+
+\subsection{Model Optimization}\label{optimization}
+In this section, we derive the dual problem of TLQLDMR to enable efficient solving using Quadratic Programming (QP).
+
+\subsubsection{Matrix Reformulation of the Primal Problem}
+To facilitate the derivation, we rewrite the variance term and the MMD term in the objective function [Eq. (\ref{eq:objective})] using matrix traces or norms. Let $X = [\boldsymbol{X}_S, \boldsymbol{X}_T]$ denote the entire training set with $N = n_S + n_T$ samples. 
+For consistency with standard derivations, we add a coefficient of $1/2$ to the variance and MMD terms. The primal objective can be reformulated as:
+\begin{equation}
+\label{eq:primal_matrix}
+\min_{\boldsymbol{w}, b, \boldsymbol{\xi}, \boldsymbol{\xi}^*} \quad \frac{1}{2} \|\boldsymbol{w}\|^2 + \frac{\lambda_1}{2} \text{Var}_S(\boldsymbol{w}, b) + \frac{\lambda_2}{2} \text{MMD}^2(\boldsymbol{w}) + \sum_{k=1}^N C_k L_\tau(y_k, f(\boldsymbol{x}_k))
+\end{equation}
+where $C_k$ takes value $C_S$ if sample $k \in D_S$ and $C_T$ if $k \in D_T$.
+
+We introduce two auxiliary matrices to express the variance and MMD terms in Eq. (\ref{eq:primal_matrix}) as quadratic forms of the weights:
+\begin{enumerate}
+    \item \textbf{Variance Matrix } $\mathbf{S}$: To represent the source domain variance $\sum_{i \in D_S} (y_{S,i} - f(\boldsymbol{x}_{S,i}) - \bar{u}_S)^2$, we define a centering matrix $\boldsymbol{H}_S = \boldsymbol{I}_{n_S} - \frac{1}{n_S} \boldsymbol{1}_{n_S} \boldsymbol{1}_{n_S}^T$. The variance term can be written as $\| \boldsymbol{H}_S (\boldsymbol{y}_S - \boldsymbol{f}_S) \|^2$. To extend this to the full dataset, we define an $N \times N$ matrix $\mathbf{S}$:
+    \begin{equation}
+    \label{eq:matrix_S}
+    \mathbf{S} = \begin{bmatrix} \boldsymbol{H}_S & \mathbf{0} \\ \mathbf{0} & \mathbf{0} \end{bmatrix}
+    \end{equation}
+    \item \textbf{MMD Matrix } $\mathbf{M}$: The MMD term represents the distance between means. We define the MMD coefficient matrix $\mathbf{M} \in \mathbb{R}^{N \times N}$ as:
+    \begin{equation}
+    \label{eq:matrix_M}
+    M_{ij} = \begin{cases} \frac{1}{n_S^2} & i,j \in D_S \\ \frac{1}{n_T^2} & i,j \in D_T \\ \frac{-1}{n_S n_T} & \text{otherwise} \end{cases}
+    \end{equation}
+\end{enumerate}
+
+\subsubsection{Representer Theorem and Kernelization}
+According to the Representer Theorem, the optimal weight vector $\boldsymbol{w}$ lies in the span of the feature mappings of the training samples:
+\begin{equation}
+\label{eq:representer}
+\boldsymbol{w} = \sum_{i=1}^{N} \beta_i \phi(\boldsymbol{x}_i) = \boldsymbol{\Phi} \boldsymbol{\beta}
+\end{equation}
+where $\boldsymbol{\Phi} = [\phi(\boldsymbol{x}_1), \dots, \phi(\boldsymbol{x}_N)]$ is the feature matrix and $\boldsymbol{\beta} = [\beta_1, \dots, \beta_N]^T$ are the coefficients.
+Substituting Eq. (\ref{eq:representer}) into the prediction function, we get $f(\boldsymbol{X}) = \boldsymbol{\beta}^T \boldsymbol{K} + b \boldsymbol{1}^T$, where $\boldsymbol{K} = \boldsymbol{\Phi}^T \boldsymbol{\Phi}$ is the $N \times N$ kernel matrix.
+Consequently, using Eq. (\ref{eq:matrix_S}) and Eq. (\ref{eq:matrix_M}), the structural risk, variance, and MMD terms can be expressed in terms of $\boldsymbol{\beta}$:
+\begin{itemize}
+    \item Structural Risk: $\|\boldsymbol{w}\|^2 = \boldsymbol{\beta}^T \boldsymbol{K} \boldsymbol{\beta}$.
+    \item Distribution Variance: The quadratic part with respect to $\boldsymbol{\beta}$ is $\boldsymbol{\beta}^T \boldsymbol{K} \mathbf{S} \boldsymbol{K} \boldsymbol{\beta}$. Note that the bias $b$ is eliminated by the centering matrix $\boldsymbol{H}_S$.
+    \item Domain Adaptation (MMD): $\text{MMD}^2(\boldsymbol{w}) = \boldsymbol{\beta}^T \boldsymbol{K} \mathbf{M} \boldsymbol{K} \boldsymbol{\beta}$.
+\end{itemize}
+
+Combining these, we define the total coefficient matrix $\boldsymbol{\Omega}$:
+\begin{equation}
+\label{eq:Omega}
+\boldsymbol{\Omega} = \boldsymbol{K} + \lambda_1 \boldsymbol{K} \mathbf{S} \boldsymbol{K} + \lambda_2 \boldsymbol{K} \mathbf{M} \boldsymbol{K}
+\end{equation}
+By substituting the kernelized terms and Eq. (\ref{eq:Omega}) into Eq. (\ref{eq:primal_matrix}), the kernelized primal problem becomes (ignoring constant terms w.r.t $b$ in variance):
+\begin{equation}
+\label{eq:kernel_primal}
+\min_{\boldsymbol{\beta}, b, \boldsymbol{\xi}, \boldsymbol{\xi}^*} \quad \frac{1}{2} \boldsymbol{\beta}^T \boldsymbol{\Omega} \boldsymbol{\beta} - (\lambda_1 \boldsymbol{K} \mathbf{S} \boldsymbol{Y})^T \boldsymbol{\beta} + \sum_{k=1}^N C_k (\tau \xi_k + (1-\tau)\xi_k^*)
+\end{equation}
+subject to the constraints from Eq. (\ref{eq:constraints}):
+\begin{equation}
+\label{eq:kernel_constraints}
+y_k - (\boldsymbol{K}_k \boldsymbol{\beta} + b) \le \xi_k, \quad (\boldsymbol{K}_k \boldsymbol{\beta} + b) - y_k \le \xi_k^*, \quad \xi_k, \xi_k^* \ge 0
+\end{equation}
+
+\subsubsection{Lagrangian and Dual Problem}
+We verify the problem by introducing Lagrange multipliers $\alpha_k, \alpha_k^*, \mu_k, \mu_k^* \ge 0$ for Eq. (\ref{eq:kernel_constraints}). The Lagrangian function $\mathcal{L}$ is constructed as:
+\begin{equation}
+\label{eq:lagrangian}
+\begin{aligned}
+\mathcal{L} = &\frac{1}{2} \boldsymbol{\beta}^T \boldsymbol{\Omega} \boldsymbol{\beta} - (\lambda_1 \boldsymbol{K} \mathbf{S} \boldsymbol{Y})^T \boldsymbol{\beta} + \sum_{k=1}^N C_k (\tau \xi_k + (1-\tau)\xi_k^*) \\
+&- \sum_{k=1}^N \alpha_k (\xi_k - y_k + \boldsymbol{K}_k \boldsymbol{\beta} + b) - \sum_{k=1}^N \alpha_k^* (\xi_k^* + y_k - \boldsymbol{K}_k \boldsymbol{\beta} - b) - \sum (\mu_k \xi_k + \mu_k^* \xi_k^*)
+\end{aligned}
+\end{equation}
+By setting the partial derivatives of Eq. (\ref{eq:lagrangian}) with respect to the primal variables ($b, \boldsymbol{\xi}, \boldsymbol{\xi}^*, \boldsymbol{\beta}$) to zero, we obtain the KKT conditions:
+\begin{align}
+    \label{eq:kkt_b} \frac{\partial \mathcal{L}}{\partial b} = 0 & \implies \sum_{k=1}^N (\alpha_k - \alpha_k^*) = 0 \\
+    \label{eq:kkt_xi} \frac{\partial \mathcal{L}}{\partial \xi_k} = 0, \frac{\partial \mathcal{L}}{\partial \xi_k^*} = 0 & \implies \alpha_k \in [0, C_k \tau], \quad \alpha_k^* \in [0, C_k (1-\tau)] \\
+    \label{eq:kkt_beta} \frac{\partial \mathcal{L}}{\partial \boldsymbol{\beta}} = 0 & \implies \boldsymbol{\Omega} \boldsymbol{\beta} - \lambda_1 \boldsymbol{K} \mathbf{S} \boldsymbol{Y} - \boldsymbol{K} (\boldsymbol{\alpha} - \boldsymbol{\alpha}^*) = 0
+\end{align}
+Let $\boldsymbol{\gamma} = \boldsymbol{\alpha} - \boldsymbol{\alpha}^*$. From Eq. (\ref{eq:kkt_beta}), the optimal $\boldsymbol{\beta}$ is derived as:
+\begin{equation}
+\label{eq:beta_optimal}
+\boldsymbol{\beta} = \boldsymbol{\Omega}^{-1} (\boldsymbol{K} \boldsymbol{\gamma} + \lambda_1 \boldsymbol{K} \mathbf{S} \boldsymbol{Y})
+\end{equation}
+
+Substituting Eq. (\ref{eq:beta_optimal}) back into Eq. (\ref{eq:lagrangian}), and simplifying using Eq. (\ref{eq:kkt_b}) and Eq. (\ref{eq:kkt_xi}), we arrive at the \textbf{Dual Problem}, which is a standard Quadratic Programming (QP) problem:
+\begin{equation}
+\label{eq:dual_problem}
+\begin{aligned}
+\min_{\boldsymbol{\alpha}, \boldsymbol{\alpha}^*} \quad & \frac{1}{2} (\boldsymbol{\alpha} - \boldsymbol{\alpha}^*)^T \mathbf{Q}_{dual} (\boldsymbol{\alpha} - \boldsymbol{\alpha}^*) + \mathbf{p}_{dual}^T (\boldsymbol{\alpha} - \boldsymbol{\alpha}^*) \\
+\text{s.t.} \quad & \sum_{k=1}^N (\alpha_k - \alpha_k^*) = 0 \\
+& 0 \le \alpha_k \le C_k \tau, \quad \forall k \\
+& 0 \le \alpha_k^* \le C_k (1-\tau), \quad \forall k
+\end{aligned}
+\end{equation}
+where the dual matrix $\mathbf{Q}_{dual}$ and vector $\mathbf{p}_{dual}$ are defined as:
+\begin{equation}
+\label{eq:dual_matrices}
+\mathbf{Q}_{dual} = \boldsymbol{K} \boldsymbol{\Omega}^{-1} \boldsymbol{K}, \quad \mathbf{p}_{dual} = \lambda_1 \boldsymbol{K} \boldsymbol{\Omega}^{-1} \boldsymbol{K} \mathbf{S} \boldsymbol{Y} - \boldsymbol{Y}
+\end{equation}
+Once the optimal $\boldsymbol{\alpha}, \boldsymbol{\alpha}^*$ are found using a QP solver for Eq. (\ref{eq:dual_problem}), we can recover $\boldsymbol{\beta}$ using Eq. (\ref{eq:beta_optimal}) and construct the final decision function $f(\boldsymbol{x})$.
+
+
+%------------------------- Experiments --------------------%
+\section{Experiments}\label{Experiments}
+
+
+
+\section{Conclusion}\label{Conclu}
+
+
+%------------------------ Credit ------------------------
+\printcredits
+
+
+%------------------------ Declaration ------------------------
+\section*{Declaration of Competing Interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+
+%------------------------ Acknowledgments ------------------------
+\section*{Acknowledgments}
+This work is supported by the National Key Research and  Development  Program  of  China (No. 2021YFB3101500) and the Chongqing Municipal Training Program of Innovation and Entrepreneurship for Undergraduate (No. X202310635204).
+
+
+
+%------------------------ Reference ------------------------
+
+%\bibliographystyle{unsrtnat}
+% \bibliography{ref}
+%\begin{refcontext}[sorting = none]
+% \hypersetup{
+%   %colorlinks=true,
+%   linkcolor=blue,
+%   urlcolor=blue
+% }
+
+% \bibliographystyle{unsrtnat}
+\bibliographystyle{model5-names} 
+\bibliography{ref.bib}
+%\end{refcontext}
+\vfill
+
+\end{document}
