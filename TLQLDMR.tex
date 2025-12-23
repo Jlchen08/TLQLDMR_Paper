@@ -1,9 +1,6 @@
 \documentclass[a4paper]{cas-sc}
 
-% \usepackage[numbers]{natbib}
 \usepackage[authoryear]{natbib}
-%\usepackage[authoryear,longnamesfirst]{natbib}
-
 % Author macros
 \def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
 \tsc{WGM}
@@ -13,10 +10,8 @@
 \usepackage{amsmath,amsfonts}
 \usepackage{caption}
 \captionsetup[figure]{name={Fig.},labelsep=period,singlelinecheck=off}
-% \usepackage{algorithmic}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{array}
-% \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
 \usepackage{textcomp}
 \usepackage{stfloats}
 \usepackage{url}
@@ -25,15 +20,7 @@
 \usepackage{epstopdf}
 \epstopdfsetup{outdir=./build/}
 \graphicspath{{./}{./build/}}
-% \usepackage{subcaption}
-%\usepackage{cite}
-%\usepackage{biblatex}  
 \usepackage{natbib}
-%\usepackage[options]{natbib}
-%\addbibresource{ref.bib}
-% \hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
-% updated with editorial comments 8/9/2021
-%\usepackage{hyperref}
 \usepackage{subfigure} %By myself
 \usepackage{amssymb}
 \usepackage{multirow}
@@ -44,8 +31,6 @@
 \newtheorem{myTheo}{Theorem}
 \newtheorem{mypro}{Proposition}
 \newtheorem{myex}{Example}
-%\usepackage{booktabs}
-% \usepackage{algorithmic}
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{array, caption, threeparttable}
@@ -54,7 +39,6 @@
   labelsep=newline,
   singlelinecheck=false,
 }
-\usepackage{algpseudocode} 
 \usepackage{threeparttable}
 \usepackage{hyperref}
 \hypersetup{%hypertex=true,
@@ -62,9 +46,6 @@
             linkcolor=blue,
             anchorcolor=blue,
             citecolor=blue}
-\usepackage{algpseudocode}
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
-\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
 \newtheorem{remark}{Remark}   
 \renewcommand{\qedsymbol}{}
 %reference
@@ -326,7 +307,7 @@ We introduce two auxiliary matrices to express the variance and MMD terms in Eq.
 \end{enumerate}
 
 \subsubsection{Representer Theorem and Kernelization}
-According to the Representer Theorem, the optimal weight vector $\boldsymbol{w}$ lies in the span of the feature mappings of the training samples:
+According to the Representer Theorem \cite{belkin2006manifold}, the optimal weight vector $\boldsymbol{w}$ lies in the span of the feature mappings of the training samples:
 \begin{equation}
 \label{eq:representer}
 \boldsymbol{w} = \sum_{i=1}^{N} \beta_i \phi(\boldsymbol{x}_i) = \boldsymbol{\Phi} \boldsymbol{\beta}
@@ -393,6 +374,52 @@ where the dual matrix $\mathbf{Q}_{dual}$ and vector $\mathbf{p}_{dual}$ are def
 \mathbf{Q}_{dual} = \boldsymbol{K} \boldsymbol{\Omega}^{-1} \boldsymbol{K}, \quad \mathbf{p}_{dual} = \lambda_1 \boldsymbol{K} \boldsymbol{\Omega}^{-1} \boldsymbol{K} \mathbf{S} \boldsymbol{Y} - \boldsymbol{Y}
 \end{equation}
 Once the optimal $\boldsymbol{\alpha}, \boldsymbol{\alpha}^*$ are found using a QP solver for Eq. (\ref{eq:dual_problem}), we can recover $\boldsymbol{\beta}$ using Eq. (\ref{eq:beta_optimal}) and construct the final decision function $f(\boldsymbol{x})$.
+
+
+\subsection{The Algorithm and Complexity Analysis}\label{alg_section}
+The complete training process of the proposed TLQLDMR model is summarized in Algorithm \ref{alg:TLQLDMR}. The algorithm mainly consists of matrix construction and solving a Quadratic Programming (QP) problem.
+
+\begin{algorithm}
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\caption{TLQLDMR Training Algorithm}
+\label{alg:TLQLDMR}
+\Input{Source Data $D_S = \{(\boldsymbol{x}_{S,i}, y_{S,i})\}_{i=1}^{n_S}$, Target Data $D_T = \{(\boldsymbol{x}_{T,j}, y_{T,j})\}_{j=1}^{n_T}$, Quantile $\tau$, Kernel parameters, Regularization parameters $\lambda_1, \lambda_2$, Pinball Loss weights $C_S, C_T$.}
+\Output{Optimal dual variables $\boldsymbol{\alpha}, \boldsymbol{\alpha}^*$ and bias $b$.}
+
+\tcp{Step 1: Data Preparation}
+Combine Source and Target data: $\boldsymbol{X} = [\boldsymbol{X}_S, \boldsymbol{X}_T]$, $\boldsymbol{Y} = [\boldsymbol{Y}_S; \boldsymbol{Y}_T]$, $N = n_S + n_T$\;
+Set weights vector $\boldsymbol{C} \in \mathbb{R}^N$ where $C_k = C_S$ for $k \le n_S$ and $C_T$ otherwise\;
+
+\tcp{Step 2: Matrix Construction}
+Compute Kernel Matrix $\boldsymbol{K} \in \mathbb{R}^{N \times N}$ using the specified kernel function\;
+Construct Variance Matrix $\mathbf{S}$ using Eq. \eqref{eq:matrix_S}\;
+Construct MMD Matrix $\mathbf{M}$ using Eq. \eqref{eq:matrix_M}\;
+
+\tcp{Step 3: Dual Problem Formulation}
+Compute coefficient matrix $\boldsymbol{\Omega} = \boldsymbol{K} + \lambda_1 \boldsymbol{K} \mathbf{S} \boldsymbol{K} + \lambda_2 \boldsymbol{K} \mathbf{M} \boldsymbol{K}$ using Eq. \eqref{eq:Omega}\;
+Invert $\boldsymbol{\Omega}$ to fit the dual form\;
+Compute Dual Matrix $\mathbf{Q}_{dual} = \boldsymbol{K} \boldsymbol{\Omega}^{-1} \boldsymbol{K}$ using Eq. \eqref{eq:dual_matrices}\;
+Compute Dual Vector $\mathbf{p}_{dual} = \lambda_1 \boldsymbol{K} \boldsymbol{\Omega}^{-1} \boldsymbol{K} \mathbf{S} \boldsymbol{Y} - \boldsymbol{Y}$ using Eq. \eqref{eq:dual_matrices}\;
+
+\tcp{Step 4: Solve QP}
+Solve the QP problem in Eq. \eqref{eq:dual_problem} providing $\mathbf{Q}_{dual}$, $\mathbf{p}_{dual}$, and constraints $0 \le \alpha_k \le C_k\tau$, $0 \le \alpha_k^* \le C_k(1-\tau)$\;
+\textbf{Return} Optimal $\boldsymbol{\alpha}, \boldsymbol{\alpha}^*$\;
+
+\tcp{Step 5: Recover Primal Variables}
+Compute $\boldsymbol{\gamma} = \boldsymbol{\alpha} - \boldsymbol{\alpha}^*$\;
+Recover $\boldsymbol{\beta}$ using Eq. \eqref{eq:beta_optimal}\;
+Compute bias $b$ using complementary slackness conditions (averaged over Support Vectors)\;
+\end{algorithm}
+
+\subsubsection{Complexity Analysis}
+The computational complexity of TLQLDMR primarily stems from three parts: matrix multiplication, matrix inversion, and the QP solver.
+\begin{enumerate}
+    \item \textbf{Matrix Operations}: The construction of $\boldsymbol{K}$, $\mathbf{S}$, and $\mathbf{M}$ involves $O(N^2 d)$ or $O(N^2)$ operations. The calculation of $\boldsymbol{\Omega}$ involves matrix multiplications of size $N \times N$, leading to a complexity of $O(N^3)$.
+    \item \textbf{Matrix Inversion}: Inverting the $N \times N$ matrix $\boldsymbol{\Omega}$ requires $O(N^3)$ complexity.
+    \item \textbf{QP Solver}: Solving the standard Quadratic Programming problem for the dual variables typically has a complexity ranging from $O(N^{2.3})$ to $O(N^3)$ depending on the solver implementation (e.g., Interior Point Method).
+\end{enumerate}
+Therefore, the overall time complexity of the proposed algorithm is approximately $O(N^3)$. Given that $N = n_S + n_T$ and $n_T \ll n_S$, the scale is dominated by the source domain sample size. For large-scale datasets, approximation techniques like the Nystr\"{o}m method can be employed to reduce the complexity, which will be considered in future work.
 
 
 %------------------------- Experiments --------------------%
