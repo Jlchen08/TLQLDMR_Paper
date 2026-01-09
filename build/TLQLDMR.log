@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.20)  23 DEC 2025 22:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.20)  25 DEC 2025 15:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -768,86 +768,88 @@ Package caption Info: subfigure package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--208
+Underfull \hbox (badness 10000) in paragraph at lines 205--209
 
  []
 
-LaTeX Font Info:    Trying to load font information for LS1+stixscr on input line 213.
+LaTeX Font Info:    Trying to load font information for LS1+stixscr on input line 214.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixex on input line 213.
+LaTeX Font Info:    Trying to load font information for LS2+stixex on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 213.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 213.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input line 213.
+LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixbb on input line 213.
+LaTeX Font Info:    Trying to load font information for LS1+stixbb on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixcal on input line 213.
+LaTeX Font Info:    Trying to load font information for LS2+stixcal on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixsf on input line 213.
+LaTeX Font Info:    Trying to load font information for LS1+stixsf on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixtt on input line 213.
+LaTeX Font Info:    Trying to load font information for LS2+stixtt on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 213.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 214.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (117.0831pt too wide) detected at line 213
+Overfull \hbox (117.0831pt too wide) detected at line 214
 []
  []
 
 
-Package hyperref Warning: Ignoring empty anchor on input line 213.
+Package hyperref Warning: Ignoring empty anchor on input line 214.
 
 
-Package hyperref Warning: Ignoring empty anchor on input line 213.
+Package hyperref Warning: Ignoring empty anchor on input line 214.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 231.
+(Font)              size <7> substituted on input line 229.
 
 
 
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+stix on input line 259.
+
+[2]
+LaTeX Font Info:    Trying to load font information for TS1+stix on input line 296.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 )
 
-[2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}]
-
-[3]
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}]
 
 [4]
-Underfull \hbox (badness 1210) in paragraph at lines 444--445
+
+[5]
+Underfull \hbox (badness 1210) in paragraph at lines 481--482
 \T1/stix/m/n/10 and the Chongqing Mu-nic-i-pal Train-ing Pro-gram of In-no-va-tion and En-trepreneur-ship for Un-der-grad-u-ate (No.
  []
 
 (build/TLQLDMR.bbl
 
-[5])
+[6])
 
 Package caption Warning: Unused \captionsetup[figure] on input line 12.
 See the caption package documentation for explanation.
@@ -858,7 +860,7 @@ See the caption package documentation for explanation.
 
 
 
-[6] (build/TLQLDMR.aux)
+[7] (build/TLQLDMR.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -868,22 +870,25 @@ L3 programming layer <2025-01-18>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `TLQLDMR.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19261 strings out of 473190
- 296770 string characters out of 5715799
- 708965 words of memory out of 5000000
- 42127 multiletter control sequences out of 15000+600000
+ 19270 strings out of 473190
+ 296879 string characters out of 5715799
+ 709052 words of memory out of 5000000
+ 42128 multiletter control sequences out of 15000+600000
  667325 words of font info for 179 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,19n,93p,1063b,584s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,19n,93p,1145b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathit-bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathtt.pfb>
-Output written on build/TLQLDMR.pdf (6 pages, 305681 bytes).
+Output written on build/TLQLDMR.pdf (7 pages, 311127 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
- 70 named destinations out of 1000 (max. 500000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 78 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

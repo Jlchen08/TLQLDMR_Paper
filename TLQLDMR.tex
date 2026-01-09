@@ -194,8 +194,9 @@
 
 %------------------------ Abstract ------------------------
 \begin{abstract}
-In the current context of new energy power systems, wind power generation forecasting under extreme weather conditions faces severe challenges such as historical sample scarcity and significant data distribution shifts. Traditional support vector regression (SVR) based prediction models are mostly based on the assumption that the training and testing data are evenly distributed, which makes it difficult to effectively deal with the distribution differences between the source domain (conventional weather) and the target domain (extreme weather). Therefore, in practical applications, the generalization performance is limited, and the prediction accuracy decreases significantly.
-To address the above issues, this paper proposes to extend the Large Margin Distribution Machine for Regression (LDMR) to transfer learning frameworks and construct a probability prediction model with cross domain adaptability. On the basis of inheriting LDMR to optimize the marginal distribution variance and mean, thereby enhancing the model's generalization ability, this model introduces a domain adaptation mechanism to explicitly reduce the feature distribution difference between the source domain and the target domain. In addition, by introducing quantile regression strategy, point prediction can be extended to probability prediction, which can quantify the uncertainty in wind power output in the form of prediction intervals, providing richer decision-making basis for power grid scheduling and risk prevention under extreme weather conditions.
+Accurate wind power forecasting under extreme weather conditions is pivotal for grid security but remains a formidable challenge due to the **scarcity of extreme samples** and **violent distribution shifts** (drifts). Conventional data-driven models, constrained by the independent and identically distributed (i.i.d.) assumption, often fail to generalize when facing these sporadic ``Black Swan'' events. Furthermore, existing transfer learning approaches largely focus on unsupervised feature alignment, neglecting the critical diagnostic value of scarce target labels, while standard large margin regression methods enforce symmetric error distributions that fundamentally contradict the asymmetric requirements of probabilistic interval forecasting.
+
+To bridge these gaps, this paper proposes a novel **Transfer Learning Quantile Large Margin Distribution Machine (TLQLDMR)**. First, we theoretically resolve the conflict between robust learning and quantile property by constructing an **Asymmetric Variance Regularizer**. This innovation compacts the error distribution to enhance robustness while preserving the necessary skewness for accurate quantile estimation. Second, we establish a **Supervised Transfer Learning** framework that integrates dual-space adaptation. Beyond aligning feature distributions via Maximum Mean Discrepancy (MMD) in the input space, we introduce a **Weighted Pinball Loss** in the output space. This mechanism treats scarce extreme weather samples as high-weight ``Corrective Anchors'', forcing the model to rectify prediction biases caused by dominant normal patterns. Comprehensive experiments demonstrate that TLQLDMR significantly outperforms state-of-the-art baselines, generating tighter and more reliable prediction intervals that effectively quantify uncertainty in extreme meteorological scenarios.
 \end{abstract}
 
 
@@ -221,7 +222,43 @@ Transfer learning\\
 
 %------------------------ Related work ------------------------
 
-\section{ Related Work}\label{rel}
+\section{Related Work}\label{rel}
+This section briefly reviews the theoretical foundations related to the proposed method, including Support Vector Quantile Regression, Large Margin Distribution Machine for Regression, and Transfer Learning with Maximum Mean Discrepancy.
+
+\subsection{Support Vector Quantile Regression (SVQR)}
+Traditional Support Vector Regression (SVR) relies on the $\epsilon$-insensitive loss function, which assumes a symmetric error distribution (e.g., Gaussian) and estimates the conditional mean of the target variable. However, in scenarios like partial shading or wind curtailment, the noise distr  ibution is often asymmetric and heteroscedastic. To address this, Support Vector Quantile Regression (SVQR) was introduced to estimate conditional quantiles, providing a comprehensive view of the outcome distribution.
+
+The core of SVQR is the non-symmetric pinball loss function, defined as:
+\begin{equation}
+L_{\tau}(u) = \begin{cases} 
+\tau u, & u \ge 0 \\ 
+(\tau - 1) u, & u < 0 ,
+\end{cases}
+\end{equation}
+where $\tau \in (0,1)$ indicates the target quantile. Unlike SVR, SVQR finds a decision boundary that divides the data such that a proportion $\tau$ of the samples lie below the boundary. The optimization problem minimizes the structural risk along with the empirical risk measured by the pinball loss:
+\begin{equation}
+\min_{\boldsymbol{w}, b} \frac{1}{2} \|\boldsymbol{w}\|^2 + C \sum_{i=1}^{n} L_{\tau}(y_i - (\boldsymbol{w}^T \phi(\boldsymbol{x}_i) + b)),
+\end{equation}
+this formulation allows SVQR to capture heavy-tailed distributions and outliers more effectively than mean-based regression.
+
+\subsection{Large Margin Distribution Machine for Regression (LDMR)}
+While SVR and SVQR focus on maximizing the minimum margin (the distance from the closest instances to the hyperplane), they largely ignore the statistical distribution of the margin over the entire dataset. The \textbf{Large Margin Distribution Machine (LDMR)} was proposed to improve generalization by explicitly optimizing the distribution of the margins (or residuals).
+
+The key idea of LDMR is to not only maximize the margin of the support vectors but also to minimize the variance of the error distribution for all samples. A typical LDMR formulation for regression integrates two additional statistical regularization terms into the objective function:
+\begin{equation}
+\label{eq:ldmr_concept}
+\min_{\boldsymbol{w}, b} \frac{1}{2} \|\boldsymbol{w}\|^2 + \lambda_1 \text{Var}(\text{Residuals}) + \lambda_2 \text{Mean}(\text{Residuals}) + C \sum_{i=1}^{n} L(y_i, f(\boldsymbol{x}_i)),
+\end{equation}
+by constraining the variance, LDMR forces the prediction errors to be clustered tightly, leading to a more compact and robust hypothesis space. Our work extends this concept by modifying the symmetric variance term of standard LDMR to an asymmetric one suitable for quantile regression.
+
+\subsection{Transfer Learning and Maximum Mean Discrepancy (MMD)}
+Standard machine learning models operate under the assumption that training (source) and testing (target) data are drawn from the same probability distribution. When this assumption is violated—such as in wind power forecasting across different weather regimes—the model performance degrades significantly. Transfer learning aims to transfer knowledge from a label-rich source domain to a target domain with different but related distributions.
+
+A fundamental challenge in transfer learning is measuring and reducing the distribution discrepancy. Maximum Mean Discrepancy (MMD) is a widely used non-parametric metric that measures the distance between two distributions in a Reproducing Kernel Hilbert Space (RKHS). Given source data $\{\boldsymbol{x}_{S,i}\}$ and target data $\{\boldsymbol{x}_{T,j}\}$, the squared MMD distance is defined as:
+\begin{equation}
+\text{MMD}^2(D_S, D_T) = \left\| \frac{1}{n_S} \sum_{i=1}^{n_S} \phi(\boldsymbol{x}_{S,i}) - \frac{1}{n_T} \sum_{j=1}^{n_T} \phi(\boldsymbol{x}_{T,j}) \right\|_{\mathcal{H}}^2 ,
+\end{equation}
+where $\phi(\cdot)$ is the feature mapping induced by the kernel. By minimizing the MMD distance during training, the model learns a feature representation where the source and target domains are statistically aligned, enabling the classifier or regressor trained on the source domain to generalize well to the target domain.
 
 
 \section{Proposed Methodology}\label{novel}
@@ -248,10 +285,10 @@ Our optimization goal is to find the optimal $\boldsymbol{w}, b$ and slack varia
 \min_{\boldsymbol{w}, b, \boldsymbol{\xi}, \boldsymbol{\xi}^*} \quad J = & \underbrace{\frac{1}{2} \|\boldsymbol{w}\|^2}_{\text{(1) Structural Risk}} \\
 & + \underbrace{\lambda_1 \sum_{i=1}^{n_S} \left( (y_{S,i} - \boldsymbol{w}^T\phi(\boldsymbol{x}_{S,i}) - b) - \bar{u}_S \right)^2}_{\text{(2) Distribution Variance (LDMR Core)}} \\
 & + \underbrace{\lambda_2 \left\| \frac{1}{n_S} \sum_{i=1}^{n_S} \phi(\boldsymbol{x}_{S,i}) - \frac{1}{n_T} \sum_{j=1}^{n_T} \phi(\boldsymbol{x}_{T,j}) \right\|_{\mathcal{H}}^2}_{\text{(3) Domain Adaptation (MMD)}} \\
-& + \underbrace{C_S \sum_{i=1}^{n_S} L_{\tau}(y_{S,i}, f(\boldsymbol{x}_{S,i})) + C_T \sum_{j=1}^{n_T} L_{\tau}(y_{T,j}, f(\boldsymbol{x}_{T,j}))}_{\text{(4) Weighted Pinball Loss}}
+& + \underbrace{C_S \sum_{i=1}^{n_S} L_{\tau}(y_{S,i}, f(\boldsymbol{x}_{S,i})) + C_T \sum_{j=1}^{n_T} L_{\tau}(y_{T,j}, f(\boldsymbol{x}_{T,j}))}_{\text{(4) Weighted Pinball Loss}},
 \end{aligned}
 \end{equation}
-The physical meaning of each term is as follows:
+the physical meaning of each term is as follows:
 \begin{enumerate}
     \item \textbf{Structural Risk}: This term controls the complexity of the model and prevents overfitting, embodying the maximum margin principle of SVM.
     \item \textbf{Distribution Variance}: This term is the core of our proposed Quantile LDMR (QLDMR), incorporating a critical modification to the original LDMR variance.
@@ -275,10 +312,10 @@ To handle the non-differentiability of the Pinball Loss, we introduce slack vari
 \begin{cases}
 y_k - (\boldsymbol{w}^T\phi(\boldsymbol{x}_k) + b) \le \xi_k, & \forall k \in \{1, \dots, n_S + n_T\} \\
 (\boldsymbol{w}^T\phi(\boldsymbol{x}_k) + b) - y_k \le \xi_k^*, & \forall k \in \{1, \dots, n_S + n_T\} \\
-\xi_k \ge 0, \quad \xi_k^* \ge 0
+\xi_k \ge 0, \quad \xi_k^* \ge 0,
 \end{cases}
 \end{equation}
-In the objective function, the term $L_{\tau}(y_k, f(\boldsymbol{x}_k))$ corresponds to $\tau \xi_k + (1-\tau) \xi_k^*$.
+in the objective function, the term $L_{\tau}(y_k, f(\boldsymbol{x}_k))$ corresponds to $\tau \xi_k + (1-\tau) \xi_k^*$.
 
 \subsection{Model Optimization}\label{optimization}
 In this section, we derive the dual problem of TLQLDMR to enable efficient solving using Quadratic Programming (QP).
