@@ -1,0 +1,114 @@
+% Framework figure for TLQLDMR - Compact vertical layout
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, calc, decorations.pathreplacing, shadows.blur}
+\usepackage{amsmath,amssymb}
+
+% Define colors
+\definecolor{inputblue}{RGB}{227,242,253}
+\definecolor{inputborder}{RGB}{66,133,244}
+\definecolor{kernelgreen}{RGB}{232,245,233}
+\definecolor{kernelborder}{RGB}{76,175,80}
+\definecolor{optbg}{RGB}{255,253,231}
+\definecolor{optborder}{RGB}{255,193,7}
+\definecolor{srcolor}{RGB}{232,234,246}
+\definecolor{srborder}{RGB}{92,107,192}
+\definecolor{varcolor}{RGB}{225,245,254}
+\definecolor{varborder}{RGB}{3,169,244}
+\definecolor{mmdcolor}{RGB}{252,228,236}
+\definecolor{mmdborder}{RGB}{233,30,99}
+\definecolor{losscolor}{RGB}{255,243,224}
+\definecolor{lossborder}{RGB}{255,152,0}
+\definecolor{outputpurple}{RGB}{243,229,245}
+\definecolor{outputborder}{RGB}{156,39,176}
+
+\begin{document}
+\begin{tikzpicture}[
+    node distance=0.6cm,
+    >={Stealth[length=2mm]},
+    % Styles
+    databox/.style={rectangle, rounded corners=4pt, draw=#1, line width=1pt, fill=#1!25, 
+        minimum height=1.1cm, minimum width=2.6cm, font=\scriptsize, align=center,
+        blur shadow={shadow blur steps=5, shadow xshift=0.3mm, shadow yshift=-0.3mm}},
+    lossbox/.style={rectangle, rounded corners=4pt, draw=#1, line width=1.2pt, fill=#1!20,
+        minimum height=1.1cm, minimum width=2.8cm, font=\scriptsize, align=center},
+    smallbox/.style={rectangle, rounded corners=3pt, draw=#1, fill=white, 
+        minimum height=0.6cm, minimum width=2cm, font=\tiny, align=center},
+    groupbox/.style={rectangle, rounded corners=6pt, draw=#1, line width=1.2pt, fill=#1!8, inner sep=6pt},
+    myarrow/.style={->, thick, color=gray!70},
+]
+
+% ============ ROW 1: INPUT DATA ============
+\node[groupbox=inputborder, minimum width=10cm, minimum height=1.8cm] (inputgroup) {};
+\node[above=-1pt of inputgroup.north, font=\footnotesize\bfseries, color=inputborder] {Data Input Layer};
+
+\node[databox=inputborder] (source) at ($(inputgroup.center)+(-2.5,0)$) {Source Domain $D_S$\\Normal Weather\\($n_S$ samples)};
+\node[databox=inputborder] (target) at ($(inputgroup.center)+(2.5,0)$) {Target Domain $D_T$\\Extreme Weather\\($n_T \ll n_S$)};
+
+\node[font=\tiny, color=inputborder] at ($(source.east)!0.5!(target.west)$) {Distribution Shift};
+
+% ============ ROW 2: KERNEL MAPPING ============
+\node[groupbox=kernelborder, minimum width=10cm, minimum height=1.5cm, below=0.8cm of inputgroup] (kernelgroup) {};
+\node[above=-1pt of kernelgroup.north, font=\footnotesize\bfseries, color=kernelborder] {Feature Mapping};
+
+\node[databox=kernelborder, minimum width=4cm] (kernel) at ($(kernelgroup.center)+(-1.8,0)$) {Kernel $\phi: \mathcal{X} \to \mathcal{H}$\\(RBF / Nystr\"om)};
+\node[smallbox=kernelborder, minimum width=3.2cm] (complexity) at ($(kernelgroup.center)+(2.5,0)$) {Complexity: $O(N^3)\!\to\!O(TNm)$};
+
+% ============ ROW 3: OPTIMIZATION ============
+\node[groupbox=optborder, minimum width=10cm, minimum height=3.2cm, below=0.8cm of kernelgroup] (optgroup) {};
+\node[above=-1pt of optgroup.north, font=\footnotesize\bfseries, color=optborder] {Joint Optimization $\min_{\mathbf{w},b} J(\mathbf{w},b)$};
+
+% 2x2 grid of losses
+\node[lossbox=srborder] (sr) at ($(optgroup.center)+(-2.3,0.7)$) {Structural Risk\\$\frac{1}{2}\|\mathbf{w}\|^2$};
+\node[lossbox=varborder] (var) at ($(optgroup.center)+(2.3,0.7)$) {Variance (LDMR)\\$\lambda_1\!\sum\!(u_i\!-\!\bar{u})^2$};
+\node[lossbox=mmdborder] (mmd) at ($(optgroup.center)+(-2.3,-0.7)$) {MMD Adaptation\\$\lambda_2\text{MMD}^2(D_S,D_T)$};
+\node[lossbox=lossborder] (loss) at ($(optgroup.center)+(2.3,-0.7)$) {Pinball Loss\\$C_S\!\sum\!L_\tau\!+\!C_T\!\sum\!L_\tau$};
+
+% Plus signs
+\node[font=\normalsize\bfseries, color=gray!60] at ($(sr.east)!0.5!(var.west)$) {+};
+\node[font=\normalsize\bfseries, color=gray!60] at ($(mmd.east)!0.5!(loss.west)$) {+};
+\node[font=\normalsize\bfseries, color=gray!60] at ($(sr.south)!0.5!(mmd.north)$) {+};
+\node[font=\normalsize\bfseries, color=gray!60] at ($(var.south)!0.5!(loss.north)$) {+};
+
+% ============ ROW 4: OUTPUT ============
+\node[groupbox=outputborder, minimum width=10cm, minimum height=1.8cm, below=0.8cm of optgroup] (outputgroup) {};
+\node[above=-1pt of outputgroup.north, font=\footnotesize\bfseries, color=outputborder] {Probabilistic Forecasting Output};
+
+\node[databox=outputborder, minimum width=3.5cm] (model) at ($(outputgroup.center)+(-2.2,0)$) {Optimal Model\\$f(\mathbf{x})\!=\!\mathbf{w}^T\phi(\mathbf{x})\!+\!b$};
+
+\node[smallbox=outputborder] (q95) at ($(outputgroup.center)+(2,0.35)$) {Upper: $\hat{q}_{0.95}$};
+\node[smallbox=outputborder] (q50) at ($(outputgroup.center)+(2,0)$) {Median: $\hat{q}_{0.50}$};
+\node[smallbox=outputborder] (q05) at ($(outputgroup.center)+(2,-0.35)$) {Lower: $\hat{q}_{0.05}$};
+
+% Brace
+\draw[decorate, decoration={brace, amplitude=4pt}, thick, color=outputborder] 
+    ($(q95.north east)+(0.1,0.05)$) -- ($(q05.south east)+(0.1,-0.05)$) 
+    node[midway, right=3pt, font=\tiny, color=outputborder] {PI};
+
+% ============ ARROWS ============
+% Input to kernel
+\draw[myarrow] (source.south) -- ++(0,-0.25) -| ($(kernel.north)+(-0.5,0)$);
+\draw[myarrow] (target.south) -- ++(0,-0.25) -| ($(kernel.north)+(0.5,0)$);
+
+% Kernel to optimization
+\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(sr.north)+(-0.3,0)$);
+\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(var.north)+(0.3,0)$);
+\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(mmd.north)+(-0.3,0)$);
+\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(loss.north)+(0.3,0)$);
+
+% Optimization to output
+\draw[myarrow] (sr.south) -- ++(0,-0.2) -| ($(model.north)+(-0.3,0)$);
+\draw[myarrow] (var.south) -- ++(0,-0.2) -| ($(model.north)+(0.3,0)$);
+\draw[myarrow] (mmd.south) -- ++(0,-0.15) -| ($(model.north)+(-0.1,0)$);
+\draw[myarrow] (loss.south) -- ++(0,-0.15) -| ($(model.north)+(0.1,0)$);
+
+% Model to quantiles
+\draw[myarrow, color=outputborder] (model.east) -- ($(q50.west)+(-0.3,0)$) -- (q50.west);
+\draw[myarrow, color=outputborder] ($(q50.west)+(-0.3,0)$) |- (q95.west);
+\draw[myarrow, color=outputborder] ($(q50.west)+(-0.3,0)$) |- (q05.west);
+
+% ============ ANNOTATIONS ============
+\node[font=\tiny, color=lossborder, below=-2pt of loss.south] {$C_T \gg C_S$};
+
+\end{tikzpicture}
+\end{document}

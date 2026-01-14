@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex build/main"] 1766225143.07725 "build/main.aux" "build/main.bbl" "build/main" 1766226850.54998 0
+["bibtex build/main"] 1766225143.07725 "build/main.aux" "build/main.bbl" "build/main" 1768362867.54395 0
   "./model5-names.bst" 1766189508 32241 fae611c68a6c57676804c7c668674116 ""
   "./ref.bib" 1766189508 39885 89079b585dc99b0a931d7ec67a288656 ""
-  "build/main.aux" 1766226850.23248 15222 9d9039f23fa42cb4e67fa0a22e2da6b5 "pdflatex"
+  "build/main.aux" 1768362867.23193 15222 9d9039f23fa42cb4e67fa0a22e2da6b5 "pdflatex"
   (generated)
   "build/main.bbl"
   "build/main.blg"
   (rewritten before read)
-["pdflatex"] 1766226849.2805 "/Users/lin/科研/研究生/TLQLDMR_Paper/main.tex" "build/main.pdf" "main" 1766226850.55016 0
-  "/Users/lin/科研/研究生/TLQLDMR_Paper/main.tex" 1766226849.0984 103573 52ebb385974d3545414f50fcebfb995c ""
+["pdflatex"] 1768362866.35918 "/Users/lin/科研/研究生/TLQLDMR_Paper/main.tex" "build/main.pdf" "main" 1768362867.54413 0
+  "/Users/lin/科研/研究生/TLQLDMR_Paper/main.tex" 1768362866.17443 103569 cb966e50e39937e886e70d169eac1328 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -187,15 +187,15 @@
   "build/lambda3-eps-converted-to.pdf" 1766221381.29386 14792 d80664e48fade2b81fb4b71d5f977e1d ""
   "build/lambda4-eps-converted-to.pdf" 1766221381.56463 14648 cacc45668d1067b1156b03e2422e0178 ""
   "build/lambda5-eps-converted-to.pdf" 1766221381.84448 14787 1e8eb2edd6a23519f6e8a4c16a3f2ece ""
-  "build/main.aux" 1766226850.23248 15222 9d9039f23fa42cb4e67fa0a22e2da6b5 "pdflatex"
+  "build/main.aux" 1768362867.23193 15222 9d9039f23fa42cb4e67fa0a22e2da6b5 "pdflatex"
   "build/main.bbl" 1766225143.1777 25511 3829fe989af27bf8ecd9631313c17332 "bibtex build/main"
-  "build/main.out" 1766226849.81893 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "build/main.out" 1768362866.82646 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "lambda1.eps" 1766189508 37099 ea29ab3c60802cfe8f676ccb00ea0c24 ""
   "lambda2.eps" 1766189508 36755 00fac66a2040435010b25afdfc076efe ""
   "lambda3.eps" 1766189508 26931 e8f648522334eaafe9213feb8b1a20db ""
   "lambda4.eps" 1766189508 26927 ec20657fe6e8684d55ee41084bfe11e1 ""
   "lambda5.eps" 1766189508 26940 a7a9f9b4da8b7b40c9757ed06417cbd5 ""
-  "main.tex" 1766226849.0984 103573 52ebb385974d3545414f50fcebfb995c ""
+  "main.tex" 1768362866.17443 103569 cb966e50e39937e886e70d169eac1328 ""
   (generated)
   "build/main.aux"
   "build/main.log"

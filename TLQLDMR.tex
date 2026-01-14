@@ -194,9 +194,9 @@
 
 %------------------------ Abstract ------------------------
 \begin{abstract}
-Accurate wind power forecasting under extreme weather conditions is pivotal for grid security but remains a formidable challenge due to the **scarcity of extreme samples** and **violent distribution shifts** (drifts). Conventional data-driven models, constrained by the independent and identically distributed (i.i.d.) assumption, often fail to generalize when facing these sporadic ``Black Swan'' events. Furthermore, existing transfer learning approaches largely focus on unsupervised feature alignment, neglecting the critical diagnostic value of scarce target labels, while standard large margin regression methods enforce symmetric error distributions that fundamentally contradict the asymmetric requirements of probabilistic interval forecasting.
+Accurate wind power forecasting under extreme weather conditions is critical for ensuring power grid stability, yet remains fundamentally challenging due to the inherent scarcity of extreme event samples and the substantial distribution shift between normal and anomalous meteorological regimes. Conventional data-driven approaches, predicated on the independent and identically distributed (i.i.d.) assumption, exhibit significant performance degradation when confronted with such sporadic high-impact events. Moreover, existing transfer learning methodologies predominantly emphasize unsupervised feature alignment while overlooking the discriminative information embedded in scarce target labels, and standard large margin regression techniques impose symmetric error distributions that are inherently incompatible with the asymmetric nature of probabilistic interval forecasting.
 
-To bridge these gaps, this paper proposes a novel **Transfer Learning Quantile Large Margin Distribution Machine (TLQLDMR)**. First, we theoretically resolve the conflict between robust learning and quantile property by constructing an **Asymmetric Variance Regularizer**. This innovation compacts the error distribution to enhance robustness while preserving the necessary skewness for accurate quantile estimation. Second, we establish a **Supervised Transfer Learning** framework that integrates dual-space adaptation. Beyond aligning feature distributions via Maximum Mean Discrepancy (MMD) in the input space, we introduce a **Weighted Pinball Loss** in the output space. This mechanism treats scarce extreme weather samples as high-weight ``Corrective Anchors'', forcing the model to rectify prediction biases caused by dominant normal patterns. Comprehensive experiments demonstrate that TLQLDMR significantly outperforms state-of-the-art baselines, generating tighter and more reliable prediction intervals that effectively quantify uncertainty in extreme meteorological scenarios.
+To address these limitations, we propose a novel Transfer Learning Quantile Large Margin Distribution Machine for Regression (TLQLDMR). Our approach introduces three key innovations: (1) an Asymmetric Variance Regularizer that theoretically reconciles the tension between distributional robustness and quantile estimation by compressing error dispersion while preserving the requisite skewness for accurate quantile prediction; (2) a Supervised Transfer Learning framework incorporating dual-space adaptation, which combines Maximum Mean Discrepancy (MMD) minimization in the feature space with a Weighted Pinball Loss mechanism in the label space, strategically leveraging scarce extreme weather samples as high-weight corrective anchors; and (3) a scalable optimization algorithm based on Nystr\"{o}m approximation and stochastic gradient descent that reduces the computational complexity from $O(N^3)$ to $O(T \cdot N \cdot m)$, enabling efficient training on large-scale wind farm datasets. Extensive experiments demonstrate that TLQLDMR consistently outperforms state-of-the-art baselines, yielding substantially tighter prediction intervals with superior coverage probability under extreme meteorological scenarios.
 \end{abstract}
 
 
@@ -226,7 +226,7 @@ Transfer learning\\
 This section briefly reviews the theoretical foundations related to the proposed method, including Support Vector Quantile Regression, Large Margin Distribution Machine for Regression, and Transfer Learning with Maximum Mean Discrepancy.
 
 \subsection{Support Vector Quantile Regression (SVQR)}
-Traditional Support Vector Regression (SVR) relies on the $\epsilon$-insensitive loss function, which assumes a symmetric error distribution (e.g., Gaussian) and estimates the conditional mean of the target variable. However, in scenarios like partial shading or wind curtailment, the noise distr  ibution is often asymmetric and heteroscedastic. To address this, Support Vector Quantile Regression (SVQR) was introduced to estimate conditional quantiles, providing a comprehensive view of the outcome distribution.
+Traditional Support Vector Regression (SVR) relies on the $\epsilon$-insensitive loss function, which assumes a symmetric error distribution (e.g., Gaussian) and estimates the conditional mean of the target variable. However, in scenarios like partial shading or wind curtailment, the noise distribution is often asymmetric and heteroscedastic. To address this, Support Vector Quantile Regression (SVQR) was introduced to estimate conditional quantiles, providing a comprehensive view of the outcome distribution.
 
 The core of SVQR is the non-symmetric pinball loss function, defined as:
 \begin{equation}
@@ -265,11 +265,9 @@ where $\phi(\cdot)$ is the feature mapping induced by the kernel. By minimizing 
 In this section, we elaborate on the construction of the Transfer Learning Quantile Regression Model (TLQLDMR). We first define the necessary notations, then present the final objective function which integrates Structural Risk, Distribution Variance, Domain Adaptation (MMD), and Weighted Pinball Loss. Finally, we describe the constraints introduced to handle the non-differentiability of the Quantile Loss.
 
 \subsection{Notations}\label{not}
-In the field of machine learning, a domain $\mathcal{D}$ consists of a feature space $\mathcal{X}$ and a marginal probabilistic distribution $P(\boldsymbol{X})$ on the feature space, i.e., $\mathcal{D} = \{ \mathcal{X}, P(\boldsymbol{X})\}$. Given a domain, a task $\mathcal{T}$ consists of a label space $\mathcal{Y}$ and an objective prediction function $f(\cdot)$, represented as $\mathcal{T} = \{\mathcal{Y}, f(\cdot)\}$. From the perspective of probability theory, the objective prediction function can be expressed as $P(Y | \boldsymbol{X})$, and the task is represented as $\mathcal{T}=\{\mathcal{Y}, P(Y | \boldsymbol{X})\}$.
+Consider the problem of wind power forecasting under extreme weather conditions. We define the \textbf{Source Domain (Normal Weather)} as $D_{S} = \{(\boldsymbol{x}_{S,i}, y_{S,i})\}_{i=1}^{n_S}$, containing abundant conventional weather samples, and the \textbf{Target Domain (Extreme Weather)} as $D_{T} = \{(\boldsymbol{x}_{T,j}, y_{T,j})\}_{j=1}^{n_T}$, containing scarce extreme weather samples. The input space $\mathcal{X} \subseteq \mathbb{R}^d$ represents feature vectors constructed via sliding window processing, and the output space $\mathcal{Y} \subseteq \mathbb{R}$ represents wind power. The sample sizes satisfy $n_T \ll n_S$.
 
-In the problem of wind power forecasting under extreme weather, there are two crucial concepts corresponding to the different data distributions. The \textbf{Source Domain (Normal Weather)} is represented as $D_{S} = \{(\boldsymbol{x}_{S,i}, y_{S,i})\}_{i=1}^{n_S}$, containing a large amount of conventional weather samples. The \textbf{Target Domain (Extreme Weather)} is represented as $D_{T} = \{(\boldsymbol{x}_{T,j}, y_{T,j})\}_{j=1}^{n_T}$, containing a small number of extreme weather samples. Here, the input space $\mathcal{X} \subseteq \mathbb{R}^d$ represents the feature vectors constructed after sliding window processing, and the output space $\mathcal{Y} \subseteq \mathbb{R}$ represents the wind power. $n_S$ and $n_T$ denote the number of samples in the source and target domains, respectively, satisfying $n_T \ll n_S$.
-
-Although the source and target domains belong to the same type of forecasting task, their data distributions exhibit distinct characteristics due to the drastic meteorological changes during extreme events, i.e., $P_S(\boldsymbol{X}_S, \boldsymbol{Y}_S) \neq P_T(\boldsymbol{X}_T, \boldsymbol{Y}_T)$. This distribution discrepancy implies that a model trained solely on $P_S$ will fail on $P_T$.
+Due to drastic meteorological changes during extreme events, the joint distributions differ significantly: $P_S(\boldsymbol{X}_S, \boldsymbol{Y}_S) \neq P_T(\boldsymbol{X}_T, \boldsymbol{Y}_T)$. This distribution discrepancy implies that a model trained solely on $P_S$ will fail on $P_T$.
 We define a feature mapping $\phi: \mathcal{X} \to \mathcal{H}$ that maps the input to a high-dimensional Reproducing Kernel Hilbert Space (RKHS). The prediction model is defined as:
 \begin{equation}
 f(\boldsymbol{x}) = \boldsymbol{w}^T \phi(\boldsymbol{x}) + b,
@@ -277,8 +275,17 @@ f(\boldsymbol{x}) = \boldsymbol{w}^T \phi(\boldsymbol{x}) + b,
 where $\boldsymbol{w}$ is the weight vector and $b$ is the bias. The quantile $\tau \in (0, 1)$ is set to a specific value (e.g., $\tau=0.95$) for interval prediction (e.g., predicting the upper bound).
 
 \subsection{TLQLDMR Model Formulation}\label{MODEL}
-\subsubsection{Final Objective Function}
-Our optimization goal is to find the optimal $\boldsymbol{w}, b$ and slack variables $\boldsymbol{\xi}, \boldsymbol{\xi}^*$ to minimize the following objective function $J$:
+The overall architecture of the proposed TLQLDMR model is illustrated in Fig. \ref{fig:framework}. The model integrates four key components: structural risk minimization, asymmetric variance regularization, MMD-based domain adaptation, and weighted pinball loss for supervised transfer learning.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{build/framework.pdf}
+\caption{The overall framework of the proposed TLQLDMR model. Source domain (normal weather) and target domain (extreme weather) data are mapped into a high-dimensional RKHS via kernel mapping. The joint optimization objective integrates structural risk, distribution variance, MMD-based domain adaptation, and weighted pinball loss. The model outputs probabilistic prediction intervals for robust wind power forecasting under extreme conditions.}
+\label{fig:framework}
+\end{figure*}
+
+\subsubsection{Objective Function}
+Our optimization goal is to find the optimal $\boldsymbol{w}, b$ and slack variables $\boldsymbol{\xi}, \boldsymbol{\xi}^*$ to minimize the following objective function $J$. Let $\bar{u}_S = \frac{1}{n_S}\sum_{i=1}^{n_S}(y_{S,i} - f(\boldsymbol{x}_{S,i}))$ denote the mean residual over the source domain:
 \begin{equation}
 \label{eq:objective}
 \begin{aligned}
@@ -301,7 +308,7 @@ the physical meaning of each term is as follows:
     \begin{itemize}
         \item \textbf{Corrective Anchors}: The target samples act as ``anchors for correction''. The source domain data ($D_S$) teaches the model general laws (e.g., higher wind speed leads to higher power), but extreme weather samples ($D_T$) often violate these laws (e.g., high wind speed causing cut-out and zero power). If $D_T$ were excluded from the loss, the model, driven implicitly by $D_S$, would wrongly predict full power during extreme events. Including $D_T$ in the loss imposes a heavy penalty for such mispredictions, forcing the model to learn the specific mapping of extreme events.
         \item \textbf{Differentiation from MMD}: While MMD brings the ``appearance'' (features) of normal and extreme weather closer, the Pinball Loss ensures the ``content'' (labels) is accurate. It forces the regression curve to correctly envelope the rare data points that MMD cannot correct on its own.
-        \item \textbf{Asymmetric Weighted Strategy}: We employ a weighted strategy to address the extreme sample imbalance ($n_T \ll n_S$). By setting $C_T \gg C_S$ (e.g., $C_T = 100 C_S$), we essentially tell the model that ``mispredicting one extreme sample is as grave as mispredicting a hundred normal samples''. This forces the optimizer to prioritize the scarce extreme data, preventing them from being drowned out by the massive conventional data.
+        \item \textbf{Asymmetric Weighted Strategy}: We employ a weighted strategy to address the extreme sample imbalance ($n_T \ll n_S$). By setting $C_T \gg C_S$ (e.g., $C_T = 100 C_S$), the optimization process assigns substantially higher importance to target domain samples. This weighting scheme ensures that prediction errors on scarce extreme weather data incur penalties commensurate with their practical significance, preventing them from being dominated by the abundant source domain samples during gradient updates.
     \end{itemize}
 \end{enumerate}
 
@@ -449,14 +456,123 @@ Recover $\boldsymbol{\beta}$ using Eq. \eqref{eq:beta_optimal}\;
 Compute bias $b$ using complementary slackness conditions (averaged over Support Vectors)\;
 \end{algorithm}
 
-\subsubsection{Complexity Analysis}
 The computational complexity of TLQLDMR primarily stems from three parts: matrix multiplication, matrix inversion, and the QP solver.
 \begin{enumerate}
     \item \textbf{Matrix Operations}: The construction of $\boldsymbol{K}$, $\mathbf{S}$, and $\mathbf{M}$ involves $O(N^2 d)$ or $O(N^2)$ operations. The calculation of $\boldsymbol{\Omega}$ involves matrix multiplications of size $N \times N$, leading to a complexity of $O(N^3)$.
     \item \textbf{Matrix Inversion}: Inverting the $N \times N$ matrix $\boldsymbol{\Omega}$ requires $O(N^3)$ complexity.
     \item \textbf{QP Solver}: Solving the standard Quadratic Programming problem for the dual variables typically has a complexity ranging from $O(N^{2.3})$ to $O(N^3)$ depending on the solver implementation (e.g., Interior Point Method).
 \end{enumerate}
-Therefore, the overall time complexity of the proposed algorithm is approximately $O(N^3)$. Given that $N = n_S + n_T$ and $n_T \ll n_S$, the scale is dominated by the source domain sample size. For large-scale datasets, approximation techniques like the Nystr\"{o}m method can be employed to reduce the complexity, which will be considered in future work.
+Therefore, the overall time complexity of the proposed algorithm is approximately $O(N^3)$. Given that $N = n_S + n_T$ and $n_T \ll n_S$, the scale is dominated by the source domain sample size. While this complexity is acceptable for moderate-sized datasets, it becomes prohibitive for large-scale wind power forecasting scenarios involving tens of thousands of samples. To overcome this computational bottleneck and enable practical deployment in real-world wind farm applications, we develop a scalable optimization algorithm in the following subsection.
+
+\subsection{Scalable Optimization via Nystr\"{o}m Approximation}\label{fast_alg}
+To address the computational bottleneck of the standard QP-based solver, we propose a scalable optimization algorithm that combines Nystr\"{o}m approximation with stochastic gradient descent. This approach reduces the time complexity from $O(N^3)$ to $O(T \cdot N \cdot m)$, where $T$ denotes the number of iterations and $m \ll N$ is the number of landmark points.
+
+\subsubsection{Nystr\"{o}m Feature Mapping}
+The core idea is to approximate the implicit infinite-dimensional feature mapping $\phi(\boldsymbol{x})$ with an explicit finite-dimensional representation. Given the training data, we first select $m$ landmark points $Z = \{z_1, \ldots, z_m\}$ from the source domain $D_S$ using K-Means clustering to capture the underlying data manifold.
+
+Let $\boldsymbol{W} \in \mathbb{R}^{m \times m}$ denote the kernel matrix of landmarks, where $W_{ij} = k(z_i, z_j)$. The explicit feature mapping $\psi: \mathcal{X} \to \mathbb{R}^m$ is then constructed as:
+\begin{equation}
+\label{eq:nystrom_feature}
+\psi(\boldsymbol{x}) = \boldsymbol{W}^{-1/2} [k(\boldsymbol{x}, z_1), \ldots, k(\boldsymbol{x}, z_m)]^T
+\end{equation}
+where $\boldsymbol{W}^{-1/2}$ is computed via eigendecomposition. This mapping satisfies the approximation property $k(\boldsymbol{x}_i, \boldsymbol{x}_j) \approx \psi(\boldsymbol{x}_i)^T \psi(\boldsymbol{x}_j)$, enabling us to work directly in the primal space.
+
+\subsubsection{Primal Formulation with Explicit Features}
+With the explicit feature mapping, the prediction function becomes $f(\boldsymbol{x}) = \boldsymbol{w}^T \psi(\boldsymbol{x}) + b$, where $\boldsymbol{w} \in \mathbb{R}^m$. Let $\boldsymbol{\Psi}_S \in \mathbb{R}^{n_S \times m}$ and $\boldsymbol{\Psi}_T \in \mathbb{R}^{n_T \times m}$ denote the mapped feature matrices for source and target domains, respectively. The regularization matrix $\boldsymbol{R} \in \mathbb{R}^{m \times m}$ incorporating structural risk, variance, and MMD terms is formulated as:
+\begin{equation}
+\label{eq:reg_matrix}
+\boldsymbol{R} = \boldsymbol{I} + \lambda_1 \underbrace{\boldsymbol{\Psi}_S^T \boldsymbol{H}_S \boldsymbol{\Psi}_S}_{\text{Variance}} + \lambda_2 \underbrace{(\bar{\boldsymbol{\psi}}_S - \bar{\boldsymbol{\psi}}_T)(\bar{\boldsymbol{\psi}}_S - \bar{\boldsymbol{\psi}}_T)^T}_{\text{MMD}}
+\end{equation}
+where $\boldsymbol{H}_S = \boldsymbol{I}_{n_S} - \frac{1}{n_S} \boldsymbol{1}_{n_S} \boldsymbol{1}_{n_S}^T$ is the centering matrix, and $\bar{\boldsymbol{\psi}}_S$, $\bar{\boldsymbol{\psi}}_T$ are the mean feature vectors of source and target domains.
+
+\subsubsection{Stochastic Gradient Descent Optimization}
+Instead of solving the dual QP problem, we directly optimize the primal objective using mini-batch stochastic gradient descent with the Adam optimizer. For each sample $k$ in a mini-batch $\mathcal{B}$, the sub-gradient of the Pinball Loss with respect to the prediction is:
+\begin{equation}
+\label{eq:subgradient}
+g_k = \frac{\partial L_{\tau}}{\partial \hat{y}_k} = \begin{cases} 
+\tau - 1, & \text{if } y_k < \hat{y}_k \\ 
+\tau, & \text{if } y_k \ge \hat{y}_k
+\end{cases}
+\end{equation}
+
+The weighted sub-gradient is computed as $\tilde{g}_k = C_k \cdot g_k$, where $C_k \in \{C_S, C_T\}$ depends on the domain membership. The parameter gradients are then:
+\begin{equation}
+\label{eq:param_gradients}
+\nabla_{\boldsymbol{w}} J = \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k \psi(\boldsymbol{x}_k) + \boldsymbol{R} \boldsymbol{w}, \quad \nabla_b J = \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k
+\end{equation}
+
+The complete training procedure is summarized in Algorithm \ref{alg:fast_TLQLDMR}.
+
+\begin{algorithm}[t]
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\caption{Fast TLQLDMR via Nystr\"{o}m Approximation}
+\label{alg:fast_TLQLDMR}
+\Input{Source data $D_S$, Target data $D_T$, Number of landmarks $m$, Quantile $\tau$, Hyperparameters $\lambda_1, \lambda_2, C_S, C_T$, Learning rate $\eta$, Batch size $B$, Max iterations $T$.}
+\Output{Optimal weights $\boldsymbol{w} \in \mathbb{R}^m$ and bias $b \in \mathbb{R}$.}
+
+\tcp{Step 1: Nystr\"{o}m Feature Mapping}
+Select $m$ landmarks $Z = \{z_1, \ldots, z_m\}$ from $D_S$ via K-Means\;
+Compute landmark kernel matrix $\boldsymbol{W} \in \mathbb{R}^{m \times m}$\;
+Compute $\boldsymbol{W}^{-1/2}$ via eigendecomposition\;
+Construct explicit features $\psi(\boldsymbol{x})$ for all samples using Eq. \eqref{eq:nystrom_feature}\;
+
+\tcp{Step 2: Pre-compute Regularization Matrix}
+Compute feature matrices $\boldsymbol{\Psi}_S$, $\boldsymbol{\Psi}_T$ and mean vectors $\bar{\boldsymbol{\psi}}_S$, $\bar{\boldsymbol{\psi}}_T$\;
+Construct regularization matrix $\boldsymbol{R}$ using Eq. \eqref{eq:reg_matrix}\;
+
+\tcp{Step 3: Stochastic Optimization}
+Initialize $\boldsymbol{w} \leftarrow \boldsymbol{0}$, $b \leftarrow 0$\;
+\For{$t = 1$ \KwTo $T$}{
+    Shuffle combined dataset $D = D_S \cup D_T$\;
+    \For{each mini-batch $\mathcal{B} \subset D$}{
+        Compute predictions: $\hat{y}_k = \boldsymbol{w}^T \psi(\boldsymbol{x}_k) + b$, $\forall k \in \mathcal{B}$\;
+        Compute sub-gradients $g_k$ using Eq. \eqref{eq:subgradient}\;
+        Apply sample weights: $\tilde{g}_k \leftarrow C_k \cdot g_k$\;
+        Compute gradients $\nabla_{\boldsymbol{w}} J$, $\nabla_b J$ using Eq. \eqref{eq:param_gradients}\;
+        Update $\boldsymbol{w}$, $b$ using Adam optimizer with learning rate $\eta$\;
+    }
+}
+\Return $\boldsymbol{w}$, $b$\;
+\end{algorithm}
+
+\subsubsection{Complexity Analysis of the Scalable Algorithm}
+The proposed scalable algorithm achieves significant computational savings:
+\begin{enumerate}
+    \item \textbf{Landmark Selection}: K-Means clustering requires $O(N \cdot m \cdot I_{km})$ operations, where $I_{km}$ is the number of K-Means iterations.
+    \item \textbf{Feature Mapping}: Computing $\boldsymbol{W}^{-1/2}$ costs $O(m^3)$, and mapping all $N$ samples requires $O(N \cdot m \cdot d)$.
+    \item \textbf{Regularization Matrix}: Constructing $\boldsymbol{R}$ involves $O(n_S \cdot m^2)$ for the variance term and $O(m^2)$ for the MMD term.
+    \item \textbf{SGD Iterations}: Each iteration processes $O(N)$ samples with $O(m)$ operations per sample, yielding $O(T \cdot N \cdot m)$ total complexity.
+\end{enumerate}
+
+The overall time complexity is $O(T \cdot N \cdot m + m^3)$. Since $m \ll N$ (typically $m = O(\sqrt{N})$), this represents a substantial reduction from the $O(N^3)$ complexity of the standard QP solver. Table \ref{tab:complexity} summarizes the comparison between the two algorithms.
+
+\begin{table}[htbp]
+\centering
+\caption{Complexity Comparison between Standard QP and Scalable Algorithm}
+\label{tab:complexity}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Component} & \textbf{Standard QP} & \textbf{Scalable (Ours)} \\
+\midrule
+Kernel/Feature Computation & $O(N^2 d)$ & $O(N m d)$ \\
+Matrix Inversion & $O(N^3)$ & $O(m^3)$ \\
+Optimization & $O(N^3)$ & $O(T N m)$ \\
+\midrule
+\textbf{Total} & $O(N^3)$ & $O(T N m + m^3)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Theoretical Justification}
+The convergence of the proposed stochastic optimization algorithm is guaranteed under standard assumptions. Since the Pinball Loss is convex and Lipschitz continuous, and the regularization term $\frac{1}{2}\boldsymbol{w}^T \boldsymbol{R} \boldsymbol{w}$ is strongly convex when $\boldsymbol{R}$ is positive definite, the overall objective function is strongly convex. According to the convergence theory of SGD for strongly convex functions \cite{bottou2018optimization}, the algorithm converges to the global optimum at a rate of $O(1/T)$.
+
+Furthermore, the Nystr\"{o}m approximation error is bounded. Let $\tilde{k}(\boldsymbol{x}_i, \boldsymbol{x}_j) = \psi(\boldsymbol{x}_i)^T \psi(\boldsymbol{x}_j)$ denote the approximated kernel. Under mild conditions on the kernel eigenvalue decay, the approximation error satisfies:
+\begin{equation}
+\label{eq:nystrom_error}
+\mathbb{E}\left[ \| \boldsymbol{K} - \tilde{\boldsymbol{K}} \|_F \right] \le O\left( \frac{N}{\sqrt{m}} \right)
+\end{equation}
+This bound ensures that with a sufficient number of landmarks, the approximation quality is well-controlled, and the solution obtained by the scalable algorithm closely approximates that of the exact QP solver.
 
 
 %------------------------- Experiments --------------------%
