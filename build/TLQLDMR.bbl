@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{17}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -16,5 +16,85 @@
 \bibinfo{author}{Belkin, M.}, \bibinfo{author}{Niyogi, P.}, \& \bibinfo{author}{Sindhwani, V.} (\bibinfo{year}{2006}).
 \newblock \bibinfo{title}{Manifold regularization: A geometric framework for learning from labeled and unlabeled examples.}
 \newblock {\it \bibinfo{journal}{Journal of machine learning research}\/},  {\it \bibinfo{volume}{7}\/}.
+%Type = Article
+\bibitem[{Bottou et~al.(2018)Bottou, Curtis \& Nocedal}]{bottou2018optimization}
+\bibinfo{author}{Bottou, L.}, \bibinfo{author}{Curtis, F.~E.}, \& \bibinfo{author}{Nocedal, J.} (\bibinfo{year}{2018}).
+\newblock \bibinfo{title}{Optimization methods for large-scale machine learning}.
+\newblock {\it \bibinfo{journal}{SIAM Review}\/},  {\it \bibinfo{volume}{60}\/}, \bibinfo{pages}{223--311}. \DOIprefix\doi{10.1137/16M1080173}.
+%Type = Article
+\bibitem[{Chen \& Shi(2025)}]{chen2025brf}
+\bibinfo{author}{Chen, Y.}, \& \bibinfo{author}{Shi, J.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Broad random forest: A lightweight prediction model for short-term wind power by fusing broad learning and random forest}.
+\newblock {\it \bibinfo{journal}{Sustainability}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{4894}. \DOIprefix\doi{10.3390/su17114894}.
+%Type = Article
+\bibitem[{Duan et~al.(2025)}]{duan2025ara}
+\bibinfo{author}{Duan, Y.} et~al. (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Research on support vector regression short-time traffic flow prediction model for secondary roads based on associated road analysis}.
+\newblock {\it \bibinfo{journal}{Applied Sciences}\/},  {\it \bibinfo{volume}{15}\/}, \bibinfo{pages}{1779}. \DOIprefix\doi{10.3390/app15041779}.
+%Type = Article
+\bibitem[{Houssein et~al.(2025)}]{houssein2025hho}
+\bibinfo{author}{Houssein, E.~H.} et~al. (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{A hybrid harris hawks optimization with support vector regression for air quality forecasting}.
+\newblock {\it \bibinfo{journal}{Scientific Reports}\/},  {\it \bibinfo{volume}{15}\/}. \DOIprefix\doi{10.1038/s41598-025-86275-6}.
+%Type = Article
+\bibitem[{Hu et~al.(2025)Hu, Deng \& Che}]{hu2025nescqr}
+\bibinfo{author}{Hu, J.}, \bibinfo{author}{Deng, Y.}, \& \bibinfo{author}{Che, J.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{A novel wind power interval prediction method based on neural ensemble search and dynamic conformalized quantile regression}.
+\newblock {\it \bibinfo{journal}{Applied Soft Computing}\/},  {\it \bibinfo{volume}{180}\/}, \bibinfo{pages}{113476}. \DOIprefix\doi{10.1016/j.asoc.2025.113476}.
+%Type = Article
+\bibitem[{Hu \& Liu(2025)}]{hu2025ncqgbr}
+\bibinfo{author}{Hu, L.}, \& \bibinfo{author}{Liu, Y.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{A day-ahead wind power conformal interval forecasting framework based on numerical weather prediction data and improved quantile ensemble learning}.
+\newblock {\it \bibinfo{journal}{Journal of Renewable and Sustainable Energy}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{046104}. \DOIprefix\doi{10.1063/5.0233770}.
+%Type = Article
+\bibitem[{Meena et~al.(2025)}]{meena2025flsvr}
+\bibinfo{author}{Meena, Y.} et~al. (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{{FLSVR}: Solving lagrangian support vector regression using functional iterative method}.
+\newblock {\it \bibinfo{journal}{Neural Processing Letters}\/}, . \DOIprefix\doi{10.1007/s11063-025-11780-8}.
+%Type = Article
+\bibitem[{Mustaffa \& Sulaiman(2025)}]{mustaffa2025rf}
+\bibinfo{author}{Mustaffa, Z.}, \& \bibinfo{author}{Sulaiman, M.~H.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Random forest based wind power prediction method for sustainable energy system}.
+\newblock {\it \bibinfo{journal}{Cleaner Energy Systems}\/}, . \DOIprefix\doi{10.1016/j.cles.2025.100210}.
+%Type = Article
+\bibitem[{Rizkallah(2025)}]{rizkallah2025kmeans}
+\bibinfo{author}{Rizkallah, S.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Enhancing the performance of gradient boosting trees on regression problems}.
+\newblock {\it \bibinfo{journal}{Journal of Big Data}\/}, . \DOIprefix\doi{10.1186/s40537-025-01071-3}.
+%Type = Article
+\bibitem[{{State Grid Renewable Energy}(2022)}]{s41597-022-01696-6}
+\bibinfo{author}{{State Grid Renewable Energy}} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{A multi-site wind farm scada dataset for wind power forecasting}.
+\newblock {\it \bibinfo{journal}{Scientific Data}\/},  {\it \bibinfo{volume}{9}\/}, \bibinfo{pages}{684}. \DOIprefix\doi{10.1038/s41597-022-01696-6}.
+%Type = Article
+\bibitem[{Tibshirani et~al.(2019)Tibshirani, Barber, Candes \& Ramdas}]{tibshirani2019conformal}
+\bibinfo{author}{Tibshirani, R.~J.}, \bibinfo{author}{Barber, R.~F.}, \bibinfo{author}{Candes, E.~J.}, \& \bibinfo{author}{Ramdas, A.} (\bibinfo{year}{2019}).
+\newblock \bibinfo{title}{Conformal prediction under covariate shift}.
+\newblock {\it \bibinfo{journal}{Advances in Neural Information Processing Systems}\/},  {\it \bibinfo{volume}{32}\/}.
+%Type = Article
+\bibitem[{Wang et~al.(2019)Wang, Li, Wang, Peng, Jiang \& Liu}]{wang2019review}
+\bibinfo{author}{Wang, H.-z.}, \bibinfo{author}{Li, G.-q.}, \bibinfo{author}{Wang, G.-b.}, \bibinfo{author}{Peng, J.-c.}, \bibinfo{author}{Jiang, H.}, \& \bibinfo{author}{Liu, Y.-t.} (\bibinfo{year}{2019}).
+\newblock \bibinfo{title}{A review of wind speed and wind power forecasting with deep neural networks}.
+\newblock {\it \bibinfo{journal}{Applied Energy}\/},  {\it \bibinfo{volume}{232}\/}, \bibinfo{pages}{1--17}. \DOIprefix\doi{10.1016/j.apenergy.2018.09.191}.
+%Type = Article
+\bibitem[{Wang \& Xu(2024)}]{wang2024ssvqr}
+\bibinfo{author}{Wang, Y.}, \& \bibinfo{author}{Xu, Z.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Sparse support vector quantile regression for robust estimation}.
+\newblock {\it \bibinfo{journal}{Pattern Recognition}\/},  {\it \bibinfo{volume}{147}\/}, \bibinfo{pages}{110089}. \DOIprefix\doi{10.1016/j.patcog.2023.110089}.
+%Type = Article
+\bibitem[{Ye et~al.(2025)Ye, Wang \& Chen}]{ye2025nfs}
+\bibinfo{author}{Ye, Y.-F.}, \bibinfo{author}{Wang, J.}, \& \bibinfo{author}{Chen, W.-J.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Nonlinear feature selection for support vector quantile regression}.
+\newblock {\it \bibinfo{journal}{Neural Networks}\/},  {\it \bibinfo{volume}{185}\/}, \bibinfo{pages}{107136}. \DOIprefix\doi{10.1016/j.neunet.2025.107136}.
+%Type = Article
+\bibitem[{Ye et~al.(2023)}]{tsvqr2023}
+\bibinfo{author}{Ye, Y.-F.} et~al. (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Twin support vector quantile regression}.
+\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it \bibinfo{volume}{221}\/}, \bibinfo{pages}{121239}. \DOIprefix\doi{10.1016/j.eswa.2023.121239}.
+%Type = Article
+\bibitem[{Zhang \& Wang(2024)}]{zhang2024kde}
+\bibinfo{author}{Zhang, Y.}, \& \bibinfo{author}{Wang, J.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Kernel density estimation based probabilistic wind power forecasting with ensemble learning}.
+\newblock {\it \bibinfo{journal}{Energy}\/},  {\it \bibinfo{volume}{289}\/}, \bibinfo{pages}{129912}. \DOIprefix\doi{10.1016/j.energy.2023.129912}.
 
 \end{thebibliography}
