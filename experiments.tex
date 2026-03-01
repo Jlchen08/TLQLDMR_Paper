@@ -112,13 +112,7 @@ All experiments are implemented in Python using NumPy and scikit-learn. For SVM-
 %---------------- Experiment 1 --------------------%
 \subsection{Experiment 1: Extreme Sample Screening and Domain Shift Quantification}\label{sec:exp1}
 
-\subsubsection{Objective}
-
-The first experiment aims to (1) identify extreme weather samples across all six wind farms using the rule-based criteria defined in Section~\ref{sec:extreme_def}, and (2) quantify the magnitude of distribution shift between the normal domain (source) and the extreme domain (target) for each farm. The farm exhibiting the most severe domain shift is then selected as the target wind farm for subsequent experiments, ensuring that the evaluation scenario is maximally challenging for transfer learning methods.
-
-\subsubsection{Results}
-
-Table~\ref{tab:exp1_shift} presents the domain shift metrics for all six wind farms, sorted by the composite Wasserstein distance $W_1(\text{wind}) + W_1(\text{power})$ in descending order.
+The first experiment identifies extreme-weather samples across all six wind farms using the criteria in Section~\ref{sec:extreme_def}, and then quantifies source-target distribution shift for each farm. Table~\ref{tab:exp1_shift} reports the domain-shift statistics sorted by the composite Wasserstein distance $W_1(\text{wind}) + W_1(\text{power})$. Preliminary sensitivity checks show that a stricter 99th-percentile wind-speed rule leaves too few target-domain samples for stable model development, whereas the adopted 98th-percentile rule preserves event extremity while maintaining statistical sufficiency.
 
 \begin{table*}[ht]
 \centering
@@ -141,9 +135,7 @@ Farm 1 (99\,MW)  & 4{,}184 & 3.140 &  5.964 & 0.335 & 0.116 \\
 
 Fig.~\ref{fig:domain_shift} visualizes the distribution shift between normal and extreme weather domains for all six wind farms. Each subplot displays the kernel density estimates of wind speed (upper panel) and power output (lower panel) for both domains. The visual comparison confirms the quantitative findings in Table~\ref{tab:exp1_shift}: Farm~6 exhibits the most pronounced separation between the two distributions, particularly in the power dimension, where the extreme domain shows a bimodal pattern with substantial mass near zero power (cut-out events) and high power (pre-cut-out high wind conditions).
 
-\vspace{0.5cm}
-\noindent
-\begin{minipage}{\textwidth}
+\begin{figure}
 \centering
 \includegraphics[width=0.48\textwidth]{experiment1/outputs/plots/farm1_domain_shift.jpg}
 \hfill
@@ -158,26 +150,19 @@ Fig.~\ref{fig:domain_shift} visualizes the distribution shift between normal and
 \includegraphics[width=0.48\textwidth]{experiment1/outputs/plots/farm5_domain_shift.jpg}
 \hfill
 \includegraphics[width=0.48\textwidth]{experiment1/outputs/plots/farm3_domain_shift.jpg}
-\refstepcounter{figure}
-\par\noindent\textbf{Fig.~\thefigure.} Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension.
+\caption{Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension.}
 \label{fig:domain_shift}
-\end{minipage}
-\vspace{0.5cm}
-
-\subsubsection{Analysis}
+\end{figure}
 
 Several observations emerge from Table~\ref{tab:exp1_shift} and Fig.~\ref{fig:domain_shift}. First, all six farms exhibit non-trivial distribution shifts between normal and extreme domains, with KS statistics ranging from 0.116 to 0.460, confirming that extreme weather events induce statistically significant distributional changes in both wind speed and power output. Second, the magnitude of the power distribution shift varies substantially across farms: Farm~6 exhibits a Wasserstein distance of 21.057 in the power dimension, approximately 3.5 times that of Farm~1 (5.964). This disparity reflects differences in turbine control strategies, terrain effects, and the local meteorological characteristics of each site.
 
 Farm~6 (Nominal capacity 96\,MW) ranks first in the composite domain shift metric ($W_1(\text{wind}) + W_1(\text{power}) = 25.117$), indicating the most pronounced distributional discrepancy between its normal and extreme operating regimes. Consequently, \textbf{Farm~6 is selected as the target wind farm for Experiments~2 and~3}, providing the most stringent test bed for evaluating the robustness of transfer learning methods under extreme weather conditions.
+\FloatBarrier
 
 %---------------- Experiment 2 --------------------%
 \subsection{Experiment 2: Deterministic Point Prediction under Extreme Weather}\label{sec:exp2}
 
-\subsubsection{Objective}
-
-The second experiment evaluates the deterministic point prediction performance of TLQLDMR against a comprehensive set of baseline models on the extreme weather samples of Farm~6. The objective is to demonstrate that the proposed transfer learning mechanism, which leverages abundant normal-weather source domain data to enhance prediction accuracy on scarce extreme-weather target domain data, yields superior forecasting performance compared to models trained solely on the target domain.
-
-\subsubsection{Data Partition}
+The second experiment evaluates deterministic point prediction on Farm~6 and compares TLQLDMR with six baselines under the same data split and preprocessing protocol.
 
 The data partition for Farm~6 is as follows:
 \begin{itemize}
@@ -189,9 +174,7 @@ The data partition for Farm~6 is as follows:
     \end{itemize}
 \end{itemize}
 
-The target domain is split via random shuffling with a fixed seed to ensure reproducibility. All baseline models are trained exclusively on the target domain training set, whereas TLQLDMR additionally incorporates the source domain data through its transfer learning mechanism.
-
-\subsubsection{Baseline Models}
+The target domain is split via random shuffling with a fixed seed to ensure reproducibility. The 90\%/10\% target split is selected to maximize training signal under scarce extreme samples while retaining an independent hold-out subset for evaluation. All baseline models are trained exclusively on target-domain training data, whereas TLQLDMR additionally leverages source-domain samples through transfer learning.
 
 We compare TLQLDMR against six state-of-the-art non-deep-learning models published in 2025, spanning SVM variants, tree-based ensembles, and random forest methods specifically designed for wind power forecasting:
 
@@ -206,11 +189,7 @@ We compare TLQLDMR against six state-of-the-art non-deep-learning models publish
 
 All baseline models use hyperparameters consistent with their respective publications or default configurations, without extensive grid search, to ensure a fair comparison that reflects each method's out-of-the-box performance.
 
-\subsubsection{TLQLDMR Configuration}
-
 The key hyperparameters of TLQLDMR are determined via a structured search on the validation set (20\% held out from the target training data). The optimal configuration is: $\lambda_1 = 5 \times 10^{-4}$, $\lambda_2 = 1 \times 10^{-4}$, $C_S = 0.05$, $C_T = 150$, $\gamma_{\text{kernel}} = 0.002$, Nystr\"{o}m components $m = 1{,}200$, learning rate $\eta = 0.01$, epochs $= 64$, batch size $= 256$, and $\tau = 0.5$ (median regression for point prediction). The large ratio $C_T / C_S = 3{,}000$ reflects the asymmetric weighting strategy that assigns substantially higher importance to the scarce extreme weather samples.
-
-\subsubsection{Results}
 
 Table~\ref{tab:exp2_results} presents the test set performance of all models on the extreme weather domain of Farm~6.
 
@@ -234,22 +213,45 @@ BRF-WPF    & 9.719 & 6.870 & 0.9244 \\
 \label{tab:exp2_results}
 \end{table}
 
+\begin{figure}
+\centering
+(a) HHO-SVR\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_HHO-SVR.pdf}
+\vspace{0.12cm}
 
-\subsubsection{Analysis}
+(b) FLSVR\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_FLSVR.pdf}
+\vspace{0.12cm}
 
-TLQLDMR achieves the best performance across all primary metrics, with an RMSE of 7.476 and $R^2$ of 0.9553, confirming the effectiveness of the proposed transfer learning framework for extreme weather power prediction. Several key findings merit discussion:
+(c) ARA-SVR\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_ARA-SVR.pdf}
+\vspace{0.12cm}
 
-\textbf{(1) Transfer learning provides a consistent advantage.} TLQLDMR outperforms the best non-transfer baseline (HHO-SVR, $R^2 = 0.9537$) by a margin of 0.0016 in $R^2$ and 0.127 in RMSE. While this margin may appear modest in absolute terms, it is achieved under the most challenging domain shift scenario (Farm~6), where the extreme domain contains only 4{,}143 samples. The improvement demonstrates that incorporating source domain knowledge through MMD-based feature alignment and weighted pinball loss effectively compensates for the scarcity of extreme weather training data.
+(d) KMeans-GBT\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_KMeans-GBT.pdf}
+\caption{Prediction-curve comparison on the Farm~6 extreme-weather test set (Part I). One row corresponds to one model, and each row contains the full segment plus peak/valley zoom views.}
+\label{fig:exp2_curves_a}
+\end{figure}
 
-\textbf{(2) SVM-based models exhibit competitive performance.} Among the baselines, HHO-SVR achieves the second-best RMSE (7.603), benefiting from the metaheuristic optimization of SVR hyperparameters. This suggests that kernel methods with well-tuned parameters remain competitive for small-sample regression tasks, even without explicit transfer learning. However, the performance gap between HHO-SVR and TLQLDMR highlights the additional value of domain adaptation.
+\begin{figure}
+\centering
+(e) RF-WPF\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_RF-WPF.pdf}
+\vspace{0.12cm}
 
-\textbf{(3) Tree-based models show limitations under extreme conditions.} KMeans-GBT and BRF-WPF yield the lowest $R^2$ values (0.9259 and 0.9244, respectively), indicating that tree-based ensemble methods, while powerful for general regression tasks, may struggle to extrapolate beyond the training distribution when confronted with extreme weather patterns. The clustering mechanism in KMeans-GBT, designed to capture heterogeneous relationships, does not fully compensate for the distributional shift inherent in extreme events.
+(f) BRF-WPF\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_BRF-WPF.pdf}
+\vspace{0.12cm}
 
-\textbf{(4) RF-WPF demonstrates strong baseline performance.} The Random Forest model specifically designed for wind power forecasting achieves the second-best MAE (5.344), nearly matching TLQLDMR (5.348). This result underscores the value of domain-specific model design in wind power applications, though RF-WPF's higher RMSE (7.967) suggests greater sensitivity to large prediction errors in the tails of the distribution.
+(g) TLQLDMR\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_TL-QLDMR.pdf}
+\caption{Prediction-curve comparison on the Farm~6 extreme-weather test set (Part II). One row corresponds to one model, and each row contains the full segment plus peak/valley zoom views.}
+\label{fig:exp2_curves_b}
+\end{figure}
 
-\textbf{(5) MAPE is unreliable for extreme weather evaluation.} We note that the Mean Absolute Percentage Error (MAPE) values for all models are extremely large (on the order of $10^6$--$10^7$), rendering this metric uninformative. This artifact arises because extreme weather samples frequently include near-zero power output (e.g., during cut-out events), causing the denominator of MAPE to approach zero. Consequently, we rely on RMSE and $R^2$ as the primary comparison metrics.
+Table~\ref{tab:exp2_results} and Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_b} jointly demonstrate that TLQLDMR provides the most accurate and stable point forecasts on the Farm~6 extreme-weather test set. Several observations are noteworthy:
 
-\subsubsection{Noise Robustness Analysis}
+TLQLDMR improves on the strongest non-transfer baseline (HHO-SVR), raising $R^2$ from 0.9537 to 0.9553 and reducing RMSE from 7.603 to 7.476. Although the numerical margin is moderate, it is obtained under the most severe domain-shift setting with only 4{,}143 extreme-weather samples. The curve-level evidence in Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_b} is consistent with the aggregate metrics: TLQLDMR tracks abrupt ramps and low-power transitions more closely, while several baselines show larger local deviations around rapid fluctuations. Among baselines, HHO-SVR remains the most competitive kernel method, RF-WPF remains the second-best overall alternative, and BRF-WPF does not surpass RF-WPF under the present small-sample extreme-weather regime. The observed gain of TLQLDMR is consistent with the combined effect of source-domain transfer, asymmetric target weighting, and cyclic wind-direction encoding. Because many extreme-weather periods contain near-zero power outputs, MAPE is numerically unstable and therefore RMSE and $R^2$ are treated as the principal deterministic indicators.
 
 To assess the robustness of the models against measurement noise, which is prevalent in SCADA systems during extreme weather, we evaluate the point prediction performance by injecting Gaussian noise into both the training and testing input features. We simulate varying Signal-to-Noise Ratios (SNR $\in \{60, 40, 30, 20, 10\}$ dB). For this analysis, TLQLDMR utilizes a higher-dimensional Nystr\"{o}m mapping ($m = 1{,}500$) and longer training duration (80 epochs) to accommodate the increased input variance.
 
@@ -275,15 +277,12 @@ BRF-WPF    & 0.8939 & 0.9144 & 0.9177 & 0.9250 & 0.9253 \\
 \label{tab:exp2_noise}
 \end{table}
 
-The observation confirms that while all models experience performance degradation as the noise level increases (SNR decreases), TLQLDMR consistently maintains the highest $R^2$ across all testing conditions. The transfer learning framework, reinforced by Large Margin Distribution regularization, effectively mitigates overfitting to noisy target samples and demonstrates the strongest noise resilience among the comparative models.
+The observation confirms that while all models experience performance degradation as the noise level increases (SNR decreases), TLQLDMR consistently maintains the highest $R^2$ across all testing conditions. In particular, TLQLDMR remains above 0.94 even at 10\,dB, while BRF-WPF exhibits the steepest degradation, indicating higher sensitivity to measurement perturbations. The transfer learning framework, reinforced by Large Margin Distribution regularization, effectively mitigates overfitting to noisy target samples and demonstrates the strongest noise resilience among the comparative models.
+\FloatBarrier
 %---------------- Experiment 3 --------------------%
 \subsection{Experiment 3: Probabilistic Interval Prediction under Extreme Weather}\label{sec:exp3}
 
-\subsubsection{Objective}
-
-The third experiment extends the evaluation from deterministic point prediction to probabilistic interval prediction. The objective is to assess whether TLQLDMR can produce well-calibrated 95\% prediction intervals (PIs) that achieve adequate coverage probability while maintaining sharp (narrow) interval widths. This is particularly challenging under extreme weather conditions, where the inherent volatility of wind power amplifies the tension between reliability and sharpness.
-
-\subsubsection{Data Partition}
+The third experiment extends evaluation from point prediction to probabilistic interval forecasting. The objective is to verify whether TLQLDMR can achieve reliable 95\% prediction intervals while keeping interval width sufficiently sharp under extreme-weather volatility.
 
 To support the calibration-based interval prediction framework, the target domain data is partitioned into four subsets:
 \begin{itemize}
@@ -293,8 +292,6 @@ To support the calibration-based interval prediction framework, the target domai
     \item Test set: 415 samples (for final evaluation).
 \end{itemize}
 
-\subsubsection{Calibration Strategy}
-
 All models employ a two-stage calibration procedure based on Conformalized Quantile Regression (CQR):
 \begin{enumerate}
     \item \textbf{Conformal adjustment}: The model first predicts intervals on the calibration set. The conformal quantile $\hat{q}$ is computed as the $(1 - \alpha)$-quantile of the nonconformity scores $\max(L_i - y_i, y_i - U_i)$, ensuring finite-sample coverage guarantees;
@@ -302,8 +299,6 @@ All models employ a two-stage calibration procedure based on Conformalized Quant
 \end{enumerate}
 
 All predicted intervals are clipped to the physical range $[0, P_{\text{rated}}]$, where $P_{\text{rated}}$ is the nominal capacity of the wind farm.
-
-\subsubsection{Baseline Models}
 
 The interval prediction baselines are organized into two categories:
 
@@ -319,27 +314,22 @@ The interval prediction baselines are organized into two categories:
 \begin{enumerate}
     \item \textbf{HybridDL-Interval} \citep{hybriddl2025}: A hybrid deep learning framework for day-ahead wind power interval forecasting, combining temporal attention and quantile loss (approximate implementation);
     \item \textbf{AMQRNN} \citep{amqrnn2025}: A recurrent attention encoder-decoder network for multi-step interval wind power prediction, implemented using an attention-GRU network;
-    \item \textbf{QGBR} \citep{qgbr2025}: Quantile Gradient Boosted Regression, representing the improved quantile ensemble learning framework for wind power prediction;
-    \item \textbf{CQR-MLP} \citep{cqrmlp2025}: MLP quantile ensemble with dynamic conformalized quantile regression, acting as a simplified baseline for neural ensemble search methods.
+    \item \textbf{QGBR} \citep{hu2025ncqgbr}: Quantile Gradient Boosted Regression, representing the improved quantile ensemble learning framework for wind power prediction;
+    \item \textbf{CQR-MLP} \citep{hu2025nescqr}: MLP quantile ensemble with dynamic conformalized quantile regression, acting as a simplified baseline for neural ensemble search methods.
 \end{enumerate}
 
-\subsubsection{TLQLDMR Interval Configuration}
-
-For interval prediction, TLQLDMR trains two separate quantile models at $\tau_{\text{low}}$ and $\tau_{\text{high}}$ to construct the lower and upper bounds of the prediction interval. The quantile pair $(\tau_{\text{low}}=0.2, \tau_{\text{high}}=0.8)$ is jointly selected with the hyperparameters on the validation set, using a coverage-priority criterion that first ensures PICP approaches the target coverage $0.95 + \delta$ and then minimizes PINAW via a learned interval scaling factor (width\_scale).
-
-\subsubsection{Results}
+For interval prediction, TLQLDMR trains two separate quantile models at $\tau_{\text{low}}$ and $\tau_{\text{high}}$ to construct the lower and upper bounds of the prediction interval. The quantile pair $(\tau_{\text{low}}=0.2, \tau_{\text{high}}=0.8)$ is jointly selected with the hyperparameters on the validation set, using a coverage-priority criterion that first ensures PICP approaches the target coverage $0.95 + \delta$ and then minimizes PINAW via a learned interval scaling factor (width\_scale). The resulting width scaling for TLQLDMR is 0.88, which yields reliable coverage while avoiding unnecessary interval inflation.
 
 Table~\ref{tab:exp3_results} presents the interval prediction results on the extreme weather test set of Farm~6 at the 95\% confidence level ($\alpha = 0.05$).
 
 \begin{table*}[ht]
 \centering
-\caption{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Models are sorted by CWC in ascending order. Best results per column are highlighted in bold.}
+\caption{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Baseline models are sorted by CWC in ascending order, while TLQLDMR is placed in the last row for direct comparison. Best results per column are highlighted in bold.}
 \setlength{\tabcolsep}{4mm}
 \begin{tabular}{lccccc}
 \toprule
 Model & PICP & MPIW & PINAW & CWC & Winkler \\
 \midrule
-\textbf{TLQLDMR} & \textbf{0.959} & 25.791 & \textbf{0.268} & \textbf{0.268} & \textbf{34.506} \\
 NuSVR-CI         & 0.843 & \textbf{19.970} & 0.208 & 0.285 & 54.603 \\
 HybridDL-Interval& 0.954 & 31.645 & 0.329 & 0.329 & 60.224 \\
 TSVQR            & 0.889 & 24.592 & 0.256 & 0.342 & 48.178 \\
@@ -348,56 +338,73 @@ CQR-MLP          & 0.942 & 31.750 & 0.330 & 0.431 & 46.772 \\
 AMQRNN           & 0.940 & 32.432 & 0.337 & 0.441 & 66.874 \\
 NFS-SVQR         & 0.913 & 68.359 & 0.711 & 0.941 & 76.997 \\
 UQSVM-SSVQR      & 0.928 & 81.710 & 0.850 & 1.117 & 85.162 \\
+\textbf{TLQLDMR} & \textbf{0.959} & 25.791 & \textbf{0.268} & \textbf{0.268} & \textbf{34.506} \\
 \bottomrule
 \end{tabular}
 \label{tab:exp3_results}
 \end{table*}
 
-\subsubsection{Analysis}
+The interval prediction results indicate a clear reliability-sharpness trade-off under extreme weather, and TLQLDMR offers the most favorable balance. TLQLDMR reaches the nominal 95\% coverage target (PICP = 0.959) while obtaining the best composite quality (CWC = 0.268) and the best Winkler score (34.506), which shows that transfer learning with validation-based width scaling can provide both reliable and sharp intervals. By contrast, NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage, whereas HybridDL-Interval, QGBR, CQR-MLP, and AMQRNN can approach acceptable coverage only with wider intervals. This comparison suggests that explicit asymmetric regularization combined with cross-domain adaptation is more effective for heavily skewed extreme-weather samples.
 
-The interval prediction results reveal a fundamental tension between coverage reliability and interval sharpness under extreme weather conditions, yet highlight the significant advantage of the proposed transfer learning model:
+To assess interval robustness under sensor perturbation, Gaussian noise is injected only into test inputs at SNR $\in \{60,40,30\}$ dB, while calibration parameters remain fixed to preserve comparability across models. For TLQLDMR, a conservative scaling multiplier (1.15) is used to maintain coverage. Unlike the previous single-metric presentation, Table~\ref{tab:exp3_noise} reports the full set of interval metrics.
 
-\textbf{(1) Achieving nominal coverage while maintaining tight intervals.} Unlike many baseline models that struggle with the reliability-sharpness trade-off, \textbf{TLQLDMR successfully achieves the nominal 95\% coverage target (PICP = 0.959) while maintaining the lowest composite score (CWC = 0.268) and Winkler score (34.506).} By transferring distributional knowledge from the normal weather domain and performing validation-based interval scaling, the model produces robust and sharp intervals that effectively envelop extreme power fluctuations.
-
-\textbf{(2) Classical SVMs exhibit competitive sharpness but poor reliability.} NuSVR-CI and TSVQR produce narrow intervals (PINAW = 0.208 and 0.256, respectively) but fail significantly to meet the nominal coverage target (PICP = 0.843 and 0.889, respectively). Consequently, they incur heavy coverage penalties. Their tight decision boundaries, while useful in standard conditions, are insufficiently calibrated to cover the heavy-tailed deviations indicative of severe meteorological anomalies.
-
-\textbf{(3) Performance of deep learning and tree-based methods.} HybridDL-Interval achieves the target coverage (PICP = 0.954) but yields noticeably wider intervals than TLQLDMR (MPIW = 31.645 vs. 25.791). QGBR, CQR-MLP, and AMQRNN deliver adequate approximations (PICPs ranging from 0.940 to 0.949) with moderate CWC scores, but fail to outpace the optimized transfer-learning SVM formulation. Their performance reinforces the notion that while deep learning models offer powerful expressivity, explicit non-symmetric regularization combined with domain adaptation yields superior calibration efficiently on heavily skewed target datasets.
-
-\subsubsection{Noise Robustness Analysis for Interval Prediction}
-
-To stringently verify the resilience of the forecasting bounds under volatile, error-prone data environments, we conducted an evaluation by infusing the testing phase data with differing configurations of injected noise. Adopting the same setup as the point-prediction robustness analysis, SNR values of 60, 40, and 30 dB were exclusively applied to the test set inputs keeping the calibration factors untainted to ensure strict metric comparability. For TLQLDMR, an interval scaling multiplier of 1.15 was engaged to safeguard coverage. Results based on the Coverage Width-based Criterion (CWC), a penalizing metric measuring width versus nominal target reliability, are encapsulated in Table~\ref{tab:exp3_noise}.
-
-\begin{table}[ht]
+\begin{table*}[ht]
 \centering
-\caption{Model performance (CWC $\downarrow$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Lower scores reflect a superior combination of sharp, accurate interval coverage.}
-\setlength{\tabcolsep}{4mm}
-\begin{tabular}{lccc}
+\caption{Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred.}
+\setlength{\tabcolsep}{3.0mm}
+\begin{tabular}{llccccc}
 \toprule
-Model & SNR = 30 dB & SNR = 40 dB & SNR = 60 dB \\
+Model & SNR (dB) & PICP & MPIW & PINAW & CWC & Winkler \\
 \midrule
-TSVQR            & 0.3422 & 0.3424 & 0.3425 \\
-UQSVM-SSVQR      & 1.1191 & 1.1167 & 1.1166 \\
-NFS-SVQR         & 0.9442 & 0.9409 & 0.9407 \\
-NuSVR-CI         & 0.2856 & 0.2860 & 0.2849 \\
-QGBR             & 0.3336 & 0.3300 & 0.4294 \\
-CQR-MLP          & 0.4438 & 0.4438 & 0.4438 \\
-HybridDL-Interval& 0.4384 & 0.4385 & 0.4385 \\
-AMQRNN           & 0.3487 & 0.3486 & 0.3486 \\
-\textbf{TLQLDMR} & \textbf{0.2778} & \textbf{0.2779} & \textbf{0.2779} \\
+\multirow{3}{*}{TSVQR}
+  & 30 & 0.8892 & 24.570 & 0.2556 & 0.3422 & 48.306 \\
+  & 40 & 0.8892 & 24.588 & 0.2558 & 0.3424 & 48.140 \\
+  & 60 & 0.8892 & 24.592 & 0.2558 & 0.3425 & 48.169 \\
+\multirow{3}{*}{UQSVM-SSVQR}
+  & 30 & 0.9229 & 81.706 & 0.8499 & 1.1191 & 85.364 \\
+  & 40 & 0.9277 & 81.718 & 0.8501 & 1.1167 & 85.178 \\
+  & 60 & 0.9277 & 81.710 & 0.8500 & 1.1166 & 85.162 \\
+\multirow{3}{*}{NFS-SVQR}
+  & 30 & 0.9060 & 68.369 & 0.7112 & 0.9442 & 77.305 \\
+  & 40 & 0.9133 & 68.376 & 0.7113 & 0.9409 & 76.878 \\
+  & 60 & 0.9133 & 68.359 & 0.7111 & 0.9407 & 76.983 \\
+\multirow{3}{*}{NuSVR-CI}
+  & 30 & 0.8386 & 19.970 & 0.2077 & 0.2856 & 54.922 \\
+  & 40 & 0.8361 & 19.970 & 0.2077 & 0.2860 & 54.623 \\
+  & 60 & 0.8434 & 19.970 & 0.2077 & 0.2849 & 54.588 \\
+\multirow{3}{*}{QGBR}
+  & 30 & 0.9518 & 32.067 & 0.3336 & 0.3336 & 38.441 \\
+  & 40 & 0.9518 & 31.721 & 0.3300 & 0.3300 & 37.424 \\
+  & 60 & 0.9470 & 31.706 & 0.3298 & 0.4294 & 37.750 \\
+\multirow{3}{*}{CQR-MLP}
+  & 30 & 0.9325 & 32.548 & 0.3386 & 0.4438 & 48.828 \\
+  & 40 & 0.9325 & 32.550 & 0.3386 & 0.4438 & 48.780 \\
+  & 60 & 0.9325 & 32.554 & 0.3386 & 0.4438 & 48.743 \\
+\multirow{3}{*}{HybridDL-Interval}
+  & 30 & 0.9422 & 32.304 & 0.3360 & 0.4384 & 53.462 \\
+  & 40 & 0.9422 & 32.307 & 0.3361 & 0.4385 & 53.420 \\
+  & 60 & 0.9422 & 32.306 & 0.3361 & 0.4385 & 53.408 \\
+\multirow{3}{*}{AMQRNN}
+  & 30 & 0.9518 & 33.517 & 0.3487 & 0.3487 & 68.546 \\
+  & 40 & 0.9518 & 33.513 & 0.3486 & 0.3486 & 68.517 \\
+  & 60 & 0.9518 & 33.512 & 0.3486 & 0.3486 & 68.515 \\
+\multirow{3}{*}{\textbf{TLQLDMR}}
+  & 30 & 0.9542 & 26.709 & 0.2778 & \textbf{0.2778} & 36.307 \\
+  & 40 & 0.9566 & 26.713 & 0.2779 & \textbf{0.2779} & 36.034 \\
+  & 60 & 0.9566 & 26.715 & 0.2779 & \textbf{0.2779} & 36.083 \\
 \bottomrule
 \end{tabular}
 \label{tab:exp3_noise}
-\end{table}
+\end{table*}
 
-TLQLDMR achieved the lowest CWC metrics spanning all simulated SNR injections. Despite fluctuations from the nominal measurement levels, TLQLDMR preserved coverage securely past $\text{PICP}=0.95$ coupled with minimal boundary loosening. Contrarily, alternatives such as HybridDL or AMQRNN suffered degraded resolution, illustrating their dependence on strict sensor tolerances compared to TLQLDMR's resilient, distributionally smoothed architecture.
+Across all noise levels, TLQLDMR maintains the best CWC while keeping PICP above 0.95. The CWC values remain tightly concentrated around 0.278, indicating stable interval quality under moderate measurement perturbation. In contrast, NuSVR-CI yields narrow intervals (small MPIW/PINAW) but exhibits severe under-coverage, and several deep/ensemble baselines require substantially wider intervals to approach reliable coverage. These results indicate that TLQLDMR preserves a stronger reliability-sharpness balance under measurement perturbations.
+\FloatBarrier
 
 %---------------- Experiment 4 --------------------%
 \subsection{Experiment 4: Ablation Study}\label{sec:exp4}
 
-\subsubsection{Objective}
-To strictly validate the contribution of the three core proposed components (Transfer Learning, Large Margin Distribution regularization, and MMD feature alignment) towards robust wind power prediction under extreme weather, an ablation study evaluates the algorithm's structurally reduced variants on both point and interval prediction tasks.
+To validate the contribution of the three core components (transfer learning, LDMR variance regularization, and MMD feature alignment), this ablation experiment evaluates structurally reduced variants on both point and interval tasks.
 
-\subsubsection{Ablative Baselines}
 The full TLQLDMR framework is compared against three architectural reductions:
 \begin{enumerate}
     \item \textbf{w/o Transfer (Target-only QLDMR)}: Trained exclusively on extreme weather target samples without source domain integration or MMD alignment.
@@ -405,9 +412,7 @@ The full TLQLDMR framework is compared against three architectural reductions:
     \item \textbf{w/o MMD (Feature Alignment)}: The algorithm employs cross-domain training data but disables Maximum Mean Discrepancy alignment, relying purely on weighted objective loss.
 \end{enumerate}
 
-\subsubsection{Results and Analysis}
-
-Table~\ref{tab:ablation_results} delineates the resultant evaluations on the extreme weather test set (Farm~6). The full implementation of TLQLDMR achieves supremacy across both deterministic accuracy ($R^2 = 0.9553$) and probabilistic uncertainty metrics (CWC = 0.268). 
+Table~\ref{tab:ablation_results} reports the ablation results on Farm~6. The full TLQLDMR consistently attains the best deterministic and probabilistic performance, indicating that all three components contribute non-trivially to final accuracy and calibration quality.
 
 \begin{table*}[ht]
 \centering
@@ -428,61 +433,58 @@ w/o MMD      & 7.745 & 0.9520 & 0.947 & 26.049 & 0.2710 & 0.3528 \\
 \label{tab:ablation_results}
 \end{table*}
 
-\textbf{Transfer Necessity:} The removal of source domain knowledge (w/o Transfer) engenders substantial coverage depletion and accuracy dilution, affirming that solely relying on extreme minority distributions is insufficient to accurately constrain volatile regression slopes.
+\begin{figure}
+\centering
+\includegraphics[width=0.92\linewidth]{experiment4/plots/residual_distribution.png}
+\caption{Residual density comparison between TLQLDMR and ablated variants on the Farm~6 test set.}
+\label{fig:ablation_residual}
+\end{figure}
 
-\textbf{LDMR Compaction:} Disabling the distribution variance constraint (w/o LDMR) directly induces the largest interval coverage loss ($\text{PICP} = 0.949$). Visualized residual distributions indicate that without LDMR, structural error distributions exhibit thicker tails and flattened distribution peaks.
-
-\textbf{MMD Efficacy:} Abandoning MMD feature smoothing preserves point prediction moderately, but severely harms probabilistic coverage ($\text{CWC} = 0.3528$), highlighting the necessity of pre-aligning extreme variance features prior to objective reduction.
+The ablation outcomes confirm that each component contributes materially to robustness. Removing transfer learning reduces both point accuracy ($R^2$: 0.9553 $\rightarrow$ 0.9497) and interval quality (CWC: 0.2683 $\rightarrow$ 0.2797), indicating that target-only training is insufficient under strong domain shift. Removing LDMR regularization or MMD alignment causes clear interval-quality degradation (CWC rises to 0.3507 and 0.3528), even when point-metric changes are smaller, showing that residual-shape control and feature alignment are central to reliable uncertainty estimation. The residual-density comparison in Fig.~\ref{fig:ablation_residual} supports this conclusion by showing tighter central concentration and weaker heavy tails for the full TLQLDMR model; some ablated variants exhibit sharper central peaks but noticeably thicker tails, which corresponds to a higher probability of large-error events.
+\FloatBarrier
 
 
 %---------------- Experiment 5 --------------------%
 \subsection{Experiment 5: Scalable Optimization Validation}\label{sec:exp5}
 
-\subsubsection{Objective}
-Standard quadratic programming paradigms suffer steep computational inflation ($O(N^3)$) undermining vast dataset deployment. Experiment 5 quantitatively juxtaposes the execution footprint of our formulated Nystr\"{o}m + Fast SGD solver against conventional dual QP gradient algorithms.
+Experiment~5 evaluates whether the proposed Nystr\"{o}m + SGD solver can preserve practical training efficiency as data scale increases, compared with three alternative optimization strategies implemented in \texttt{Train\_TL\_QLDMR}: (i) full dual QP via CVXOPT, (ii) gradient-based QP via PyTorch (torch\_gd), and (iii) kernel-slice mini-batch SGD (batch\_sgd).
 
-\subsubsection{Methodology}
-A scalable simulation progressively augmented the combined target-source sample scale starting from $N = 100$ up to $N = 2{,}000$. Operational times (seconds) distinguishing parameter convergence using conventional CVXOPT arrays versus the Fast Nystr\"{o}m iteration were recorded.
-
-\subsubsection{Results and Analysis}
-
-Table~\ref{tab:scalability_results} encapsulates the runtime measurements against inflating data horizons. The outcomes distinctly demonstrate extreme structural divergence in temporal scalability. 
+The combined training size $N$ is progressively increased from 100 to 2{,}000. For each configuration, wall-clock training time (seconds) is recorded. Table~\ref{tab:scalability_results} summarizes the results.
 
 \begin{table}[ht]
 \centering
-\caption{Training time (seconds) comparison of QP solvers against the Nystr\"{o}m + SGD approach over expanding dataset scales.}
-\setlength{\tabcolsep}{3.5mm}
-\begin{tabular}{rcc}
+\caption{Training time (seconds) of four solvers over expanding dataset scales. ``---'' denotes infeasible runs due to excessive resource consumption.}
+\setlength{\tabcolsep}{2.8mm}
+\begin{tabular}{rcccc}
 \toprule
-Sample Size ($N$) & Full QP (CVXOPT) & Nystr\"{o}m + Fast SGD (Ours) \\
+$N$ & CVXOPT & torch\_gd & batch\_sgd & Nystr\"{o}m + SGD (Ours) \\
 \midrule
-100  & 0.494 & \textbf{0.024} \\
-200  & 0.662 & \textbf{0.554} \\
-400  & 0.884 & \textbf{0.696} \\
-600  & 2.728 & \textbf{0.824} \\
-800  & 4.949 & \textbf{0.924} \\
-1{,}200 & Out of resources & \textbf{1.114} \\
-1{,}600 & Out of resources & \textbf{1.465} \\
-2{,}000 & Out of resources & \textbf{1.670} \\
+100  & 0.494 & 2.254 & 2.972 & \textbf{0.024} \\
+200  & 0.662 & 2.398 & 2.300 & \textbf{0.554} \\
+400  & 0.884 & 2.508 & 4.374 & \textbf{0.696} \\
+600  & 2.728 & 2.668 & 4.874 & \textbf{0.824} \\
+800  & 4.949 & 2.375 & 3.890 & \textbf{0.924} \\
+1{,}200 & --- & --- & 6.049 & \textbf{1.114} \\
+1{,}600 & --- & --- & 6.123 & \textbf{1.465} \\
+2{,}000 & --- & --- & --- & \textbf{1.670} \\
 \bottomrule
 \end{tabular}
 \label{tab:scalability_results}
 \end{table}
 
-While the standard formulation escalates dramatically beyond computationally manageable thresholds post-$N=800$, our scalable SGD methodology upholds strict, near-linear expansion maintaining training lengths under dual seconds (1.67s at $N=2{,}000$). This operational fluidity fundamentally clears theoretical barriers impending scalable, continuous farm integration architectures.
+Both CVXOPT and torch\_gd become infeasible beyond $N=800$ due to cubically growing memory and computation demands. The kernel-slice batch\_sgd avoids full matrix inversion but still requires $O(N^2)$ kernel evaluations per batch, yielding runtimes of 3--6 seconds. In contrast, the proposed Nystr\"{o}m + SGD solver maintains near-linear scaling and completes training for $N=2{,}000$ in only 1.67 seconds, confirming the practical viability of the approximate primal formulation for large-scale wind farm datasets.
 
 %---------------- Discussion --------------------%
 \subsection{Discussion}\label{sec:discussion}
 
 The extended experimental evaluations yield the following conclusive insights:
 
-\textbf{Transfer learning guarantees point prediction supremacy under extreme conditions.} Experiment~2 confirms that the dual-space adaptation mechanism successfully transposes distributional knowledge from vast normal-weather regimes to the scarce extreme-weather domain. Further SNR noise-injection evaluations establish that TLQLDMR sustains rigorous measurement resilience, categorically outperforming baseline variants amidst profound environmental data corruption.
+\textbf{Transfer learning improves deterministic forecasting under severe shift.} Experiment~2 shows consistent gains in RMSE and $R^2$, and curve-level evidence confirms better tracking during abrupt peak-valley transitions.
 
-\textbf{Interval forecasting correctly resolves the coverage-sharpness tension.} Overcoming the recognized difficulty of probabilistic modeling under distribution shifts, Experiment~3 demonstrates that carefully tailored non-symmetric variance penalties, when subjected to transfer validation, securely achieve nominal operational goals ($\text{PICP} \ge 0.95$) whilst compressing extraneous width ($\text{CWC} = 0.268$). Noise evaluations confirm that TLQLDMR yields significantly sterner performance integrity over recent deep-learning approaches inside the minority-sample constraints typical of extreme meteorological contexts.
+\textbf{Interval forecasting achieves a better reliability-sharpness balance.} In Experiment~3, TLQLDMR is the only method that simultaneously maintains target-level coverage and the best composite penalty (CWC), and this advantage persists under injected measurement noise.
 
-\textbf{Architectural validations support the holistic formulation.} The comprehensive ablation study validates the non-linear interdependency between explicit feature alignment (MMD), sample weighting, and the pivotal Large Margin Distribution compaction. Depriving the network of any fractional component structurally defaults to broader residual distributions and severely compromised probabilistic coverage.
+\textbf{Ablation confirms the necessity of each component.} Removing transfer, LDMR variance regularization, or MMD alignment degrades either deterministic accuracy, interval calibration, or both; residual-density plots provide complementary evidence for this degradation.
 
-\textbf{Computational barriers are effectively dismantled.} Resolving the $O(N^3)$ computational intractability typical of SVR paradigms, Experiment~5 validates the Nystr\"{o}m-approximated Stochastic Gradient Descent implementation. The proposed operational pipeline assures linear empirical scaling capable of digesting modern high-frequency SCADA streams at sub-second speeds.
+\textbf{The scalable optimizer materially reduces computational burden.} Experiment~5 verifies that the Nystr\"{o}m + SGD formulation remains practical in regimes where full QP optimization fails due to computational constraints.
 
-\textbf{Limitations and Future Work.} First, while evaluated across diverse operational environments, direct extrapolation to offshore turbine arrays warrants explicit verification. Second, despite aggressive sampling scaling reductions via explicitly randomized landmark projections, integrating deep learning architectures such as adaptive self-attention mechanisms into the Large Margin Distribution framework presents a compelling trajectory for future refinement.
-
+\textbf{Limitations and future work.} The present evaluation is based on onshore wind farms and fixed feature engineering pipelines; extension to offshore assets, dynamic re-calibration strategies, and hybrid deep-kernel transfer formulations remains a relevant direction.
