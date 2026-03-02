@@ -1,114 +1,120 @@
-% Framework figure for TLQLDMR - Compact vertical layout
-\documentclass[tikz,border=8pt]{standalone}
+% TLQLDMR framework figure - premium minimalist redesign
+\documentclass[tikz,border=10pt]{standalone}
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, calc, decorations.pathreplacing, shadows.blur}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
 \usepackage{amsmath,amssymb}
 
-% Define colors
-\definecolor{inputblue}{RGB}{227,242,253}
-\definecolor{inputborder}{RGB}{66,133,244}
-\definecolor{kernelgreen}{RGB}{232,245,233}
-\definecolor{kernelborder}{RGB}{76,175,80}
-\definecolor{optbg}{RGB}{255,253,231}
-\definecolor{optborder}{RGB}{255,193,7}
-\definecolor{srcolor}{RGB}{232,234,246}
-\definecolor{srborder}{RGB}{92,107,192}
-\definecolor{varcolor}{RGB}{225,245,254}
-\definecolor{varborder}{RGB}{3,169,244}
-\definecolor{mmdcolor}{RGB}{252,228,236}
-\definecolor{mmdborder}{RGB}{233,30,99}
-\definecolor{losscolor}{RGB}{255,243,224}
-\definecolor{lossborder}{RGB}{255,152,0}
-\definecolor{outputpurple}{RGB}{243,229,245}
-\definecolor{outputborder}{RGB}{156,39,176}
+% restrained color system
+\definecolor{ink}{RGB}{38,50,56}
+\definecolor{c1}{RGB}{30,96,196}   % input
+\definecolor{c2}{RGB}{0,137,123}   % adaptation
+\definecolor{c3}{RGB}{239,108,0}   % objective
+\definecolor{c4}{RGB}{2,119,189}   % solver
+\definecolor{c5}{RGB}{123,31,162}  % output
+\definecolor{flow}{RGB}{112,128,144}
 
 \begin{document}
 \begin{tikzpicture}[
-    node distance=0.6cm,
-    >={Stealth[length=2mm]},
-    % Styles
-    databox/.style={rectangle, rounded corners=4pt, draw=#1, line width=1pt, fill=#1!25, 
-        minimum height=1.1cm, minimum width=2.6cm, font=\scriptsize, align=center,
-        blur shadow={shadow blur steps=5, shadow xshift=0.3mm, shadow yshift=-0.3mm}},
-    lossbox/.style={rectangle, rounded corners=4pt, draw=#1, line width=1.2pt, fill=#1!20,
-        minimum height=1.1cm, minimum width=2.8cm, font=\scriptsize, align=center},
-    smallbox/.style={rectangle, rounded corners=3pt, draw=#1, fill=white, 
-        minimum height=0.6cm, minimum width=2cm, font=\tiny, align=center},
-    groupbox/.style={rectangle, rounded corners=6pt, draw=#1, line width=1.2pt, fill=#1!8, inner sep=6pt},
-    myarrow/.style={->, thick, color=gray!70},
+  >=Stealth,
+  font=\footnotesize,
+  line cap=round,
+  line join=round,
+  panel/.style={rounded corners=7pt,draw=#1,line width=1.1pt,fill=#1!6,
+                minimum width=3.9cm,minimum height=5.2cm,align=center},
+  ptitle/.style={font=\small\bfseries,color=#1},
+  chip/.style={rounded corners=3pt,draw=#1,line width=0.9pt,fill=#1!14,
+               minimum width=3.2cm,minimum height=0.82cm,align=center},
+  minichip/.style={rounded corners=3pt,draw=#1,line width=0.85pt,fill=white,
+                   minimum width=2.9cm,minimum height=0.62cm,align=center,font=\scriptsize},
+  tag/.style={rounded corners=2pt,draw=#1!80!black,fill=#1!16,text=#1!80!black,
+              inner xsep=4pt,inner ysep=1.5pt,font=\scriptsize\bfseries},
+  arrow/.style={->,line width=1.1pt,draw=flow}
 ]
 
-% ============ ROW 1: INPUT DATA ============
-\node[groupbox=inputborder, minimum width=10cm, minimum height=1.8cm] (inputgroup) {};
-\node[above=-1pt of inputgroup.north, font=\footnotesize\bfseries, color=inputborder] {Data Input Layer};
+% ---- stage anchors (single left-to-right backbone) ----
+\coordinate (s1) at (-12.0,0);
+\coordinate (s2) at (-6.0,0);
+\coordinate (s3) at (0.5,0);
+\coordinate (s4) at (6.8,0);
+\coordinate (s5) at (12.8,0);
 
-\node[databox=inputborder] (source) at ($(inputgroup.center)+(-2.5,0)$) {Source Domain $D_S$\\Normal Weather\\($n_S$ samples)};
-\node[databox=inputborder] (target) at ($(inputgroup.center)+(2.5,0)$) {Target Domain $D_T$\\Extreme Weather\\($n_T \ll n_S$)};
+% =================== Stage 1: Inputs ===================
+\node[panel=c1] (input) at (s1) {};
+\node[ptitle=c1,above=1pt of input.north] {Cross-Domain Inputs};
 
-\node[font=\tiny, color=inputborder] at ($(source.east)!0.5!(target.west)$) {Distribution Shift};
+\node[chip=c1,minimum width=3.3cm] (src) at ($(input.center)+(0,1.30)$)
+{Source Domain $D_S$\\Normal weather};
+\node[chip=c1,minimum width=3.3cm] (tgt) at ($(input.center)+(0,-0.35)$)
+{Target Domain $D_T$\\Extreme weather};
+\node[minichip=c1,minimum width=3.3cm] (imb) at ($(input.center)+(0,-1.65)$)
+{Imbalance: $n_T \ll n_S$};
+\draw[<->,densely dashed,draw=c1!80,line width=0.9pt] (src.south) -- node[right,font=\scriptsize\bfseries,color=c1!90] {shift} (tgt.north);
 
-% ============ ROW 2: KERNEL MAPPING ============
-\node[groupbox=kernelborder, minimum width=10cm, minimum height=1.5cm, below=0.8cm of inputgroup] (kernelgroup) {};
-\node[above=-1pt of kernelgroup.north, font=\footnotesize\bfseries, color=kernelborder] {Feature Mapping};
+% =================== Stage 2: Dual-space adaptation ===================
+\node[panel=c2,minimum width=4.15cm] (adapt) at (s2) {};
+\node[ptitle=c2,above=1pt of adapt.north] {Dual-Space Adapter};
+\node[tag=c2] at ($(adapt.north east)+(-0.60,-0.27)$) {Innovation 1};
 
-\node[databox=kernelborder, minimum width=4cm] (kernel) at ($(kernelgroup.center)+(-1.8,0)$) {Kernel $\phi: \mathcal{X} \to \mathcal{H}$\\(RBF / Nystr\"om)};
-\node[smallbox=kernelborder, minimum width=3.2cm] (complexity) at ($(kernelgroup.center)+(2.5,0)$) {Complexity: $O(N^3)\!\to\!O(TNm)$};
+\node[chip=c2,minimum width=3.45cm] (fspace) at ($(adapt.center)+(0,1.15)$)
+{Feature Alignment\\$\mathrm{MMD}(D_S,D_T)$};
+\node[chip=c2,minimum width=3.45cm] (lspace) at ($(adapt.center)+(-0.00,-0.45)$)
+{Label Adaptation\\Weighted Pinball Loss};
+\node[minichip=c2,minimum width=3.45cm] (weight) at ($(adapt.center)+(0,-1.70)$)
+{$C_T \gg C_S$ for extreme samples};
 
-% ============ ROW 3: OPTIMIZATION ============
-\node[groupbox=optborder, minimum width=10cm, minimum height=3.2cm, below=0.8cm of kernelgroup] (optgroup) {};
-\node[above=-1pt of optgroup.north, font=\footnotesize\bfseries, color=optborder] {Joint Optimization $\min_{\mathbf{w},b} J(\mathbf{w},b)$};
+% =================== Stage 3: Objective composer ===================
+\node[panel=c3,minimum width=5.0cm] (obj) at (s3) {};
+\node[ptitle=c3,above=1pt of obj.north] {Objective Composer};
+\node[tag=c3] at ($(obj.north east)+(-0.65,-0.27)$) {Innovation 2};
 
-% 2x2 grid of losses
-\node[lossbox=srborder] (sr) at ($(optgroup.center)+(-2.3,0.7)$) {Structural Risk\\$\frac{1}{2}\|\mathbf{w}\|^2$};
-\node[lossbox=varborder] (var) at ($(optgroup.center)+(2.3,0.7)$) {Variance (LDMR)\\$\lambda_1\!\sum\!(u_i\!-\!\bar{u})^2$};
-\node[lossbox=mmdborder] (mmd) at ($(optgroup.center)+(-2.3,-0.7)$) {MMD Adaptation\\$\lambda_2\text{MMD}^2(D_S,D_T)$};
-\node[lossbox=lossborder] (loss) at ($(optgroup.center)+(2.3,-0.7)$) {Pinball Loss\\$C_S\!\sum\!L_\tau\!+\!C_T\!\sum\!L_\tau$};
+\node[chip=c3,minimum width=4.15cm,minimum height=0.95cm] (eq) at ($(obj.center)+(0,1.30)$)
+{$J(\boldsymbol{w},b)=R_{\mathrm{SR}}+\lambda_1R_{\mathrm{VAR}}+\lambda_2R_{\mathrm{MMD}}+R_{\mathrm{Q}}$};
 
-% Plus signs
-\node[font=\normalsize\bfseries, color=gray!60] at ($(sr.east)!0.5!(var.west)$) {+};
-\node[font=\normalsize\bfseries, color=gray!60] at ($(mmd.east)!0.5!(loss.west)$) {+};
-\node[font=\normalsize\bfseries, color=gray!60] at ($(sr.south)!0.5!(mmd.north)$) {+};
-\node[font=\normalsize\bfseries, color=gray!60] at ($(var.south)!0.5!(loss.north)$) {+};
+\node[minichip=c3,minimum width=1.95cm] (t1) at ($(obj.center)+(-1.10,0.10)$) {$R_{\mathrm{SR}}$};
+\node[minichip=c3,minimum width=1.95cm] (t2) at ($(obj.center)+( 1.10,0.10)$) {$R_{\mathrm{VAR}}$};
+\node[minichip=c3,minimum width=1.95cm] (t3) at ($(obj.center)+(-1.10,-1.05)$) {$R_{\mathrm{MMD}}$};
+\node[minichip=c3,minimum width=1.95cm] (t4) at ($(obj.center)+( 1.10,-1.05)$) {$R_{\mathrm{Q}}$};
+\node[font=\large,color=ink!45] at ($(t1.east)!0.5!(t2.west)$) {+};
+\node[font=\large,color=ink!45] at ($(t3.east)!0.5!(t4.west)$) {+};
 
-% ============ ROW 4: OUTPUT ============
-\node[groupbox=outputborder, minimum width=10cm, minimum height=1.8cm, below=0.8cm of optgroup] (outputgroup) {};
-\node[above=-1pt of outputgroup.north, font=\footnotesize\bfseries, color=outputborder] {Probabilistic Forecasting Output};
+% =================== Stage 4: Scalable solver ===================
+\node[panel=c4,minimum width=4.05cm] (solver) at (s4) {};
+\node[ptitle=c4,above=1pt of solver.north] {Optimization};
+\node[tag=c4] at ($(solver.north east)+(-0.62,-0.27)$) {Innovation 3};
 
-\node[databox=outputborder, minimum width=3.5cm] (model) at ($(outputgroup.center)+(-2.2,0)$) {Optimal Model\\$f(\mathbf{x})\!=\!\mathbf{w}^T\phi(\mathbf{x})\!+\!b$};
+\node[minichip=gray,minimum width=3.30cm] (qp) at ($(solver.center)+(0,1.10)$)
+{Exact Dual QP: $O(N^3)$};
+\node[chip=c4,minimum width=3.30cm] (fast) at ($(solver.center)+(-0.00,-0.35)$)
+{Nystr\"om + Mini-batch SGD};
+\node[minichip=c4,minimum width=3.30cm] (cmp) at ($(solver.center)+(0,-1.70)$)
+{Complexity: $O(TNm)$};
 
-\node[smallbox=outputborder] (q95) at ($(outputgroup.center)+(2,0.35)$) {Upper: $\hat{q}_{0.95}$};
-\node[smallbox=outputborder] (q50) at ($(outputgroup.center)+(2,0)$) {Median: $\hat{q}_{0.50}$};
-\node[smallbox=outputborder] (q05) at ($(outputgroup.center)+(2,-0.35)$) {Lower: $\hat{q}_{0.05}$};
+% =================== Stage 5: Outputs ===================
+\node[panel=c5,minimum width=4.05cm] (out) at (s5) {};
+\node[ptitle=c5,above=1pt of out.north] {Forecasting Outputs};
 
-% Brace
-\draw[decorate, decoration={brace, amplitude=4pt}, thick, color=outputborder] 
-    ($(q95.north east)+(0.1,0.05)$) -- ($(q05.south east)+(0.1,-0.05)$) 
-    node[midway, right=3pt, font=\tiny, color=outputborder] {PI};
+\node[minichip=c5,minimum width=3.30cm] (point) at ($(out.center)+(0,1.25)$)
+{Point Forecast: $\hat y=f(\boldsymbol{x})$};
+\node[chip=c5,minimum width=3.30cm,minimum height=0.86cm] (head) at ($(out.center)+(0,0.05)$)
+{Quantile Head};
+\node[minichip=c5,minimum width=2.85cm] (q95) at ($(out.center)+(0,-0.95)$) {$\hat q_{0.95}$};
+\node[minichip=c5,minimum width=2.85cm] (q50) at ($(out.center)+(0,-1.62)$) {$\hat q_{0.50}$};
+\node[minichip=c5,minimum width=2.85cm] (q05) at ($(out.center)+(0,-2.29)$) {$\hat q_{0.05}$};
 
-% ============ ARROWS ============
-% Input to kernel
-\draw[myarrow] (source.south) -- ++(0,-0.25) -| ($(kernel.north)+(-0.5,0)$);
-\draw[myarrow] (target.south) -- ++(0,-0.25) -| ($(kernel.north)+(0.5,0)$);
+\draw[decorate,decoration={brace,amplitude=4pt},draw=c5,line width=0.95pt]
+  ($(q95.north east)+(0.08,0.04)$) -- ($(q05.south east)+(0.08,-0.04)$)
+  node[midway,right=3pt,font=\scriptsize\bfseries,color=c5] {PI};
 
-% Kernel to optimization
-\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(sr.north)+(-0.3,0)$);
-\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(var.north)+(0.3,0)$);
-\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(mmd.north)+(-0.3,0)$);
-\draw[myarrow] (kernel.south) -- ++(0,-0.3) -| ($(loss.north)+(0.3,0)$);
+% ---- internal tiny links in output (short and clean) ----
+\draw[arrow,draw=c5!80] (head.south) -- (q95.north);
+\draw[arrow,draw=c5!80] (head.south) -- (q50.north);
+\draw[arrow,draw=c5!80] (head.south) -- (q05.north);
 
-% Optimization to output
-\draw[myarrow] (sr.south) -- ++(0,-0.2) -| ($(model.north)+(-0.3,0)$);
-\draw[myarrow] (var.south) -- ++(0,-0.2) -| ($(model.north)+(0.3,0)$);
-\draw[myarrow] (mmd.south) -- ++(0,-0.15) -| ($(model.north)+(-0.1,0)$);
-\draw[myarrow] (loss.south) -- ++(0,-0.15) -| ($(model.north)+(0.1,0)$);
-
-% Model to quantiles
-\draw[myarrow, color=outputborder] (model.east) -- ($(q50.west)+(-0.3,0)$) -- (q50.west);
-\draw[myarrow, color=outputborder] ($(q50.west)+(-0.3,0)$) |- (q95.west);
-\draw[myarrow, color=outputborder] ($(q50.west)+(-0.3,0)$) |- (q05.west);
-
-% ============ ANNOTATIONS ============
-\node[font=\tiny, color=lossborder, below=-2pt of loss.south] {$C_T \gg C_S$};
+% =================== Main backbone (only 4 arrows) ===================
+\draw[arrow] (input.east) -- (adapt.west);
+\draw[arrow] (adapt.east) -- (obj.west);
+\draw[arrow] (obj.east) -- (solver.west);
+\draw[arrow] (solver.east) -- (out.west);
 
 \end{tikzpicture}
 \end{document}
