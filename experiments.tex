@@ -408,7 +408,7 @@ To validate the contribution of the three core components (transfer learning, LD
 The full TLQLDMR framework is compared against three architectural reductions:
 \begin{enumerate}
     \item \textbf{w/o Transfer (Target-only QLDMR)}: Trained exclusively on extreme weather target samples without source domain integration or MMD alignment.
-    \item \textbf{w/o LDMR (Variance Penalty)}: The distribution variance regularizer is removed, deteriorating the framework into a generalized Transfer SVR/SVQR variant.
+    \item \textbf{w/o LDMR (Variance Penalty)}: The asymmetric variance regularizer is removed, deteriorating the framework into a generalized Transfer SVR/SVQR variant that lacks distributional robustness.
     \item \textbf{w/o MMD (Feature Alignment)}: The algorithm employs cross-domain training data but disables Maximum Mean Discrepancy alignment, relying purely on weighted objective loss.
 \end{enumerate}
 
@@ -483,7 +483,7 @@ The extended experimental evaluations yield the following conclusive insights:
 
 \textbf{Interval forecasting achieves a better reliability-sharpness balance.} In Experiment~3, TLQLDMR achieves the highest coverage reliability among the compared methods while also obtaining the best composite penalty (CWC), and this advantage persists under injected measurement noise.
 
-\textbf{Ablation confirms the necessity of each component.} Removing transfer, LDMR variance regularization, or MMD alignment degrades either deterministic accuracy, interval calibration, or both; residual-density plots provide complementary evidence for this degradation.
+\textbf{Ablation confirms the necessity of each component.} Removing transfer learning reduces both point and interval performance under severe domain shift; removing asymmetric LDMR variance regularization degrades distributional robustness and interval calibration; removing MMD alignment weakens feature-space adaptation. Residual-density plots provide complementary evidence for this degradation.
 
 \textbf{The scalable optimizer materially reduces computational burden.} Experiment~5 verifies that the Nystr\"{o}m + SGD formulation remains practical in regimes where full QP optimization fails due to computational constraints.
 
