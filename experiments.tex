@@ -305,7 +305,7 @@ The interval prediction baselines are organized into two categories:
 \textbf{SVM-based quantile regression variants:}
 \begin{enumerate}
     \item \textbf{TSVQR} \citep{tsvqr2023}: Twin Support Vector Quantile Regression, which constructs separate hyperplanes for upper and lower quantiles;
-    \item \textbf{UQSVM-SSVQR} \citep{wang2024ssvqr}: Sparse Support Vector Quantile Regression with approximate kernel methods for scalability;
+    \item \textbf{UQSVM-SSVQR} \citep{wang2024ssvqr}: A robust SVQR variant with truncated pinball loss, used as a strong SVM-based interval baseline;
     \item \textbf{NFS-SVQR} \citep{ye2025nfs}: Nonlinear Feature Selection combined with SVQR, published in \textit{Neural Networks} (2025);
     \item \textbf{NuSVR-CI}: $\nu$-Support Vector Regression with CQR-calibrated prediction intervals as a classical SVM baseline.
 \end{enumerate}
