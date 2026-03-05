@@ -3,46 +3,49 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: build/TLQLDMR.aux
 The style file: model5-names.bst
 Database file #1: ref.bib
+Warning--I didn't find a database entry for "zhang2015vmd"
+Warning--I didn't find a database entry for "liu2020cuckoo"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 33 entries,
+You've used 30 entries,
             3390 wiz_defined-function locations,
-            921 strings with 12827 characters,
-and the built_in function-call counts, 25617 in all, are:
-= -- 1988
-> -- 1133
-< -- 18
-+ -- 1023
-- -- 318
-* -- 2866
-:= -- 3312
-add.period$ -- 134
-call.type$ -- 33
-change.case$ -- 273
-chr.to.int$ -- 32
-cite$ -- 33
-duplicate$ -- 1798
-empty$ -- 1731
-format.name$ -- 439
-if$ -- 4806
+            904 strings with 12278 characters,
+and the built_in function-call counts, 23397 in all, are:
+= -- 1809
+> -- 1059
+< -- 15
++ -- 963
+- -- 297
+* -- 2620
+:= -- 3028
+add.period$ -- 121
+call.type$ -- 30
+change.case$ -- 249
+chr.to.int$ -- 29
+cite$ -- 30
+duplicate$ -- 1631
+empty$ -- 1564
+format.name$ -- 405
+if$ -- 4380
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 339
-newline$ -- 191
-num.names$ -- 132
-pop$ -- 787
+missing$ -- 309
+newline$ -- 174
+num.names$ -- 120
+pop$ -- 719
 preamble$ -- 1
-purify$ -- 234
+purify$ -- 215
 quote$ -- 0
-skip$ -- 697
+skip$ -- 637
 stack$ -- 0
-substring$ -- 958
-swap$ -- 1380
-text.length$ -- 3
+substring$ -- 866
+swap$ -- 1256
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 297
+type$ -- 270
 warning$ -- 0
-while$ -- 139
+while$ -- 124
 width$ -- 0
-write$ -- 519
+write$ -- 471
+(There were 2 warnings)

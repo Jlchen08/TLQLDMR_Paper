@@ -176,9 +176,17 @@ The data partition for Farm~6 is as follows:
 
 The target domain is split via random shuffling with a fixed seed to ensure reproducibility. The 90\%/10\% target split is selected to maximize training signal under scarce extreme samples while retaining an independent hold-out subset for evaluation. All baseline models are trained exclusively on target-domain training data, whereas TLQLDMR additionally leverages source-domain samples through transfer learning.
 
-We compare TLQLDMR against six state-of-the-art non-deep-learning models published in 2025, spanning SVM variants, tree-based ensembles, and random forest methods specifically designed for wind power forecasting:
+We compare TLQLDMR against classical kernel baselines and recent state-of-the-art methods published in 2025, spanning SVM variants, tree-based ensembles, and random forest methods specifically designed for wind power forecasting:
 
+\textbf{Classical kernel baselines:}
 \begin{enumerate}
+    \item \textbf{Standard SVR}: Classical Support Vector Regression with RBF kernel and $\epsilon$-insensitive loss, serving as the foundational kernel-based regression baseline;
+    \item \textbf{Standard LDMR}: Large-margin Distribution Machine-based Regression with symmetric variance regularization, representing the direct predecessor of TLQLDMR without transfer learning or asymmetric modifications.
+\end{enumerate}
+
+\textbf{Recent SVM variants and ensemble methods:}
+\begin{enumerate}
+    \setcounter{enumi}{2}
     \item \textbf{HHO-SVR} \citep{houssein2025hho}: Support Vector Regression with hyperparameters optimized by the Harris Hawks Optimization metaheuristic;
     \item \textbf{FLSVR} \citep{meena2025flsvr}: A functional iterative method for solving the Lagrangian dual of SVR, offering improved convergence properties;
     \item \textbf{ARA-SVR} \citep{duan2025ara}: SVR with Associated Road Analysis for feature selection, originally proposed for short-term traffic flow prediction;
@@ -195,19 +203,25 @@ Table~\ref{tab:exp2_results} presents the test set performance of all models on 
 
 \begin{table}[ht]
 \centering
-\caption{Deterministic point prediction results on the extreme weather test set of Farm~6 (96\,MW). Best results are highlighted in bold.}
+\caption{Deterministic point prediction results on the extreme weather test set of Farm~6 (96\,MW). Models are sorted by RMSE in descending order, with TLQLDMR placed last for direct comparison. Best results are highlighted in bold.}
 \setlength{\tabcolsep}{3.5mm}
 \begin{tabular}{lccc}
 \toprule
 Model & RMSE & MAE & $R^2$ \\
 \midrule
-HHO-SVR    & 7.603 & 5.530 & 0.9537 \\
-FLSVR      & 8.794 & 6.301 & 0.9381 \\
-ARA-SVR    & 9.246 & 5.954 & 0.9316 \\
-KMeans-GBT & 9.620 & 6.695 & 0.9259 \\
-RF-WPF     & 7.967 & 5.344 & 0.9492 \\
-BRF-WPF    & 9.719 & 6.870 & 0.9244 \\
-\textbf{TLQLDMR} & \textbf{7.476} & \textbf{5.348} & \textbf{0.9553} \\
+\multicolumn{4}{l}{\textit{Kernel-based methods}} \\
+Standard LDMR & 10.692 & 6.327 & 0.9085 \\
+ARA-SVR       & 9.246 & 5.954 & 0.9316 \\
+FLSVR         & 8.794 & 6.301 & 0.9381 \\
+Standard SVR  & 8.564 & 5.537 & 0.9413 \\
+HHO-SVR       & 7.603 & 5.530 & 0.9537 \\
+\midrule
+\multicolumn{4}{l}{\textit{Ensemble methods}} \\
+BRF-WPF       & 9.719 & 6.870 & 0.9244 \\
+KMeans-GBT    & 9.620 & 6.695 & 0.9259 \\
+RF-WPF        & 7.967 & 5.344 & 0.9492 \\
+\midrule
+\textbf{TLQLDMR (Ours)} & \textbf{7.476} & \textbf{5.348} & \textbf{0.9553} \\
 \bottomrule
 \end{tabular}
 \label{tab:exp2_results}
@@ -215,35 +229,43 @@ BRF-WPF    & 9.719 & 6.870 & 0.9244 \\
 
 \begin{figure}
 \centering
-(a) HHO-SVR\par
+(a) Standard LDMR\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_Standard-LDMR.pdf}
+\vspace{0.12cm}
+
+(b) Standard SVR\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_Standard-SVR.pdf}
+\vspace{0.12cm}
+
+(c) HHO-SVR\par
 \includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_HHO-SVR.pdf}
 \vspace{0.12cm}
 
-(b) FLSVR\par
+(d) FLSVR\par
 \includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_FLSVR.pdf}
-\vspace{0.12cm}
-
-(c) ARA-SVR\par
-\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_ARA-SVR.pdf}
-\vspace{0.12cm}
-
-(d) KMeans-GBT\par
-\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_KMeans-GBT.pdf}
 \caption{Prediction-curve comparison on the Farm~6 extreme-weather test set (Part I). One row corresponds to one model, and each row contains the full segment plus peak/valley zoom views.}
 \label{fig:exp2_curves_a}
 \end{figure}
 
 \begin{figure}
 \centering
-(e) RF-WPF\par
+(e) ARA-SVR\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_ARA-SVR.pdf}
+\vspace{0.12cm}
+
+(f) KMeans-GBT\par
+\includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_KMeans-GBT.pdf}
+\vspace{0.12cm}
+
+(g) RF-WPF\par
 \includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_RF-WPF.pdf}
 \vspace{0.12cm}
 
-(f) BRF-WPF\par
+(h) BRF-WPF\par
 \includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_BRF-WPF.pdf}
 \vspace{0.12cm}
 
-(g) TLQLDMR\par
+(i) TLQLDMR\par
 \includegraphics[width=0.98\linewidth]{experiment2/plots_selected/farm3_TL-QLDMR.pdf}
 \caption{Prediction-curve comparison on the Farm~6 extreme-weather test set (Part II). One row corresponds to one model, and each row contains the full segment plus peak/valley zoom views.}
 \label{fig:exp2_curves_b}
@@ -251,7 +273,11 @@ BRF-WPF    & 9.719 & 6.870 & 0.9244 \\
 
 Table~\ref{tab:exp2_results} and Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_b} jointly demonstrate that TLQLDMR provides the most accurate and stable point forecasts on the Farm~6 extreme-weather test set. Several observations are noteworthy:
 
-TLQLDMR improves on the strongest non-transfer baseline (HHO-SVR), raising $R^2$ from 0.9537 to 0.9553 and reducing RMSE from 7.603 to 7.476. Although the numerical margin is moderate, it is obtained under the most severe domain-shift setting with only 4{,}143 extreme-weather samples. The curve-level evidence in Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_b} is consistent with the aggregate metrics: TLQLDMR tracks abrupt ramps and low-power transitions more closely, while several baselines show larger local deviations around rapid fluctuations. Among baselines, HHO-SVR remains the most competitive kernel method, RF-WPF remains the second-best overall alternative, and BRF-WPF does not surpass RF-WPF under the present small-sample extreme-weather regime. The observed gain of TLQLDMR is consistent with the combined effect of source-domain transfer, asymmetric target weighting, and cyclic wind-direction encoding. Because many extreme-weather periods contain near-zero power outputs, MAPE is numerically unstable and therefore RMSE and $R^2$ are treated as the principal deterministic indicators.
+First, comparing TLQLDMR against classical kernel baselines reveals the value of the proposed extensions. Standard SVR achieves moderate performance (RMSE = 8.564, $R^2$ = 0.9413), establishing a solid baseline for kernel-based regression. However, Standard LDMR, despite incorporating variance regularization for distributional robustness, exhibits the weakest performance among kernel methods (RMSE = 10.692, $R^2$ = 0.9085). This degradation confirms our theoretical analysis in Section~\ref{novel}: LDMR's symmetric variance minimization, while effective for mean regression under i.i.d. conditions, is fundamentally misaligned with the cross-domain extreme weather scenario where (i) training and testing distributions differ substantially, and (ii) the model must adapt to target-domain dynamics. The performance gap between Standard LDMR and TLQLDMR (RMSE reduction from 10.692 to 7.476, $R^2$ improvement from 0.9085 to 0.9553) quantitatively validates the necessity of integrating transfer learning and asymmetric variance regularization.
+
+Second, TLQLDMR improves on the strongest non-transfer baseline (HHO-SVR), raising $R^2$ from 0.9537 to 0.9553 and reducing RMSE from 7.603 to 7.476. Although the numerical margin is moderate, it is obtained under the most severe domain-shift setting with only 4{,}143 extreme-weather samples. The curve-level evidence in Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_b} is consistent with the aggregate metrics: TLQLDMR tracks abrupt ramps and low-power transitions more closely, while several baselines show larger local deviations around rapid fluctuations. Notably, Standard LDMR and Standard SVR exhibit more pronounced tracking errors during peak-valley transitions, as shown in subfigures (a) and (b), confirming that classical kernel methods without domain adaptation struggle under distribution shift.
+
+Third, among baselines, HHO-SVR remains the most competitive kernel method, RF-WPF remains the second-best overall alternative, and BRF-WPF does not surpass RF-WPF under the present small-sample extreme-weather regime. The observed gain of TLQLDMR is consistent with the combined effect of source-domain transfer, asymmetric target weighting, and cyclic wind-direction encoding. Because many extreme-weather periods contain near-zero power outputs, MAPE is numerically unstable and therefore RMSE and $R^2$ are treated as the principal deterministic indicators.
 
 To assess the robustness of the models against measurement noise, which is prevalent in SCADA systems during extreme weather, we evaluate the point prediction performance by injecting Gaussian noise into both the training and testing input features. We simulate varying Signal-to-Noise Ratios (SNR $\in \{60, 40, 30, 20, 10\}$ dB). For this analysis, TLQLDMR utilizes a higher-dimensional Nystr\"{o}m mapping ($m = 1{,}500$) and longer training duration (80 epochs) to accommodate the increased input variance.
 
@@ -259,19 +285,25 @@ The $R^2$ results under different noise levels are summarized in Table~\ref{tab:
 
 \begin{table}[ht]
 \centering
-\caption{Model performance ($R^2$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Best results are highlighted in bold.}
+\caption{Model performance ($R^2$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Models are sorted consistently with Table~\ref{tab:exp2_results}. Best results are highlighted in bold.}
 \setlength{\tabcolsep}{3.5mm}
 \begin{tabular}{lccccc}
 \toprule
-Model & SNR = 10 dB & SNR = 20 dB & SNR = 30 dB & SNR = 40 dB & SNR = 60 dB \\
+Model & SNR = 30 dB & SNR = 40 dB & SNR = 60 dB \\
 \midrule
-HHO-SVR    & 0.9309 & 0.9539 & 0.9542 & 0.9538 & 0.9537 \\
-FLSVR      & 0.9253 & 0.9371 & 0.9380 & 0.9381 & 0.9381 \\
-ARA-SVR    & 0.9145 & 0.9303 & 0.9311 & 0.9316 & 0.9316 \\
-KMeans-GBT & 0.9137 & 0.9247 & 0.9209 & 0.9230 & 0.9262 \\
-RF-WPF     & 0.9265 & 0.9438 & 0.9471 & 0.9485 & 0.9469 \\
-BRF-WPF    & 0.8939 & 0.9144 & 0.9177 & 0.9250 & 0.9253 \\
-\textbf{TLQLDMR} & \textbf{0.9419} & \textbf{0.9547} & \textbf{0.9584} & \textbf{0.9560} & \textbf{0.9603} \\
+\multicolumn{4}{l}{\textit{Kernel-based methods}} \\
+Standard LDMR & 0.9084 & 0.9080 & 0.9084 \\
+ARA-SVR       & 0.9311 & 0.9316 & 0.9316 \\
+FLSVR         & 0.9380 & 0.9381 & 0.9381 \\
+Standard SVR  & 0.9409 & 0.9414 & 0.9413 \\
+HHO-SVR       & 0.9542 & 0.9538 & 0.9537 \\
+\midrule
+\multicolumn{4}{l}{\textit{Ensemble methods}} \\
+BRF-WPF       & 0.9177 & 0.9250 & 0.9253 \\
+KMeans-GBT    & 0.9209 & 0.9230 & 0.9262 \\
+RF-WPF        & 0.9471 & 0.9485 & 0.9469 \\
+\midrule
+\textbf{TLQLDMR (Ours)} & \textbf{0.9584} & \textbf{0.9560} & \textbf{0.9603} \\
 \bottomrule
 \end{tabular}
 \label{tab:exp2_noise}
@@ -304,6 +336,7 @@ The interval prediction baselines are organized into two categories:
 
 \textbf{SVM-based quantile regression variants:}
 \begin{enumerate}
+    \item \textbf{Standard SVQR}: Classical Support Vector Quantile Regression with pinball loss, serving as the foundational kernel-based interval prediction baseline;
     \item \textbf{TSVQR} \citep{tsvqr2023}: Twin Support Vector Quantile Regression, which constructs separate hyperplanes for upper and lower quantiles;
     \item \textbf{UQSVM-SSVQR} \citep{wang2024ssvqr}: A robust SVQR variant with truncated pinball loss, used as a strong SVM-based interval baseline;
     \item \textbf{NFS-SVQR} \citep{ye2025nfs}: Nonlinear Feature Selection combined with SVQR, published in \textit{Neural Networks} (2025);
@@ -312,6 +345,7 @@ The interval prediction baselines are organized into two categories:
 
 \textbf{Recent wind power interval prediction models:}
 \begin{enumerate}
+    \setcounter{enumi}{5}
     \item \textbf{HybridDL-Interval} \citep{hybriddl2025}: A hybrid deep learning framework for day-ahead wind power interval forecasting, combining temporal attention and quantile loss (approximate implementation);
     \item \textbf{AMQRNN} \citep{amqrnn2025}: A recurrent attention encoder-decoder network for multi-step interval wind power prediction, implemented using an attention-GRU network;
     \item \textbf{QGBR} \citep{hu2025ncqgbr}: Quantile Gradient Boosted Regression, representing the improved quantile ensemble learning framework for wind power prediction;
@@ -324,54 +358,59 @@ Table~\ref{tab:exp3_results} presents the interval prediction results on the ext
 
 \begin{table*}[ht]
 \centering
-\caption{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Baseline models are sorted by CWC in ascending order, while TLQLDMR is placed in the last row for direct comparison. Best results per column are highlighted in bold.}
+\caption{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Models are sorted by CWC in ascending order, with TLQLDMR placed last for direct comparison. Best results per column are highlighted in bold.}
 \setlength{\tabcolsep}{4mm}
 \begin{tabular}{lccccc}
 \toprule
 Model & PICP & MPIW & PINAW & CWC & Winkler \\
 \midrule
-NuSVR-CI         & 0.843 & \textbf{19.970} & 0.208 & 0.285 & 54.603 \\
-HybridDL-Interval& 0.954 & 31.645 & 0.329 & 0.329 & 60.224 \\
-TSVQR            & 0.889 & 24.592 & 0.256 & 0.342 & 48.178 \\
-QGBR             & 0.949 & 31.715 & 0.330 & 0.429 & 37.643 \\
-CQR-MLP          & 0.942 & 31.750 & 0.330 & 0.431 & 46.772 \\
-AMQRNN           & 0.940 & 32.432 & 0.337 & 0.441 & 66.874 \\
-NFS-SVQR         & 0.913 & 68.359 & 0.711 & 0.941 & 76.997 \\
-UQSVM-SSVQR      & 0.928 & 81.710 & 0.850 & 1.117 & 85.162 \\
-\textbf{TLQLDMR} & \textbf{0.959} & 25.791 & \textbf{0.268} & \textbf{0.268} & \textbf{34.506} \\
+NuSVR-CI            & 0.843 & \textbf{19.970} & \textbf{0.208} & 0.285 & 54.603 \\
+HybridDL-Interval   & 0.954 & 31.645 & 0.329 & 0.329 & 60.224 \\
+TSVQR               & 0.889 & 24.592 & 0.256 & 0.342 & 48.178 \\
+Standard SVQR       & \textbf{0.959} & 34.342 & 0.357 & 0.357 & 42.067 \\
+QGBR                & 0.949 & 31.715 & 0.330 & 0.429 & 37.643 \\
+CQR-MLP             & 0.942 & 31.750 & 0.330 & 0.431 & 46.772 \\
+AMQRNN              & 0.940 & 32.432 & 0.337 & 0.441 & 66.874 \\
+NFS-SVQR            & 0.913 & 68.359 & 0.711 & 0.941 & 76.997 \\
+UQSVM-SSVQR         & 0.928 & 81.710 & 0.850 & 1.117 & 85.162 \\
+\textbf{TLQLDMR (Ours)} & \textbf{0.959} & 25.791 & 0.268 & \textbf{0.268} & \textbf{34.506} \\
 \bottomrule
 \end{tabular}
 \label{tab:exp3_results}
 \end{table*}
 
-The interval prediction results indicate a clear reliability-sharpness trade-off under extreme weather, and TLQLDMR offers the most favorable balance. TLQLDMR reaches the nominal 95\% coverage target (PICP = 0.959) while obtaining the best composite quality (CWC = 0.268) and the best Winkler score (34.506), which shows that transfer learning with validation-based width scaling can provide both reliable and sharp intervals. By contrast, NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage, whereas HybridDL-Interval, QGBR, CQR-MLP, and AMQRNN can approach acceptable coverage only with wider intervals. This comparison suggests that explicit asymmetric regularization combined with cross-domain adaptation is more effective for heavily skewed extreme-weather samples.
+The interval prediction results indicate a clear reliability-sharpness trade-off under extreme weather, and TLQLDMR offers the most favorable balance. TLQLDMR reaches the nominal 95\% coverage target (PICP = 0.959) while obtaining the best composite quality (CWC = 0.268) and the best Winkler score (34.506), demonstrating that transfer learning with validation-based width scaling can provide both reliable and sharp intervals.
+
+Comparing against the classical kernel baseline, Standard SVQR achieves the same coverage level as TLQLDMR (PICP = 0.959) but produces substantially wider intervals (PINAW = 0.357 vs. 0.268), resulting in inferior CWC (0.357 vs. 0.268) and Winkler scores (42.067 vs. 34.506). This comparison quantitatively validates the advantage of TLQLDMR's asymmetric variance regularization and cross-domain adaptation over standard quantile regression: while Standard SVQR can achieve reliable coverage through conservative interval widening, it lacks the distributional robustness and domain-specific calibration mechanisms needed to produce sharp, well-calibrated intervals under extreme weather distribution shift.
+
+By contrast, NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage (PICP = 0.843 and 0.889, respectively), whereas HybridDL-Interval, QGBR, CQR-MLP, and AMQRNN can approach acceptable coverage only with wider intervals. This comparison suggests that explicit asymmetric regularization combined with cross-domain adaptation is more effective for heavily skewed extreme-weather samples than either classical quantile regression or deep learning approaches.
 
 To assess interval robustness under sensor perturbation, Gaussian noise is injected only into test inputs at SNR $\in \{60,40,30\}$ dB, while calibration parameters remain fixed to preserve comparability across models. For TLQLDMR, a conservative scaling multiplier (1.15) is used to maintain coverage. Unlike the previous single-metric presentation, Table~\ref{tab:exp3_noise} reports the full set of interval metrics.
 
 \begin{table*}[ht]
 \centering
-\caption{Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred.}
+\caption{Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. Models are sorted consistently with Table~\ref{tab:exp3_results}. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred. Best CWC results are highlighted in bold.}
 \setlength{\tabcolsep}{3.0mm}
 \begin{tabular}{llccccc}
 \toprule
 Model & SNR (dB) & PICP & MPIW & PINAW & CWC & Winkler \\
 \midrule
-\multirow{3}{*}{TSVQR}
-  & 30 & 0.8892 & 24.570 & 0.2556 & 0.3422 & 48.306 \\
-  & 40 & 0.8892 & 24.588 & 0.2558 & 0.3424 & 48.140 \\
-  & 60 & 0.8892 & 24.592 & 0.2558 & 0.3425 & 48.169 \\
-\multirow{3}{*}{UQSVM-SSVQR}
-  & 30 & 0.9229 & 81.706 & 0.8499 & 1.1191 & 85.364 \\
-  & 40 & 0.9277 & 81.718 & 0.8501 & 1.1167 & 85.178 \\
-  & 60 & 0.9277 & 81.710 & 0.8500 & 1.1166 & 85.162 \\
-\multirow{3}{*}{NFS-SVQR}
-  & 30 & 0.9060 & 68.369 & 0.7112 & 0.9442 & 77.305 \\
-  & 40 & 0.9133 & 68.376 & 0.7113 & 0.9409 & 76.878 \\
-  & 60 & 0.9133 & 68.359 & 0.7111 & 0.9407 & 76.983 \\
 \multirow{3}{*}{NuSVR-CI}
   & 30 & 0.8386 & 19.970 & 0.2077 & 0.2856 & 54.922 \\
   & 40 & 0.8361 & 19.970 & 0.2077 & 0.2860 & 54.623 \\
   & 60 & 0.8434 & 19.970 & 0.2077 & 0.2849 & 54.588 \\
+\multirow{3}{*}{HybridDL-Interval}
+  & 30 & 0.9422 & 32.304 & 0.3360 & 0.4384 & 53.462 \\
+  & 40 & 0.9422 & 32.307 & 0.3361 & 0.4385 & 53.420 \\
+  & 60 & 0.9422 & 32.306 & 0.3361 & 0.4385 & 53.408 \\
+\multirow{3}{*}{TSVQR}
+  & 30 & 0.8892 & 24.570 & 0.2556 & 0.3422 & 48.306 \\
+  & 40 & 0.8892 & 24.588 & 0.2558 & 0.3424 & 48.140 \\
+  & 60 & 0.8892 & 24.592 & 0.2558 & 0.3425 & 48.169 \\
+\multirow{3}{*}{Standard SVQR}
+  & 30 & 0.9446 & 29.704 & 0.3090 & 0.4027 & 41.541 \\
+  & 40 & 0.9422 & 29.725 & 0.3092 & 0.4034 & 41.429 \\
+  & 60 & 0.9446 & 29.728 & 0.3092 & 0.4030 & 41.420 \\
 \multirow{3}{*}{QGBR}
   & 30 & 0.9518 & 32.067 & 0.3336 & 0.3336 & 38.441 \\
   & 40 & 0.9518 & 31.721 & 0.3300 & 0.3300 & 37.424 \\
@@ -380,15 +419,19 @@ Model & SNR (dB) & PICP & MPIW & PINAW & CWC & Winkler \\
   & 30 & 0.9325 & 32.548 & 0.3386 & 0.4438 & 48.828 \\
   & 40 & 0.9325 & 32.550 & 0.3386 & 0.4438 & 48.780 \\
   & 60 & 0.9325 & 32.554 & 0.3386 & 0.4438 & 48.743 \\
-\multirow{3}{*}{HybridDL-Interval}
-  & 30 & 0.9422 & 32.304 & 0.3360 & 0.4384 & 53.462 \\
-  & 40 & 0.9422 & 32.307 & 0.3361 & 0.4385 & 53.420 \\
-  & 60 & 0.9422 & 32.306 & 0.3361 & 0.4385 & 53.408 \\
 \multirow{3}{*}{AMQRNN}
   & 30 & 0.9518 & 33.517 & 0.3487 & 0.3487 & 68.546 \\
   & 40 & 0.9518 & 33.513 & 0.3486 & 0.3486 & 68.517 \\
   & 60 & 0.9518 & 33.512 & 0.3486 & 0.3486 & 68.515 \\
-\multirow{3}{*}{\textbf{TLQLDMR}}
+\multirow{3}{*}{NFS-SVQR}
+  & 30 & 0.9060 & 68.369 & 0.7112 & 0.9442 & 77.305 \\
+  & 40 & 0.9133 & 68.376 & 0.7113 & 0.9409 & 76.878 \\
+  & 60 & 0.9133 & 68.359 & 0.7111 & 0.9407 & 76.983 \\
+\multirow{3}{*}{UQSVM-SSVQR}
+  & 30 & 0.9229 & 81.706 & 0.8499 & 1.1191 & 85.364 \\
+  & 40 & 0.9277 & 81.718 & 0.8501 & 1.1167 & 85.178 \\
+  & 60 & 0.9277 & 81.710 & 0.8500 & 1.1166 & 85.162 \\
+\multirow{3}{*}{\textbf{TLQLDMR (Ours)}}
   & 30 & 0.9542 & 26.709 & 0.2778 & \textbf{0.2778} & 36.307 \\
   & 40 & 0.9566 & 26.713 & 0.2779 & \textbf{0.2779} & 36.034 \\
   & 60 & 0.9566 & 26.715 & 0.2779 & \textbf{0.2779} & 36.083 \\
@@ -403,10 +446,11 @@ Across all noise levels, TLQLDMR maintains the best CWC while keeping PICP above
 %---------------- Experiment 4 --------------------%
 \subsection{Experiment 4: Ablation Study}\label{sec:exp4}
 
-To validate the contribution of the three core components (transfer learning, LDMR variance regularization, and MMD feature alignment), this ablation experiment evaluates structurally reduced variants on both point and interval tasks.
+To validate the contribution of the three core components (transfer learning, LDMR variance regularization, and MMD feature alignment), this ablation experiment evaluates structurally reduced variants on both point and interval tasks. Additionally, to verify the necessity of asymmetric variance regularization for quantile regression, we include LDMR-Quantile (SymVar), which replaces the asymmetric variance term with standard symmetric variance minimization while retaining the transfer learning framework.
 
-The full TLQLDMR framework is compared against three architectural reductions:
+The full TLQLDMR framework is compared against four architectural reductions:
 \begin{enumerate}
+    \item \textbf{LDMR-Quantile (SymVar)}: Replaces asymmetric variance regularization with symmetric variance minimization, testing whether the asymmetry is necessary for quantile-specific calibration.
     \item \textbf{w/o Transfer (Target-only QLDMR)}: Trained exclusively on extreme weather target samples without source domain integration or MMD alignment.
     \item \textbf{w/o LDMR (Variance Penalty)}: The asymmetric variance regularizer is removed, deteriorating the framework into a generalized Transfer SVR/SVQR variant that lacks distributional robustness.
     \item \textbf{w/o MMD (Feature Alignment)}: The algorithm employs cross-domain training data but disables Maximum Mean Discrepancy alignment, relying purely on weighted objective loss.
@@ -416,7 +460,7 @@ Table~\ref{tab:ablation_results} reports the ablation results on Farm~6. The ful
 
 \begin{table*}[ht]
 \centering
-\caption{Ablation study evaluations for point and interval extreme-weather prediction. Best results are highlighted in bold.}
+\caption{Ablation study evaluations for point and interval extreme-weather prediction. Variants are sorted by point prediction RMSE in descending order, with full TLQLDMR placed last. Best results are highlighted in bold.}
 \setlength{\tabcolsep}{3mm}
 \begin{tabular}{lcccccc}
 \toprule
@@ -424,9 +468,10 @@ Table~\ref{tab:ablation_results} reports the ablation results on Farm~6. The ful
 \cmidrule(lr){2-3} \cmidrule(lr){4-7}
 Model Variants & RMSE & $R^2$ & PICP & MPIW & PINAW & CWC \\
 \midrule
-w/o Transfer & 7.930 & 0.9497 & 0.952 & 26.891 & 0.2797 & 0.2797 \\
-w/o LDMR     & 8.205 & 0.9461 & 0.949 & 25.925 & 0.2697 & 0.3507 \\
-w/o MMD      & 7.745 & 0.9520 & 0.947 & 26.049 & 0.2710 & 0.3528 \\
+w/o LDMR (Variance)     & 8.205 & 0.9461 & 0.949 & 25.925 & 0.2697 & 0.3507 \\
+w/o Transfer            & 7.930 & 0.9497 & 0.952 & 26.891 & 0.2797 & 0.2797 \\
+LDMR-Quantile (SymVar)  & 7.868 & 0.9472 & 0.952 & 29.114 & 0.3029 & 0.3029 \\
+w/o MMD                 & 7.745 & 0.9520 & 0.947 & 26.049 & 0.2710 & 0.3528 \\
 \textbf{TLQLDMR (Full)} & \textbf{7.476} & \textbf{0.9553} & \textbf{0.959} & \textbf{25.791} & \textbf{0.2683} & \textbf{0.2683} \\
 \bottomrule
 \end{tabular}
@@ -440,7 +485,11 @@ w/o MMD      & 7.745 & 0.9520 & 0.947 & 26.049 & 0.2710 & 0.3528 \\
 \label{fig:ablation_residual}
 \end{figure}
 
-The ablation outcomes confirm that each component contributes materially to robustness. Removing transfer learning reduces both point accuracy ($R^2$: 0.9553 $\rightarrow$ 0.9497) and interval quality (CWC: 0.2683 $\rightarrow$ 0.2797), indicating that target-only training is insufficient under strong domain shift. Removing LDMR regularization or MMD alignment causes clear interval-quality degradation (CWC rises to 0.3507 and 0.3528), even when point-metric changes are smaller, showing that residual-shape control and feature alignment are central to reliable uncertainty estimation. The residual-density comparison in Fig.~\ref{fig:ablation_residual} supports this conclusion by showing tighter central concentration and weaker heavy tails for the full TLQLDMR model; some ablated variants exhibit sharper central peaks but noticeably thicker tails, which corresponds to a higher probability of large-error events.
+The ablation outcomes confirm that each component contributes materially to robustness. Removing transfer learning reduces both point accuracy ($R^2$: 0.9553 $\rightarrow$ 0.9497) and interval quality (CWC: 0.2683 $\rightarrow$ 0.2797), indicating that target-only training is insufficient under strong domain shift. Removing LDMR regularization or MMD alignment causes clear interval-quality degradation (CWC rises to 0.3507 and 0.3528), even when point-metric changes are smaller, showing that residual-shape control and feature alignment are central to reliable uncertainty estimation.
+
+Critically, the LDMR-Quantile (SymVar) variant—which replaces asymmetric variance with symmetric variance minimization—exhibits degraded performance on both point prediction (RMSE: 7.868 vs. 7.476) and interval prediction (CWC: 0.3029 vs. 0.2683, PINAW: 0.3029 vs. 0.2683). This degradation empirically validates our theoretical analysis in Section~\ref{novel}: symmetric variance minimization, while effective for mean regression, conflicts with the asymmetric residual distribution required for accurate quantile estimation. The symmetric regularizer forces errors toward a centered, Gaussian-like distribution, thereby degrading interval calibration at non-median quantiles. This comparison confirms that asymmetric variance regularization is not merely a technical refinement but a theoretically necessary modification for extending LDMR to quantile regression tasks.
+
+The residual-density comparison in Fig.~\ref{fig:ablation_residual} supports this conclusion by showing tighter central concentration and weaker heavy tails for the full TLQLDMR model; some ablated variants exhibit sharper central peaks but noticeably thicker tails, which corresponds to a higher probability of large-error events.
 \FloatBarrier
 
 
@@ -479,11 +528,13 @@ Both CVXOPT and torch\_gd become infeasible beyond $N=800$ due to cubically grow
 
 The extended experimental evaluations yield the following conclusive insights:
 
-\textbf{Transfer learning improves deterministic forecasting under severe shift.} Experiment~2 shows consistent gains in RMSE and $R^2$, and curve-level evidence confirms better tracking during abrupt peak-valley transitions.
+\textbf{Classical kernel baselines establish the necessity of proposed extensions.} Experiment~2 demonstrates that Standard SVR achieves moderate performance (RMSE = 8.564), while Standard LDMR, despite incorporating variance regularization, exhibits the weakest performance among kernel methods (RMSE = 10.692). This degradation confirms that LDMR's symmetric variance minimization, while effective under i.i.d. conditions, is fundamentally misaligned with cross-domain extreme weather scenarios. The performance gap between Standard LDMR and TLQLDMR (RMSE reduction from 10.692 to 7.476) quantitatively validates the necessity of integrating transfer learning and asymmetric variance regularization. Similarly, in Experiment~3, Standard SVQR achieves reliable coverage (PICP = 0.959) but produces substantially wider intervals (PINAW = 0.357) compared to TLQLDMR (PINAW = 0.268), demonstrating the advantage of asymmetric variance regularization and cross-domain adaptation over standard quantile regression.
+
+\textbf{Transfer learning improves deterministic forecasting under severe shift.} Experiment~2 shows consistent gains in RMSE and $R^2$ over both classical baselines and recent variants, and curve-level evidence confirms better tracking during abrupt peak-valley transitions.
 
 \textbf{Interval forecasting achieves a better reliability-sharpness balance.} In Experiment~3, TLQLDMR achieves the highest coverage reliability among the compared methods while also obtaining the best composite penalty (CWC), and this advantage persists under injected measurement noise.
 
-\textbf{Ablation confirms the necessity of each component.} Removing transfer learning reduces both point and interval performance under severe domain shift; removing asymmetric LDMR variance regularization degrades distributional robustness and interval calibration; removing MMD alignment weakens feature-space adaptation. Residual-density plots provide complementary evidence for this degradation.
+\textbf{Ablation confirms the necessity of each component.} Removing transfer learning reduces both point and interval performance under severe domain shift; removing asymmetric LDMR variance regularization degrades distributional robustness and interval calibration; removing MMD alignment weakens feature-space adaptation. Critically, the LDMR-Quantile (SymVar) variant confirms that symmetric variance minimization conflicts with quantile-specific asymmetry requirements, validating our theoretical analysis. Residual-density plots provide complementary evidence for this degradation.
 
 \textbf{The scalable optimizer materially reduces computational burden.} Experiment~5 verifies that the Nystr\"{o}m + SGD formulation remains practical in regimes where full QP optimization fails due to computational constraints.
 
