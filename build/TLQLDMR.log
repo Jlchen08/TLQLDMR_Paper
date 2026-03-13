@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.20)  5 MAR 2026 20:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.20)  10 MAR 2026 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -813,12 +813,6 @@ Package hyperref Warning: Ignoring empty anchor on input line 233.
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 
-Package natbib Warning: Citation `zhang2015vmd' on page 2 undefined on input line 244.
-
-
-Package natbib Warning: Citation `liu2020cuckoo' on page 2 undefined on input line 244.
-
-
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.5> not available
 (Font)              size <7> substituted on input line 246.
 
@@ -836,7 +830,7 @@ Overfull \hbox (11.76498pt too wide) in paragraph at lines 321--323
 
 
 [5]
-<build/framework.pdf, id=160, 844.55423pt x 186.40741pt>
+<build/framework.pdf, id=170, 844.55423pt x 186.40741pt>
 File: build/framework.pdf Graphic file (type pdf)
 <use build/framework.pdf>
 Package pdftex.def Info: build/framework.pdf  used on input line 334.
@@ -861,151 +855,145 @@ File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 [12]
 
 [13]
-<experiment1/outputs/plots/farm1_domain_shift.jpg, id=437, 2860.6875pt x 2168.1pt>
+<experiment1/outputs/plots/farm1_domain_shift.jpg, id=446, 2860.6875pt x 2168.1pt>
 File: experiment1/outputs/plots/farm1_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm1_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm1_domain_shift.jpg  used on input line 140.
+Package pdftex.def Info: experiment1/outputs/plots/farm1_domain_shift.jpg  used on input line 100.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm0_domain_shift.jpg, id=438, 2860.6875pt x 2168.1pt>
+<experiment1/outputs/plots/farm0_domain_shift.jpg, id=447, 2860.6875pt x 2168.1pt>
 File: experiment1/outputs/plots/farm0_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm0_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm0_domain_shift.jpg  used on input line 142.
+Package pdftex.def Info: experiment1/outputs/plots/farm0_domain_shift.jpg  used on input line 102.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm2_domain_shift.jpg, id=439, 2860.6875pt x 2168.1pt>
+<experiment1/outputs/plots/farm2_domain_shift.jpg, id=448, 2860.6875pt x 2168.1pt>
 File: experiment1/outputs/plots/farm2_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm2_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm2_domain_shift.jpg  used on input line 145.
+Package pdftex.def Info: experiment1/outputs/plots/farm2_domain_shift.jpg  used on input line 105.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm4_domain_shift.jpg, id=440, 2860.6875pt x 2168.1pt>
+<experiment1/outputs/plots/farm4_domain_shift.jpg, id=449, 2860.6875pt x 2168.1pt>
 File: experiment1/outputs/plots/farm4_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm4_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm4_domain_shift.jpg  used on input line 147.
+Package pdftex.def Info: experiment1/outputs/plots/farm4_domain_shift.jpg  used on input line 107.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm5_domain_shift.jpg, id=441, 2860.6875pt x 2168.1pt>
+<experiment1/outputs/plots/farm5_domain_shift.jpg, id=450, 2860.6875pt x 2168.1pt>
 File: experiment1/outputs/plots/farm5_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm5_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm5_domain_shift.jpg  used on input line 150.
+Package pdftex.def Info: experiment1/outputs/plots/farm5_domain_shift.jpg  used on input line 110.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm3_domain_shift.jpg, id=442, 2860.6875pt x 2168.1pt>
+<experiment1/outputs/plots/farm3_domain_shift.jpg, id=451, 2860.6875pt x 2168.1pt>
 File: experiment1/outputs/plots/farm3_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm3_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm3_domain_shift.jpg  used on input line 152.
+Package pdftex.def Info: experiment1/outputs/plots/farm3_domain_shift.jpg  used on input line 112.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
 
 
 [14]
 
-[15]
-
-[16 <./experiment1/outputs/plots/farm1_domain_shift.jpg> <./experiment1/outputs/plots/farm0_domain_shift.jpg> <./experiment1/outputs/plots/farm2_domain_shift.jpg> <./experiment1/outputs/plots/farm4_domain_shift.jpg> <./experiment1/outputs/plots/farm5_domain_shift.jpg> <./experiment1/outputs/plots/farm3_domain_shift.jpg>]
+[15 <./experiment1/outputs/plots/farm1_domain_shift.jpg> <./experiment1/outputs/plots/farm0_domain_shift.jpg> <./experiment1/outputs/plots/farm2_domain_shift.jpg> <./experiment1/outputs/plots/farm4_domain_shift.jpg> <./experiment1/outputs/plots/farm5_domain_shift.jpg> <./experiment1/outputs/plots/farm3_domain_shift.jpg>]
 <experiment2/plots_selected/farm3_Standard-LDMR.pdf, id=476, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_Standard-LDMR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_Standard-LDMR.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-LDMR.pdf  used on input line 233.
+Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-LDMR.pdf  used on input line 185.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_Standard-SVR.pdf, id=477, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_Standard-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_Standard-SVR.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-SVR.pdf  used on input line 237.
+Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-SVR.pdf  used on input line 189.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_HHO-SVR.pdf, id=478, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_HHO-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_HHO-SVR.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_HHO-SVR.pdf  used on input line 241.
+Package pdftex.def Info: experiment2/plots_selected/farm3_HHO-SVR.pdf  used on input line 193.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_FLSVR.pdf, id=479, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_FLSVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_FLSVR.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_FLSVR.pdf  used on input line 245.
+Package pdftex.def Info: experiment2/plots_selected/farm3_FLSVR.pdf  used on input line 197.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_ARA-SVR.pdf, id=480, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_ARA-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_ARA-SVR.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_ARA-SVR.pdf  used on input line 253.
+Package pdftex.def Info: experiment2/plots_selected/farm3_ARA-SVR.pdf  used on input line 205.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_KMeans-GBT.pdf, id=481, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_KMeans-GBT.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_KMeans-GBT.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_KMeans-GBT.pdf  used on input line 257.
+Package pdftex.def Info: experiment2/plots_selected/farm3_KMeans-GBT.pdf  used on input line 209.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_RF-WPF.pdf, id=482, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_RF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_RF-WPF.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_RF-WPF.pdf  used on input line 261.
+Package pdftex.def Info: experiment2/plots_selected/farm3_RF-WPF.pdf  used on input line 213.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_BRF-WPF.pdf, id=483, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_BRF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_BRF-WPF.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_BRF-WPF.pdf  used on input line 265.
+Package pdftex.def Info: experiment2/plots_selected/farm3_BRF-WPF.pdf  used on input line 217.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 <experiment2/plots_selected/farm3_TL-QLDMR.pdf, id=484, 1084.05pt x 289.08pt>
 File: experiment2/plots_selected/farm3_TL-QLDMR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_TL-QLDMR.pdf>
-Package pdftex.def Info: experiment2/plots_selected/farm3_TL-QLDMR.pdf  used on input line 269.
+Package pdftex.def Info: experiment2/plots_selected/farm3_TL-QLDMR.pdf  used on input line 221.
 (pdftex.def)             Requested size: 458.96375pt x 122.392pt.
 
 
-LaTeX Warning: Float too large for page by 87.4248pt on input line 272.
+LaTeX Warning: Float too large for page by 87.4248pt on input line 224.
 
 
 
-[17
+[16
 
 ]
 
-[18]
+[17]
 
-[19]
+[18 <./experiment2/plots_selected/farm3_Standard-LDMR.pdf> <./experiment2/plots_selected/farm3_Standard-SVR.pdf> <./experiment2/plots_selected/farm3_HHO-SVR.pdf> <./experiment2/plots_selected/farm3_FLSVR.pdf>]
 
-[20 <./experiment2/plots_selected/farm3_Standard-LDMR.pdf> <./experiment2/plots_selected/farm3_Standard-SVR.pdf> <./experiment2/plots_selected/farm3_HHO-SVR.pdf> <./experiment2/plots_selected/farm3_FLSVR.pdf>]
-
-[21 <./experiment2/plots_selected/farm3_ARA-SVR.pdf> <./experiment2/plots_selected/farm3_KMeans-GBT.pdf> <./experiment2/plots_selected/farm3_RF-WPF.pdf> <./experiment2/plots_selected/farm3_BRF-WPF.pdf> <./experiment2/plots_selected/farm3_TL-QLDMR.pdf>]
-Underfull \hbox (badness 1448) in paragraph at lines 382--383
+[19 <./experiment2/plots_selected/farm3_ARA-SVR.pdf> <./experiment2/plots_selected/farm3_KMeans-GBT.pdf> <./experiment2/plots_selected/farm3_RF-WPF.pdf> <./experiment2/plots_selected/farm3_BRF-WPF.pdf> <./experiment2/plots_selected/farm3_TL-QLDMR.pdf>]
+Underfull \hbox (badness 1448) in paragraph at lines 334--335
 []\T1/stix/m/n/10 The in-ter-val pre-dic-tion re-sults in-di-cate a clear reliability-sharpness trade-off un-der ex-treme weather, and
  []
 
 
 
-[22
+[20
 
 ]
-
-[23]
-
-[24]
-<experiment4/plots/residual_distribution.png, id=1040, 520.344pt x 303.534pt>
+<experiment4/plots/residual_distribution.png, id=1026, 520.344pt x 303.534pt>
 File: experiment4/plots/residual_distribution.png Graphic file (type png)
 <use experiment4/plots/residual_distribution.png>
-Package pdftex.def Info: experiment4/plots/residual_distribution.png  used on input line 483.
+Package pdftex.def Info: experiment4/plots/residual_distribution.png  used on input line 437.
 (pdftex.def)             Requested size: 430.86494pt x 251.34956pt.
 
 
-[25 <./experiment4/plots/residual_distribution.png>])
+[21]
 
-[26]
+[22]
+
+[23 <./experiment4/plots/residual_distribution.png>])
+
+[24
+
+]
 Underfull \hbox (badness 1210) in paragraph at lines 655--656
 \T1/stix/m/n/10 and the Chongqing Mu-nic-i-pal Train-ing Pro-gram of In-no-va-tion and En-trepreneur-ship for Un-der-grad-u-ate (No.
  []
 
 (build/TLQLDMR.bbl
 
-[27]
-Underfull \hbox (badness 1472) in paragraph at lines 158--163
+[25]
+Underfull \hbox (badness 1472) in paragraph at lines 184--189
 []\T1/stix/m/n/8 Zhai, S., Han, M., Li, Z., Yang, S., Duan, S., & Yan, J. (2023).  M2fl-ccc: Multi-branch mul-ti-layer fea-ture lean-ing and com-pre-hen-
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 158--163
+Underfull \hbox (badness 1365) in paragraph at lines 184--189
 \T1/stix/m/n/8 sive clas-si-fi-ca-tion cri-te-rion for gas sen-sor drift com-pen-sa-tion.  \T1/stix/m/it/8 IEEE Trans-ac-tions on In-stru-men-ta-tion and Mea-sure-ment\T1/stix/m/n/8 , \T1/stix/m/it/8 72\T1/stix/m/n/8 , 1--12.
  []
 
 )
 
-Package natbib Warning: There were undefined citations.
-
-
-
-[28] (build/TLQLDMR.aux)
+[26] (build/TLQLDMR.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1019,18 +1007,18 @@ Package rerunfilecheck Info: File `TLQLDMR.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19642 strings out of 473190
- 308133 string characters out of 5715799
- 722483 words of memory out of 5000000
- 42354 multiletter control sequences out of 15000+600000
+ 19653 strings out of 473190
+ 308447 string characters out of 5715799
+ 725805 words of memory out of 5000000
+ 42369 multiletter control sequences out of 15000+600000
  680137 words of font info for 197 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,19n,93p,2216b,611s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,19n,93p,2216b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathit-bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stix/stix-mathtt.pfb>
-Output written on build/TLQLDMR.pdf (28 pages, 3771540 bytes).
+Output written on build/TLQLDMR.pdf (26 pages, 3765743 bytes).
 PDF statistics:
  1248 PDF objects out of 1440 (max. 8388607)
- 718 compressed objects within 8 object streams
- 219 named destinations out of 1000 (max. 500000)
+ 720 compressed objects within 8 object streams
+ 215 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

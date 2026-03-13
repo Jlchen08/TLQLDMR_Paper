@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{35}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -79,6 +79,16 @@
 \newblock \bibinfo{title}{A day-ahead wind power conformal interval forecasting framework based on numerical weather prediction data and improved quantile ensemble learning}.
 \newblock {\it \bibinfo{journal}{Journal of Renewable and Sustainable Energy}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{046104}. \DOIprefix\doi{10.1063/5.0233770}.
 %Type = Article
+\bibitem[{Li et~al.(2021)Li, Zhao, Tseng \& Tan}]{li2021cuckoo}
+\bibinfo{author}{Li, L.-L.}, \bibinfo{author}{Zhao, X.}, \bibinfo{author}{Tseng, M.-L.}, \& \bibinfo{author}{Tan, R.~R.} (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Improving short-term wind power prediction using hybrid improved cuckoo search arithmetic -- support vector regression machine}.
+\newblock {\it \bibinfo{journal}{Journal of Cleaner Production}\/},  {\it \bibinfo{volume}{279}\/}, \bibinfo{pages}{123739}. \DOIprefix\doi{10.1016/j.jclepro.2020.123739}.
+%Type = Article
+\bibitem[{Luo et~al.(2024)Luo, Hong, Gao \& Fang}]{luo2024fsvr}
+\bibinfo{author}{Luo, J.}, \bibinfo{author}{Hong, T.}, \bibinfo{author}{Gao, Z.}, \& \bibinfo{author}{Fang, S.-C.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Fuzzy support vector regressions for short-term load forecasting}.
+\newblock {\it \bibinfo{journal}{Fuzzy Optimization and Decision Making}\/},  {\it \bibinfo{volume}{23}\/}, \bibinfo{pages}{363--385}. \DOIprefix\doi{10.1007/s10700-024-09422-0}.
+%Type = Article
 \bibitem[{Mao et~al.(2025)Mao, Song \& Huang}]{hybriddl2025}
 \bibinfo{author}{Mao, Y.}, \bibinfo{author}{Song, L.}, \& \bibinfo{author}{Huang, H.} (\bibinfo{year}{2025}).
 \newblock \bibinfo{title}{A novel hybrid deep learning model for day-ahead wind power interval forecasting}.
@@ -99,12 +109,23 @@
 \newblock \bibinfo{title}{Enhancing the performance of gradient boosting trees on regression problems}.
 \newblock {\it \bibinfo{journal}{Journal of Big Data}\/}, . \DOIprefix\doi{10.1186/s40537-025-01071-3}.
 %Type = Inproceedings
+\bibitem[{Romano et~al.(2019)Romano, Patterson \& Cand{\`e}s}]{romano2019cqr}
+\bibinfo{author}{Romano, Y.}, \bibinfo{author}{Patterson, E.}, \& \bibinfo{author}{Cand{\`e}s, E.~J.} (\bibinfo{year}{2019}).
+\newblock \bibinfo{title}{Conformalized quantile regression}.
+\newblock In {\it \bibinfo{booktitle}{Advances in Neural Information Processing Systems 32 (NeurIPS 2019)}\/} (pp. \bibinfo{pages}{3538--3548}).
+\newblock \URLprefix \url{https://papers.nips.cc/paper/8613-conformalized-quantile-regression}.
+%Type = Inproceedings
 \bibitem[{Sch{\"o}lkopf et~al.(2001)Sch{\"o}lkopf, Herbrich \& Smola}]{scholkopf2001representer}
 \bibinfo{author}{Sch{\"o}lkopf, B.}, \bibinfo{author}{Herbrich, R.}, \& \bibinfo{author}{Smola, A.~J.} (\bibinfo{year}{2001}).
 \newblock \bibinfo{title}{A general representer theorem}.
 \newblock In {\it \bibinfo{booktitle}{Proceedings of the 14th Annual Conference on Computational Learning Theory}\/} (pp. \bibinfo{pages}{416--426}).
 \newblock \bibinfo{publisher}{Springer}.
 \newblock \DOIprefix\doi{10.1007/3-540-44581-1_27}.
+%Type = Article
+\bibitem[{Sch{\"o}lkopf et~al.(2000)Sch{\"o}lkopf, Smola, Williamson \& Bartlett}]{scholkopf2000new}
+\bibinfo{author}{Sch{\"o}lkopf, B.}, \bibinfo{author}{Smola, A.~J.}, \bibinfo{author}{Williamson, R.~C.}, \& \bibinfo{author}{Bartlett, P.~L.} (\bibinfo{year}{2000}).
+\newblock \bibinfo{title}{New support vector algorithms}.
+\newblock {\it \bibinfo{journal}{Neural Computation}\/},  {\it \bibinfo{volume}{12}\/}, \bibinfo{pages}{1207--1245}. \DOIprefix\doi{10.1162/089976600300015565}.
 %Type = Article
 \bibitem[{Se et~al.(2023)Se, Song, Liu, Zhang, Wang \& Liu}]{ss2}
 \bibinfo{author}{Se, H.}, \bibinfo{author}{Song, K.}, \bibinfo{author}{Liu, H.}, \bibinfo{author}{Zhang, W.}, \bibinfo{author}{Wang, X.}, \& \bibinfo{author}{Liu, J.} (\bibinfo{year}{2023}).
@@ -153,6 +174,11 @@
 \bibinfo{author}{Ye, Y.-F.} et~al. (\bibinfo{year}{2023}).
 \newblock \bibinfo{title}{Twin support vector quantile regression}.
 \newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it \bibinfo{volume}{221}\/}, \bibinfo{pages}{121239}. \DOIprefix\doi{10.1016/j.eswa.2023.121239}.
+%Type = Article
+\bibitem[{Yuan et~al.(2022)Yuan, Shi \& Xu}]{yuan2022jellyfish}
+\bibinfo{author}{Yuan, X.}, \bibinfo{author}{Shi, J.}, \& \bibinfo{author}{Xu, J.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Wind power prediction method: Support vector regression optimized by improved jellyfish search algorithm}.
+\newblock {\it \bibinfo{journal}{Energies}\/},  {\it \bibinfo{volume}{15}\/}, \bibinfo{pages}{6404}. \DOIprefix\doi{10.3390/en15176404}.
 %Type = Article
 \bibitem[{Zhai et~al.(2023)Zhai, Han, Li, Yang, Duan \& Yan}]{dp2}
 \bibinfo{author}{Zhai, S.}, \bibinfo{author}{Han, M.}, \bibinfo{author}{Li, Z.}, \bibinfo{author}{Yang, S.}, \bibinfo{author}{Duan, S.}, \& \bibinfo{author}{Yan, J.} (\bibinfo{year}{2023}).
