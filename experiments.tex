@@ -452,7 +452,7 @@ The residual-density comparison in Fig.~\ref{fig:ablation_residual} supports thi
 %---------------- Experiment 5 --------------------%
 \subsection{Experiment 5: Scalable Optimization Validation}\label{sec:exp5}
 
-Experiment~5 evaluates whether the proposed Nystr\"{o}m + SGD solver can preserve practical training efficiency as data scale increases, compared with three alternative optimization strategies implemented in \texttt{Train\_TL\_QLDMR}: (i) full dual QP via CVXOPT, (ii) gradient-based QP via PyTorch (torch\_gd), and (iii) kernel-slice mini-batch SGD (batch\_sgd).
+Experiment~5 evaluates whether the proposed Nystr\"{o}m + SGD solver can maintain computational efficiency as the training scale increases, in comparison with three representative optimization baselines: (i) exact dual quadratic programming solved by CVXOPT, (ii) gradient-based quadratic optimization, and (iii) mini-batch stochastic gradient descent with kernel-slice approximation.
 
 The combined training size $N$ is progressively increased from 100 to 2{,}000. For each configuration, wall-clock training time (seconds) is recorded. Table~\ref{tab:scalability_results} summarizes the results.
 
@@ -462,7 +462,7 @@ The combined training size $N$ is progressively increased from 100 to 2{,}000. F
 \setlength{\tabcolsep}{2.8mm}
 \begin{tabular}{rcccc}
 \toprule
-$N$ & CVXOPT & torch\_gd & batch\_sgd & Nystr\"{o}m + SGD (Ours) \\
+$N$ & CVXOPT & Grad.-based QP & Kernel-slice SGD & Nystr\"{o}m + SGD (Ours) \\
 \midrule
 100  & 0.494 & 2.254 & 2.972 & \textbf{0.024} \\
 200  & 0.662 & 2.398 & 2.300 & \textbf{0.554} \\
@@ -477,7 +477,7 @@ $N$ & CVXOPT & torch\_gd & batch\_sgd & Nystr\"{o}m + SGD (Ours) \\
 \label{tab:scalability_results}
 \end{table}
 
-Both CVXOPT and torch\_gd become infeasible beyond $N=800$ due to cubically growing memory and computation demands. The kernel-slice batch\_sgd avoids full matrix inversion but still requires $O(N^2)$ kernel evaluations per batch, yielding runtimes of 3--6 seconds. In contrast, the proposed Nystr\"{o}m + SGD solver maintains near-linear scaling and completes training for $N=2{,}000$ in only 1.67 seconds, confirming the practical viability of the approximate primal formulation for large-scale wind farm datasets.
+Both CVXOPT and the gradient-based QP solver become infeasible beyond $N=800$ due to rapidly increasing memory and computational demands. The kernel-slice SGD baseline avoids full matrix inversion but still requires $O(N^2)$ kernel evaluations per batch, yielding runtimes of 3--6 seconds. In contrast, the proposed Nystr\"{o}m + SGD solver maintains near-linear scaling and completes training for $N=2{,}000$ in only 1.67 seconds, confirming the practical viability of the approximate primal formulation for large-scale wind farm datasets.
 
 %---------------- Discussion --------------------%
 \subsection{Discussion}\label{sec:discussion}
