@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{39}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -12,189 +12,365 @@
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
 %Type = Article
-\bibitem[{Bottou et~al.(2018)Bottou, Curtis \& Nocedal}]{bottou2018optimization}
-\bibinfo{author}{Bottou, L.}, \bibinfo{author}{Curtis, F.~E.}, \& \bibinfo{author}{Nocedal, J.} (\bibinfo{year}{2018}).
-\newblock \bibinfo{title}{Optimization methods for large-scale machine learning}.
-\newblock {\it \bibinfo{journal}{SIAM Review}\/},  {\it \bibinfo{volume}{60}\/}, \bibinfo{pages}{223--311}. \DOIprefix\doi{10.1137/16M1080173}.
+\bibitem[{Bottou et~al.(2018)Bottou, Curtis \&
+  Nocedal}]{bottou2018optimization}
+\bibinfo{author}{Bottou, L.}, \bibinfo{author}{Curtis, F.~E.}, \&
+  \bibinfo{author}{Nocedal, J.} (\bibinfo{year}{2018}).
+\newblock \bibinfo{title}{Optimization methods for large-scale machine
+  learning}.
+\newblock {\it \bibinfo{journal}{SIAM Review}\/},  {\it
+  \bibinfo{volume}{60}\/}, \bibinfo{pages}{223--311}.
+  \DOIprefix\doi{10.1137/16M1080173}.
 %Type = Article
 \bibitem[{Chen \& Shi(2025)}]{chen2025brf}
-\bibinfo{author}{Chen, Y.}, \& \bibinfo{author}{Shi, J.} (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{Broad random forest: A lightweight prediction model for short-term wind power by fusing broad learning and random forest}.
-\newblock {\it \bibinfo{journal}{Sustainability}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{4894}. \DOIprefix\doi{10.3390/su17114894}.
+\bibinfo{author}{Chen, Y.}, \& \bibinfo{author}{Shi, J.}
+  (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Broad random forest: A lightweight prediction model
+  for short-term wind power by fusing broad learning and random forest}.
+\newblock {\it \bibinfo{journal}{Sustainability}\/},  {\it
+  \bibinfo{volume}{17}\/}, \bibinfo{pages}{4894}.
+  \DOIprefix\doi{10.3390/su17114894}.
 %Type = Article
 \bibitem[{Chen \& Xu(2022)}]{s41597-022-01696-6}
 \bibinfo{author}{Chen, Y.}, \& \bibinfo{author}{Xu, J.} (\bibinfo{year}{2022}).
-\newblock \bibinfo{title}{Solar and wind power data from the chinese state grid renewable energy generation forecasting competition}.
-\newblock {\it \bibinfo{journal}{Scientific Data}\/},  {\it \bibinfo{volume}{9}\/}, \bibinfo{pages}{684}. \DOIprefix\doi{10.1038/s41597-022-01696-6}.
+\newblock \bibinfo{title}{Solar and wind power data from the chinese state grid
+  renewable energy generation forecasting competition}.
+\newblock {\it \bibinfo{journal}{Scientific Data}\/},  {\it
+  \bibinfo{volume}{9}\/}, \bibinfo{pages}{684}.
+  \DOIprefix\doi{10.1038/s41597-022-01696-6}.
 %Type = Article
 \bibitem[{Cheng et~al.(2016)Cheng, Zhang \& Wen}]{CHENG2016107}
-\bibinfo{author}{Cheng, F.}, \bibinfo{author}{Zhang, J.}, \& \bibinfo{author}{Wen, C.} (\bibinfo{year}{2016}).
-\newblock \bibinfo{title}{Cost-sensitive large margin distribution machine for classification of imbalanced data}.
-\newblock {\it \bibinfo{journal}{Pattern Recognition Letters}\/},  {\it \bibinfo{volume}{80}\/}, \bibinfo{pages}{107--112}.
-\newblock \bibinfo{note}{{\color{blue} \href{ https://doi.org/10.1016/j.patrec.2016.06.009}{ https://doi.org/10.1016/j.patrec.2016.06.009}}}.
+\bibinfo{author}{Cheng, F.}, \bibinfo{author}{Zhang, J.}, \&
+  \bibinfo{author}{Wen, C.} (\bibinfo{year}{2016}).
+\newblock \bibinfo{title}{Cost-sensitive large margin distribution machine for
+  classification of imbalanced data}.
+\newblock {\it \bibinfo{journal}{Pattern Recognition Letters}\/},  {\it
+  \bibinfo{volume}{80}\/}, \bibinfo{pages}{107--112}.
+\newblock \bibinfo{note}{{\color{blue} \href{
+  https://doi.org/10.1016/j.patrec.2016.06.009}{
+  https://doi.org/10.1016/j.patrec.2016.06.009}}}.
 %Type = Article
 \bibitem[{Dong et~al.(2022)Dong, Sun, Tan, Li, Zhang \& Yang}]{zhang2024kde}
-\bibinfo{author}{Dong, W.}, \bibinfo{author}{Sun, H.}, \bibinfo{author}{Tan, J.}, \bibinfo{author}{Li, Z.}, \bibinfo{author}{Zhang, J.}, \& \bibinfo{author}{Yang, H.} (\bibinfo{year}{2022}).
-\newblock \bibinfo{title}{Regional wind power probabilistic forecasting based on an improved kernel density estimation, regular vine copulas, and ensemble learning}.
-\newblock {\it \bibinfo{journal}{Energy}\/},  {\it \bibinfo{volume}{238}\/}, \bibinfo{pages}{122045}. \DOIprefix\doi{10.1016/j.energy.2021.122045}.
+\bibinfo{author}{Dong, W.}, \bibinfo{author}{Sun, H.}, \bibinfo{author}{Tan,
+  J.}, \bibinfo{author}{Li, Z.}, \bibinfo{author}{Zhang, J.}, \&
+  \bibinfo{author}{Yang, H.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Regional wind power probabilistic forecasting based
+  on an improved kernel density estimation, regular vine copulas, and ensemble
+  learning}.
+\newblock {\it \bibinfo{journal}{Energy}\/},  {\it \bibinfo{volume}{238}\/},
+  \bibinfo{pages}{122045}. \DOIprefix\doi{10.1016/j.energy.2021.122045}.
 %Type = Article
 \bibitem[{Duan et~al.(2025)}]{duan2025ara}
 \bibinfo{author}{Duan, Y.} et~al. (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{Research on support vector regression short-time traffic flow prediction model for secondary roads based on associated road analysis}.
-\newblock {\it \bibinfo{journal}{Applied Sciences}\/},  {\it \bibinfo{volume}{15}\/}, \bibinfo{pages}{1779}. \DOIprefix\doi{10.3390/app15041779}.
+\newblock \bibinfo{title}{Research on support vector regression short-time
+  traffic flow prediction model for secondary roads based on associated road
+  analysis}.
+\newblock {\it \bibinfo{journal}{Applied Sciences}\/},  {\it
+  \bibinfo{volume}{15}\/}, \bibinfo{pages}{1779}.
+  \DOIprefix\doi{10.3390/app15041779}.
 %Type = Article
-\bibitem[{Guo et~al.(2022)Guo, Tan, Yang, Liang, Zhang \& Zhang}]{GUO2022118237}
-\bibinfo{author}{Guo, T.}, \bibinfo{author}{Tan, X.}, \bibinfo{author}{Yang, L.}, \bibinfo{author}{Liang, Z.}, \bibinfo{author}{Zhang, B.}, \& \bibinfo{author}{Zhang, L.} (\bibinfo{year}{2022}).
-\newblock \bibinfo{title}{Domain adaptive subspace transfer model for sensor drift compensation in biologically inspired electronic nose}.
-\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it \bibinfo{volume}{208}\/}, \bibinfo{pages}{118237}.
-\newblock \bibinfo{note}{{\color{blue} \href{ https://doi.org/10.1016/j.eswa.2022.118237}{https://doi.org/10.1016/j.eswa.2022.118237}}}.
+\bibitem[{Fu et~al.(2023)Fu, Tian \& Tang}]{fu2023bounded}
+\bibinfo{author}{Fu, S.}, \bibinfo{author}{Tian, Y.}, \& \bibinfo{author}{Tang,
+  L.} (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Robust regression under the general framework of
+  bounded loss functions}.
+\newblock {\it \bibinfo{journal}{European Journal of Operational Research}\/},
+  {\it \bibinfo{volume}{310}\/}, \bibinfo{pages}{1325--1339}.
+  \DOIprefix\doi{10.1016/j.ejor.2023.04.025}.
+%Type = Article
+\bibitem[{Guo et~al.(2022)Guo, Tan, Yang, Liang, Zhang \&
+  Zhang}]{GUO2022118237}
+\bibinfo{author}{Guo, T.}, \bibinfo{author}{Tan, X.}, \bibinfo{author}{Yang,
+  L.}, \bibinfo{author}{Liang, Z.}, \bibinfo{author}{Zhang, B.}, \&
+  \bibinfo{author}{Zhang, L.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Domain adaptive subspace transfer model for sensor
+  drift compensation in biologically inspired electronic nose}.
+\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it
+  \bibinfo{volume}{208}\/}, \bibinfo{pages}{118237}.
+\newblock \bibinfo{note}{{\color{blue} \href{
+  https://doi.org/10.1016/j.eswa.2022.118237}{https://doi.org/10.1016/j.eswa.2022.118237}}}.
 %Type = Article
 \bibitem[{Gupta \& Gupta(2021)}]{gupta2021least}
-\bibinfo{author}{Gupta, U.}, \& \bibinfo{author}{Gupta, D.} (\bibinfo{year}{2021}).
-\newblock \bibinfo{title}{Least squares large margin distribution machine for regression}.
-\newblock {\it \bibinfo{journal}{Applied Intelligence}\/},  {\it \bibinfo{volume}{51}\/}, \bibinfo{pages}{7058--7093}. \DOIprefix\doi{10.1007/s10489-020-02166-5}.
+\bibinfo{author}{Gupta, U.}, \& \bibinfo{author}{Gupta, D.}
+  (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Least squares large margin distribution machine for
+  regression}.
+\newblock {\it \bibinfo{journal}{Applied Intelligence}\/},  {\it
+  \bibinfo{volume}{51}\/}, \bibinfo{pages}{7058--7093}.
+  \DOIprefix\doi{10.1007/s10489-020-02166-5}.
 %Type = Article
 \bibitem[{Hazarika \& Gupta(2023)}]{hazarika2023mode}
-\bibinfo{author}{Hazarika, B.~B.}, \& \bibinfo{author}{Gupta, D.} (\bibinfo{year}{2023}).
-\newblock \bibinfo{title}{Mode decomposition based large margin distribution machines for sediment load prediction}.
-\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it \bibinfo{volume}{232}\/}, \bibinfo{pages}{120844}. \DOIprefix\doi{10.1016/j.eswa.2023.120844}.
+\bibinfo{author}{Hazarika, B.~B.}, \& \bibinfo{author}{Gupta, D.}
+  (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Mode decomposition based large margin distribution
+  machines for sediment load prediction}.
+\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it
+  \bibinfo{volume}{232}\/}, \bibinfo{pages}{120844}.
+  \DOIprefix\doi{10.1016/j.eswa.2023.120844}.
 %Type = Article
 \bibitem[{Hazarika et~al.(2023)Hazarika, Gupta \& Borah}]{wang2024ssvqr}
-\bibinfo{author}{Hazarika, B.~B.}, \bibinfo{author}{Gupta, D.}, \& \bibinfo{author}{Borah, P.} (\bibinfo{year}{2023}).
-\newblock \bibinfo{title}{Robust support vector quantile regression with truncated pinball loss (rsvqr)}.
-\newblock {\it \bibinfo{journal}{Computational and Applied Mathematics}\/},  {\it \bibinfo{volume}{42}\/}. \DOIprefix\doi{10.1007/s40314-023-02402-x}.
+\bibinfo{author}{Hazarika, B.~B.}, \bibinfo{author}{Gupta, D.}, \&
+  \bibinfo{author}{Borah, P.} (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Robust support vector quantile regression with
+  truncated pinball loss (rsvqr)}.
+\newblock {\it \bibinfo{journal}{Computational and Applied Mathematics}\/},
+  {\it \bibinfo{volume}{42}\/}. \DOIprefix\doi{10.1007/s40314-023-02402-x}.
 %Type = Article
 \bibitem[{Houssein et~al.(2025)}]{houssein2025hho}
 \bibinfo{author}{Houssein, E.~H.} et~al. (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{A hybrid harris hawks optimization with support vector regression for air quality forecasting}.
-\newblock {\it \bibinfo{journal}{Scientific Reports}\/},  {\it \bibinfo{volume}{15}\/}. \DOIprefix\doi{10.1038/s41598-025-86275-6}.
+\newblock \bibinfo{title}{A hybrid harris hawks optimization with support
+  vector regression for air quality forecasting}.
+\newblock {\it \bibinfo{journal}{Scientific Reports}\/},  {\it
+  \bibinfo{volume}{15}\/}. \DOIprefix\doi{10.1038/s41598-025-86275-6}.
 %Type = Article
 \bibitem[{Hu et~al.(2025)Hu, Deng \& Che}]{hu2025nescqr}
-\bibinfo{author}{Hu, J.}, \bibinfo{author}{Deng, Y.}, \& \bibinfo{author}{Che, J.} (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{A novel wind power interval prediction method based on neural ensemble search and dynamic conformalized quantile regression}.
-\newblock {\it \bibinfo{journal}{Applied Soft Computing}\/},  {\it \bibinfo{volume}{180}\/}, \bibinfo{pages}{113476}. \DOIprefix\doi{10.1016/j.asoc.2025.113476}.
+\bibinfo{author}{Hu, J.}, \bibinfo{author}{Deng, Y.}, \& \bibinfo{author}{Che,
+  J.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{A novel wind power interval prediction method based
+  on neural ensemble search and dynamic conformalized quantile regression}.
+\newblock {\it \bibinfo{journal}{Applied Soft Computing}\/},  {\it
+  \bibinfo{volume}{180}\/}, \bibinfo{pages}{113476}.
+  \DOIprefix\doi{10.1016/j.asoc.2025.113476}.
 %Type = Article
 \bibitem[{Hu \& Liu(2025)}]{hu2025ncqgbr}
 \bibinfo{author}{Hu, L.}, \& \bibinfo{author}{Liu, Y.} (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{A day-ahead wind power conformal interval forecasting framework based on numerical weather prediction data and improved quantile ensemble learning}.
-\newblock {\it \bibinfo{journal}{Journal of Renewable and Sustainable Energy}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{046104}. \DOIprefix\doi{10.1063/5.0233770}.
+\newblock \bibinfo{title}{A day-ahead wind power conformal interval forecasting
+  framework based on numerical weather prediction data and improved quantile
+  ensemble learning}.
+\newblock {\it \bibinfo{journal}{Journal of Renewable and Sustainable
+  Energy}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{046104}.
+  \DOIprefix\doi{10.1063/5.0233770}.
+%Type = Article
+\bibitem[{Jiang et~al.(2021)Jiang, Tao, Dong \& Xiong}]{jiang2021rlmkl}
+\bibinfo{author}{Jiang, H.}, \bibinfo{author}{Tao, C.}, \bibinfo{author}{Dong,
+  Y.}, \& \bibinfo{author}{Xiong, R.} (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Robust low-rank multiple kernel learning with
+  compound regularization}.
+\newblock {\it \bibinfo{journal}{European Journal of Operational Research}\/},
+  {\it \bibinfo{volume}{295}\/}, \bibinfo{pages}{634--647}.
+  \DOIprefix\doi{10.1016/j.ejor.2020.12.024}.
 %Type = Article
 \bibitem[{Li et~al.(2021)Li, Zhao, Tseng \& Tan}]{li2021cuckoo}
-\bibinfo{author}{Li, L.-L.}, \bibinfo{author}{Zhao, X.}, \bibinfo{author}{Tseng, M.-L.}, \& \bibinfo{author}{Tan, R.~R.} (\bibinfo{year}{2021}).
-\newblock \bibinfo{title}{Improving short-term wind power prediction using hybrid improved cuckoo search arithmetic -- support vector regression machine}.
-\newblock {\it \bibinfo{journal}{Journal of Cleaner Production}\/},  {\it \bibinfo{volume}{279}\/}, \bibinfo{pages}{123739}. \DOIprefix\doi{10.1016/j.jclepro.2020.123739}.
+\bibinfo{author}{Li, L.-L.}, \bibinfo{author}{Zhao, X.},
+  \bibinfo{author}{Tseng, M.-L.}, \& \bibinfo{author}{Tan, R.~R.}
+  (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Improving short-term wind power prediction using
+  hybrid improved cuckoo search arithmetic -- support vector regression
+  machine}.
+\newblock {\it \bibinfo{journal}{Journal of Cleaner Production}\/},  {\it
+  \bibinfo{volume}{279}\/}, \bibinfo{pages}{123739}.
+  \DOIprefix\doi{10.1016/j.jclepro.2020.123739}.
 %Type = Article
 \bibitem[{Luo et~al.(2024)Luo, Hong, Gao \& Fang}]{luo2024fsvr}
-\bibinfo{author}{Luo, J.}, \bibinfo{author}{Hong, T.}, \bibinfo{author}{Gao, Z.}, \& \bibinfo{author}{Fang, S.-C.} (\bibinfo{year}{2024}).
-\newblock \bibinfo{title}{Fuzzy support vector regressions for short-term load forecasting}.
-\newblock {\it \bibinfo{journal}{Fuzzy Optimization and Decision Making}\/},  {\it \bibinfo{volume}{23}\/}, \bibinfo{pages}{363--385}. \DOIprefix\doi{10.1007/s10700-024-09422-0}.
+\bibinfo{author}{Luo, J.}, \bibinfo{author}{Hong, T.}, \bibinfo{author}{Gao,
+  Z.}, \& \bibinfo{author}{Fang, S.-C.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Fuzzy support vector regressions for short-term load
+  forecasting}.
+\newblock {\it \bibinfo{journal}{Fuzzy Optimization and Decision Making}\/},
+  {\it \bibinfo{volume}{23}\/}, \bibinfo{pages}{363--385}.
+  \DOIprefix\doi{10.1007/s10700-024-09422-0}.
 %Type = Article
 \bibitem[{Mao et~al.(2025)Mao, Song \& Huang}]{hybriddl2025}
-\bibinfo{author}{Mao, Y.}, \bibinfo{author}{Song, L.}, \& \bibinfo{author}{Huang, H.} (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{A novel hybrid deep learning model for day-ahead wind power interval forecasting}.
-\newblock {\it \bibinfo{journal}{Sustainability}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{3239}. \DOIprefix\doi{10.3390/su17073239}.
+\bibinfo{author}{Mao, Y.}, \bibinfo{author}{Song, L.}, \&
+  \bibinfo{author}{Huang, H.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{A novel hybrid deep learning model for day-ahead wind
+  power interval forecasting}.
+\newblock {\it \bibinfo{journal}{Sustainability}\/},  {\it
+  \bibinfo{volume}{17}\/}, \bibinfo{pages}{3239}.
+  \DOIprefix\doi{10.3390/su17073239}.
 %Type = Article
 \bibitem[{Meena et~al.(2025)}]{meena2025flsvr}
 \bibinfo{author}{Meena, Y.} et~al. (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{{FLSVR}: Solving lagrangian support vector regression using functional iterative method}.
-\newblock {\it \bibinfo{journal}{Neural Processing Letters}\/}, . \DOIprefix\doi{10.1007/s11063-025-11780-8}.
+\newblock \bibinfo{title}{{FLSVR}: Solving lagrangian support vector regression
+  using functional iterative method}.
+\newblock {\it \bibinfo{journal}{Neural Processing Letters}\/}, .
+  \DOIprefix\doi{10.1007/s11063-025-11780-8}.
 %Type = Article
 \bibitem[{Mustaffa \& Sulaiman(2025)}]{mustaffa2025rf}
-\bibinfo{author}{Mustaffa, Z.}, \& \bibinfo{author}{Sulaiman, M.~H.} (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{Random forest based wind power prediction method for sustainable energy system}.
-\newblock {\it \bibinfo{journal}{Cleaner Energy Systems}\/}, . \DOIprefix\doi{10.1016/j.cles.2025.100210}.
+\bibinfo{author}{Mustaffa, Z.}, \& \bibinfo{author}{Sulaiman, M.~H.}
+  (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Random forest based wind power prediction method for
+  sustainable energy system}.
+\newblock {\it \bibinfo{journal}{Cleaner Energy Systems}\/}, .
+  \DOIprefix\doi{10.1016/j.cles.2025.100210}.
 %Type = Article
 \bibitem[{Rizkallah(2025)}]{rizkallah2025kmeans}
 \bibinfo{author}{Rizkallah, S.} (\bibinfo{year}{2025}).
-\newblock \bibinfo{title}{Enhancing the performance of gradient boosting trees on regression problems}.
-\newblock {\it \bibinfo{journal}{Journal of Big Data}\/}, . \DOIprefix\doi{10.1186/s40537-025-01071-3}.
+\newblock \bibinfo{title}{Enhancing the performance of gradient boosting trees
+  on regression problems}.
+\newblock {\it \bibinfo{journal}{Journal of Big Data}\/}, .
+  \DOIprefix\doi{10.1186/s40537-025-01071-3}.
 %Type = Inproceedings
 \bibitem[{Romano et~al.(2019)Romano, Patterson \& Cand{\`e}s}]{romano2019cqr}
-\bibinfo{author}{Romano, Y.}, \bibinfo{author}{Patterson, E.}, \& \bibinfo{author}{Cand{\`e}s, E.~J.} (\bibinfo{year}{2019}).
+\bibinfo{author}{Romano, Y.}, \bibinfo{author}{Patterson, E.}, \&
+  \bibinfo{author}{Cand{\`e}s, E.~J.} (\bibinfo{year}{2019}).
 \newblock \bibinfo{title}{Conformalized quantile regression}.
-\newblock In {\it \bibinfo{booktitle}{Advances in Neural Information Processing Systems 32 (NeurIPS 2019)}\/} (pp. \bibinfo{pages}{3538--3548}).
-\newblock \URLprefix \url{https://papers.nips.cc/paper/8613-conformalized-quantile-regression}.
+\newblock In {\it \bibinfo{booktitle}{Advances in Neural Information Processing
+  Systems 32 (NeurIPS 2019)}\/} (pp. \bibinfo{pages}{3538--3548}).
+\newblock \URLprefix
+  \url{https://papers.nips.cc/paper/8613-conformalized-quantile-regression}.
 %Type = Inproceedings
-\bibitem[{Sch{\"o}lkopf et~al.(2001)Sch{\"o}lkopf, Herbrich \& Smola}]{scholkopf2001representer}
-\bibinfo{author}{Sch{\"o}lkopf, B.}, \bibinfo{author}{Herbrich, R.}, \& \bibinfo{author}{Smola, A.~J.} (\bibinfo{year}{2001}).
+\bibitem[{Sch{\"o}lkopf et~al.(2001)Sch{\"o}lkopf, Herbrich \&
+  Smola}]{scholkopf2001representer}
+\bibinfo{author}{Sch{\"o}lkopf, B.}, \bibinfo{author}{Herbrich, R.}, \&
+  \bibinfo{author}{Smola, A.~J.} (\bibinfo{year}{2001}).
 \newblock \bibinfo{title}{A general representer theorem}.
-\newblock In {\it \bibinfo{booktitle}{Proceedings of the 14th Annual Conference on Computational Learning Theory}\/} (pp. \bibinfo{pages}{416--426}).
+\newblock In {\it \bibinfo{booktitle}{Proceedings of the 14th Annual Conference
+  on Computational Learning Theory}\/} (pp. \bibinfo{pages}{416--426}).
 \newblock \bibinfo{publisher}{Springer}.
 \newblock \DOIprefix\doi{10.1007/3-540-44581-1_27}.
 %Type = Article
-\bibitem[{Sch{\"o}lkopf et~al.(2000)Sch{\"o}lkopf, Smola, Williamson \& Bartlett}]{scholkopf2000new}
-\bibinfo{author}{Sch{\"o}lkopf, B.}, \bibinfo{author}{Smola, A.~J.}, \bibinfo{author}{Williamson, R.~C.}, \& \bibinfo{author}{Bartlett, P.~L.} (\bibinfo{year}{2000}).
+\bibitem[{Sch{\"o}lkopf et~al.(2000)Sch{\"o}lkopf, Smola, Williamson \&
+  Bartlett}]{scholkopf2000new}
+\bibinfo{author}{Sch{\"o}lkopf, B.}, \bibinfo{author}{Smola, A.~J.},
+  \bibinfo{author}{Williamson, R.~C.}, \& \bibinfo{author}{Bartlett, P.~L.}
+  (\bibinfo{year}{2000}).
 \newblock \bibinfo{title}{New support vector algorithms}.
-\newblock {\it \bibinfo{journal}{Neural Computation}\/},  {\it \bibinfo{volume}{12}\/}, \bibinfo{pages}{1207--1245}. \DOIprefix\doi{10.1162/089976600300015565}.
+\newblock {\it \bibinfo{journal}{Neural Computation}\/},  {\it
+  \bibinfo{volume}{12}\/}, \bibinfo{pages}{1207--1245}.
+  \DOIprefix\doi{10.1162/089976600300015565}.
 %Type = Article
 \bibitem[{Se et~al.(2023)Se, Song, Liu, Zhang, Wang \& Liu}]{ss2}
-\bibinfo{author}{Se, H.}, \bibinfo{author}{Song, K.}, \bibinfo{author}{Liu, H.}, \bibinfo{author}{Zhang, W.}, \bibinfo{author}{Wang, X.}, \& \bibinfo{author}{Liu, J.} (\bibinfo{year}{2023}).
-\newblock \bibinfo{title}{A dual drift compensation framework based on subspace learning and cross-domain adaptive extreme learning machine for gas sensors}.
-\newblock {\it \bibinfo{journal}{Knowledge-Based Systems}\/},  {\it \bibinfo{volume}{259}\/}, \bibinfo{pages}{110024}.
-\newblock \bibinfo{note}{{\color{blue} \href{ https://doi.org/10.1016/j.knosys.2022.110024}{https://doi.org/10.1016/j.knosys.2022.110024}}}.
+\bibinfo{author}{Se, H.}, \bibinfo{author}{Song, K.}, \bibinfo{author}{Liu,
+  H.}, \bibinfo{author}{Zhang, W.}, \bibinfo{author}{Wang, X.}, \&
+  \bibinfo{author}{Liu, J.} (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{A dual drift compensation framework based on subspace
+  learning and cross-domain adaptive extreme learning machine for gas sensors}.
+\newblock {\it \bibinfo{journal}{Knowledge-Based Systems}\/},  {\it
+  \bibinfo{volume}{259}\/}, \bibinfo{pages}{110024}.
+\newblock \bibinfo{note}{{\color{blue} \href{
+  https://doi.org/10.1016/j.knosys.2022.110024}{https://doi.org/10.1016/j.knosys.2022.110024}}}.
 %Type = Article
-\bibitem[{Tang et~al.(2019)Tang, Ding, Yang, Cheng, Shardt, Long \& Liu}]{tang2019cost}
-\bibinfo{author}{Tang, M.}, \bibinfo{author}{Ding, S.~X.}, \bibinfo{author}{Yang, C.}, \bibinfo{author}{Cheng, F.}, \bibinfo{author}{Shardt, Y.~A.}, \bibinfo{author}{Long, W.}, \& \bibinfo{author}{Liu, D.} (\bibinfo{year}{2019}).
-\newblock \bibinfo{title}{Cost-sensitive large margin distribution machine for fault detection of wind turbines}.
-\newblock {\it \bibinfo{journal}{Cluster Computing}\/},  {\it \bibinfo{volume}{22}\/}, \bibinfo{pages}{7525--7537}. \DOIprefix\doi{10.1007/s10586-018-1854-3}.
+\bibitem[{Tang et~al.(2019)Tang, Ding, Yang, Cheng, Shardt, Long \&
+  Liu}]{tang2019cost}
+\bibinfo{author}{Tang, M.}, \bibinfo{author}{Ding, S.~X.},
+  \bibinfo{author}{Yang, C.}, \bibinfo{author}{Cheng, F.},
+  \bibinfo{author}{Shardt, Y.~A.}, \bibinfo{author}{Long, W.}, \&
+  \bibinfo{author}{Liu, D.} (\bibinfo{year}{2019}).
+\newblock \bibinfo{title}{Cost-sensitive large margin distribution machine for
+  fault detection of wind turbines}.
+\newblock {\it \bibinfo{journal}{Cluster Computing}\/},  {\it
+  \bibinfo{volume}{22}\/}, \bibinfo{pages}{7525--7537}.
+  \DOIprefix\doi{10.1007/s10586-018-1854-3}.
 %Type = Article
 \bibitem[{Tao et~al.(2012)Tao, lai Chung \& Wang}]{TAO20123962}
-\bibinfo{author}{Tao, J.}, \bibinfo{author}{lai Chung, F.}, \& \bibinfo{author}{Wang, S.} (\bibinfo{year}{2012}).
-\newblock \bibinfo{title}{On minimum distribution discrepancy support vector machine for domain adaptation}.
-\newblock {\it \bibinfo{journal}{Pattern Recognition}\/},  {\it \bibinfo{volume}{45}\/}, \bibinfo{pages}{3962--3984}.
-\newblock \bibinfo{note}{{\color{blue} \href{ https://doi.org/10.1016/j.patcog.2012.04.014}{https://doi.org/10.1016/j.patcog.2012.04.014}}}.
+\bibinfo{author}{Tao, J.}, \bibinfo{author}{lai Chung, F.}, \&
+  \bibinfo{author}{Wang, S.} (\bibinfo{year}{2012}).
+\newblock \bibinfo{title}{On minimum distribution discrepancy support vector
+  machine for domain adaptation}.
+\newblock {\it \bibinfo{journal}{Pattern Recognition}\/},  {\it
+  \bibinfo{volume}{45}\/}, \bibinfo{pages}{3962--3984}.
+\newblock \bibinfo{note}{{\color{blue} \href{
+  https://doi.org/10.1016/j.patcog.2012.04.014}{https://doi.org/10.1016/j.patcog.2012.04.014}}}.
+%Type = Article
+\bibitem[{Taylor(2007)}]{taylor2007ewqr}
+\bibinfo{author}{Taylor, J.~W.} (\bibinfo{year}{2007}).
+\newblock \bibinfo{title}{Forecasting daily supermarket sales using
+  exponentially weighted quantile regression}.
+\newblock {\it \bibinfo{journal}{European Journal of Operational Research}\/},
+  {\it \bibinfo{volume}{178}\/}, \bibinfo{pages}{154--167}.
+  \DOIprefix\doi{10.1016/j.ejor.2006.02.006}.
+%Type = Article
+\bibitem[{Trafalis \& Gilbert(2006)}]{trafalis2006robust}
+\bibinfo{author}{Trafalis, T.~B.}, \& \bibinfo{author}{Gilbert, R.~C.}
+  (\bibinfo{year}{2006}).
+\newblock \bibinfo{title}{Robust classification and regression using support
+  vector machines}.
+\newblock {\it \bibinfo{journal}{European Journal of Operational Research}\/},
+  {\it \bibinfo{volume}{173}\/}, \bibinfo{pages}{893--909}.
+  \DOIprefix\doi{10.1016/j.ejor.2005.07.024}.
 %Type = Article
 \bibitem[{Wang et~al.(2021)Wang, Zou, Liu, Zhang \& Liu}]{wang2019review}
-\bibinfo{author}{Wang, Y.}, \bibinfo{author}{Zou, R.}, \bibinfo{author}{Liu, F.}, \bibinfo{author}{Zhang, L.}, \& \bibinfo{author}{Liu, Q.} (\bibinfo{year}{2021}).
-\newblock \bibinfo{title}{A review of wind speed and wind power forecasting with deep neural networks}.
-\newblock {\it \bibinfo{journal}{Applied Energy}\/},  {\it \bibinfo{volume}{304}\/}, \bibinfo{pages}{117766}. \DOIprefix\doi{10.1016/j.apenergy.2021.117766}.
+\bibinfo{author}{Wang, Y.}, \bibinfo{author}{Zou, R.}, \bibinfo{author}{Liu,
+  F.}, \bibinfo{author}{Zhang, L.}, \& \bibinfo{author}{Liu, Q.}
+  (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{A review of wind speed and wind power forecasting
+  with deep neural networks}.
+\newblock {\it \bibinfo{journal}{Applied Energy}\/},  {\it
+  \bibinfo{volume}{304}\/}, \bibinfo{pages}{117766}.
+  \DOIprefix\doi{10.1016/j.apenergy.2021.117766}.
 %Type = Article
-\bibitem[{Yan et~al.(2022)Yan, Chen, Liu, Zhang, Peng, Yi \& Duan}]{YAN2022107664}
-\bibinfo{author}{Yan, J.}, \bibinfo{author}{Chen, F.}, \bibinfo{author}{Liu, T.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Peng, X.}, \bibinfo{author}{Yi, D.}, \& \bibinfo{author}{Duan, S.} (\bibinfo{year}{2022}).
-\newblock \bibinfo{title}{Subspace alignment based on an extreme learning machine for electronic nose drift compensation}.
-\newblock {\it \bibinfo{journal}{Knowledge-Based Systems}\/},  {\it \bibinfo{volume}{235}\/}, \bibinfo{pages}{107664}.
-\newblock \bibinfo{note}{{\color{blue} \href{https://doi.org/10.1016/j.knosys.2021.107664}{https://doi.org/10.1016/j.knosys.2021.107664}}}.
+\bibitem[{Yan et~al.(2022)Yan, Chen, Liu, Zhang, Peng, Yi \&
+  Duan}]{YAN2022107664}
+\bibinfo{author}{Yan, J.}, \bibinfo{author}{Chen, F.}, \bibinfo{author}{Liu,
+  T.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Peng, X.},
+  \bibinfo{author}{Yi, D.}, \& \bibinfo{author}{Duan, S.}
+  (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Subspace alignment based on an extreme learning
+  machine for electronic nose drift compensation}.
+\newblock {\it \bibinfo{journal}{Knowledge-Based Systems}\/},  {\it
+  \bibinfo{volume}{235}\/}, \bibinfo{pages}{107664}.
+\newblock \bibinfo{note}{{\color{blue}
+  \href{https://doi.org/10.1016/j.knosys.2021.107664}{https://doi.org/10.1016/j.knosys.2021.107664}}}.
 %Type = Article
 \bibitem[{Yang et~al.(2024)Yang, Zhang \& Chen}]{doi:10.1177/14759217231159948}
-\bibinfo{author}{Yang, W.}, \bibinfo{author}{Zhang, Z.}, \& \bibinfo{author}{Chen, X.} (\bibinfo{year}{2024}).
-\newblock \bibinfo{title}{Vibration-based looseness identification of bolted structures via quasi-analytic wavelet packet and optimized large margin distribution machine}.
-\newblock {\it \bibinfo{journal}{Structural Health Monitoring}\/},  {\it \bibinfo{volume}{23}\/}, \bibinfo{pages}{856--875}. \DOIprefix\doi{10.1177/14759217231159948}.
+\bibinfo{author}{Yang, W.}, \bibinfo{author}{Zhang, Z.}, \&
+  \bibinfo{author}{Chen, X.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Vibration-based looseness identification of bolted
+  structures via quasi-analytic wavelet packet and optimized large margin
+  distribution machine}.
+\newblock {\it \bibinfo{journal}{Structural Health Monitoring}\/},  {\it
+  \bibinfo{volume}{23}\/}, \bibinfo{pages}{856--875}.
+  \DOIprefix\doi{10.1177/14759217231159948}.
 %Type = Article
 \bibitem[{Ye et~al.(2025{\natexlab{a}})Ye, Liu, Xiong \& Qi}]{amqrnn2025}
-\bibinfo{author}{Ye, X.}, \bibinfo{author}{Liu, C.}, \bibinfo{author}{Xiong, X.}, \& \bibinfo{author}{Qi, Y.} (\bibinfo{year}{2025}{\natexlab{a}}).
-\newblock \bibinfo{title}{Recurrent attention encoder-decoder network for multi-step interval wind power prediction}.
-\newblock {\it \bibinfo{journal}{Energy}\/},  {\it \bibinfo{volume}{315}\/}, \bibinfo{pages}{134317}. \DOIprefix\doi{10.1016/j.energy.2024.134317}.
+\bibinfo{author}{Ye, X.}, \bibinfo{author}{Liu, C.}, \bibinfo{author}{Xiong,
+  X.}, \& \bibinfo{author}{Qi, Y.} (\bibinfo{year}{2025}{\natexlab{a}}).
+\newblock \bibinfo{title}{Recurrent attention encoder-decoder network for
+  multi-step interval wind power prediction}.
+\newblock {\it \bibinfo{journal}{Energy}\/},  {\it \bibinfo{volume}{315}\/},
+  \bibinfo{pages}{134317}. \DOIprefix\doi{10.1016/j.energy.2024.134317}.
 %Type = Article
 \bibitem[{Ye et~al.(2025{\natexlab{b}})Ye, Wang \& Chen}]{ye2025nfs}
-\bibinfo{author}{Ye, Y.-F.}, \bibinfo{author}{Wang, J.}, \& \bibinfo{author}{Chen, W.-J.} (\bibinfo{year}{2025}{\natexlab{b}}).
-\newblock \bibinfo{title}{Nonlinear feature selection for support vector quantile regression}.
-\newblock {\it \bibinfo{journal}{Neural Networks}\/},  {\it \bibinfo{volume}{185}\/}, \bibinfo{pages}{107136}. \DOIprefix\doi{10.1016/j.neunet.2025.107136}.
+\bibinfo{author}{Ye, Y.-F.}, \bibinfo{author}{Wang, J.}, \&
+  \bibinfo{author}{Chen, W.-J.} (\bibinfo{year}{2025}{\natexlab{b}}).
+\newblock \bibinfo{title}{Nonlinear feature selection for support vector
+  quantile regression}.
+\newblock {\it \bibinfo{journal}{Neural Networks}\/},  {\it
+  \bibinfo{volume}{185}\/}, \bibinfo{pages}{107136}.
+  \DOIprefix\doi{10.1016/j.neunet.2025.107136}.
 %Type = Article
 \bibitem[{Ye et~al.(2023)}]{tsvqr2023}
 \bibinfo{author}{Ye, Y.-F.} et~al. (\bibinfo{year}{2023}).
 \newblock \bibinfo{title}{Twin support vector quantile regression}.
-\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it \bibinfo{volume}{221}\/}, \bibinfo{pages}{121239}. \DOIprefix\doi{10.1016/j.eswa.2023.121239}.
+\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it
+  \bibinfo{volume}{221}\/}, \bibinfo{pages}{121239}.
+  \DOIprefix\doi{10.1016/j.eswa.2023.121239}.
 %Type = Article
 \bibitem[{Yuan et~al.(2022)Yuan, Shi \& Xu}]{yuan2022jellyfish}
-\bibinfo{author}{Yuan, X.}, \bibinfo{author}{Shi, J.}, \& \bibinfo{author}{Xu, J.} (\bibinfo{year}{2022}).
-\newblock \bibinfo{title}{Wind power prediction method: Support vector regression optimized by improved jellyfish search algorithm}.
-\newblock {\it \bibinfo{journal}{Energies}\/},  {\it \bibinfo{volume}{15}\/}, \bibinfo{pages}{6404}. \DOIprefix\doi{10.3390/en15176404}.
+\bibinfo{author}{Yuan, X.}, \bibinfo{author}{Shi, J.}, \& \bibinfo{author}{Xu,
+  J.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Wind power prediction method: Support vector
+  regression optimized by improved jellyfish search algorithm}.
+\newblock {\it \bibinfo{journal}{Energies}\/},  {\it \bibinfo{volume}{15}\/},
+  \bibinfo{pages}{6404}. \DOIprefix\doi{10.3390/en15176404}.
 %Type = Article
 \bibitem[{Zhai et~al.(2023)Zhai, Han, Li, Yang, Duan \& Yan}]{dp2}
-\bibinfo{author}{Zhai, S.}, \bibinfo{author}{Han, M.}, \bibinfo{author}{Li, Z.}, \bibinfo{author}{Yang, S.}, \bibinfo{author}{Duan, S.}, \& \bibinfo{author}{Yan, J.} (\bibinfo{year}{2023}).
-\newblock \bibinfo{title}{M2fl-ccc: Multibranch multilayer feature leaning and comprehensive classification criterion for gas sensor drift compensation}.
-\newblock {\it \bibinfo{journal}{IEEE Transactions on Instrumentation and Measurement}\/},  {\it \bibinfo{volume}{72}\/}, \bibinfo{pages}{1--12}.
-\newblock \bibinfo{note}{{\color{blue} \href{ https://doi.org/10.1109/TIM.2023.3296820}{https://doi.org/10.1109/TIM.2023.3296820}}}.
+\bibinfo{author}{Zhai, S.}, \bibinfo{author}{Han, M.}, \bibinfo{author}{Li,
+  Z.}, \bibinfo{author}{Yang, S.}, \bibinfo{author}{Duan, S.}, \&
+  \bibinfo{author}{Yan, J.} (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{M2fl-ccc: Multibranch multilayer feature leaning and
+  comprehensive classification criterion for gas sensor drift compensation}.
+\newblock {\it \bibinfo{journal}{IEEE Transactions on Instrumentation and
+  Measurement}\/},  {\it \bibinfo{volume}{72}\/}, \bibinfo{pages}{1--12}.
+\newblock \bibinfo{note}{{\color{blue} \href{
+  https://doi.org/10.1109/TIM.2023.3296820}{https://doi.org/10.1109/TIM.2023.3296820}}}.
 %Type = Inproceedings
 \bibitem[{Zhang \& Zhou(2014)}]{zhang2014large}
-\bibinfo{author}{Zhang, T.}, \& \bibinfo{author}{Zhou, Z.-H.} (\bibinfo{year}{2014}).
+\bibinfo{author}{Zhang, T.}, \& \bibinfo{author}{Zhou, Z.-H.}
+  (\bibinfo{year}{2014}).
 \newblock \bibinfo{title}{Large margin distribution machine}.
-\newblock In {\it \bibinfo{booktitle}{Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining}\/} (pp. \bibinfo{pages}{313--322}).
+\newblock In {\it \bibinfo{booktitle}{Proceedings of the 20th ACM SIGKDD
+  international conference on Knowledge discovery and data mining}\/} (pp.
+  \bibinfo{pages}{313--322}).
 \newblock \DOIprefix\doi{10.1145/2623330.2623710}.
 %Type = Article
 \bibitem[{Zhang \& Zhou(2020)}]{zhang2019optimal}
-\bibinfo{author}{Zhang, T.}, \& \bibinfo{author}{Zhou, Z.-H.} (\bibinfo{year}{2020}).
+\bibinfo{author}{Zhang, T.}, \& \bibinfo{author}{Zhou, Z.-H.}
+  (\bibinfo{year}{2020}).
 \newblock \bibinfo{title}{Optimal margin distribution machine}.
-\newblock {\it \bibinfo{journal}{IEEE Transactions on Knowledge and Data Engineering}\/},  {\it \bibinfo{volume}{32}\/}, \bibinfo{pages}{1143--1156}. \DOIprefix\doi{10.1109/TKDE.2019.2897662}.
+\newblock {\it \bibinfo{journal}{IEEE Transactions on Knowledge and Data
+  Engineering}\/},  {\it \bibinfo{volume}{32}\/}, \bibinfo{pages}{1143--1156}.
+  \DOIprefix\doi{10.1109/TKDE.2019.2897662}.
 
 \end{thebibliography}

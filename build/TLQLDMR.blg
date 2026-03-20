@@ -1,48 +1,50 @@
-This is BibTeX, Version 0.99d (TeX Live 2025)
+This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: build/TLQLDMR.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
 The style file: model5-names.bst
+Reallocating 'name_of_file' (item size: 1) to 8 items.
 Database file #1: ref.bib
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 35 entries,
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+You've used 39 entries,
             3390 wiz_defined-function locations,
-            935 strings with 13374 characters,
-and the built_in function-call counts, 27621 in all, are:
-= -- 2145
-> -- 1252
-< -- 16
-+ -- 1139
-- -- 351
-* -- 3090
-:= -- 3562
-add.period$ -- 141
-call.type$ -- 35
-change.case$ -- 294
-chr.to.int$ -- 34
-cite$ -- 35
-duplicate$ -- 1916
-empty$ -- 1846
-format.name$ -- 474
-if$ -- 5183
+            962 strings with 14077 characters,
+and the built_in function-call counts, 30540 in all, are:
+= -- 2386
+> -- 1358
+< -- 18
++ -- 1227
+- -- 381
+* -- 3421
+:= -- 3946
+add.period$ -- 157
+call.type$ -- 39
+change.case$ -- 324
+chr.to.int$ -- 38
+cite$ -- 39
+duplicate$ -- 2122
+empty$ -- 2058
+format.name$ -- 516
+if$ -- 5732
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 362
-newline$ -- 200
-num.names$ -- 140
-pop$ -- 848
+missing$ -- 400
+newline$ -- 220
+num.names$ -- 156
+pop$ -- 926
 preamble$ -- 1
-purify$ -- 253
+purify$ -- 279
 quote$ -- 0
-skip$ -- 760
+skip$ -- 831
 stack$ -- 0
-substring$ -- 1047
-swap$ -- 1481
+substring$ -- 1197
+swap$ -- 1636
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 315
+type$ -- 351
 warning$ -- 0
-while$ -- 148
+while$ -- 168
 width$ -- 0
-write$ -- 547
+write$ -- 607
