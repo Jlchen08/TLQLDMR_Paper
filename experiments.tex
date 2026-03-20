@@ -66,7 +66,7 @@ For deterministic point prediction, we employ Root Mean Squared Error (RMSE), Me
 
 To quantify the distribution discrepancy between normal and extreme domains, we employ two complementary metrics computed on both wind speed and power dimensions: the Wasserstein-1 distance ($W_1$), which measures the minimum transportation cost to transform one distribution into the other, and the Kolmogorov--Smirnov statistic (KS), which captures the supremum of the absolute difference between the empirical cumulative distribution functions of the two domains.
 
-All experiments are implemented in Python using NumPy and scikit-learn. For SVM-based models, the training sample size is capped at 4{,}000 source domain samples and 1{,}200 target domain samples to maintain tractable computation times for kernel methods. Tree-based and ensemble models use the full training set without subsampling. The TL-QLDMR model employs a Nystr\"{o}m approximation with $m = 1{,}200$ landmark points and is optimized via stochastic gradient descent with a learning rate of 0.01 for 64 epochs and a mini-batch size of 256. All random splits use a fixed seed for reproducibility.
+% All experiments are implemented in Python using NumPy and scikit-learn. Unless otherwise stated, SVM-based baselines are trained on at most 4{,}000 source-domain samples and 1{,}200 target-domain samples to maintain tractable computation times for kernel methods, while tree-based and ensemble models use the full training set without subsampling. For the main forecasting experiments (Experiments~2--4), TL-QLDMR employs a Nystr\"{o}m approximation with $m = 1{,}200$ landmark points and is optimized via stochastic gradient descent with a learning rate of 0.01 for 64 epochs and a mini-batch size of 256. Experiment~5 uses a dedicated uncapped scalability protocol on the full Farm~6 training set and fixes the fast solver to $m = 80$, learning rate $0.01$, 20 epochs, and batch size $256$ so that all runs remain on the Nystr\"{o}m-SGD path. All random splits use a fixed seed for reproducibility.
 
 
 %---------------- Experiment 1 --------------------%
@@ -502,32 +502,38 @@ The residual-density comparison in Fig.~\ref{fig:ablation_residual} supports thi
 %---------------- Experiment 5 --------------------%
 \subsection{Experiment 5: Scalable Optimization Validation}\label{sec:exp5}
 
-Experiment~5 evaluates whether the proposed Nystr\"{o}m + SGD solver can maintain computational efficiency as the training scale increases, in comparison with three representative optimization baselines: (i) exact dual quadratic programming solved by CVXOPT, (ii) gradient-based quadratic optimization, and (iii) mini-batch stochastic gradient descent with kernel-slice approximation.
+Experiment~5 evaluates whether the proposed Nystr\"{o}m + SGD solver can maintain computational efficiency as the training scale increases, in comparison with three representative optimization baselines: (i) exact dual quadratic programming solved by CVXOPT, (ii) gradient-based optimization of the QP objective (Torch-GD), (iii) mini-batch SGD with kernel-slice approximation, and (iv) the proposed primal Nystr\"{o}m + Fast SGD solver.
 
-The combined training size $N$ is progressively increased from 100 to 2{,}000. For each configuration, wall-clock training time (seconds) is recorded. Table~\ref{tab:scalability_results} summarizes the results.
+To stress-test scalability, we consider seven training scales, increasing the combined training size from 100 to the full $N=69{,}737$. The evaluated sizes are $N=100, 500, 1{,}000, 3{,}000, 10{,}000, 30{,}000$, and $69{,}737$.
+%  The full setting corresponds to 66{,}009 source-domain normal samples and 3{,}728 target-domain extreme samples. When subsampling, a target-domain ratio of 0.3 is used. Because the target-domain training set contains only 3{,}728 samples, the target count saturates once $N > 12{,}427$; therefore, the additional samples at the largest two settings are drawn entirely from the source domain. The regression hyperparameters follow Experiment~2 ($\lambda_1 = 5 \times 10^{-4}$, $\lambda_2 = 10^{-4}$, $C_S = 0.05$, $C_T = 150$, $\gamma = 0.002$, and $\tau = 0.5$), while the fast solver fixes $m = 80$, learning rate 0.01, 20 epochs, and batch size 256 throughout.
+For each configuration, wall-clock training time (seconds) is recorded. Table~\ref{tab:scalability_results} summarizes the results.
 
 \begin{table}[ht]
 \centering
-\caption{Training time (seconds) of four solvers over expanding dataset scales. ``---'' denotes infeasible runs due to excessive resource consumption.}
-\setlength{\tabcolsep}{2.8mm}
+\caption{Training time (seconds) of four solvers over expanding training scales on Farm~6. ``---'' denotes runs not extended further because of prohibitive computational cost.}
+{\small
+\setlength{\tabcolsep}{2.6mm}
 \begin{tabular}{rcccc}
 \toprule
-$N$ & CVXOPT & Grad.-based QP & Kernel-slice SGD & Nystr\"{o}m + SGD (Ours) \\
+$N$ & CVXOPT & Torch-GD & Batch SGD & Fast Solver (Ours) \\
 \midrule
-100  & 0.494 & 2.254 & 2.972 & \textbf{0.024} \\
-200  & 0.662 & 2.398 & 2.300 & \textbf{0.554} \\
-400  & 0.884 & 2.508 & 4.374 & \textbf{0.696} \\
-600  & 2.728 & 2.668 & 4.874 & \textbf{0.824} \\
-800  & 4.949 & 2.375 & 3.890 & \textbf{0.924} \\
-1{,}200 & --- & --- & 6.049 & \textbf{1.114} \\
-1{,}600 & --- & --- & 6.123 & \textbf{1.465} \\
-2{,}000 & --- & --- & --- & \textbf{1.670} \\
+100      & 0.509 & 2.155 & 2.746 & \textbf{0.035} \\
+500      & 1.052 & 2.618 & 4.637 & \textbf{1.035} \\
+1{,}000  & 7.655 & 2.979 & 5.699 & \textbf{1.038} \\
+3{,}000  & --- & 20.395 & 6.418 & \textbf{2.468} \\
+10{,}000 & --- & --- & 10.401 & \textbf{2.703} \\
+30{,}000 & --- & --- & 25.338 & \textbf{3.483} \\
+69{,}737 & --- & --- & --- & \textbf{5.021} \\
 \bottomrule
 \end{tabular}
+}
 \label{tab:scalability_results}
 \end{table}
 
-Both CVXOPT and the gradient-based QP solver become infeasible beyond $N=800$ due to rapidly increasing memory and computational demands. The kernel-slice SGD baseline avoids full matrix inversion but still requires $O(N^2)$ kernel evaluations per batch, yielding runtimes of 3--6 seconds. In contrast, the proposed Nystr\"{o}m + SGD solver maintains near-linear scaling and completes training for $N=2{,}000$ in only 1.67 seconds, confirming the practical viability of the approximate primal formulation for large-scale wind farm datasets.
+The full-QP routes lose practicality quickly as the scale increases. CVXOPT grows from 0.509 seconds at $N=100$ to 7.655 seconds at $N=1{,}000$ and is not extended further thereafter. Torch-GD remains workable slightly longer, but already requires 20.395 seconds at $N=3{,}000$, indicating that direct optimization of the kernel QP becomes inefficient well before the full training regime is reached.
+
+Batch SGD avoids exact QP solving but remains substantially slower than the proposed fast solver at medium and large scales; for example, at $N=30{,}000$ it requires 25.338 seconds, compared with 3.483 seconds for the Nystr\"{o}m + Fast SGD route. By contrast, the proposed solver is the only optimization route that completes the entire uncapped training set, reaching $N=69{,}737$ in 5.021 seconds. This trend is consistent with the theoretical reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$: runtime growth remains comparatively mild even after the target-domain sample count saturates and the additional data come almost entirely from the source domain. 
+% A simple log-log fit further supports this pattern, yielding an empirical slope of approximately 1.049 for CVXOPT versus 0.626 for the proposed fast solver.
 
 %---------------- Discussion --------------------%
 \subsection{Discussion}\label{sec:discussion}
@@ -542,6 +548,6 @@ The extended experimental evaluations yield the following conclusive insights:
 
 \textbf{Ablation confirms the necessity of each component.} Removing transfer learning reduces both point and interval performance under severe domain shift; removing asymmetric LDMR variance regularization degrades distributional robustness and interval calibration; removing MMD alignment weakens feature-space adaptation. Critically, the LDMR-Quantile (SymVar) variant confirms that symmetric variance minimization conflicts with quantile-specific asymmetry requirements, validating our theoretical analysis. Residual-density plots provide complementary evidence for this degradation.
 
-\textbf{The scalable optimizer materially reduces computational burden.} Experiment~5 verifies that the Nystr\"{o}m + SGD formulation remains practical in regimes where full QP optimization fails due to computational constraints.
+\textbf{The scalable optimizer materially reduces computational burden.} Experiment~5 shows that the Nystr\"{o}m + Fast SGD solver is the only optimization route that reaches the full uncapped training scale ($N=69{,}737$), completing training in 5.021 seconds, whereas CVXOPT, Torch-GD, and batch SGD stall much earlier due to rapidly increasing computational cost.
 
 \textbf{Limitations and future work.} The present evaluation is based on onshore wind farms and fixed feature engineering pipelines; extension to offshore assets, dynamic re-calibration strategies, and hybrid deep-kernel transfer formulations remains a relevant direction.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  20 MAR 2026 00:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  20 MAR 2026 16:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -911,7 +911,7 @@ File: experiment4/plots/residual_distribution.png Graphic file (type png)
 <use experiment4/plots/residual_distribution.png>
 Package pdftex.def Info: experiment4/plots/residual_distribution.png  used on input line 487.
 (pdftex.def)             Requested size: 430.86494pt x 251.34956pt.
- [21] [22 <./experiment4/plots/residual_distribution.png>]) [23]
+ [21] [22 <./experiment4/plots/residual_distribution.png>] [23])
 Underfull \hbox (badness 1210) in paragraph at lines 655--656
 \T1/stix/m/n/10 and the Chongqing Mu-nic-i-pal Train-ing Pro-gram of In-no-va-tion and En-trepreneur-ship for Un-der-grad-u-ate (No.
  []
@@ -942,13 +942,13 @@ Package rerunfilecheck Info: File `TLQLDMR.out' has not changed.
 Here is how much of TeX's memory you used:
  19631 strings out of 467870
  308422 string characters out of 5428399
- 740284 words of memory out of 5000000
+ 740309 words of memory out of 5000000
  47968 multiletter control sequences out of 15000+600000
  749021 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,19n,98p,2180b,626s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Italic.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Regular.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathbb.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathcal.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathex.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathit-bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathit.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm-bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathscr.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathtt.pfb>
-Output written on d:\Self\windpower\TLQLDMR_Paper\build\TLQLDMR.pdf (25 pages, 3836020 bytes).
+Output written on d:\Self\windpower\TLQLDMR_Paper\build\TLQLDMR.pdf (25 pages, 3836042 bytes).
 PDF statistics:
  1434 PDF objects out of 1440 (max. 8388607)
  223 named destinations out of 1000 (max. 500000)
