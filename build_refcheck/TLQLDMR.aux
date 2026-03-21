@@ -13,12 +13,12 @@
 \citation{s41597-022-01696-6}
 \citation{s41597-022-01696-6}
 \citation{mustaffa2025rf,chen2025brf}
-\providecommand \oddpage@label [2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \citation{wang2019review,li2021cuckoo,luo2024fsvr,yuan2022jellyfish}
 \citation{trafalis2006robust}
 \citation{fu2023bounded}
 \citation{jiang2021rlmkl}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \citation{taylor2007ewqr}
 \citation{ye2025nfs,tsvqr2023}
 \citation{tsvqr2023}
@@ -36,24 +36,25 @@
 \citation{s41597-022-01696-6}
 \citation{tsvqr2023,wang2024ssvqr,ye2025nfs}
 \citation{zhang2014large,zhang2019optimal,gupta2021least,hazarika2023mode}
+\citation{TAO20123962,YAN2022107664,GUO2022118237,dp2,ss2}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{4}{section.2}\protected@file@percent }
 \newlabel{rel}{{2}{4}{Related Work}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Support Vector Quantile Regression}{4}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Large-margin Distribution Machine-based Regression}{4}{subsection.2.2}\protected@file@percent }
-\citation{TAO20123962,YAN2022107664,GUO2022118237,dp2,ss2}
-\newlabel{eq:ldmr_concept}{{3}{5}{Large-margin Distribution Machine-based Regression}{equation.3}{}}
+\newlabel{eq:ldmr_concept}{{3}{4}{Large-margin Distribution Machine-based Regression}{equation.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Transfer Learning and Maximum Mean Discrepancy}{5}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Proposed Methodology}{5}{section.3}\protected@file@percent }
 \newlabel{novel}{{3}{5}{Proposed Methodology}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Notations}{5}{subsection.3.1}\protected@file@percent }
 \newlabel{not}{{3.1}{5}{Notations}{subsection.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}TL-QLDMR Model Formulation}{5}{subsection.3.2}\protected@file@percent }
+\newlabel{MODEL}{{3.2}{5}{TL-QLDMR Model Formulation}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Objective Function}{5}{subsubsection.3.2.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The overall framework of the proposed TL-QLDMR model. Source domain (normal weather) and target domain (extreme weather) data are mapped into a high-dimensional RKHS via kernel mapping. The joint optimization objective integrates structural risk, distribution variance, MMD-based domain adaptation, and weighted pinball loss. The model outputs probabilistic prediction intervals for robust wind power forecasting under extreme conditions.}}{6}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:framework}{{1}{6}{The overall framework of the proposed TL-QLDMR model. Source domain (normal weather) and target domain (extreme weather) data are mapped into a high-dimensional RKHS via kernel mapping. The joint optimization objective integrates structural risk, distribution variance, MMD-based domain adaptation, and weighted pinball loss. The model outputs probabilistic prediction intervals for robust wind power forecasting under extreme conditions}{figure.caption.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}TL-QLDMR Model Formulation}{6}{subsection.3.2}\protected@file@percent }
-\newlabel{MODEL}{{3.2}{6}{TL-QLDMR Model Formulation}{subsection.3.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Objective Function}{6}{subsubsection.3.2.1}\protected@file@percent }
 \newlabel{eq:objective}{{6}{6}{Objective Function}{equation.6}{}}
+\citation{scholkopf2001representer}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Constraints}{7}{subsubsection.3.2.2}\protected@file@percent }
 \newlabel{eq:constraints}{{7}{7}{Constraints}{equation.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Model Optimization}{7}{subsection.3.3}\protected@file@percent }
@@ -61,51 +62,53 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Matrix Reformulation of the Primal Problem}{7}{subsubsection.3.3.1}\protected@file@percent }
 \newlabel{eq:primal_matrix}{{8}{7}{Matrix Reformulation of the Primal Problem}{equation.8}{}}
 \newlabel{eq:matrix_S}{{9}{7}{Matrix Reformulation of the Primal Problem}{equation.9}{}}
-\citation{scholkopf2001representer}
-\newlabel{eq:matrix_M}{{10}{8}{Matrix Reformulation of the Primal Problem}{equation.10}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Representer Theorem and Kernelization}{8}{subsubsection.3.3.2}\protected@file@percent }
+\newlabel{eq:matrix_M}{{10}{7}{Matrix Reformulation of the Primal Problem}{equation.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Representer Theorem and Kernelization}{7}{subsubsection.3.3.2}\protected@file@percent }
 \newlabel{eq:representer}{{11}{8}{Representer Theorem and Kernelization}{equation.11}{}}
 \newlabel{eq:Omega}{{12}{8}{Representer Theorem and Kernelization}{equation.12}{}}
 \newlabel{eq:kernel_primal}{{13}{8}{Representer Theorem and Kernelization}{equation.13}{}}
 \newlabel{eq:kernel_constraints}{{14}{8}{Representer Theorem and Kernelization}{equation.14}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Lagrangian and Dual Problem}{8}{subsubsection.3.3.3}\protected@file@percent }
 \newlabel{eq:lagrangian}{{15}{8}{Lagrangian and Dual Problem}{equation.15}{}}
-\citation{zhang2010clustered}
-\newlabel{eq:kkt_b}{{16}{9}{Lagrangian and Dual Problem}{equation.16}{}}
-\newlabel{eq:kkt_xi}{{17}{9}{Lagrangian and Dual Problem}{equation.17}{}}
-\newlabel{eq:kkt_beta}{{18}{9}{Lagrangian and Dual Problem}{equation.18}{}}
+\newlabel{eq:kkt_b}{{16}{8}{Lagrangian and Dual Problem}{equation.16}{}}
+\newlabel{eq:kkt_xi}{{17}{8}{Lagrangian and Dual Problem}{equation.17}{}}
+\newlabel{eq:kkt_beta}{{18}{8}{Lagrangian and Dual Problem}{equation.18}{}}
 \newlabel{eq:beta_optimal}{{19}{9}{Lagrangian and Dual Problem}{equation.19}{}}
 \newlabel{eq:dual_problem}{{20}{9}{Lagrangian and Dual Problem}{equation.20}{}}
 \newlabel{eq:dual_matrices}{{21}{9}{Lagrangian and Dual Problem}{equation.21}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The Algorithm and Complexity Analysis}{9}{subsection.3.4}\protected@file@percent }
 \newlabel{alg_section}{{3.4}{9}{The Algorithm and Complexity Analysis}{subsection.3.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Scalable Optimization via Nystr\"{o}m Approximation}{9}{subsection.3.5}\protected@file@percent }
-\newlabel{fast_alg}{{3.5}{9}{Scalable Optimization via Nystr\"{o}m Approximation}{subsection.3.5}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces TL-QLDMR Training Algorithm}}{9}{algocf.1}\protected@file@percent }
+\newlabel{alg:TL-QLDMR}{{1}{9}{The Algorithm and Complexity Analysis}{algocf.1}{}}
+\citation{williams2001nystrom,kumar2012sampling}
+\citation{zhang2010clustered}
+\citation{williams2001nystrom}
 \citation{kingma2015adam}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces TL-QLDMR Training Algorithm}}{10}{algocf.1}\protected@file@percent }
-\newlabel{alg:TL-QLDMR}{{1}{10}{The Algorithm and Complexity Analysis}{algocf.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Scalable Optimization via Nystr\"{o}m Approximation}{10}{subsection.3.5}\protected@file@percent }
+\newlabel{fast_alg}{{3.5}{10}{Scalable Optimization via Nystr\"{o}m Approximation}{subsection.3.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Nystr\"{o}m Feature Mapping}{10}{subsubsection.3.5.1}\protected@file@percent }
 \newlabel{eq:nystrom_feature}{{22}{10}{Nystr\"{o}m Feature Mapping}{equation.22}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Primal Formulation with Explicit Features}{10}{subsubsection.3.5.2}\protected@file@percent }
 \newlabel{eq:reg_matrix}{{23}{10}{Primal Formulation with Explicit Features}{equation.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Stochastic Gradient Descent Optimization}{10}{subsubsection.3.5.3}\protected@file@percent }
+\newlabel{eq:subgradient}{{24}{10}{Stochastic Gradient Descent Optimization}{equation.24}{}}
+\citation{williams2001nystrom}
+\citation{bottou2018optimization}
 \@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Fast TL-QLDMR via Nystr\"{o}m Approximation}}{11}{algocf.2}\protected@file@percent }
 \newlabel{alg:fast_TL-QLDMR}{{2}{11}{Stochastic Gradient Descent Optimization}{algocf.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Stochastic Gradient Descent Optimization}{11}{subsubsection.3.5.3}\protected@file@percent }
-\newlabel{eq:subgradient}{{24}{11}{Stochastic Gradient Descent Optimization}{equation.24}{}}
 \newlabel{eq:param_gradients}{{25}{11}{Stochastic Gradient Descent Optimization}{equation.25}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.4}Complexity Analysis of the Scalable Algorithm}{11}{subsubsection.3.5.4}\protected@file@percent }
-\citation{bottou2018optimization}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.5}Theoretical Justification}{11}{subsubsection.3.5.5}\protected@file@percent }
 \citation{kumar2012sampling,zhang2010clustered}
 \citation{s41597-022-01696-6}
+\citation{wang2019review}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Complexity Comparison between Standard QP and Scalable Algorithm}}{12}{table.caption.4}\protected@file@percent }
 \newlabel{tab:complexity}{{1}{12}{Complexity Comparison between Standard QP and Scalable Algorithm}{table.caption.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.5}Theoretical Justification}{12}{subsubsection.3.5.5}\protected@file@percent }
 \newlabel{eq:nystrom_error}{{26}{12}{Theoretical Justification}{equation.26}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{12}{section.4}\protected@file@percent }
 \newlabel{Experiments}{{4}{12}{Experiments}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset Description}{12}{subsection.4.1}\protected@file@percent }
 \newlabel{sec:data}{{4.1}{12}{Dataset Description}{subsection.4.1}{}}
-\citation{wang2019review}
 \citation{sideratos2012extreme,liu2024extreme}
 \citation{pan2010survey,bendavid2010theory}
 \citation{liu2023eweld}
@@ -219,15 +222,16 @@
 \bibcite{taylor2007ewqr}{{37}{2007}{{Taylor}}{{}}}
 \bibcite{trafalis2006robust}{{38}{2006}{{Trafalis \& Gilbert}}{{}}}
 \bibcite{wang2019review}{{39}{2021}{{Wang et~al.}}{{Wang, Zou, Liu, Zhang \& Liu}}}
-\bibcite{YAN2022107664}{{40}{2022}{{Yan et~al.}}{{Yan, Chen, Liu, Zhang, Peng, Yi \& Duan}}}
-\bibcite{doi:10.1177/14759217231159948}{{41}{2024}{{Yang et~al.}}{{Yang, Zhang \& Chen}}}
-\bibcite{amqrnn2025}{{42}{2025{a}}{{Ye et~al.}}{{Ye, Liu, Xiong \& Qi}}}
-\bibcite{ye2025nfs}{{43}{2025{b}}{{Ye et~al.}}{{Ye, Wang \& Chen}}}
-\bibcite{tsvqr2023}{{44}{2023}{{Ye et~al.}}{{}}}
-\bibcite{yuan2022jellyfish}{{45}{2022}{{Yuan et~al.}}{{Yuan, Shi \& Xu}}}
-\bibcite{dp2}{{46}{2023}{{Zhai et~al.}}{{Zhai, Han, Li, Yang, Duan \& Yan}}}
-\bibcite{zhang2010clustered}{{47}{2010}{{Zhang \& Kwok}}{{}}}
-\bibcite{zhang2014large}{{48}{2014}{{Zhang \& Zhou}}{{}}}
-\bibcite{zhang2019optimal}{{49}{2020}{{Zhang \& Zhou}}{{}}}
+\bibcite{williams2001nystrom}{{40}{2001}{{Williams \& Seeger}}{{}}}
+\bibcite{YAN2022107664}{{41}{2022}{{Yan et~al.}}{{Yan, Chen, Liu, Zhang, Peng, Yi \& Duan}}}
+\bibcite{doi:10.1177/14759217231159948}{{42}{2024}{{Yang et~al.}}{{Yang, Zhang \& Chen}}}
+\bibcite{amqrnn2025}{{43}{2025{a}}{{Ye et~al.}}{{Ye, Liu, Xiong \& Qi}}}
+\bibcite{ye2025nfs}{{44}{2025{b}}{{Ye et~al.}}{{Ye, Wang \& Chen}}}
+\bibcite{tsvqr2023}{{45}{2023}{{Ye et~al.}}{{}}}
+\bibcite{yuan2022jellyfish}{{46}{2022}{{Yuan et~al.}}{{Yuan, Shi \& Xu}}}
+\bibcite{dp2}{{47}{2023}{{Zhai et~al.}}{{Zhai, Han, Li, Yang, Duan \& Yan}}}
+\bibcite{zhang2010clustered}{{48}{2010}{{Zhang \& Kwok}}{{}}}
+\bibcite{zhang2014large}{{49}{2014}{{Zhang \& Zhou}}{{}}}
+\bibcite{zhang2019optimal}{{50}{2020}{{Zhang \& Zhou}}{{}}}
 \csxdef{lastpage}{27}
 \gdef \@abspage@last{27}

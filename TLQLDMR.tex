@@ -527,37 +527,38 @@ Therefore, the overall time complexity of the proposed algorithm is approximatel
 To address the computational bottleneck of the standard QP-based solver, we propose a scalable optimization algorithm that combines Nystr\"{o}m approximation with stochastic gradient descent. This approach reduces the time complexity from $O(N^3)$ to $O(T \cdot N \cdot m)$, where $T$ denotes the number of iterations and $m \ll N$ is the number of landmark points.
 
 \subsubsection{Nystr\"{o}m Feature Mapping}
-The core idea is to approximate the implicit infinite-dimensional feature mapping $\phi(\boldsymbol{x})$ with an explicit finite-dimensional representation. Given the training data, we first select $m$ landmark points $Z = \{z_1, \ldots, z_m\}$ from the source domain $D_S$ using K-Means clustering to capture the underlying data manifold.
+The core idea is to approximate the implicit infinite-dimensional feature mapping $\phi(\boldsymbol{x})$ with an explicit finite-dimensional representation. Given the training data, we first select $m$ landmark points $Z = \{z_1, \ldots, z_m\}$ from the source domain $D_S$ using K-Means clustering to capture the underlying data manifold, following the rationale of clustered Nystr\"{o}m landmark selection \citep{zhang2010clustered}.
 
-Let $\boldsymbol{W} \in \mathbb{R}^{m \times m}$ denote the kernel matrix of landmarks, where $W_{ij} = k(z_i, z_j)$. The explicit feature mapping $\psi: \mathcal{X} \to \mathbb{R}^m$ is then constructed as:
+Let $\boldsymbol{W} \in \mathbb{R}^{m \times m}$ denote the kernel matrix of landmarks, where $W_{ij} = k(z_i, z_j)$. The explicit feature mapping $\psi: \mathcal{X} \to \mathbb{R}^m$ is then constructed as
 \begin{equation}
 \label{eq:nystrom_feature}
-\psi(\boldsymbol{x}) = \boldsymbol{W}^{-1/2} [k(\boldsymbol{x}, z_1), \ldots, k(\boldsymbol{x}, z_m)]^T
+\psi(\boldsymbol{x}) = \boldsymbol{W}^{-1/2} [k(\boldsymbol{x}, z_1), \ldots, k(\boldsymbol{x}, z_m)]^T,
 \end{equation}
+where $\boldsymbol{W}^{-1/2}$ is computed via eigendecomposition. This mapping satisfies the approximation property $k(\boldsymbol{x}_i, \boldsymbol{x}_j) \approx \psi(\boldsymbol{x}_i)^T \psi(\boldsymbol{x}_j)$, enabling us to work directly in the primal space.
 where $\boldsymbol{W}^{-1/2}$ is computed via eigendecomposition. This mapping satisfies the approximation property $k(\boldsymbol{x}_i, \boldsymbol{x}_j) \approx \psi(\boldsymbol{x}_i)^T \psi(\boldsymbol{x}_j)$, enabling us to work directly in the primal space.
 
 \subsubsection{Primal Formulation with Explicit Features}
-With the explicit feature mapping, the prediction function becomes $f(\boldsymbol{x}) = \boldsymbol{w}^T \psi(\boldsymbol{x}) + b$, where $\boldsymbol{w} \in \mathbb{R}^m$. Let $\boldsymbol{\Psi}_S \in \mathbb{R}^{n_S \times m}$ and $\boldsymbol{\Psi}_T \in \mathbb{R}^{n_T \times m}$ denote the mapped feature matrices for source and target domains, respectively. The regularization matrix $\boldsymbol{R} \in \mathbb{R}^{m \times m}$ incorporating structural risk, variance, and MMD terms is formulated as:
+With the explicit feature mapping, the prediction function becomes $f(\boldsymbol{x}) = \boldsymbol{w}^T \psi(\boldsymbol{x}) + b$, where $\boldsymbol{w} \in \mathbb{R}^m$. Let $\boldsymbol{\Psi}_S \in \mathbb{R}^{n_S \times m}$ and $\boldsymbol{\Psi}_T \in \mathbb{R}^{n_T \times m}$ denote the mapped feature matrices for source and target domains, respectively. The regularization matrix $\boldsymbol{R} \in \mathbb{R}^{m \times m}$ incorporating structural risk, variance, and MMD terms is formulated as
 \begin{equation}
 \label{eq:reg_matrix}
-\boldsymbol{R} = \boldsymbol{I} + \lambda_1 \underbrace{\boldsymbol{\Psi}_S^T \boldsymbol{H}_S \boldsymbol{\Psi}_S}_{\text{Variance}} + \lambda_2 \underbrace{(\bar{\boldsymbol{\psi}}_S - \bar{\boldsymbol{\psi}}_T)(\bar{\boldsymbol{\psi}}_S - \bar{\boldsymbol{\psi}}_T)^T}_{\text{MMD}}
+\boldsymbol{R} = \boldsymbol{I} + \lambda_1 \underbrace{\boldsymbol{\Psi}_S^T \boldsymbol{H}_S \boldsymbol{\Psi}_S}_{\text{Variance}} + \lambda_2 \underbrace{(\bar{\boldsymbol{\psi}}_S - \bar{\boldsymbol{\psi}}_T)(\bar{\boldsymbol{\psi}}_S - \bar{\boldsymbol{\psi}}_T)^T}_{\text{MMD}},
 \end{equation}
 where $\boldsymbol{H}_S = \boldsymbol{I}_{n_S} - \frac{1}{n_S} \boldsymbol{1}_{n_S} \boldsymbol{1}_{n_S}^T$ is the centering matrix, and $\bar{\boldsymbol{\psi}}_S$, $\bar{\boldsymbol{\psi}}_T$ are the mean feature vectors of source and target domains.
 
 \subsubsection{Stochastic Gradient Descent Optimization}
-Instead of solving the dual QP problem, we directly optimize the primal objective using mini-batch stochastic gradient descent with the Adam optimizer. For each sample $k$ in a mini-batch $\mathcal{B}$, the sub-gradient of the Pinball Loss with respect to the prediction is:
+Instead of solving the dual QP problem, we directly optimize the primal objective using mini-batch stochastic gradient descent with the Adam optimizer \citep{kingma2015adam}. For each sample $k$ in a mini-batch $\mathcal{B}$, the sub-gradient of the Pinball Loss with respect to the prediction is
 \begin{equation}
 \label{eq:subgradient}
 g_k = \frac{\partial L_{\tau}}{\partial \hat{y}_k} = \begin{cases} 
 \tau - 1, & \text{if } y_k < \hat{y}_k \\ 
-\tau, & \text{if } y_k \ge \hat{y}_k
+\tau, & \text{if } y_k \ge \hat{y}_k.
 \end{cases}
 \end{equation}
 
-The weighted sub-gradient is computed as $\tilde{g}_k = C_k \cdot g_k$, where $C_k \in \{C_S, C_T\}$ depends on the domain membership. The parameter gradients are then:
+The weighted sub-gradient is computed as $\tilde{g}_k = C_k \cdot g_k$, where $C_k \in \{C_S, C_T\}$ depends on the domain membership. The parameter gradients are then
 \begin{equation}
 \label{eq:param_gradients}
-\nabla_{\boldsymbol{w}} J = \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k \psi(\boldsymbol{x}_k) + \boldsymbol{R} \boldsymbol{w}, \quad \nabla_b J = \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k
+\nabla_{\boldsymbol{w}} J = \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k \psi(\boldsymbol{x}_k) + \boldsymbol{R} \boldsymbol{w}, \quad \nabla_b J = \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k.
 \end{equation}
 
 The complete training procedure is summarized in Algorithm \ref{alg:fast_TL-QLDMR}.
@@ -626,12 +627,12 @@ Optimization & $O(N^3)$ & $O(T N m)$ \\
 \subsubsection{Theoretical Justification}
 The convergence of the proposed stochastic optimization algorithm is guaranteed under standard assumptions. Since the Pinball Loss is convex and Lipschitz continuous, and the regularization term $\frac{1}{2}\boldsymbol{w}^T \boldsymbol{R} \boldsymbol{w}$ is strongly convex (as $\boldsymbol{R}$ inherits positive definiteness from $\boldsymbol{\Omega}$ when $\lambda_1, \lambda_2 > 0$), the overall objective function is strongly convex. According to the convergence theory of SGD for strongly convex functions \citep{bottou2018optimization}, the algorithm converges to the global optimum at a rate of $O(1/T)$.
 
-Furthermore, the Nystr\"{o}m approximation error is bounded. Let $\tilde{k}(\boldsymbol{x}_i, \boldsymbol{x}_j) = \psi(\boldsymbol{x}_i)^T \psi(\boldsymbol{x}_j)$ denote the approximated kernel. Under mild conditions on the kernel eigenvalue decay (e.g., polynomial or exponential decay rate, which holds for commonly used kernels such as RBF and polynomial kernels), the approximation error satisfies:
+Furthermore, the Nystr\"{o}m approximation error is bounded. Let $\tilde{k}(\boldsymbol{x}_i, \boldsymbol{x}_j) = \psi(\boldsymbol{x}_i)^T \psi(\boldsymbol{x}_j)$ denote the approximated kernel. Standard analyses of the Nystr\"{o}m method show that the approximation error decreases with the number of landmarks under suitable spectral assumptions and sampling schemes \citep{kumar2012sampling, zhang2010clustered}. A representative order characterization is
 \begin{equation}
 \label{eq:nystrom_error}
 \mathbb{E}\left[ \| \boldsymbol{K} - \tilde{\boldsymbol{K}} \|_F \right] \le O\left( \frac{N}{\sqrt{m}} \right)
 \end{equation}
-This bound ensures that with a sufficient number of landmarks, the approximation quality is well-controlled, and the solution obtained by the scalable algorithm closely approximates that of the exact QP solver.
+this bound ensures that with a sufficient number of landmarks, the approximation quality is well-controlled, and the solution obtained by the scalable algorithm closely approximates that of the exact QP solver.
 
 
 %------------------------- Experiments --------------------%

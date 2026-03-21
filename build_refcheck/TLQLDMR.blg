@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: build_refcheck\TLQLDMR.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+The style file: model5-names.bst
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+Database file #1: ref.bib
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+You've used 50 entries,
+            3390 wiz_defined-function locations,
+            1030 strings with 16358 characters,
+and the built_in function-call counts, 39738 in all, are:
+= -- 3095
+> -- 1808
+< -- 24
++ -- 1638
+- -- 507
+* -- 4472
+:= -- 5115
+add.period$ -- 200
+call.type$ -- 50
+change.case$ -- 424
+chr.to.int$ -- 49
+cite$ -- 50
+duplicate$ -- 2739
+empty$ -- 2650
+format.name$ -- 686
+if$ -- 7449
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 521
+newline$ -- 276
+num.names$ -- 202
+pop$ -- 1218
+preamble$ -- 1
+purify$ -- 364
+quote$ -- 0
+skip$ -- 1077
+stack$ -- 0
+substring$ -- 1539
+swap$ -- 2137
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 450
+warning$ -- 0
+while$ -- 219
+width$ -- 0
+write$ -- 771
