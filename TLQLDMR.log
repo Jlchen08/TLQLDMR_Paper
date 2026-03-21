@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  21 MAR 2026 18:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  21 MAR 2026 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -759,7 +759,7 @@ LaTeX Font Info:    Trying to load font information for T1+stix on input line 1
 (C:\Users\Administrator\AppData\Roaming\MiKTeX\tex/latex/stix\t1stix.fd
 File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
 )
-No file TLQLDMR.aux.
+(TLQLDMR.aux)
 \openout1 = `TLQLDMR.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
@@ -783,6 +783,7 @@ LaTeX Font Info:    ... okay on input line 165.
 LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 165.
 LaTeX Font Info:    Trying to load font information for LS1+stix on input line 
 165.
+
 (C:\Users\Administrator\AppData\Roaming\MiKTeX\tex/latex/stix\ls1stix.fd
 File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
 )
@@ -813,6 +814,7 @@ LaTeX Font Info:    ... okay on input line 165.
 LaTeX Info: Command `\dddot' is already robust on input line 165.
 LaTeX Info: Command `\ddddot' is already robust on input line 165.
 Package hyperref Info: Link coloring ON on input line 165.
+ (TLQLDMR.out) (TLQLDMR.out)
 \@outlinefile=\write3
 \openout3 = `TLQLDMR.out'.
 
@@ -929,58 +931,6 @@ Package hyperref Warning: Ignoring empty anchor on input line 236.
 
 Package hyperref Warning: Ignoring empty anchor on input line 236.
 
-
-Package natbib Warning: Citation `wang2019review' on page 1 undefined on input 
-line 243.
-
-
-Package natbib Warning: Citation `zhang2024kde' on page 1 undefined on input li
-ne 243.
-
-
-Package natbib Warning: Citation `s41597-022-01696-6' on page 1 undefined on in
-put line 243.
-
-
-Package natbib Warning: Citation `s41597-022-01696-6' on page 1 undefined on in
-put line 245.
-
-
-Package natbib Warning: Citation `mustaffa2025rf' on page 1 undefined on input 
-line 245.
-
-
-Package natbib Warning: Citation `chen2025brf' on page 1 undefined on input lin
-e 245.
-
-
-Package natbib Warning: Citation `wang2019review' on page 1 undefined on input 
-line 247.
-
-
-Package natbib Warning: Citation `li2021cuckoo' on page 1 undefined on input li
-ne 247.
-
-
-Package natbib Warning: Citation `luo2024fsvr' on page 1 undefined on input lin
-e 247.
-
-
-Package natbib Warning: Citation `yuan2022jellyfish' on page 1 undefined on inp
-ut line 247.
-
-
-Package natbib Warning: Citation `trafalis2006robust' on page 1 undefined on in
-put line 247.
-
-
-Package natbib Warning: Citation `fu2023bounded' on page 1 undefined on input l
-ine 247.
-
-
-Package natbib Warning: Citation `jiang2021rlmkl' on page 1 undefined on input 
-line 247.
-
 [1
 
 {C:/Users/Administrator/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Us
@@ -990,162 +940,16 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.5> not available
 (Font)              size <7> substituted on input line 249.
 
 
-Package natbib Warning: Citation `taylor2007ewqr' on page 2 undefined on input 
-line 249.
-
-
-Package natbib Warning: Citation `ye2025nfs' on page 2 undefined on input line 
-249.
-
-
-Package natbib Warning: Citation `tsvqr2023' on page 2 undefined on input line 
-249.
-
-
-Package natbib Warning: Citation `tsvqr2023' on page 2 undefined on input line 
-249.
-
-
-Package natbib Warning: Citation `wang2024ssvqr' on page 2 undefined on input l
-ine 249.
-
-
-Package natbib Warning: Citation `ye2025nfs' on page 2 undefined on input line 
-249.
-
-
-Package natbib Warning: Citation `zhang2019optimal' on page 2 undefined on inpu
-t line 251.
-
-
-Package natbib Warning: Citation `gupta2021least' on page 2 undefined on input 
-line 251.
-
-
-Package natbib Warning: Citation `gupta2021least' on page 2 undefined on input 
-line 251.
-
-
-Package natbib Warning: Citation `hazarika2023mode' on page 2 undefined on inpu
-t line 251.
-
-
-Package natbib Warning: Citation `tang2019cost' on page 2 undefined on input li
-ne 251.
-
-
-Package natbib Warning: Citation `CHENG2016107' on page 2 undefined on input li
-ne 251.
-
-
-Package natbib Warning: Citation `doi:10.1177/14759217231159948' on page 2 unde
-fined on input line 251.
-
-
-Package natbib Warning: Citation `TAO20123962' on page 2 undefined on input lin
-e 253.
-
-
-Package natbib Warning: Citation `YAN2022107664' on page 2 undefined on input l
-ine 253.
-
-
-Package natbib Warning: Citation `GUO2022118237' on page 2 undefined on input l
-ine 253.
-
-
-Package natbib Warning: Citation `dp2' on page 2 undefined on input line 253.
-
-
-Package natbib Warning: Citation `ss2' on page 2 undefined on input line 253.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [2]
-
-Package natbib Warning: Citation `TAO20123962' on page 3 undefined on input lin
-e 257.
-
-
-Package natbib Warning: Citation `GUO2022118237' on page 3 undefined on input l
-ine 257.
-
-
-Package natbib Warning: Citation `TAO20123962' on page 3 undefined on input lin
-e 263.
-
-
-Package natbib Warning: Citation `s41597-022-01696-6' on page 3 undefined on in
-put line 265.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [3]
-
-LaTeX Warning: Reference `rel' on page 4 undefined on input line 271.
-
-
-LaTeX Warning: Reference `novel' on page 4 undefined on input line 271.
-
-
-LaTeX Warning: Reference `Experiments' on page 4 undefined on input line 271.
-
-
-LaTeX Warning: Reference `conclusion' on page 4 undefined on input line 271.
-
-
-Package natbib Warning: Citation `tsvqr2023' on page 4 undefined on input line 
-281.
-
-
-Package natbib Warning: Citation `wang2024ssvqr' on page 4 undefined on input l
-ine 281.
-
-
-Package natbib Warning: Citation `ye2025nfs' on page 4 undefined on input line 
-281.
-
-
-Package natbib Warning: Citation `zhang2014large' on page 4 undefined on input 
-line 298.
-
-
-Package natbib Warning: Citation `zhang2019optimal' on page 4 undefined on inpu
-t line 298.
-
-
-Package natbib Warning: Citation `gupta2021least' on page 4 undefined on input 
-line 298.
-
-
-Package natbib Warning: Citation `hazarika2023mode' on page 4 undefined on inpu
-t line 298.
-
-
-Package natbib Warning: Citation `TAO20123962' on page 4 undefined on input lin
-e 309.
-
-
-Package natbib Warning: Citation `YAN2022107664' on page 4 undefined on input l
-ine 309.
-
-
-Package natbib Warning: Citation `GUO2022118237' on page 4 undefined on input l
-ine 309.
-
-
-Package natbib Warning: Citation `dp2' on page 4 undefined on input line 309.
-
-
-Package natbib Warning: Citation `ss2' on page 4 undefined on input line 309.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1159,20 +963,16 @@ cal/m/n/10 ‘
  []
 
 
-LaTeX Warning: Reference `fig:framework' on page 5 undefined on input line 333.
-
-
-<build/framework.pdf, id=37, 844.55423pt x 186.40741pt>
-File: build/framework.pdf Graphic file (type pdf)
-<use build/framework.pdf>
-Package pdftex.def Info: build/framework.pdf  used on input line 337.
-(pdftex.def)             Requested size: 444.91434pt x 98.20099pt.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [5]
+<build/framework.pdf, id=178, 844.55423pt x 186.40741pt>
+File: build/framework.pdf Graphic file (type pdf)
+<use build/framework.pdf>
+Package pdftex.def Info: build/framework.pdf  used on input line 337.
+(pdftex.def)             Requested size: 444.91434pt x 98.20099pt.
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
 358.
  (C:\Users\Administrator\AppData\Roaming\MiKTeX\tex/latex/stix\ts1stix.fd
@@ -1184,312 +984,83 @@ $[]$
 
 [6{C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/enc/dvips/stix/stix-ts1.
 enc} <./build/framework.pdf>]
-
-LaTeX Warning: Reference `eq:objective' on page 7 undefined on input line 385.
-
-
-LaTeX Warning: Reference `eq:primal_matrix' on page 7 undefined on input line 3
-93.
-
-
-Package natbib Warning: Citation `scholkopf2001representer' on page 7 undefined
- on input line 408.
-
-
-LaTeX Warning: Reference `eq:representer' on page 7 undefined on input line 414
-.
-
-
-LaTeX Warning: Reference `eq:matrix_S' on page 7 undefined on input line 415.
-
-
-LaTeX Warning: Reference `eq:matrix_M' on page 7 undefined on input line 415.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [7]
-
-LaTeX Warning: Reference `eq:Omega' on page 8 undefined on input line 431.
-
-
-LaTeX Warning: Reference `eq:primal_matrix' on page 8 undefined on input line 4
-31.
-
-
-LaTeX Warning: Reference `eq:constraints' on page 8 undefined on input line 436
-.
-
-
-LaTeX Warning: Reference `eq:kernel_constraints' on page 8 undefined on input l
-ine 443.
-
-
-LaTeX Warning: Reference `eq:lagrangian' on page 8 undefined on input line 451.
-
-
-
-LaTeX Warning: Reference `eq:kkt_beta' on page 8 undefined on input line 457.
-
-
-LaTeX Warning: Reference `eq:beta_optimal' on page 8 undefined on input line 46
-3.
-
-
-LaTeX Warning: Reference `eq:lagrangian' on page 8 undefined on input line 463.
-
-
-
-LaTeX Warning: Reference `eq:kkt_b' on page 8 undefined on input line 463.
-
-
-LaTeX Warning: Reference `eq:kkt_xi' on page 8 undefined on input line 463.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [8]
-
-LaTeX Warning: Reference `eq:dual_problem' on page 9 undefined on input line 47
-9.
-
-
-LaTeX Warning: Reference `eq:beta_optimal' on page 9 undefined on input line 47
-9.
-
-
-LaTeX Warning: Reference `alg:TL-QLDMR' on page 9 undefined on input line 483.
-
-
-LaTeX Warning: Reference `eq:matrix_S' on page 9 undefined on input line 499.
-
-
-LaTeX Warning: Reference `eq:matrix_M' on page 9 undefined on input line 500.
-
-
-LaTeX Warning: Reference `eq:Omega' on page 9 undefined on input line 503.
-
-
-LaTeX Warning: Reference `eq:dual_matrices' on page 9 undefined on input line 5
-05.
-
-
-LaTeX Warning: Reference `eq:dual_matrices' on page 9 undefined on input line 5
-06.
-
-
-LaTeX Warning: Reference `eq:dual_problem' on page 9 undefined on input line 50
-9.
-
-
-LaTeX Warning: Reference `eq:beta_optimal' on page 9 undefined on input line 51
-4.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [9]
-
-Package natbib Warning: Citation `zhang2010clustered' on page 10 undefined on i
-nput line 530.
-
-
-Package natbib Warning: Citation `kingma2015adam' on page 10 undefined on input
- line 549.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [10]
-
-LaTeX Warning: Reference `alg:fast_TL-QLDMR' on page 11 undefined on input line
- 564.
-
-
-LaTeX Warning: Reference `eq:nystrom_feature' on page 11 undefined on input lin
-e 578.
-
-
-LaTeX Warning: Reference `eq:reg_matrix' on page 11 undefined on input line 582
-.
-
-
-LaTeX Warning: Reference `eq:subgradient' on page 11 undefined on input line 59
-6.
-
-
-LaTeX Warning: Reference `eq:param_gradients' on page 11 undefined on input lin
-e 596.
-
-
-LaTeX Warning: Reference `tab:complexity' on page 11 undefined on input line 60
-8.
-
-
-Package natbib Warning: Citation `bottou2018optimization' on page 11 undefined 
-on input line 628.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[11]
-
-Package natbib Warning: Citation `kumar2012sampling' on page 12 undefined on in
-put line 630.
-
-
-Package natbib Warning: Citation `zhang2010clustered' on page 12 undefined on i
-nput line 630.
-
-(experiments.tex
-
-LaTeX Warning: Reference `sec:data' on page 12 undefined on input line 4.
-
-
-LaTeX Warning: Reference `sec:setup' on page 12 undefined on input line 4.
-
-
-LaTeX Warning: Reference `sec:exp1' on page 12 undefined on input line 4.
-
-
-LaTeX Warning: Reference `sec:exp5' on page 12 undefined on input line 4.
-
-
-Package natbib Warning: Citation `s41597-022-01696-6' on page 12 undefined on i
-nput line 9.
-
-
-LaTeX Warning: Reference `tab:farm_summary' on page 12 undefined on input line 
-20.
-
-
-Package natbib Warning: Citation `wang2019review' on page 12 undefined on input
- line 45.
-
-
+[11] (experiments.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [12]
-
-Package natbib Warning: Citation `sideratos2012extreme' on page 13 undefined on
- input line 52.
-
-
-Package natbib Warning: Citation `liu2024extreme' on page 13 undefined on input
- line 52.
-
-
-Package natbib Warning: Citation `pan2010survey' on page 13 undefined on input 
-line 52.
-
-
-Package natbib Warning: Citation `bendavid2010theory' on page 13 undefined on i
-nput line 52.
-
-
-Package natbib Warning: Citation `liu2023eweld' on page 13 undefined on input l
-ine 52.
-
-
-Package natbib Warning: Citation `rabanal2019midas' on page 13 undefined on inp
-ut line 60.
-
-
-Package natbib Warning: Citation `liang2025coldwave' on page 13 undefined on in
-put line 62.
-
-
-Package natbib Warning: Citation `pan2010survey' on page 13 undefined on input 
-line 62.
-
-
-Package natbib Warning: Citation `bendavid2010theory' on page 13 undefined on i
-nput line 62.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [13]
-
-LaTeX Warning: Reference `sec:extreme_def' on page 14 undefined on input line 7
-7.
-
-
-LaTeX Warning: Reference `tab:exp1_shift' on page 14 undefined on input line 77
-.
-
-
-LaTeX Warning: Reference `fig:domain_shift' on page 14 undefined on input line 
-98.
-
-
-LaTeX Warning: Reference `tab:exp1_shift' on page 14 undefined on input line 98
-.
-
-<experiment1/outputs/plots/farm1_domain_shift.jpg, id=270, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm1_domain_shift.jpg, id=491, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm1_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm1_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm1_domain_shift.jpg  used
  on input line 102.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm0_domain_shift.jpg, id=271, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm0_domain_shift.jpg, id=492, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm0_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm0_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm0_domain_shift.jpg  used
  on input line 104.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm2_domain_shift.jpg, id=272, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm2_domain_shift.jpg, id=493, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm2_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm2_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm2_domain_shift.jpg  used
  on input line 107.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm4_domain_shift.jpg, id=273, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm4_domain_shift.jpg, id=494, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm4_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm4_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm4_domain_shift.jpg  used
  on input line 109.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm5_domain_shift.jpg, id=274, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm5_domain_shift.jpg, id=495, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm5_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm5_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm5_domain_shift.jpg  used
  on input line 112.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm3_domain_shift.jpg, id=275, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm3_domain_shift.jpg, id=496, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm3_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm3_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm3_domain_shift.jpg  used
  on input line 114.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-
-LaTeX Warning: Reference `tab:exp1_shift' on page 14 undefined on input line 11
-9.
-
-
-LaTeX Warning: Reference `fig:domain_shift' on page 14 undefined on input line 
-119.
-
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
@@ -1510,35 +1081,7 @@ $[]$
 jpg> <./experiment1/outputs/plots/farm4_domain_shift.jpg> <./experiment1/output
 s/plots/farm5_domain_shift.jpg> <./experiment1/outputs/plots/farm3_domain_shift
 .jpg>]
-
-Package natbib Warning: Citation `fu2023bounded' on page 17 undefined on input 
-line 141.
-
-
-Package natbib Warning: Citation `houssein2025hho' on page 17 undefined on inpu
-t line 147.
-
-
-Package natbib Warning: Citation `meena2025flsvr' on page 17 undefined on input
- line 148.
-
-
-Package natbib Warning: Citation `duan2025ara' on page 17 undefined on input li
-ne 149.
-
-
-Package natbib Warning: Citation `rizkallah2025kmeans' on page 17 undefined on 
-input line 155.
-
-
-Package natbib Warning: Citation `mustaffa2025rf' on page 17 undefined on input
- line 156.
-
-
-Package natbib Warning: Citation `chen2025brf' on page 17 undefined on input li
-ne 157.
-
-<experiment2/plots_selected/farm3_Standard-LDMR.pdf, id=292, 592.61403pt x 274.
+<experiment2/plots_selected/farm3_Standard-LDMR.pdf, id=529, 592.61403pt x 274.
 626pt>
 File: experiment2/plots_selected/farm3_Standard-LDMR.pdf Graphic file (type pdf
 )
@@ -1546,26 +1089,26 @@ File: experiment2/plots_selected/farm3_Standard-LDMR.pdf Graphic file (type pdf
 Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-LDMR.pdf  us
 ed on input line 196.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_BLSSVR.pdf, id=293, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_BLSSVR.pdf, id=530, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_BLSSVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_BLSSVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_BLSSVR.pdf  used on i
 nput line 201.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_ARA-SVR.pdf, id=294, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_ARA-SVR.pdf, id=531, 592.61403pt x 274.626pt>
 
 File: experiment2/plots_selected/farm3_ARA-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_ARA-SVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_ARA-SVR.pdf  used on 
 input line 212.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_FLSVR.pdf, id=295, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_FLSVR.pdf, id=532, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_FLSVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_FLSVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_FLSVR.pdf  used on in
 put line 217.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_Standard-SVR.pdf, id=296, 592.61403pt x 274.6
+<experiment2/plots_selected/farm3_Standard-SVR.pdf, id=533, 592.61403pt x 274.6
 26pt>
 File: experiment2/plots_selected/farm3_Standard-SVR.pdf Graphic file (type pdf)
 
@@ -1573,63 +1116,40 @@ File: experiment2/plots_selected/farm3_Standard-SVR.pdf Graphic file (type pdf)
 Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-SVR.pdf  use
 d on input line 228.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_HHO-SVR.pdf, id=297, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_HHO-SVR.pdf, id=534, 592.61403pt x 274.626pt>
 
 File: experiment2/plots_selected/farm3_HHO-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_HHO-SVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_HHO-SVR.pdf  used on 
 input line 233.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_BRF-WPF.pdf, id=298, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_BRF-WPF.pdf, id=535, 592.61403pt x 274.626pt>
 
 File: experiment2/plots_selected/farm3_BRF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_BRF-WPF.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_BRF-WPF.pdf  used on 
 input line 244.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_KMeans-GBT.pdf, id=299, 592.61403pt x 274.626
+<experiment2/plots_selected/farm3_KMeans-GBT.pdf, id=536, 592.61403pt x 274.626
 pt>
 File: experiment2/plots_selected/farm3_KMeans-GBT.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_KMeans-GBT.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_KMeans-GBT.pdf  used 
 on input line 249.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_RF-WPF.pdf, id=300, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_RF-WPF.pdf, id=537, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_RF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_RF-WPF.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_RF-WPF.pdf  used on i
 nput line 260.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_TL-QLDMR.pdf, id=301, 635.97598pt x 296.307pt
+<experiment2/plots_selected/farm3_TL-QLDMR.pdf, id=538, 635.97598pt x 296.307pt
 >
 File: experiment2/plots_selected/farm3_TL-QLDMR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_TL-QLDMR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_TL-QLDMR.pdf  used on
  input line 265.
 (pdftex.def)             Requested size: 229.48544pt x 106.9191pt.
-
-LaTeX Warning: Reference `tab:exp2_results' on page 17 undefined on input line 
-271.
-
-
-LaTeX Warning: Reference `fig:exp2_curves_a' on page 17 undefined on input line
- 271.
-
-
-LaTeX Warning: Reference `fig:exp2_curves_e' on page 17 undefined on input line
- 271.
-
-
-LaTeX Warning: Reference `novel' on page 17 undefined on input line 273.
-
-
-LaTeX Warning: Reference `fig:exp2_curves_a' on page 17 undefined on input line
- 275.
-
-
-LaTeX Warning: Reference `fig:exp2_curves_e' on page 17 undefined on input line
- 275.
-
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
@@ -1638,11 +1158,6 @@ $[]$
 [17
 
 ]
-
-LaTeX Warning: Reference `tab:exp2_noise' on page 18 undefined on input line 28
-1.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1658,75 +1173,21 @@ $[]$
 selected/farm3_HHO-SVR.pdf> <./experiment2/plots_selected/farm3_BRF-WPF.pdf> <.
 /experiment2/plots_selected/farm3_KMeans-GBT.pdf> <./experiment2/plots_selected
 /farm3_RF-WPF.pdf> <./experiment2/plots_selected/farm3_TL-QLDMR.pdf>]
-
-Package natbib Warning: Citation `tsvqr2023' on page 20 undefined on input line
- 338.
-
-
-Package natbib Warning: Citation `wang2024ssvqr' on page 20 undefined on input 
-line 339.
-
-
-Package natbib Warning: Citation `ye2025nfs' on page 20 undefined on input line
- 340.
-
-
-Package natbib Warning: Citation `scholkopf2000new' on page 20 undefined on inp
-ut line 341.
-
-
-Package natbib Warning: Citation `romano2019cqr' on page 20 undefined on input 
-line 341.
-
-
-Package natbib Warning: Citation `jiang2021rlmkl' on page 20 undefined on input
- line 342.
-
-
-Package natbib Warning: Citation `hybriddl2025' on page 20 undefined on input l
-ine 348.
-
-
-Package natbib Warning: Citation `amqrnn2025' on page 20 undefined on input lin
-e 349.
-
-
-Package natbib Warning: Citation `hu2025ncqgbr' on page 20 undefined on input l
-ine 350.
-
-
-Package natbib Warning: Citation `hu2025nescqr' on page 20 undefined on input l
-ine 351.
-
-
-LaTeX Warning: Reference `tab:exp3_results' on page 20 undefined on input line 
-356.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [20]
-
-LaTeX Warning: Reference `tab:exp3_noise' on page 21 undefined on input line 38
-9.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [21]
-
-LaTeX Warning: Reference `tab:ablation_results' on page 22 undefined on input l
-ine 465.
-
-<experiment4/plots/residual_distribution.png, id=848, 520.344pt x 303.534pt>
+<experiment4/plots/residual_distribution.png, id=1122, 520.344pt x 303.534pt>
 File: experiment4/plots/residual_distribution.png Graphic file (type png)
 <use experiment4/plots/residual_distribution.png>
 Package pdftex.def Info: experiment4/plots/residual_distribution.png  used on i
-nput line 489.
+nput line 491.
 (pdftex.def)             Requested size: 430.86494pt x 251.34956pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1734,24 +1195,11 @@ $[]$
  []
 
 [22]
-
-LaTeX Warning: Reference `novel' on page 23 undefined on input line 496.
-
-
-LaTeX Warning: Reference `fig:ablation_residual' on page 23 undefined on input 
-line 500.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [23 <./experiment4/plots/residual_distribution.png>]
-
-LaTeX Warning: Reference `tab:scalability_results' on page 24 undefined on inpu
-t line 511.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1762,16 +1210,35 @@ Underfull \hbox (badness 1210) in paragraph at lines 660--661
 ion and En-trepreneur-ship for Un-der-grad-u-ate (No.
  []
 
-No file TLQLDMR.bbl.
-
-Package natbib Warning: There were undefined citations.
-
-
+(TLQLDMR.bbl
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[25] (TLQLDMR.aux)
+[25]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[26]
+Underfull \hbox (badness 1472) in paragraph at lines 434--444
+[]\T1/stix/m/n/8 Zhai, S., Han, M., Li, Z., Yang, S., Duan, S., & Yan, J. (2023
+).  M2fl-ccc: Multi-branch mul-ti-layer fea-ture lean-ing and com-pre-hen-
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 434--444
+\T1/stix/m/n/8 sive clas-si-fi-ca-tion cri-te-rion for gas sen-sor drift com-pe
+n-sa-tion.  \T1/stix/m/it/8 IEEE Trans-ac-tions on In-stru-men-ta-tion and Mea-
+sure-ment\T1/stix/m/n/8 , \T1/stix/m/it/8 72\T1/stix/m/n/8 , 1--12.
+ []
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[27] (TLQLDMR.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1781,63 +1248,52 @@ L3 programming layer <2025-12-24>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `TLQLDMR.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `TLQLDMR.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `TLQLDMR.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19439 strings out of 467870
- 304113 string characters out of 5428399
- 729345 words of memory out of 5000000
- 47830 multiletter control sequences out of 15000+600000
- 748708 words of font info for 200 fonts, out of 8000000 for 9000
+ 19670 strings out of 467870
+ 308932 string characters out of 5428399
+ 739696 words of memory out of 5000000
+ 47998 multiletter control sequences out of 15000+600000
+ 749021 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,19n,98p,2150b,626s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,19n,98p,2150b,664s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\ectt1000.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\ecss0900.pk><C:/Users/Administrator/AppData/Roaming/MiKTeX/fo
-nts/type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/Administrator/AppData/Roam
-ing/MiKTeX/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb><C:/Users/Adminis
-trator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Italic.pfb><C
-:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGenera
-l-Regular.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb
-><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program 
-Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmm
-ib7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb
-><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program 
-Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
-:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathb
-b.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/st
-ix-mathcal.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/publi
-c/stix/stix-mathex.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/typ
-e1/public/stix/stix-mathit-bold.pfb><C:/Users/Administrator/AppData/Roaming/MiK
-TeX/fonts/type1/public/stix/stix-mathit.pfb><C:/Users/Administrator/AppData/Roa
-ming/MiKTeX/fonts/type1/public/stix/stix-mathrm-bold.pfb><C:/Users/Administrato
-r/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/Admi
-nistrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathscr.pfb><C:/U
-sers/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathsf.p
-fb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-
-mathtt.pfb>
-Output written on TLQLDMR.pdf (25 pages, 3758799 bytes).
+600\ectt0800.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ectt1000.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk><C:/Users/Administrator/AppData/Roa
+ming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/Administrato
+r/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb><C:
+/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral
+-Italic.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/s
+tix/STIXGeneral-Regular.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmbx7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pf
+b><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program
+ Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfon
+ts/cmextra/cmmib7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmex
+tra/cmmib8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pf
+b><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program 
+Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsy7.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/s
+tix/stix-mathbb.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/
+public/stix/stix-mathcal.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fon
+ts/type1/public/stix/stix-mathex.pfb><C:/Users/Administrator/AppData/Roaming/Mi
+KTeX/fonts/type1/public/stix/stix-mathit-bold.pfb><C:/Users/Administrator/AppDa
+ta/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathit.pfb><C:/Users/Administrat
+or/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm-bold.pfb><C:/User
+s/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm.pfb>
+<C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mat
+hscr.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix
+/stix-mathsf.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/pub
+lic/stix/stix-mathtt.pfb>
+Output written on TLQLDMR.pdf (27 pages, 3850508 bytes).
 PDF statistics:
- 1092 PDF objects out of 1200 (max. 8388607)
- 182 named destinations out of 1000 (max. 500000)
+ 1492 PDF objects out of 1728 (max. 8388607)
+ 235 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
