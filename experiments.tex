@@ -49,7 +49,7 @@ A sliding window of length $W = 24$ (corresponding to a 6-hour lookback horizon 
 %---------------- Extreme Weather Definition --------------------%
 \subsection{Extreme Weather Event Definition}\label{sec:extreme_def}
 
-A critical prerequisite for evaluating transfer learning under extreme conditions is the rigorous definition of what constitutes an ``extreme weather event'' in wind power forecasting \citep{sideratos2012extreme, liu2024extreme}. In this study, extreme weather does not denote a single named meteorological subtype, such as typhoon, icing, or a specific ramping pattern. Instead, it refers to a unified target domain composed of high-risk, high-volatility, and out-of-distribution operating states relative to normal-weather data, consistent with transfer-learning settings in which the source and target domains differ through their marginal distributions and operational regimes \citep{pan2010survey, bendavid2010theory}. To construct this target domain, a physics-statistics hybrid screening strategy is adopted: physical thresholding captures deterministic high-wind shutdown risk, whereas percentile-based rules identify statistically rare meteorological deviations at each wind farm, following the broader logic of mixed rule-and-statistics criteria used in recent extreme-event energy data studies \citep{liu2023eweld}. A sample is classified as belonging to the target domain if it satisfies any of the following criteria:
+A critical prerequisite for evaluating transfer learning under extreme conditions is the rigorous definition of what constitutes an ``extreme weather event'' in wind power forecasting \citep{sideratos2012extreme, liu2024extreme}. In this study, extreme weather does not denote a single named meteorological subtype, such as typhoon, icing, or a specific ramping pattern. Instead, it refers to a unified target domain composed of high-risk, high-volatility, and out-of-distribution operating states relative to normal weather data, consistent with transfer-learning settings in which the source and target domains differ through their marginal distributions and operational regimes \citep{pan2010survey, bendavid2010theory}. To construct this target domain, a physics-statistics hybrid screening strategy is adopted: physical thresholding captures deterministic high-wind shutdown risk, whereas percentile-based rules identify statistically rare meteorological deviations at each wind farm, following the broader logic of mixed rule-and-statistics criteria used in recent extreme-event energy data studies \citep{liu2023eweld}. A sample is classified as belonging to the target domain if it satisfies any of the following criteria:
 
 \begin{enumerate}
     \item \textbf{Statistical wind speed extreme}: Hub-height wind speed exceeds the 98th percentile of the farm's historical distribution;
@@ -59,7 +59,7 @@ A critical prerequisite for evaluating transfer learning under extreme condition
 
 The 25\,m/s threshold is treated here as a nominal cut-out speed. Although the exact cut-out point may vary slightly across turbine types, values around 25\,m/s are widely used in wind turbine power-curve characterization as the shutdown region associated with safety protection \citep{rabanal2019midas}. This threshold is therefore sufficient to capture the core methodological feature of high-wind-induced nonlinear shutdown risk. Notably, the power ramp criterion (rapid power fluctuations exceeding 5\% of nominal capacity per 15-minute interval) is deliberately excluded from the extreme definition. This design choice avoids conflating control-induced power curtailment or dispatch adjustments with genuinely weather-driven anomalies.
 
-No further subdivision of extreme samples into multiple subclasses is attempted. This choice is deliberate because extreme-weather events are inherently scarce in realistic forecasting settings; splitting them into fine-grained categories would substantially weaken the statistical support available for transfer learning and would turn a small-sample problem into a near-few-shot problem, a difficulty also reported in recent extreme-condition wind power studies \citep{liang2025coldwave}. From the perspective of domain adaptation, these heterogeneous extreme states share the same modeling characteristic: they are all out-of-distribution samples exhibiting elevated volatility, non-stationarity, and clear deviation from normal operating patterns \citep{pan2010survey, bendavid2010theory}. The objective of TL-QLDMR is therefore to learn a unified disturbance-robust adaptation mechanism rather than a separate submodel for each rare event type. The union of the above three rules thus forms a single target domain that is physically interpretable, statistically sufficient for model training, and consistent with the data-scarce nature of extreme-weather forecasting. All remaining samples constitute the source domain.
+No further subdivision of extreme samples into multiple subclasses is attempted. This choice is deliberate because extreme weather events are inherently scarce in realistic forecasting settings; splitting them into fine-grained categories would substantially weaken the statistical support available for transfer learning and would turn a small-sample problem into a near-few-shot problem, a difficulty also reported in recent extreme-condition wind power studies \citep{liang2025coldwave}. From the perspective of domain adaptation, these heterogeneous extreme states share the same modeling characteristic: they are all out-of-distribution samples exhibiting elevated volatility, non-stationarity, and clear deviation from normal operating patterns \citep{pan2010survey, bendavid2010theory}. The objective of TL-QLDMR is therefore to learn a unified disturbance-robust adaptation mechanism rather than a separate submodel for each rare event type. The union of the above three rules thus forms a single target domain that is physically interpretable, statistically sufficient for model training, and consistent with the data-scarce nature of extreme weather forecasting. All remaining samples constitute the source domain.
 
 %---------------- Experimental Setup --------------------%
 \subsection{Experimental Setup}\label{sec:setup}
@@ -74,7 +74,7 @@ To quantify the distribution discrepancy between normal and extreme domains, we 
 %---------------- Experiment 1 --------------------%
 \subsection{Experiment 1: Extreme Sample Screening and Domain Shift Quantification}\label{sec:exp1}
 
-The first experiment identifies extreme-weather samples across all six wind farms using the criteria in Section~\ref{sec:extreme_def}, and then quantifies source-target distribution shift for each farm. Table~\ref{tab:exp1_shift} reports the domain-shift statistics sorted by the composite Wasserstein distance $W_1(\text{wind}) + W_1(\text{power})$. Preliminary sensitivity checks show that a stricter 99th-percentile wind-speed rule leaves too few target-domain samples for stable model development, whereas the adopted 98th-percentile rule preserves event extremity while maintaining statistical sufficiency.
+The first experiment identifies extreme weather samples across all six wind farms using the criteria in Section~\ref{sec:extreme_def}, and then quantifies source-target distribution shift for each farm. Table~\ref{tab:exp1_shift} reports the domain-shift statistics sorted by the composite Wasserstein distance $W_1(\text{wind}) + W_1(\text{power})$. Preliminary sensitivity checks show that a stricter 99th-percentile wind-speed rule leaves too few target-domain samples for stable model development, whereas the adopted 98th-percentile rule preserves event extremity while maintaining statistical sufficiency.
 
 \begin{table*}[ht]
 \centering
@@ -163,7 +163,7 @@ We compare TL-QLDMR against classical kernel baselines, robust kernel variants, 
 
 \begin{table}[ht]
 \centering
-\caption{Deterministic point prediction results on the extreme weather test set of Farm~6 (96\,MW). Models are sorted by RMSE in descending order, with TL-QLDMR placed last for direct comparison. Best results are highlighted in bold.}
+\caption{Deterministic point prediction results on the extreme weather test set of Farm~6 . Best results are highlighted in bold (similarly hereinafter).}
 \setlength{\tabcolsep}{3.5mm}
 \begin{tabular}{lccc}
 \toprule
@@ -200,7 +200,7 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 (b) BLSSVR\par
 \includegraphics[width=\linewidth]{experiment2/plots_selected/farm3_BLSSVR.pdf}
 \end{minipage}
-\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part I).}
+\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part I).}
 \label{fig:exp2_curves_a}
 \end{figure}
 
@@ -216,7 +216,7 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 (d) FLSVR\par
 \includegraphics[width=\linewidth]{experiment2/plots_selected/farm3_FLSVR.pdf}
 \end{minipage}
-\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part II).}
+\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part II).}
 \label{fig:exp2_curves_b}
 \end{figure}
 
@@ -232,7 +232,7 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 (f) HHO-SVR\par
 \includegraphics[width=\linewidth]{experiment2/plots_selected/farm3_HHO-SVR.pdf}
 \end{minipage}
-\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part III).}
+\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part III).}
 \label{fig:exp2_curves_c}
 \end{figure}
 
@@ -248,7 +248,7 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 (h) KMeans-GBT\par
 \includegraphics[width=\linewidth]{experiment2/plots_selected/farm3_KMeans-GBT.pdf}
 \end{minipage}
-\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part IV).}
+\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part IV).}
 \label{fig:exp2_curves_d}
 \end{figure}
 
@@ -264,17 +264,17 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 (j) TL-QLDMR\par
 \includegraphics[width=\linewidth]{experiment2/plots_selected/farm3_TL-QLDMR.pdf}
 \end{minipage}
-\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part V).}
+\caption{Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part V).}
 \label{fig:exp2_curves_e}
 \end{figure}
 
-Table~\ref{tab:exp2_results} and Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} jointly demonstrate that TL-QLDMR provides the most accurate and stable point forecasts on the Farm~6 extreme-weather test set. Several observations are noteworthy:
+Table~\ref{tab:exp2_results} and Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} jointly demonstrate that TL-QLDMR provides the most accurate and stable point forecasts on the Farm~6 extreme weather test set. Several observations are noteworthy:
 
 First, comparing TL-QLDMR against classical and robust kernel baselines reveals the value of the proposed extensions. Standard SVR achieves moderate performance (RMSE = 8.564, $R^2$ = 0.9413), establishing a solid baseline for kernel-based regression. However, Standard LDMR, despite incorporating variance regularization for distributional robustness, exhibits the weakest performance among kernel methods (RMSE = 10.692, $R^2$ = 0.9085). BLSSVR, although designed to improve robustness via bounded loss, improves only marginally over Standard LDMR (RMSE = 10.273, $R^2$ = 0.9155) and remains clearly inferior to Standard SVR and HHO-SVR. This pattern confirms our theoretical analysis in Section~\ref{novel}: sample-wise robustness alone is insufficient in the cross-domain extreme weather scenario where (i) training and testing distributions differ substantially, and (ii) the model must adapt to target-domain dynamics. The large performance gaps from Standard LDMR and BLSSVR to TL-QLDMR quantitatively validate the necessity of jointly incorporating transfer learning and asymmetric variance regularization.
 
-Second, TL-QLDMR improves on the strongest non-transfer baselines, including HHO-SVR and RF-WPF. Relative to HHO-SVR, TL-QLDMR raises $R^2$ from 0.9537 to 0.9557 and reduces RMSE from 7.603 to 7.478. It also improves on RF-WPF, the strongest ensemble comparator, reducing RMSE from 7.967 to 7.478. Although the numerical margin over HHO-SVR is moderate, it is obtained under the most severe domain-shift setting with only 4{,}143 extreme-weather samples. The segment-level evidence in Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} is consistent with the aggregate metrics: TL-QLDMR tracks abrupt ramps and low-power transitions more closely, while weaker kernel baselines such as Standard LDMR and BLSSVR show larger local deviations around rapid fluctuations.
+Second, TL-QLDMR improves on the strongest non-transfer baselines, including HHO-SVR and RF-WPF. Relative to HHO-SVR, TL-QLDMR raises $R^2$ from 0.9537 to 0.9557 and reduces RMSE from 7.603 to 7.478. It also improves on RF-WPF, the strongest ensemble comparator, reducing RMSE from 7.967 to 7.478. Although the numerical margin over HHO-SVR is moderate, it is obtained under the most severe domain-shift setting with only 4{,}143 extreme weather samples. The segment-level evidence in Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} is consistent with the aggregate metrics: TL-QLDMR tracks abrupt ramps and low-power transitions more closely, while weaker kernel baselines such as Standard LDMR and BLSSVR show larger local deviations around rapid fluctuations.
 
-Third, among baselines, HHO-SVR remains the most competitive kernel method, RF-WPF remains the strongest non-kernel alternative, and BLSSVR does not translate its bounded-loss robustness into competitive cross-domain accuracy under the present small-sample extreme-weather regime. The observed gain of TL-QLDMR is consistent with the combined effect of source-domain transfer, asymmetric target weighting, and cyclic wind-direction encoding. Because many extreme-weather periods contain near-zero power outputs, MAPE is numerically unstable and therefore RMSE and $R^2$ are treated as the principal deterministic indicators.
+Third, among baselines, HHO-SVR remains the most competitive kernel method, RF-WPF remains the strongest non-kernel alternative, and BLSSVR does not translate its bounded-loss robustness into competitive cross-domain accuracy under the present small-sample extreme weather regime. The observed gain of TL-QLDMR is consistent with the combined effect of source-domain transfer, asymmetric target weighting, and cyclic wind-direction encoding. Because many extreme weather periods contain near-zero power outputs, MAPE is numerically unstable and therefore RMSE and $R^2$ are treated as the principal deterministic indicators.
 
 To assess the robustness of the models against measurement noise, which is prevalent in SCADA systems during extreme weather, we evaluate the point prediction performance by injecting Gaussian noise into both the training and testing input features at Signal-to-Noise Ratios SNR $\in \{60, 40, 30\}$ dB. 
 % For this analysis, TL-QLDMR utilizes a higher-dimensional Nystr\"{o}m mapping ($m = 1{,}500$) and longer training duration (80 epochs) to accommodate the increased input variance. 
@@ -282,7 +282,7 @@ The $R^2$ results under different noise levels are summarized in Table~\ref{tab:
 
 \begin{table}[ht]
 \centering
-\caption{Model performance ($R^2$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Models are sorted consistently with Table~\ref{tab:exp2_results}. Best results are highlighted in bold.}
+\caption{Model performance ($R^2$) under varying SNR on the Farm~6 extreme weather test set.}
 \setlength{\tabcolsep}{3.5mm}
 \begin{tabular}{lccccc}
 \toprule
@@ -312,7 +312,7 @@ The results confirm that TL-QLDMR consistently maintains the highest $R^2$ acros
 %---------------- Experiment 3 --------------------%
 \subsection{Experiment 3: Probabilistic Interval Prediction under Extreme Weather}\label{sec:exp3}
 
-The third experiment extends evaluation from point prediction to probabilistic interval forecasting. The objective is to verify whether TL-QLDMR can achieve reliable 95\% prediction intervals while keeping interval width sufficiently sharp under extreme-weather volatility.
+The third experiment extends evaluation from point prediction to probabilistic interval forecasting. The objective is to verify whether TL-QLDMR can achieve reliable 95\% prediction intervals while keeping interval width sufficiently sharp under extreme weather volatility.
 
 % To support the calibration-based interval prediction framework, the target-domain data is partitioned into four subsets:
 % \begin{itemize}
@@ -357,7 +357,7 @@ Table~\ref{tab:exp3_results} presents the interval prediction results on the ext
 
 \begin{table*}[ht]
 \centering
-\caption{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Models are sorted by CWC in ascending order, with TL-QLDMR placed last for direct comparison. Best results per column are highlighted in bold.}
+\caption{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$).}
 \setlength{\tabcolsep}{4mm}
 \begin{tabular}{lccccc}
 \toprule
@@ -383,16 +383,18 @@ The interval prediction results indicate a clear reliability-sharpness trade-off
 
 Comparing against the kernel-based interval baselines highlights two distinct patterns. Standard SVQR achieves the same coverage level as TL-QLDMR (PICP = 0.959) but produces substantially wider intervals (PINAW = 0.357 vs. 0.268), resulting in inferior CWC (0.357 vs. 0.268) and Winkler scores (42.067 vs. 34.506). RLMKL, as a robust multiple-kernel comparator, attains reliable coverage (PICP = 0.957) with noticeably narrower intervals than Standard SVQR (PINAW = 0.331 vs. 0.357) and a better Winkler score (39.275 vs. 42.067), confirming the value of robust kernel combination. Nevertheless, TL-QLDMR still provides a materially sharper and better-calibrated solution, reducing CWC from 0.331 to 0.268 while further improving the Winkler score to 34.506.
 
-By contrast, NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage (PICP = 0.843 and 0.889, respectively), whereas HybridDL-Interval, QGBR, CQR-MLP, and AMQRNN can approach acceptable coverage only with wider intervals. RLMKL therefore emerges as a stronger robust-kernel baseline than the conventional quantile regressors, but it still remains dominated by TL-QLDMR on the joint reliability-sharpness criteria. This comparison suggests that explicit asymmetric regularization combined with cross-domain adaptation is more effective for heavily skewed extreme-weather samples than either conventional quantile regression, robust multiple-kernel learning alone, or deep learning approaches.
+By contrast, NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage (PICP = 0.843 and 0.889, respectively), whereas HybridDL-Interval, QGBR, CQR-MLP, and AMQRNN can approach acceptable coverage only with wider intervals. RLMKL therefore emerges as a stronger robust-kernel baseline than the conventional quantile regressors, but it still remains dominated by TL-QLDMR on the joint reliability-sharpness criteria. This comparison suggests that explicit asymmetric regularization combined with cross-domain adaptation is more effective for heavily skewed extreme weather samples than either conventional quantile regression, robust multiple-kernel learning alone, or deep learning approaches.
 
 To assess interval robustness under sensor perturbation, Gaussian noise is injected into test inputs at SNR $\in \{60,40,30\}$ dB.
-% while calibration parameters remain fixed to preserve comparability across models. For TL-QLDMR, a conservative scaling multiplier (1.15) is used to maintain coverage. Unlike the previous single-metric presentation, Table~\ref{tab:exp3_noise} reports the full set of interval metrics.
+To examine robustness under measurement perturbation, additional Gaussian noise is injected into the test inputs at SNR levels of 30, 40, and 60\,dB.
+% while calibration parameters remain fixed to preserve comparability across models. For TL-QLDMR, a conservative scaling multiplier (1.15) is used to maintain coverage.
+Table~\ref{tab:exp3_noise} reports the full set of interval metrics under this noisy-test protocol.
 Across all noise levels, TL-QLDMR maintains the best CWC while keeping PICP above 0.95. The CWC values remain tightly concentrated around 0.278, indicating stable interval quality under moderate measurement perturbation. RLMKL remains one of the more stable robust-kernel baselines, with PINAW staying near 0.313 across all noise levels, but its PICP remains slightly below the nominal level (0.9494), leading to a larger CWC penalty than TL-QLDMR. In contrast, NuSVR-CI yields narrow intervals (small MPIW/PINAW) but exhibits severe under-coverage, and several deep/ensemble baselines require substantially wider intervals to approach reliable coverage. These results indicate that TL-QLDMR preserves a stronger reliability-sharpness balance under measurement perturbations.
 \FloatBarrier
 
 \begin{table*}[ht]
 \centering
-\caption{Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. Models are sorted consistently with Table~\ref{tab:exp3_results}. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred. Best results among models achieving PICP $\ge$ 0.95 are highlighted in bold.}
+\caption{Interval prediction results under varying SNR on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$).}
 \setlength{\tabcolsep}{3.0mm}
 \begin{tabular}{llccccc}
 \toprule
@@ -466,7 +468,7 @@ Table~\ref{tab:ablation_results} reports the ablation results on Farm~6. The ful
 
 \begin{table*}[ht]
 \centering
-\caption{Ablation study evaluations for point and interval extreme-weather prediction. Variants are sorted by point prediction RMSE in descending order, with full TL-QLDMR placed last. Best results are highlighted in bold.}
+\caption{Ablation study evaluations for point and interval c prediction on the Farm 6 test set.}
 \setlength{\tabcolsep}{3mm}
 \begin{tabular}{lcccccc}
 \toprule
@@ -542,7 +544,7 @@ Batch SGD avoids exact QP solving but remains substantially slower than the prop
 
 The extended experimental evaluations yield the following conclusive insights:
 
-\textbf{Classical and robust kernel baselines establish the necessity of proposed extensions.} Experiment~2 demonstrates that Standard SVR achieves moderate performance (RMSE = 8.564), while Standard LDMR and BLSSVR remain substantially weaker on the cross-domain extreme-weather task. This degradation confirms that symmetric variance minimization or bounded-loss robustness alone is insufficient when target-domain adaptation is absent. In Experiment~3, RLMKL provides a stronger robust-kernel interval baseline than conventional SVQR variants, but TL-QLDMR still achieves markedly better joint reliability-sharpness quality, showing that asymmetric variance regularization and supervised transfer adaptation remain necessary.
+\textbf{Classical and robust kernel baselines establish the necessity of proposed extensions.} Experiment~2 demonstrates that Standard SVR achieves moderate performance (RMSE = 8.564), while Standard LDMR and BLSSVR remain substantially weaker on the cross-domain extreme weather task. This degradation confirms that symmetric variance minimization or bounded-loss robustness alone is insufficient when target-domain adaptation is absent. In Experiment~3, RLMKL provides a stronger robust-kernel interval baseline than conventional SVQR variants, but TL-QLDMR still achieves markedly better joint reliability-sharpness quality, showing that asymmetric variance regularization and supervised transfer adaptation remain necessary.
 
 \textbf{Transfer learning improves deterministic forecasting under severe shift.} Experiment~2 shows consistent gains in RMSE and $R^2$ over both classical baselines and recent variants, and curve-level evidence confirms better tracking during abrupt peak-valley transitions.
 
