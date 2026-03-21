@@ -312,7 +312,7 @@ The results confirm that TL-QLDMR consistently maintains the highest $R^2$ acros
 
 The third experiment extends evaluation from point prediction to probabilistic interval forecasting. The objective is to verify whether TL-QLDMR can achieve reliable 95\% prediction intervals while keeping interval width sufficiently sharp under extreme-weather volatility.
 
-% To support the calibration-based interval prediction framework, the target domain data is partitioned into four subsets:
+% To support the calibration-based interval prediction framework, the target-domain data is partitioned into four subsets:
 % \begin{itemize}
 %     \item Training set: 2{,}983 samples (for model fitting);
 %     \item Validation set: 559 samples (for hyperparameter selection and width scaling);
@@ -455,7 +455,7 @@ To validate the contribution of the three core components (transfer learning, LD
 The full TL-QLDMR framework is compared against four architectural reductions:
 \begin{enumerate}
     \item \textbf{LDMR-Quantile (SymVar)}: Replaces asymmetric variance regularization with symmetric variance minimization, testing whether the asymmetry is necessary for quantile-specific calibration.
-    \item \textbf{w/o Transfer (Target-only QLDMR)}: Trained exclusively on extreme weather target samples without source domain integration or MMD alignment.
+    \item \textbf{w/o Transfer (Target-only QLDMR)}: Trained exclusively on extreme weather target samples without source-domain integration or MMD alignment.
     \item \textbf{w/o LDMR (Variance Penalty)}: The asymmetric variance regularizer is removed, deteriorating the framework into a generalized Transfer SVR/SVQR variant that lacks distributional robustness.
     \item \textbf{w/o MMD (Feature Alignment)}: The algorithm employs cross-domain training data but disables Maximum Mean Discrepancy alignment, relying purely on weighted objective loss.
 \end{enumerate}
