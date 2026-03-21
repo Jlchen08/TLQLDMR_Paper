@@ -624,7 +624,7 @@ Optimization & $O(N^3)$ & $O(T N m)$ \\
 \end{table}
 
 \subsubsection{Theoretical Justification}
-The convergence of the proposed stochastic optimization algorithm is guaranteed under standard assumptions. Since the Pinball Loss is convex and Lipschitz continuous, and the regularization term $\frac{1}{2}\boldsymbol{w}^T \boldsymbol{R} \boldsymbol{w}$ is strongly convex (as $\boldsymbol{R}$ inherits positive definiteness from $\boldsymbol{\Omega}$ when $\lambda_1, \lambda_2 > 0$), the overall objective function is strongly convex. According to the convergence theory of SGD for strongly convex functions \cite{bottou2018optimization}, the algorithm converges to the global optimum at a rate of $O(1/T)$.
+The convergence of the proposed stochastic optimization algorithm is guaranteed under standard assumptions. Since the Pinball Loss is convex and Lipschitz continuous, and the regularization term $\frac{1}{2}\boldsymbol{w}^T \boldsymbol{R} \boldsymbol{w}$ is strongly convex (as $\boldsymbol{R}$ inherits positive definiteness from $\boldsymbol{\Omega}$ when $\lambda_1, \lambda_2 > 0$), the overall objective function is strongly convex. According to the convergence theory of SGD for strongly convex functions \citep{bottou2018optimization}, the algorithm converges to the global optimum at a rate of $O(1/T)$.
 
 Furthermore, the Nystr\"{o}m approximation error is bounded. Let $\tilde{k}(\boldsymbol{x}_i, \boldsymbol{x}_j) = \psi(\boldsymbol{x}_i)^T \psi(\boldsymbol{x}_j)$ denote the approximated kernel. Under mild conditions on the kernel eigenvalue decay (e.g., polynomial or exponential decay rate, which holds for commonly used kernels such as RBF and polynomial kernels), the approximation error satisfies:
 \begin{equation}

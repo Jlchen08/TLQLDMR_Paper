@@ -103,20 +103,26 @@
 \newlabel{Experiments}{{4}{12}{Experiments}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset Description}{12}{subsection.4.1}\protected@file@percent }
 \newlabel{sec:data}{{4.1}{12}{Dataset Description}{subsection.4.1}{}}
+\citation{sideratos2012extreme,liu2024extreme}
+\citation{pan2010survey,bendavid2010theory}
+\citation{liu2023eweld}
+\citation{rabanal2019midas}
+\citation{liang2025coldwave}
+\citation{pan2010survey,bendavid2010theory}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Summary of wind farm sites used in the experiments.}}{13}{table.caption.5}\protected@file@percent }
 \newlabel{tab:farm_summary}{{2}{13}{Summary of wind farm sites used in the experiments}{table.caption.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Feature Engineering and Data Preprocessing}{13}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:features}{{4.2}{13}{Feature Engineering and Data Preprocessing}{subsection.4.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Extreme Weather Event Definition}{13}{subsection.4.3}\protected@file@percent }
 \newlabel{sec:extreme_def}{{4.3}{13}{Extreme Weather Event Definition}{subsection.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experimental Setup}{13}{subsection.4.4}\protected@file@percent }
-\newlabel{sec:setup}{{4.4}{13}{Experimental Setup}{subsection.4.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Domain shift metrics between normal and extreme weather domains across six wind farms. Farms are sorted by the composite Wasserstein distance in descending order.}}{14}{table.caption.6}\protected@file@percent }
 \newlabel{tab:exp1_shift}{{3}{14}{Domain shift metrics between normal and extreme weather domains across six wind farms. Farms are sorted by the composite Wasserstein distance in descending order}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experimental Setup}{14}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:setup}{{4.4}{14}{Experimental Setup}{subsection.4.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Experiment 1: Extreme Sample Screening and Domain Shift Quantification}{14}{subsection.4.5}\protected@file@percent }
 \newlabel{sec:exp1}{{4.5}{14}{Experiment 1: Extreme Sample Screening and Domain Shift Quantification}{subsection.4.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension.}}{15}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:domain_shift}{{2}{15}{Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension.}}{16}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:domain_shift}{{2}{16}{Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension}{figure.caption.7}{}}
 \citation{fu2023bounded}
 \citation{houssein2025hho}
 \citation{meena2025flsvr}
@@ -124,20 +130,20 @@
 \citation{rizkallah2025kmeans}
 \citation{mustaffa2025rf}
 \citation{chen2025brf}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Experiment 2: Deterministic Point Prediction under Extreme Weather}{16}{subsection.4.6}\protected@file@percent }
-\newlabel{sec:exp2}{{4.6}{16}{Experiment 2: Deterministic Point Prediction under Extreme Weather}{subsection.4.6}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Deterministic point prediction results on the extreme weather test set of Farm~6 (96\,MW). Models are sorted by RMSE in descending order, with TL-QLDMR placed last for direct comparison. Best results are highlighted in bold.}}{17}{table.caption.8}\protected@file@percent }
-\newlabel{tab:exp2_results}{{4}{17}{Deterministic point prediction results on the extreme weather test set of Farm~6 (96\,MW). Models are sorted by RMSE in descending order, with TL-QLDMR placed last for direct comparison. Best results are highlighted in bold}{table.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part I).}}{17}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:exp2_curves_a}{{3}{17}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part I)}{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part II).}}{17}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:exp2_curves_b}{{4}{17}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part II)}{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part III).}}{18}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:exp2_curves_c}{{5}{18}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part III)}{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part IV).}}{18}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:exp2_curves_d}{{6}{18}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part IV)}{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part V).}}{18}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:exp2_curves_e}{{7}{18}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part V)}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Experiment 2: Deterministic Point Prediction under Extreme Weather}{17}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:exp2}{{4.6}{17}{Experiment 2: Deterministic Point Prediction under Extreme Weather}{subsection.4.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Deterministic point prediction results on the extreme weather test set of Farm~6 (96\,MW). Models are sorted by RMSE in descending order, with TL-QLDMR placed last for direct comparison. Best results are highlighted in bold.}}{18}{table.caption.8}\protected@file@percent }
+\newlabel{tab:exp2_results}{{4}{18}{Deterministic point prediction results on the extreme weather test set of Farm~6 (96\,MW). Models are sorted by RMSE in descending order, with TL-QLDMR placed last for direct comparison. Best results are highlighted in bold}{table.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part I).}}{18}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:exp2_curves_a}{{3}{18}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part I)}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part II).}}{18}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:exp2_curves_b}{{4}{18}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part II)}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part III).}}{19}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:exp2_curves_c}{{5}{19}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part III)}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part IV).}}{19}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:exp2_curves_d}{{6}{19}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part IV)}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part V).}}{19}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:exp2_curves_e}{{7}{19}{Prediction comparison over selected temporal segments on the Farm~6 extreme-weather test set (Part V)}{figure.caption.13}{}}
 \citation{tsvqr2023}
 \citation{wang2024ssvqr}
 \citation{ye2025nfs}
@@ -147,68 +153,75 @@
 \citation{amqrnn2025}
 \citation{hu2025ncqgbr}
 \citation{hu2025nescqr}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Model performance ($R^2$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Models are sorted consistently with Table~\ref {tab:exp2_results}. Best results are highlighted in bold.}}{19}{table.caption.14}\protected@file@percent }
-\newlabel{tab:exp2_noise}{{5}{19}{Model performance ($R^2$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Models are sorted consistently with Table~\ref {tab:exp2_results}. Best results are highlighted in bold}{table.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Experiment 3: Probabilistic Interval Prediction under Extreme Weather}{19}{subsection.4.7}\protected@file@percent }
-\newlabel{sec:exp3}{{4.7}{19}{Experiment 3: Probabilistic Interval Prediction under Extreme Weather}{subsection.4.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Models are sorted by CWC in ascending order, with TL-QLDMR placed last for direct comparison. Best results per column are highlighted in bold.}}{20}{table.caption.15}\protected@file@percent }
-\newlabel{tab:exp3_results}{{6}{20}{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Models are sorted by CWC in ascending order, with TL-QLDMR placed last for direct comparison. Best results per column are highlighted in bold}{table.caption.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Experiment 4: Ablation Study}{20}{subsection.4.8}\protected@file@percent }
-\newlabel{sec:exp4}{{4.8}{20}{Experiment 4: Ablation Study}{subsection.4.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. Models are sorted consistently with Table~\ref {tab:exp3_results}. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred. Best results among models achieving PICP $\ge $ 0.95 are highlighted in bold.}}{21}{table.caption.16}\protected@file@percent }
-\newlabel{tab:exp3_noise}{{7}{21}{Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. Models are sorted consistently with Table~\ref {tab:exp3_results}. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred. Best results among models achieving PICP $\ge $ 0.95 are highlighted in bold}{table.caption.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Ablation study evaluations for point and interval extreme-weather prediction. Variants are sorted by point prediction RMSE in descending order, with full TL-QLDMR placed last. Best results are highlighted in bold.}}{22}{table.caption.17}\protected@file@percent }
-\newlabel{tab:ablation_results}{{8}{22}{Ablation study evaluations for point and interval extreme-weather prediction. Variants are sorted by point prediction RMSE in descending order, with full TL-QLDMR placed last. Best results are highlighted in bold}{table.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Residual density comparison between TL-QLDMR and ablated variants on the Farm~6 test set.}}{22}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:ablation_residual}{{8}{22}{Residual density comparison between TL-QLDMR and ablated variants on the Farm~6 test set}{figure.caption.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Experiment 5: Scalable Optimization Validation}{22}{subsection.4.9}\protected@file@percent }
-\newlabel{sec:exp5}{{4.9}{22}{Experiment 5: Scalable Optimization Validation}{subsection.4.9}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Training time (seconds) of four solvers over expanding training scales on Farm~6. ``---'' denotes runs not extended further because of prohibitive computational cost.}}{23}{table.caption.19}\protected@file@percent }
-\newlabel{tab:scalability_results}{{9}{23}{Training time (seconds) of four solvers over expanding training scales on Farm~6. ``---'' denotes runs not extended further because of prohibitive computational cost}{table.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}Discussion}{23}{subsection.4.10}\protected@file@percent }
-\newlabel{sec:discussion}{{4.10}{23}{Discussion}{subsection.4.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Model performance ($R^2$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Models are sorted consistently with Table~\ref {tab:exp2_results}. Best results are highlighted in bold.}}{20}{table.caption.14}\protected@file@percent }
+\newlabel{tab:exp2_noise}{{5}{20}{Model performance ($R^2$) under varying Signal-to-Noise Ratios (SNR) on the extreme weather test set. Models are sorted consistently with Table~\ref {tab:exp2_results}. Best results are highlighted in bold}{table.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Experiment 3: Probabilistic Interval Prediction under Extreme Weather}{20}{subsection.4.7}\protected@file@percent }
+\newlabel{sec:exp3}{{4.7}{20}{Experiment 3: Probabilistic Interval Prediction under Extreme Weather}{subsection.4.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Models are sorted by CWC in ascending order, with TL-QLDMR placed last for direct comparison. Best results per column are highlighted in bold.}}{21}{table.caption.15}\protected@file@percent }
+\newlabel{tab:exp3_results}{{6}{21}{Interval prediction results on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$). Models are sorted by CWC in ascending order, with TL-QLDMR placed last for direct comparison. Best results per column are highlighted in bold}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Experiment 4: Ablation Study}{21}{subsection.4.8}\protected@file@percent }
+\newlabel{sec:exp4}{{4.8}{21}{Experiment 4: Ablation Study}{subsection.4.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. Models are sorted consistently with Table~\ref {tab:exp3_results}. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred. Best results among models achieving PICP $\ge $ 0.95 are highlighted in bold.}}{22}{table.caption.16}\protected@file@percent }
+\newlabel{tab:exp3_noise}{{7}{22}{Full interval metrics under injected test-input noise on the Farm~6 extreme-weather test set. Models are sorted consistently with Table~\ref {tab:exp3_results}. For PICP, values near 0.95 are preferred; for MPIW, PINAW, CWC, and Winkler, lower values are preferred. Best results among models achieving PICP $\ge $ 0.95 are highlighted in bold}{table.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Ablation study evaluations for point and interval extreme-weather prediction. Variants are sorted by point prediction RMSE in descending order, with full TL-QLDMR placed last. Best results are highlighted in bold.}}{23}{table.caption.17}\protected@file@percent }
+\newlabel{tab:ablation_results}{{8}{23}{Ablation study evaluations for point and interval extreme-weather prediction. Variants are sorted by point prediction RMSE in descending order, with full TL-QLDMR placed last. Best results are highlighted in bold}{table.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Residual density comparison between TL-QLDMR and ablated variants on the Farm~6 test set.}}{23}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:ablation_residual}{{8}{23}{Residual density comparison between TL-QLDMR and ablated variants on the Farm~6 test set}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Experiment 5: Scalable Optimization Validation}{23}{subsection.4.9}\protected@file@percent }
+\newlabel{sec:exp5}{{4.9}{23}{Experiment 5: Scalable Optimization Validation}{subsection.4.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Training time (seconds) of four solvers over expanding training scales on Farm~6. ``---'' denotes runs not extended further because of prohibitive computational cost.}}{24}{table.caption.19}\protected@file@percent }
+\newlabel{tab:scalability_results}{{9}{24}{Training time (seconds) of four solvers over expanding training scales on Farm~6. ``---'' denotes runs not extended further because of prohibitive computational cost}{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}Discussion}{24}{subsection.4.10}\protected@file@percent }
+\newlabel{sec:discussion}{{4.10}{24}{Discussion}{subsection.4.10}{}}
 \bibstyle{model5-names}
 \bibdata{ref.bib}
-\bibcite{bottou2018optimization}{{1}{2018}{{Bottou et~al.}}{{Bottou, Curtis \& Nocedal}}}
-\bibcite{chen2025brf}{{2}{2025}{{Chen \& Shi}}{{}}}
-\bibcite{s41597-022-01696-6}{{3}{2022}{{Chen \& Xu}}{{}}}
-\bibcite{CHENG2016107}{{4}{2016}{{Cheng et~al.}}{{Cheng, Zhang \& Wen}}}
-\bibcite{zhang2024kde}{{5}{2022}{{Dong et~al.}}{{Dong, Sun, Tan, Li, Zhang \& Yang}}}
-\bibcite{duan2025ara}{{6}{2025}{{Duan et~al.}}{{}}}
-\bibcite{fu2023bounded}{{7}{2023}{{Fu et~al.}}{{Fu, Tian \& Tang}}}
-\bibcite{GUO2022118237}{{8}{2022}{{Guo et~al.}}{{Guo, Tan, Yang, Liang, Zhang \& Zhang}}}
-\bibcite{gupta2021least}{{9}{2021}{{Gupta \& Gupta}}{{}}}
-\bibcite{hazarika2023mode}{{10}{2023}{{Hazarika \& Gupta}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{24}{section.5}\protected@file@percent }
-\newlabel{conclusion}{{5}{24}{Conclusion}{section.5}{}}
-\bibcite{wang2024ssvqr}{{11}{2023}{{Hazarika et~al.}}{{Hazarika, Gupta \& Borah}}}
-\bibcite{houssein2025hho}{{12}{2025}{{Houssein et~al.}}{{}}}
-\bibcite{hu2025nescqr}{{13}{2025}{{Hu et~al.}}{{Hu, Deng \& Che}}}
-\bibcite{hu2025ncqgbr}{{14}{2025}{{Hu \& Liu}}{{}}}
-\bibcite{jiang2021rlmkl}{{15}{2021}{{Jiang et~al.}}{{Jiang, Tao, Dong \& Xiong}}}
-\bibcite{li2021cuckoo}{{16}{2021}{{Li et~al.}}{{Li, Zhao, Tseng \& Tan}}}
-\bibcite{luo2024fsvr}{{17}{2024}{{Luo et~al.}}{{Luo, Hong, Gao \& Fang}}}
-\bibcite{hybriddl2025}{{18}{2025}{{Mao et~al.}}{{Mao, Song \& Huang}}}
-\bibcite{meena2025flsvr}{{19}{2025}{{Meena et~al.}}{{}}}
-\bibcite{mustaffa2025rf}{{20}{2025}{{Mustaffa \& Sulaiman}}{{}}}
-\bibcite{rizkallah2025kmeans}{{21}{2025}{{Rizkallah}}{{}}}
-\bibcite{romano2019cqr}{{22}{2019}{{Romano et~al.}}{{Romano, Patterson \& Cand{\`e}s}}}
-\bibcite{scholkopf2001representer}{{23}{2001}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Herbrich \& Smola}}}
-\bibcite{scholkopf2000new}{{24}{2000}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Smola, Williamson \& Bartlett}}}
-\bibcite{ss2}{{25}{2023}{{Se et~al.}}{{Se, Song, Liu, Zhang, Wang \& Liu}}}
-\bibcite{tang2019cost}{{26}{2019}{{Tang et~al.}}{{Tang, Ding, Yang, Cheng, Shardt, Long \& Liu}}}
-\bibcite{TAO20123962}{{27}{2012}{{Tao et~al.}}{{Tao, lai Chung \& Wang}}}
-\bibcite{taylor2007ewqr}{{28}{2007}{{Taylor}}{{}}}
-\bibcite{trafalis2006robust}{{29}{2006}{{Trafalis \& Gilbert}}{{}}}
-\bibcite{wang2019review}{{30}{2021}{{Wang et~al.}}{{Wang, Zou, Liu, Zhang \& Liu}}}
-\bibcite{YAN2022107664}{{31}{2022}{{Yan et~al.}}{{Yan, Chen, Liu, Zhang, Peng, Yi \& Duan}}}
-\bibcite{doi:10.1177/14759217231159948}{{32}{2024}{{Yang et~al.}}{{Yang, Zhang \& Chen}}}
-\bibcite{amqrnn2025}{{33}{2025{a}}{{Ye et~al.}}{{Ye, Liu, Xiong \& Qi}}}
-\bibcite{ye2025nfs}{{34}{2025{b}}{{Ye et~al.}}{{Ye, Wang \& Chen}}}
-\bibcite{tsvqr2023}{{35}{2023}{{Ye et~al.}}{{}}}
-\bibcite{yuan2022jellyfish}{{36}{2022}{{Yuan et~al.}}{{Yuan, Shi \& Xu}}}
-\bibcite{dp2}{{37}{2023}{{Zhai et~al.}}{{Zhai, Han, Li, Yang, Duan \& Yan}}}
-\bibcite{zhang2014large}{{38}{2014}{{Zhang \& Zhou}}{{}}}
-\bibcite{zhang2019optimal}{{39}{2020}{{Zhang \& Zhou}}{{}}}
-\csxdef{lastpage}{25}
-\gdef \@abspage@last{25}
+\bibcite{bendavid2010theory}{{1}{2010}{{Ben-David et~al.}}{{Ben-David, Blitzer, Crammer, Kulesza, Pereira \& Vaughan}}}
+\bibcite{bottou2018optimization}{{2}{2018}{{Bottou et~al.}}{{Bottou, Curtis \& Nocedal}}}
+\bibcite{chen2025brf}{{3}{2025}{{Chen \& Shi}}{{}}}
+\bibcite{s41597-022-01696-6}{{4}{2022}{{Chen \& Xu}}{{}}}
+\bibcite{CHENG2016107}{{5}{2016}{{Cheng et~al.}}{{Cheng, Zhang \& Wen}}}
+\bibcite{zhang2024kde}{{6}{2022}{{Dong et~al.}}{{Dong, Sun, Tan, Li, Zhang \& Yang}}}
+\bibcite{duan2025ara}{{7}{2025}{{Duan et~al.}}{{}}}
+\bibcite{fu2023bounded}{{8}{2023}{{Fu et~al.}}{{Fu, Tian \& Tang}}}
+\bibcite{GUO2022118237}{{9}{2022}{{Guo et~al.}}{{Guo, Tan, Yang, Liang, Zhang \& Zhang}}}
+\bibcite{gupta2021least}{{10}{2021}{{Gupta \& Gupta}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{25}{section.5}\protected@file@percent }
+\newlabel{conclusion}{{5}{25}{Conclusion}{section.5}{}}
+\bibcite{hazarika2023mode}{{11}{2023}{{Hazarika \& Gupta}}{{}}}
+\bibcite{wang2024ssvqr}{{12}{2023}{{Hazarika et~al.}}{{Hazarika, Gupta \& Borah}}}
+\bibcite{houssein2025hho}{{13}{2025}{{Houssein et~al.}}{{}}}
+\bibcite{hu2025nescqr}{{14}{2025}{{Hu et~al.}}{{Hu, Deng \& Che}}}
+\bibcite{hu2025ncqgbr}{{15}{2025}{{Hu \& Liu}}{{}}}
+\bibcite{jiang2021rlmkl}{{16}{2021}{{Jiang et~al.}}{{Jiang, Tao, Dong \& Xiong}}}
+\bibcite{li2021cuckoo}{{17}{2021}{{Li et~al.}}{{Li, Zhao, Tseng \& Tan}}}
+\bibcite{liang2025coldwave}{{18}{2025}{{Liang et~al.}}{{Liang, Chai, Sun, Jiang \& Sun}}}
+\bibcite{liu2023eweld}{{19}{2023}{{Liu et~al.}}{{Liu, Liu, Bai, Wang, Wang, Zhao, Liang, Zhao \& Qiu}}}
+\bibcite{liu2024extreme}{{20}{2024}{{Liu et~al.}}{{Liu, Wang \& Liu}}}
+\bibcite{luo2024fsvr}{{21}{2024}{{Luo et~al.}}{{Luo, Hong, Gao \& Fang}}}
+\bibcite{hybriddl2025}{{22}{2025}{{Mao et~al.}}{{Mao, Song \& Huang}}}
+\bibcite{meena2025flsvr}{{23}{2025}{{Meena et~al.}}{{}}}
+\bibcite{mustaffa2025rf}{{24}{2025}{{Mustaffa \& Sulaiman}}{{}}}
+\bibcite{pan2010survey}{{25}{2010}{{Pan \& Yang}}{{}}}
+\bibcite{rabanal2019midas}{{26}{2019}{{Rabanal et~al.}}{{Rabanal, Ulazia, Ibarra-Berastegi, Saenz \& Elosegui}}}
+\bibcite{rizkallah2025kmeans}{{27}{2025}{{Rizkallah}}{{}}}
+\bibcite{romano2019cqr}{{28}{2019}{{Romano et~al.}}{{Romano, Patterson \& Cand{\`e}s}}}
+\bibcite{scholkopf2001representer}{{29}{2001}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Herbrich \& Smola}}}
+\bibcite{scholkopf2000new}{{30}{2000}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Smola, Williamson \& Bartlett}}}
+\bibcite{ss2}{{31}{2023}{{Se et~al.}}{{Se, Song, Liu, Zhang, Wang \& Liu}}}
+\bibcite{sideratos2012extreme}{{32}{2012}{{Sideratos \& Hatziargyriou}}{{}}}
+\bibcite{tang2019cost}{{33}{2019}{{Tang et~al.}}{{Tang, Ding, Yang, Cheng, Shardt, Long \& Liu}}}
+\bibcite{TAO20123962}{{34}{2012}{{Tao et~al.}}{{Tao, lai Chung \& Wang}}}
+\bibcite{taylor2007ewqr}{{35}{2007}{{Taylor}}{{}}}
+\bibcite{trafalis2006robust}{{36}{2006}{{Trafalis \& Gilbert}}{{}}}
+\bibcite{wang2019review}{{37}{2021}{{Wang et~al.}}{{Wang, Zou, Liu, Zhang \& Liu}}}
+\bibcite{YAN2022107664}{{38}{2022}{{Yan et~al.}}{{Yan, Chen, Liu, Zhang, Peng, Yi \& Duan}}}
+\bibcite{doi:10.1177/14759217231159948}{{39}{2024}{{Yang et~al.}}{{Yang, Zhang \& Chen}}}
+\bibcite{amqrnn2025}{{40}{2025{a}}{{Ye et~al.}}{{Ye, Liu, Xiong \& Qi}}}
+\bibcite{ye2025nfs}{{41}{2025{b}}{{Ye et~al.}}{{Ye, Wang \& Chen}}}
+\bibcite{tsvqr2023}{{42}{2023}{{Ye et~al.}}{{}}}
+\bibcite{yuan2022jellyfish}{{43}{2022}{{Yuan et~al.}}{{Yuan, Shi \& Xu}}}
+\bibcite{dp2}{{44}{2023}{{Zhai et~al.}}{{Zhai, Han, Li, Yang, Duan \& Yan}}}
+\bibcite{zhang2014large}{{45}{2014}{{Zhang \& Zhou}}{{}}}
+\bibcite{zhang2019optimal}{{46}{2020}{{Zhang \& Zhou}}{{}}}
+\csxdef{lastpage}{27}
+\gdef \@abspage@last{27}

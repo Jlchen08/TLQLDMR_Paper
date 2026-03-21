@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{46}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,6 +11,17 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Ben-David et~al.(2010)Ben-David, Blitzer, Crammer, Kulesza, Pereira
+  \& Vaughan}]{bendavid2010theory}
+\bibinfo{author}{Ben-David, S.}, \bibinfo{author}{Blitzer, J.},
+  \bibinfo{author}{Crammer, K.}, \bibinfo{author}{Kulesza, A.},
+  \bibinfo{author}{Pereira, F.}, \& \bibinfo{author}{Vaughan, J.~W.}
+  (\bibinfo{year}{2010}).
+\newblock \bibinfo{title}{A theory of learning from different domains}.
+\newblock {\it \bibinfo{journal}{Machine Learning}\/},  {\it
+  \bibinfo{volume}{79}\/}, \bibinfo{pages}{151--175}.
+  \DOIprefix\doi{10.1007/s10994-009-5152-4}.
 %Type = Article
 \bibitem[{Bottou et~al.(2018)Bottou, Curtis \&
   Nocedal}]{bottou2018optimization}
@@ -161,6 +172,39 @@
   \bibinfo{volume}{279}\/}, \bibinfo{pages}{123739}.
   \DOIprefix\doi{10.1016/j.jclepro.2020.123739}.
 %Type = Article
+\bibitem[{Liang et~al.(2025)Liang, Chai, Sun, Jiang \& Sun}]{liang2025coldwave}
+\bibinfo{author}{Liang, Z.}, \bibinfo{author}{Chai, R.}, \bibinfo{author}{Sun,
+  Y.}, \bibinfo{author}{Jiang, Y.}, \& \bibinfo{author}{Sun, D.}
+  (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Cold wave recognition and wind power forecasting
+  technology considering sample scarcity and meteorological periodicity
+  characteristics}.
+\newblock {\it \bibinfo{journal}{Applied Sciences}\/},  {\it
+  \bibinfo{volume}{15}\/}, \bibinfo{pages}{4312}.
+  \DOIprefix\doi{10.3390/app15084312}.
+%Type = Article
+\bibitem[{Liu et~al.(2023)Liu, Liu, Bai, Wang, Wang, Zhao, Liang, Zhao \&
+  Qiu}]{liu2023eweld}
+\bibinfo{author}{Liu, G.}, \bibinfo{author}{Liu, J.}, \bibinfo{author}{Bai,
+  Y.}, \bibinfo{author}{Wang, C.}, \bibinfo{author}{Wang, H.},
+  \bibinfo{author}{Zhao, H.}, \bibinfo{author}{Liang, G.},
+  \bibinfo{author}{Zhao, J.}, \& \bibinfo{author}{Qiu, J.}
+  (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Eweld: A large-scale industrial and commercial load
+  dataset in extreme weather events}.
+\newblock {\it \bibinfo{journal}{Scientific Data}\/},  {\it
+  \bibinfo{volume}{10}\/}, \bibinfo{pages}{615}.
+  \DOIprefix\doi{10.1038/s41597-023-02503-6}.
+%Type = Article
+\bibitem[{Liu et~al.(2024)Liu, Wang \& Liu}]{liu2024extreme}
+\bibinfo{author}{Liu, Y.}, \bibinfo{author}{Wang, J.}, \& \bibinfo{author}{Liu,
+  L.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Physics-informed reinforcement learning for
+  probabilistic wind power forecasting under extreme events}.
+\newblock {\it \bibinfo{journal}{Applied Energy}\/},  {\it
+  \bibinfo{volume}{376}\/}, \bibinfo{pages}{124068}.
+  \DOIprefix\doi{10.1016/j.apenergy.2024.124068}.
+%Type = Article
 \bibitem[{Luo et~al.(2024)Luo, Hong, Gao \& Fang}]{luo2024fsvr}
 \bibinfo{author}{Luo, J.}, \bibinfo{author}{Hong, T.}, \bibinfo{author}{Gao,
   Z.}, \& \bibinfo{author}{Fang, S.-C.} (\bibinfo{year}{2024}).
@@ -193,6 +237,24 @@
   sustainable energy system}.
 \newblock {\it \bibinfo{journal}{Cleaner Energy Systems}\/}, .
   \DOIprefix\doi{10.1016/j.cles.2025.100210}.
+%Type = Article
+\bibitem[{Pan \& Yang(2010)}]{pan2010survey}
+\bibinfo{author}{Pan, S.~J.}, \& \bibinfo{author}{Yang, Q.}
+  (\bibinfo{year}{2010}).
+\newblock \bibinfo{title}{A survey on transfer learning}.
+\newblock {\it \bibinfo{journal}{IEEE Transactions on Knowledge and Data
+  Engineering}\/},  {\it \bibinfo{volume}{22}\/}, \bibinfo{pages}{1345--1359}.
+  \DOIprefix\doi{10.1109/TKDE.2009.191}.
+%Type = Article
+\bibitem[{Rabanal et~al.(2019)Rabanal, Ulazia, Ibarra-Berastegi, Saenz \&
+  Elosegui}]{rabanal2019midas}
+\bibinfo{author}{Rabanal, A.}, \bibinfo{author}{Ulazia, A.},
+  \bibinfo{author}{Ibarra-Berastegi, G.}, \bibinfo{author}{Saenz, J.}, \&
+  \bibinfo{author}{Elosegui, U.} (\bibinfo{year}{2019}).
+\newblock \bibinfo{title}{Midas: A benchmarking multi-criteria method for the
+  identification of defective anemometers in wind farms}.
+\newblock {\it \bibinfo{journal}{Energies}\/},  {\it \bibinfo{volume}{12}\/},
+  \bibinfo{pages}{28}. \DOIprefix\doi{10.3390/en12010028}.
 %Type = Article
 \bibitem[{Rizkallah(2025)}]{rizkallah2025kmeans}
 \bibinfo{author}{Rizkallah, S.} (\bibinfo{year}{2025}).
@@ -240,6 +302,15 @@
   \bibinfo{volume}{259}\/}, \bibinfo{pages}{110024}.
 \newblock \bibinfo{note}{{\color{blue} \href{
   https://doi.org/10.1016/j.knosys.2022.110024}{https://doi.org/10.1016/j.knosys.2022.110024}}}.
+%Type = Article
+\bibitem[{Sideratos \& Hatziargyriou(2012)}]{sideratos2012extreme}
+\bibinfo{author}{Sideratos, G.}, \& \bibinfo{author}{Hatziargyriou, N.~D.}
+  (\bibinfo{year}{2012}).
+\newblock \bibinfo{title}{Wind power forecasting focused on extreme power
+  system events}.
+\newblock {\it \bibinfo{journal}{IEEE Transactions on Sustainable Energy}\/},
+  {\it \bibinfo{volume}{3}\/}, \bibinfo{pages}{445--454}.
+  \DOIprefix\doi{10.1109/TSTE.2012.2189442}.
 %Type = Article
 \bibitem[{Tang et~al.(2019)Tang, Ding, Yang, Cheng, Shardt, Long \&
   Liu}]{tang2019cost}
