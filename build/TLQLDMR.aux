@@ -47,83 +47,83 @@
 \newlabel{novel}{{3}{5}{Proposed Methodology}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Notations}{5}{subsection.3.1}\protected@file@percent }
 \newlabel{not}{{3.1}{5}{Notations}{subsection.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The overall framework of the proposed TL-QLDMR model. Source domain (normal weather) and target domain (extreme weather) data are mapped into a high-dimensional RKHS via kernel mapping. The joint optimization objective integrates structural risk, distribution variance, MMD-based domain adaptation, and weighted pinball loss. The model outputs probabilistic prediction intervals for robust wind power forecasting under extreme conditions.}}{6}{figure.caption.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall architecture of the proposed TL-QLDMR model. The left column shows the five-stage pipeline: cross-domain data preparation, supervised transfer learning, quantile-aware objective construction, scalable optimization, and forecast outputs. Each stage is elaborated in the corresponding right panel. In the supervised transfer stage, the shared kernel representation branches into feature-space alignment via MMD in RKHS and label-space adaptation via target-weighted pinball loss (indicated by dashed arrows). The quantile-aware objective decomposes into four additive terms: structural risk $R_{\mathrm  {SR}}$, distribution variance $R_{\mathrm  {DV}}$, domain adaptation $R_{\mathrm  {DA}}$, and weighted pinball loss $R_{\mathrm  {Q}}$. The optimization stage provides both an exact dual QP solver and a scalable Nystr\"om + SGD solver with complexity reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$. The final outputs include deterministic point forecasts and probabilistic prediction intervals.}}{6}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:framework}{{1}{6}{The overall framework of the proposed TL-QLDMR model. Source domain (normal weather) and target domain (extreme weather) data are mapped into a high-dimensional RKHS via kernel mapping. The joint optimization objective integrates structural risk, distribution variance, MMD-based domain adaptation, and weighted pinball loss. The model outputs probabilistic prediction intervals for robust wind power forecasting under extreme conditions}{figure.caption.1}{}}
+\newlabel{fig:framework}{{1}{6}{Overall architecture of the proposed TL-QLDMR model. The left column shows the five-stage pipeline: cross-domain data preparation, supervised transfer learning, quantile-aware objective construction, scalable optimization, and forecast outputs. Each stage is elaborated in the corresponding right panel. In the supervised transfer stage, the shared kernel representation branches into feature-space alignment via MMD in RKHS and label-space adaptation via target-weighted pinball loss (indicated by dashed arrows). The quantile-aware objective decomposes into four additive terms: structural risk $R_{\mathrm {SR}}$, distribution variance $R_{\mathrm {DV}}$, domain adaptation $R_{\mathrm {DA}}$, and weighted pinball loss $R_{\mathrm {Q}}$. The optimization stage provides both an exact dual QP solver and a scalable Nystr\"om + SGD solver with complexity reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$. The final outputs include deterministic point forecasts and probabilistic prediction intervals}{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}TL-QLDMR Model Formulation}{6}{subsection.3.2}\protected@file@percent }
 \newlabel{MODEL}{{3.2}{6}{TL-QLDMR Model Formulation}{subsection.3.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Objective Function}{6}{subsubsection.3.2.1}\protected@file@percent }
-\newlabel{eq:objective}{{6}{6}{Objective Function}{equation.6}{}}
+\newlabel{eq:objective}{{6}{7}{Objective Function}{equation.6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Constraints}{7}{subsubsection.3.2.2}\protected@file@percent }
 \newlabel{eq:constraints}{{7}{7}{Constraints}{equation.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Model Optimization}{7}{subsection.3.3}\protected@file@percent }
-\newlabel{optimization}{{3.3}{7}{Model Optimization}{subsection.3.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Matrix Reformulation of the Primal Problem}{7}{subsubsection.3.3.1}\protected@file@percent }
-\newlabel{eq:primal_matrix}{{8}{7}{Matrix Reformulation of the Primal Problem}{equation.8}{}}
-\newlabel{eq:matrix_S}{{9}{7}{Matrix Reformulation of the Primal Problem}{equation.9}{}}
 \citation{scholkopf2001representer}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Model Optimization}{8}{subsection.3.3}\protected@file@percent }
+\newlabel{optimization}{{3.3}{8}{Model Optimization}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Matrix Reformulation of the Primal Problem}{8}{subsubsection.3.3.1}\protected@file@percent }
+\newlabel{eq:primal_matrix}{{8}{8}{Matrix Reformulation of the Primal Problem}{equation.8}{}}
+\newlabel{eq:matrix_S}{{9}{8}{Matrix Reformulation of the Primal Problem}{equation.9}{}}
 \newlabel{eq:matrix_M}{{10}{8}{Matrix Reformulation of the Primal Problem}{equation.10}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Representer Theorem and Kernelization}{8}{subsubsection.3.3.2}\protected@file@percent }
 \newlabel{eq:representer}{{11}{8}{Representer Theorem and Kernelization}{equation.11}{}}
 \newlabel{eq:Omega}{{12}{8}{Representer Theorem and Kernelization}{equation.12}{}}
-\newlabel{eq:kernel_primal}{{13}{8}{Representer Theorem and Kernelization}{equation.13}{}}
-\newlabel{eq:kernel_constraints}{{14}{8}{Representer Theorem and Kernelization}{equation.14}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Lagrangian and Dual Problem}{8}{subsubsection.3.3.3}\protected@file@percent }
-\newlabel{eq:lagrangian}{{15}{8}{Lagrangian and Dual Problem}{equation.15}{}}
-\citation{zhang2010clustered}
+\newlabel{eq:kernel_primal}{{13}{9}{Representer Theorem and Kernelization}{equation.13}{}}
+\newlabel{eq:kernel_constraints}{{14}{9}{Representer Theorem and Kernelization}{equation.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Lagrangian and Dual Problem}{9}{subsubsection.3.3.3}\protected@file@percent }
+\newlabel{eq:lagrangian}{{15}{9}{Lagrangian and Dual Problem}{equation.15}{}}
 \newlabel{eq:kkt_b}{{16}{9}{Lagrangian and Dual Problem}{equation.16}{}}
 \newlabel{eq:kkt_xi}{{17}{9}{Lagrangian and Dual Problem}{equation.17}{}}
 \newlabel{eq:kkt_beta}{{18}{9}{Lagrangian and Dual Problem}{equation.18}{}}
 \newlabel{eq:beta_optimal}{{19}{9}{Lagrangian and Dual Problem}{equation.19}{}}
 \newlabel{eq:dual_problem}{{20}{9}{Lagrangian and Dual Problem}{equation.20}{}}
 \newlabel{eq:dual_matrices}{{21}{9}{Lagrangian and Dual Problem}{equation.21}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The Algorithm and Complexity Analysis}{9}{subsection.3.4}\protected@file@percent }
-\newlabel{alg_section}{{3.4}{9}{The Algorithm and Complexity Analysis}{subsection.3.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Scalable Optimization via Nystr\"{o}m Approximation}{9}{subsection.3.5}\protected@file@percent }
-\newlabel{fast_alg}{{3.5}{9}{Scalable Optimization via Nystr\"{o}m Approximation}{subsection.3.5}{}}
-\citation{kingma2015adam}
+\citation{zhang2010clustered}
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces TL-QLDMR Training Algorithm}}{10}{algocf.1}\protected@file@percent }
 \newlabel{alg:TL-QLDMR}{{1}{10}{The Algorithm and Complexity Analysis}{algocf.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Nystr\"{o}m Feature Mapping}{10}{subsubsection.3.5.1}\protected@file@percent }
-\newlabel{eq:nystrom_feature}{{22}{10}{Nystr\"{o}m Feature Mapping}{equation.22}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Primal Formulation with Explicit Features}{10}{subsubsection.3.5.2}\protected@file@percent }
-\newlabel{eq:reg_matrix}{{23}{10}{Primal Formulation with Explicit Features}{equation.23}{}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Fast TL-QLDMR via Nystr\"{o}m Approximation}}{11}{algocf.2}\protected@file@percent }
-\newlabel{alg:fast_TL-QLDMR}{{2}{11}{Stochastic Gradient Descent Optimization}{algocf.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The Algorithm and Complexity Analysis}{10}{subsection.3.4}\protected@file@percent }
+\newlabel{alg_section}{{3.4}{10}{The Algorithm and Complexity Analysis}{subsection.3.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Scalable Optimization via Nystr\"{o}m Approximation}{10}{subsection.3.5}\protected@file@percent }
+\newlabel{fast_alg}{{3.5}{10}{Scalable Optimization via Nystr\"{o}m Approximation}{subsection.3.5}{}}
+\citation{kingma2015adam}
+\citation{bottou2018optimization}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Nystr\"{o}m Feature Mapping}{11}{subsubsection.3.5.1}\protected@file@percent }
+\newlabel{eq:nystrom_feature}{{22}{11}{Nystr\"{o}m Feature Mapping}{equation.22}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Primal Formulation with Explicit Features}{11}{subsubsection.3.5.2}\protected@file@percent }
+\newlabel{eq:reg_matrix}{{23}{11}{Primal Formulation with Explicit Features}{equation.23}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Stochastic Gradient Descent Optimization}{11}{subsubsection.3.5.3}\protected@file@percent }
 \newlabel{eq:subgradient}{{24}{11}{Stochastic Gradient Descent Optimization}{equation.24}{}}
 \newlabel{eq:param_gradients}{{25}{11}{Stochastic Gradient Descent Optimization}{equation.25}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.4}Complexity Analysis of the Scalable Algorithm}{11}{subsubsection.3.5.4}\protected@file@percent }
-\citation{bottou2018optimization}
 \citation{kumar2012sampling,zhang2010clustered}
-\citation{s41597-022-01696-6}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Fast TL-QLDMR via Nystr\"{o}m Approximation}}{12}{algocf.2}\protected@file@percent }
+\newlabel{alg:fast_TL-QLDMR}{{2}{12}{Stochastic Gradient Descent Optimization}{algocf.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Complexity Comparison between Standard QP and Scalable Algorithm}}{12}{table.caption.4}\protected@file@percent }
 \newlabel{tab:complexity}{{1}{12}{Complexity Comparison between Standard QP and Scalable Algorithm}{table.caption.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.5}Theoretical Justification}{12}{subsubsection.3.5.5}\protected@file@percent }
 \newlabel{eq:nystrom_error}{{26}{12}{Theoretical Justification}{equation.26}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{12}{section.4}\protected@file@percent }
-\newlabel{Experiments}{{4}{12}{Experiments}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset Description}{12}{subsection.4.1}\protected@file@percent }
-\newlabel{sec:data}{{4.1}{12}{Dataset Description}{subsection.4.1}{}}
+\citation{s41597-022-01696-6}
 \citation{wang2019review}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Summary of wind farm sites used in the experiments.}}{13}{table.caption.5}\protected@file@percent }
+\newlabel{tab:farm_summary}{{2}{13}{Summary of wind farm sites used in the experiments}{table.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{13}{section.4}\protected@file@percent }
+\newlabel{Experiments}{{4}{13}{Experiments}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset Description}{13}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:data}{{4.1}{13}{Dataset Description}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Feature Engineering and Data Preprocessing}{13}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:features}{{4.2}{13}{Feature Engineering and Data Preprocessing}{subsection.4.2}{}}
 \citation{sideratos2012extreme,liu2024extreme}
 \citation{pan2010survey,bendavid2010theory}
 \citation{liu2023eweld}
 \citation{rabanal2019midas}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Summary of wind farm sites used in the experiments.}}{13}{table.caption.5}\protected@file@percent }
-\newlabel{tab:farm_summary}{{2}{13}{Summary of wind farm sites used in the experiments}{table.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Feature Engineering and Data Preprocessing}{13}{subsection.4.2}\protected@file@percent }
-\newlabel{sec:features}{{4.2}{13}{Feature Engineering and Data Preprocessing}{subsection.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Extreme Weather Event Definition}{13}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:extreme_def}{{4.3}{13}{Extreme Weather Event Definition}{subsection.4.3}{}}
 \citation{liang2025coldwave}
 \citation{pan2010survey,bendavid2010theory}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Extreme Weather Event Definition}{14}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:extreme_def}{{4.3}{14}{Extreme Weather Event Definition}{subsection.4.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experimental Setup}{14}{subsection.4.4}\protected@file@percent }
 \newlabel{sec:setup}{{4.4}{14}{Experimental Setup}{subsection.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Experiment 1: Extreme Sample Screening and Domain Shift Quantification}{14}{subsection.4.5}\protected@file@percent }
-\newlabel{sec:exp1}{{4.5}{14}{Experiment 1: Extreme Sample Screening and Domain Shift Quantification}{subsection.4.5}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Domain shift metrics between normal and extreme weather domains across six wind farms. Farms are sorted by the composite Wasserstein distance in descending order.}}{15}{table.caption.6}\protected@file@percent }
 \newlabel{tab:exp1_shift}{{3}{15}{Domain shift metrics between normal and extreme weather domains across six wind farms. Farms are sorted by the composite Wasserstein distance in descending order}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Experiment 1: Extreme Sample Screening and Domain Shift Quantification}{15}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:exp1}{{4.5}{15}{Experiment 1: Extreme Sample Screening and Domain Shift Quantification}{subsection.4.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension.}}{16}{figure.caption.7}\protected@file@percent }
 \newlabel{fig:domain_shift}{{2}{16}{Distribution shift visualization for all six wind farms. From left to right, top to bottom: Site~1 (99\,MW), Site~2 (200\,MW), Site~3 (99\,MW), Site~4 (66\,MW), Site~5 (36\,MW), and Site~6 (96\,MW). Each subplot shows kernel density estimates of wind speed (upper panel) and power output (lower panel) for normal (source) and extreme (target) domains. Site~6 exhibits the most severe domain shift in the power dimension}{figure.caption.7}{}}
 \citation{fu2023bounded}
@@ -135,8 +135,8 @@
 \citation{chen2025brf}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Experiment 2: Deterministic Point Prediction under Extreme Weather}{17}{subsection.4.6}\protected@file@percent }
 \newlabel{sec:exp2}{{4.6}{17}{Experiment 2: Deterministic Point Prediction under Extreme Weather}{subsection.4.6}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Deterministic point prediction results on the extreme weather test set of Farm~6 . Best results are highlighted in bold (similarly hereinafter).}}{18}{table.caption.8}\protected@file@percent }
-\newlabel{tab:exp2_results}{{4}{18}{Deterministic point prediction results on the extreme weather test set of Farm~6 . Best results are highlighted in bold (similarly hereinafter)}{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Deterministic point prediction results on the extreme weather test set of Farm~6. Best results are highlighted in bold (similarly hereinafter).}}{18}{table.caption.8}\protected@file@percent }
+\newlabel{tab:exp2_results}{{4}{18}{Deterministic point prediction results on the extreme weather test set of Farm~6. Best results are highlighted in bold (similarly hereinafter)}{table.caption.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part I).}}{18}{figure.caption.9}\protected@file@percent }
 \newlabel{fig:exp2_curves_a}{{3}{18}{Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part I)}{figure.caption.9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Prediction comparison over selected temporal segments on the Farm~6 extreme weather test set (Part II).}}{18}{figure.caption.10}\protected@file@percent }
@@ -166,8 +166,8 @@
 \newlabel{sec:exp4}{{4.8}{21}{Experiment 4: Ablation Study}{subsection.4.8}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Interval prediction results under varying SNR on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$).}}{22}{table.caption.16}\protected@file@percent }
 \newlabel{tab:exp3_noise}{{7}{22}{Interval prediction results under varying SNR on the extreme weather test set of Farm~6 at 95\% confidence level ($\alpha = 0.05$)}{table.caption.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Ablation study evaluations for point and interval c prediction on the Farm 6 test set.}}{23}{table.caption.17}\protected@file@percent }
-\newlabel{tab:ablation_results}{{8}{23}{Ablation study evaluations for point and interval c prediction on the Farm 6 test set}{table.caption.17}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Ablation study evaluations for point and interval prediction on the Farm 6 test set.}}{23}{table.caption.17}\protected@file@percent }
+\newlabel{tab:ablation_results}{{8}{23}{Ablation study evaluations for point and interval prediction on the Farm 6 test set}{table.caption.17}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Residual density comparison between TL-QLDMR and ablated variants on the Farm~6 test set.}}{23}{figure.caption.18}\protected@file@percent }
 \newlabel{fig:ablation_residual}{{8}{23}{Residual density comparison between TL-QLDMR and ablated variants on the Farm~6 test set}{figure.caption.18}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Experiment 5: Scalable Optimization Validation}{23}{subsection.4.9}\protected@file@percent }

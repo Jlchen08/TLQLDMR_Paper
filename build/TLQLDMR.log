@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  21 MAR 2026 19:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  22 MAR 2026 20:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -832,11 +832,17 @@ $[]$
  []
 
 [5]
-<build/framework.pdf, id=178, 844.55423pt x 186.40741pt>
+<build/framework.pdf, id=179, 508.92334pt x 395.11212pt>
 File: build/framework.pdf Graphic file (type pdf)
 <use build/framework.pdf>
 Package pdftex.def Info: build/framework.pdf  used on input line 337.
-(pdftex.def)             Requested size: 444.91434pt x 98.20099pt.
+(pdftex.def)             Requested size: 468.3324pt x 363.60402pt.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[6 <./build/framework.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 358.
  (C:\Users\Administrator\AppData\Roaming\MiKTeX\tex/latex/stix\ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
@@ -845,12 +851,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[6{C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/enc/dvips/stix/stix-ts1.enc} <./build/framework.pdf>]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[7]
+[7{C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/enc/dvips/stix/stix-ts1.enc}]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -881,42 +882,42 @@ $[]$
  []
 
 [13]
-<experiment1/outputs/plots/farm1_domain_shift.jpg, id=491, 2860.6875pt x 2168.1pt>
-File: experiment1/outputs/plots/farm1_domain_shift.jpg Graphic file (type jpg)
-<use experiment1/outputs/plots/farm1_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm1_domain_shift.jpg  used on input line 102.
-(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm0_domain_shift.jpg, id=492, 2860.6875pt x 2168.1pt>
-File: experiment1/outputs/plots/farm0_domain_shift.jpg Graphic file (type jpg)
-<use experiment1/outputs/plots/farm0_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm0_domain_shift.jpg  used on input line 104.
-(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm2_domain_shift.jpg, id=493, 2860.6875pt x 2168.1pt>
-File: experiment1/outputs/plots/farm2_domain_shift.jpg Graphic file (type jpg)
-<use experiment1/outputs/plots/farm2_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm2_domain_shift.jpg  used on input line 107.
-(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm4_domain_shift.jpg, id=494, 2860.6875pt x 2168.1pt>
-File: experiment1/outputs/plots/farm4_domain_shift.jpg Graphic file (type jpg)
-<use experiment1/outputs/plots/farm4_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm4_domain_shift.jpg  used on input line 109.
-(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm5_domain_shift.jpg, id=495, 2860.6875pt x 2168.1pt>
-File: experiment1/outputs/plots/farm5_domain_shift.jpg Graphic file (type jpg)
-<use experiment1/outputs/plots/farm5_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm5_domain_shift.jpg  used on input line 112.
-(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm3_domain_shift.jpg, id=496, 2860.6875pt x 2168.1pt>
-File: experiment1/outputs/plots/farm3_domain_shift.jpg Graphic file (type jpg)
-<use experiment1/outputs/plots/farm3_domain_shift.jpg>
-Package pdftex.def Info: experiment1/outputs/plots/farm3_domain_shift.jpg  used on input line 114.
-(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [14]
+<experiment1/outputs/plots/farm1_domain_shift.jpg, id=498, 2860.6875pt x 2168.1pt>
+File: experiment1/outputs/plots/farm1_domain_shift.jpg Graphic file (type jpg)
+<use experiment1/outputs/plots/farm1_domain_shift.jpg>
+Package pdftex.def Info: experiment1/outputs/plots/farm1_domain_shift.jpg  used on input line 102.
+(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
+<experiment1/outputs/plots/farm0_domain_shift.jpg, id=499, 2860.6875pt x 2168.1pt>
+File: experiment1/outputs/plots/farm0_domain_shift.jpg Graphic file (type jpg)
+<use experiment1/outputs/plots/farm0_domain_shift.jpg>
+Package pdftex.def Info: experiment1/outputs/plots/farm0_domain_shift.jpg  used on input line 104.
+(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
+<experiment1/outputs/plots/farm2_domain_shift.jpg, id=500, 2860.6875pt x 2168.1pt>
+File: experiment1/outputs/plots/farm2_domain_shift.jpg Graphic file (type jpg)
+<use experiment1/outputs/plots/farm2_domain_shift.jpg>
+Package pdftex.def Info: experiment1/outputs/plots/farm2_domain_shift.jpg  used on input line 107.
+(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
+<experiment1/outputs/plots/farm4_domain_shift.jpg, id=501, 2860.6875pt x 2168.1pt>
+File: experiment1/outputs/plots/farm4_domain_shift.jpg Graphic file (type jpg)
+<use experiment1/outputs/plots/farm4_domain_shift.jpg>
+Package pdftex.def Info: experiment1/outputs/plots/farm4_domain_shift.jpg  used on input line 109.
+(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
+<experiment1/outputs/plots/farm5_domain_shift.jpg, id=502, 2860.6875pt x 2168.1pt>
+File: experiment1/outputs/plots/farm5_domain_shift.jpg Graphic file (type jpg)
+<use experiment1/outputs/plots/farm5_domain_shift.jpg>
+Package pdftex.def Info: experiment1/outputs/plots/farm5_domain_shift.jpg  used on input line 112.
+(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
+<experiment1/outputs/plots/farm3_domain_shift.jpg, id=503, 2860.6875pt x 2168.1pt>
+File: experiment1/outputs/plots/farm3_domain_shift.jpg Graphic file (type jpg)
+<use experiment1/outputs/plots/farm3_domain_shift.jpg>
+Package pdftex.def Info: experiment1/outputs/plots/farm3_domain_shift.jpg  used on input line 114.
+(pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -927,52 +928,52 @@ $[]$
  []
 
 [16 <./experiment1/outputs/plots/farm1_domain_shift.jpg> <./experiment1/outputs/plots/farm0_domain_shift.jpg> <./experiment1/outputs/plots/farm2_domain_shift.jpg> <./experiment1/outputs/plots/farm4_domain_shift.jpg> <./experiment1/outputs/plots/farm5_domain_shift.jpg> <./experiment1/outputs/plots/farm3_domain_shift.jpg>]
-<experiment2/plots_selected/farm3_Standard-LDMR.pdf, id=529, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_Standard-LDMR.pdf, id=530, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_Standard-LDMR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_Standard-LDMR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-LDMR.pdf  used on input line 196.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_BLSSVR.pdf, id=530, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_BLSSVR.pdf, id=531, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_BLSSVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_BLSSVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_BLSSVR.pdf  used on input line 201.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_ARA-SVR.pdf, id=531, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_ARA-SVR.pdf, id=532, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_ARA-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_ARA-SVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_ARA-SVR.pdf  used on input line 212.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_FLSVR.pdf, id=532, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_FLSVR.pdf, id=533, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_FLSVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_FLSVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_FLSVR.pdf  used on input line 217.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_Standard-SVR.pdf, id=533, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_Standard-SVR.pdf, id=534, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_Standard-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_Standard-SVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-SVR.pdf  used on input line 228.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_HHO-SVR.pdf, id=534, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_HHO-SVR.pdf, id=535, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_HHO-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_HHO-SVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_HHO-SVR.pdf  used on input line 233.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_BRF-WPF.pdf, id=535, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_BRF-WPF.pdf, id=536, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_BRF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_BRF-WPF.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_BRF-WPF.pdf  used on input line 244.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_KMeans-GBT.pdf, id=536, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_KMeans-GBT.pdf, id=537, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_KMeans-GBT.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_KMeans-GBT.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_KMeans-GBT.pdf  used on input line 249.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_RF-WPF.pdf, id=537, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_RF-WPF.pdf, id=538, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_RF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_RF-WPF.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_RF-WPF.pdf  used on input line 260.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_TL-QLDMR.pdf, id=538, 635.97598pt x 296.307pt>
+<experiment2/plots_selected/farm3_TL-QLDMR.pdf, id=539, 635.97598pt x 296.307pt>
 File: experiment2/plots_selected/farm3_TL-QLDMR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_TL-QLDMR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_TL-QLDMR.pdf  used on input line 265.
@@ -1005,10 +1006,10 @@ $[]$
  []
 
 [21]
-<experiment4/plots/residual_distribution.png, id=1122, 520.344pt x 303.534pt>
+<experiment4/plots/residual_distribution.png, id=1124, 520.344pt x 303.534pt>
 File: experiment4/plots/residual_distribution.png Graphic file (type png)
 <use experiment4/plots/residual_distribution.png>
-Package pdftex.def Info: experiment4/plots/residual_distribution.png  used on input line 491.
+Package pdftex.def Info: experiment4/plots/residual_distribution.png  used on input line 490.
 (pdftex.def)             Requested size: 430.86494pt x 251.34956pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1026,7 +1027,7 @@ $[]$
  []
 
 [24])
-Underfull \hbox (badness 1210) in paragraph at lines 660--661
+Underfull \hbox (badness 1210) in paragraph at lines 659--660
 \T1/stix/m/n/10 and the Chongqing Mu-nic-i-pal Train-ing Pro-gram of In-no-va-tion and En-trepreneur-ship for Un-der-grad-u-ate (No.
  []
 
@@ -1071,15 +1072,15 @@ Package rerunfilecheck Info: File `TLQLDMR.out' has not changed.
 Here is how much of TeX's memory you used:
  19673 strings out of 467870
  309142 string characters out of 5428399
- 739696 words of memory out of 5000000
+ 736906 words of memory out of 5000000
  47998 multiletter control sequences out of 15000+600000
  749021 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,19n,98p,2180b,664s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Italic.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Regular.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathbb.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathcal.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathex.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathit-bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathit.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm-bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathscr.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathtt.pfb>
-Output written on d:\Self\windpower\TLQLDMR_Paper\build\TLQLDMR.pdf (27 pages, 3850508 bytes).
+ <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Italic.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/STIXGeneral-Regular.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathbb.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathcal.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathex.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathit-bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathit.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm-bold.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathscr.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathtt.pfb>
+Output written on d:\Self\windpower\TLQLDMR_Paper\build\TLQLDMR.pdf (27 pages, 3846527 bytes).
 PDF statistics:
- 1492 PDF objects out of 1728 (max. 8388607)
+ 1493 PDF objects out of 1728 (max. 8388607)
  235 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

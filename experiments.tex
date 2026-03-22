@@ -163,7 +163,7 @@ We compare TL-QLDMR against classical kernel baselines, robust kernel variants, 
 
 \begin{table}[ht]
 \centering
-\caption{Deterministic point prediction results on the extreme weather test set of Farm~6 . Best results are highlighted in bold (similarly hereinafter).}
+\caption{Deterministic point prediction results on the extreme weather test set of Farm~6. Best results are highlighted in bold (similarly hereinafter).}
 \setlength{\tabcolsep}{3.5mm}
 \begin{tabular}{lccc}
 \toprule
@@ -386,7 +386,6 @@ Comparing against the kernel-based interval baselines highlights two distinct pa
 By contrast, NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage (PICP = 0.843 and 0.889, respectively), whereas HybridDL-Interval, QGBR, CQR-MLP, and AMQRNN can approach acceptable coverage only with wider intervals. RLMKL therefore emerges as a stronger robust-kernel baseline than the conventional quantile regressors, but it still remains dominated by TL-QLDMR on the joint reliability-sharpness criteria. This comparison suggests that explicit asymmetric regularization combined with cross-domain adaptation is more effective for heavily skewed extreme weather samples than either conventional quantile regression, robust multiple-kernel learning alone, or deep learning approaches.
 
 To assess interval robustness under sensor perturbation, Gaussian noise is injected into test inputs at SNR $\in \{60,40,30\}$ dB.
-To examine robustness under measurement perturbation, additional Gaussian noise is injected into the test inputs at SNR levels of 30, 40, and 60\,dB.
 % while calibration parameters remain fixed to preserve comparability across models. For TL-QLDMR, a conservative scaling multiplier (1.15) is used to maintain coverage.
 Table~\ref{tab:exp3_noise} reports the full set of interval metrics under this noisy-test protocol.
 Across all noise levels, TL-QLDMR maintains the best CWC while keeping PICP above 0.95. The CWC values remain tightly concentrated around 0.278, indicating stable interval quality under moderate measurement perturbation. RLMKL remains one of the more stable robust-kernel baselines, with PINAW staying near 0.313 across all noise levels, but its PICP remains slightly below the nominal level (0.9494), leading to a larger CWC penalty than TL-QLDMR. In contrast, NuSVR-CI yields narrow intervals (small MPIW/PINAW) but exhibits severe under-coverage, and several deep/ensemble baselines require substantially wider intervals to approach reliable coverage. These results indicate that TL-QLDMR preserves a stronger reliability-sharpness balance under measurement perturbations.
@@ -468,7 +467,7 @@ Table~\ref{tab:ablation_results} reports the ablation results on Farm~6. The ful
 
 \begin{table*}[ht]
 \centering
-\caption{Ablation study evaluations for point and interval c prediction on the Farm 6 test set.}
+\caption{Ablation study evaluations for point and interval prediction on the Farm 6 test set.}
 \setlength{\tabcolsep}{3mm}
 \begin{tabular}{lcccccc}
 \toprule

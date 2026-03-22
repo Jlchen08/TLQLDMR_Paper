@@ -1,120 +1,220 @@
-% TL-QLDMR framework figure - premium minimalist redesign
-\documentclass[tikz,border=10pt]{standalone}
+\documentclass[tikz,border=5pt]{standalone}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,shapes.geometric,decorations.pathreplacing}
 \usepackage{amsmath,amssymb}
 
-% restrained color system
-\definecolor{ink}{RGB}{38,50,56}
-\definecolor{c1}{RGB}{30,96,196}   % input
-\definecolor{c2}{RGB}{0,137,123}   % adaptation
-\definecolor{c3}{RGB}{239,108,0}   % objective
-\definecolor{c4}{RGB}{2,119,189}   % solver
-\definecolor{c5}{RGB}{123,31,162}  % output
-\definecolor{flow}{RGB}{112,128,144}
+\definecolor{ink}{RGB}{45,52,58}
+\definecolor{grayA}{RGB}{118,126,134}
+\definecolor{blueA}{RGB}{55,110,180}
+\definecolor{greenA}{RGB}{72,140,88}
+\definecolor{purpleA}{RGB}{137,90,162}
+\definecolor{orangeA}{RGB}{204,116,52}
+\definecolor{tealA}{RGB}{53,132,138}
 
 \begin{document}
 \begin{tikzpicture}[
-  >=Stealth,
-  font=\footnotesize,
   line cap=round,
   line join=round,
-  panel/.style={rounded corners=7pt,draw=#1,line width=1.1pt,fill=#1!6,
-                minimum width=3.9cm,minimum height=5.2cm,align=center},
-  ptitle/.style={font=\small\bfseries,color=#1},
-  chip/.style={rounded corners=3pt,draw=#1,line width=0.9pt,fill=#1!14,
-               minimum width=3.2cm,minimum height=0.82cm,align=center},
-  minichip/.style={rounded corners=3pt,draw=#1,line width=0.85pt,fill=white,
-                   minimum width=2.9cm,minimum height=0.62cm,align=center,font=\scriptsize},
-  tag/.style={rounded corners=2pt,draw=#1!80!black,fill=#1!16,text=#1!80!black,
-              inner xsep=4pt,inner ysep=1.5pt,font=\scriptsize\bfseries},
-  arrow/.style={->,line width=1.1pt,draw=flow}
+  font=\small\sffamily,
+  leftbox/.style={
+    draw=ink!80, fill=white, rounded corners=3pt,
+    line width=1.1pt, align=center, text width=2.6cm,
+    minimum height=1.3cm, inner sep=4pt, font=\small\bfseries\sffamily, text=ink
+  },
+  panel/.style={
+    draw=grayA!60, fill=white, rounded corners=4pt,
+    line width=1.1pt, minimum width=11.6cm, inner sep=0pt
+  },
+  cbox/.style={
+    draw=#1!90, fill=white, rounded corners=3pt,
+    line width=0.9pt, align=center, inner sep=4pt, font=\scriptsize\sffamily, text=ink
+  },
+  cboxfill/.style={
+    draw=#1!90, fill=#1!4, rounded corners=3pt,
+    line width=0.9pt, align=center, inner sep=4pt, font=\scriptsize\sffamily, text=ink
+  },
+  flow/.style={
+    draw=ink!82, line width=0.95pt, shorten >=1pt, shorten <=1pt,
+    -{Stealth[length=3.1pt,width=4.0pt]}
+  },
+  soft/.style={
+    draw=#1!82, line width=0.82pt, shorten >=1pt, shorten <=1pt,
+    -{Stealth[length=2.8pt,width=3.5pt]}
+  },
+  note/.style={font=\scriptsize, text=grayA!95}
 ]
 
-% ---- stage anchors (single left-to-right backbone) ----
-\coordinate (s1) at (-12.0,0);
-\coordinate (s2) at (-6.0,0);
-\coordinate (s3) at (0.5,0);
-\coordinate (s4) at (6.8,0);
-\coordinate (s5) at (12.8,0);
+% Geometry
+\coordinate (lx) at (2.0,0);
+\coordinate (rx) at (10.6,0);
 
-% =================== Stage 1: Inputs ===================
-\node[panel=c1] (input) at (s1) {};
-\node[ptitle=c1,above=1pt of input.north] {Cross-Domain Inputs};
+\def\hspacing{2.7}
+\coordinate (r1) at (0, 10.8);
+\coordinate (r2) at (0, 8.1);
+\coordinate (r3) at (0, 5.4);
+\coordinate (r4) at (0, 2.7);
+\coordinate (r5) at (0, 0.0);
 
-\node[chip=c1,minimum width=3.3cm] (src) at ($(input.center)+(0,1.30)$)
-{Source Domain $D_S$\\Normal weather};
-\node[chip=c1,minimum width=3.3cm] (tgt) at ($(input.center)+(0,-0.35)$)
-{Target Domain $D_T$\\Extreme weather};
-\node[minichip=c1,minimum width=3.3cm] (imb) at ($(input.center)+(0,-1.65)$)
-{Imbalance: $n_T \ll n_S$};
-\draw[<->,densely dashed,draw=c1!80,line width=0.9pt] (src.south) -- node[right,font=\scriptsize\bfseries,color=c1!90] {shift} (tgt.north);
+% Outer frame
+\draw[draw=grayA!70, dashed, line width=1pt, rounded corners=4pt] (-0.2,-1.4) rectangle (17.3, 12.1);
 
-% =================== Stage 2: Dual-space adaptation ===================
-\node[panel=c2,minimum width=4.15cm] (adapt) at (s2) {};
-\node[ptitle=c2,above=1pt of adapt.north] {Dual-Space Adapter};
-\node[tag=c2] at ($(adapt.north east)+(-0.60,-0.27)$) {Innovation 1};
+% ------------------------------------------------------------------
+% Left pipeline
+\node[leftbox] (s1) at ($(lx)+(r1)$) {Cross-Domain\\Data};
+\node[leftbox] (s2) at ($(lx)+(r2)$) {Supervised\\Transfer};
+\node[leftbox] (s3) at ($(lx)+(r3)$) {Quantile-Aware\\Objective};
+\node[leftbox] (s4) at ($(lx)+(r4)$) {Scalable\\Optimization};
+\node[leftbox] (s5) at ($(lx)+(r5)$) {Forecast\\Outputs};
 
-\node[chip=c2,minimum width=3.45cm] (fspace) at ($(adapt.center)+(0,1.15)$)
-{Feature Alignment\\$\mathrm{MMD}(D_S,D_T)$};
-\node[chip=c2,minimum width=3.45cm] (lspace) at ($(adapt.center)+(-0.00,-0.45)$)
-{Label Adaptation\\Weighted Pinball Loss};
-\node[minichip=c2,minimum width=3.45cm] (weight) at ($(adapt.center)+(0,-1.70)$)
-{$C_T \gg C_S$ for extreme samples};
+\draw[flow] (s1.south) -- (s2.north);
+\draw[flow] (s2.south) -- (s3.north);
+\draw[flow] (s3.south) -- (s4.north);
+\draw[flow] (s4.south) -- (s5.north);
 
-% =================== Stage 3: Objective composer ===================
-\node[panel=c3,minimum width=5.0cm] (obj) at (s3) {};
-\node[ptitle=c3,above=1pt of obj.north] {Objective Composer};
-\node[tag=c3] at ($(obj.north east)+(-0.65,-0.27)$) {Innovation 2};
+% ------------------------------------------------------------------
+% Right panels
+\node[panel, minimum height=1.9cm] (p1) at ($(rx)+(r1)$) {};
+\node[panel, minimum height=2.4cm] (p2) at ($(rx)+(r2)$) {};
+\node[panel, minimum height=2.4cm] (p3) at ($(rx)+(r3)$) {};
+\node[panel, minimum height=1.9cm] (p4) at ($(rx)+(r4)$) {};
+\node[panel, minimum height=1.9cm] (p5) at ($(rx)+(r5)$) {};
 
-\node[chip=c3,minimum width=4.15cm,minimum height=0.95cm] (eq) at ($(obj.center)+(0,1.30)$)
-{$J(\boldsymbol{w},b)=R_{\mathrm{SR}}+\lambda_1R_{\mathrm{VAR}}+\lambda_2R_{\mathrm{MMD}}+R_{\mathrm{Q}}$};
+\draw[flow] (s1.east) -- (p1.west);
+\draw[flow] (s2.east) -- (p2.west);
+\draw[flow] (s3.east) -- (p3.west);
+\draw[flow] (s4.east) -- (p4.west);
+\draw[flow] (s5.east) -- (p5.west);
 
-\node[minichip=c3,minimum width=1.95cm] (t1) at ($(obj.center)+(-1.10,0.10)$) {$R_{\mathrm{SR}}$};
-\node[minichip=c3,minimum width=1.95cm] (t2) at ($(obj.center)+( 1.10,0.10)$) {$R_{\mathrm{VAR}}$};
-\node[minichip=c3,minimum width=1.95cm] (t3) at ($(obj.center)+(-1.10,-1.05)$) {$R_{\mathrm{MMD}}$};
-\node[minichip=c3,minimum width=1.95cm] (t4) at ($(obj.center)+( 1.10,-1.05)$) {$R_{\mathrm{Q}}$};
-\node[font=\large,color=ink!45] at ($(t1.east)!0.5!(t2.west)$) {+};
-\node[font=\large,color=ink!45] at ($(t3.east)!0.5!(t4.west)$) {+};
+% ------------------------------------------------------------------
+% Panel 1: inputs
+\node[cbox=greenA, text width=2.55cm, minimum height=0.95cm] (p11) at ($(p1.center)+(-3.55,0)$)
+{Source domain $D_S$\\Conventional weather\\samples};
+\node[cbox=greenA, text width=2.55cm, minimum height=0.95cm] (p12) at ($(p1.center)+(0,0)$)
+{Target domain $D_T$\\Extreme weather\\samples};
+\node[cbox=greenA, text width=2.55cm, minimum height=0.95cm] (p13) at ($(p1.center)+(3.55,0)$)
+{Windowed covariates\\$W=24$, meteorology,\\power history};
 
-% =================== Stage 4: Scalable solver ===================
-\node[panel=c4,minimum width=4.05cm] (solver) at (s4) {};
-\node[ptitle=c4,above=1pt of solver.north] {Optimization};
-\node[tag=c4] at ($(solver.north east)+(-0.62,-0.27)$) {Innovation 3};
+\draw[decorate,decoration={brace,amplitude=4pt,mirror}, draw=greenA!90, line width=1.1pt] 
+  ($(p11.south west)+(0.1,-0.15)$) -- ($(p12.south east)+(-0.1,-0.15)$) 
+  node[midway, below=5pt, font=\scriptsize\bfseries, text=ink] {Sample imbalance: $n_T \ll n_S$};
 
-\node[minichip=gray,minimum width=3.30cm] (qp) at ($(solver.center)+(0,1.10)$)
-{Exact Dual QP: $O(N^3)$};
-\node[chip=c4,minimum width=3.30cm] (fast) at ($(solver.center)+(-0.00,-0.35)$)
-{Nystr\"om + Mini-batch SGD};
-\node[minichip=c4,minimum width=3.30cm] (cmp) at ($(solver.center)+(0,-1.70)$)
-{Complexity: $O(TNm)$};
+% ------------------------------------------------------------------
+% Panel 2: transfer
+\node[cboxfill=blueA, text width=5.1cm, minimum height=0.9cm, font=\small] (p21) at ($(p2.center)+(0,0.70)$)
+{Shared kernel representation \ $\phi(\mathbf{x})$ / $\psi(\mathbf{x})$};
 
-% =================== Stage 5: Outputs ===================
-\node[panel=c5,minimum width=4.05cm] (out) at (s5) {};
-\node[ptitle=c5,above=1pt of out.north] {Forecasting Outputs};
+\node[cbox=blueA, text width=3.00cm, minimum height=0.95cm] (p22) at ($(p2.center)+(-2.55,-0.545)$)
+{Feature-space alignment\\MMD in RKHS};
+\node[cbox=blueA, text width=3.00cm, minimum height=0.95cm] (p24) at ($(p2.center)+(2.55,-0.545)$)
+{Label-space adaptation\\Target-weighted pinball loss};
 
-\node[minichip=c5,minimum width=3.30cm] (point) at ($(out.center)+(0,1.25)$)
-{Point Forecast: $\hat y=f(\boldsymbol{x})$};
-\node[chip=c5,minimum width=3.30cm,minimum height=0.86cm] (head) at ($(out.center)+(0,0.05)$)
-{Quantile Head};
-\node[minichip=c5,minimum width=2.85cm] (q95) at ($(out.center)+(0,-0.95)$) {$\hat q_{0.95}$};
-\node[minichip=c5,minimum width=2.85cm] (q50) at ($(out.center)+(0,-1.62)$) {$\hat q_{0.50}$};
-\node[minichip=c5,minimum width=2.85cm] (q05) at ($(out.center)+(0,-2.29)$) {$\hat q_{0.05}$};
+% Dashed arrow: shared kernel -> feature-space alignment (left)
+\draw[draw=blueA!82, dashed, line width=0.82pt, shorten >=1pt, shorten <=1pt, -{Stealth[length=2.8pt,width=3.5pt]}]
+  (p21.south) ++(-1.2,0) -- (p22.north);
+% Dashed arrow: shared kernel -> label-space adaptation (right)
+\draw[draw=blueA!82, dashed, line width=0.82pt, shorten >=1pt, shorten <=1pt, -{Stealth[length=2.8pt,width=3.5pt]}]
+  (p21.south) ++(1.2,0) -- (p24.north);
 
-\draw[decorate,decoration={brace,amplitude=4pt},draw=c5,line width=0.95pt]
-  ($(q95.north east)+(0.08,0.04)$) -- ($(q05.south east)+(0.08,-0.04)$)
-  node[midway,right=3pt,font=\scriptsize\bfseries,color=c5] {PI};
+% ------------------------------------------------------------------
+% Panel 3: objective
+\node[cboxfill=purpleA, text width=8.0cm, minimum height=0.9cm, font=\normalsize] (p31) at ($(p3.center)+(0,0.58)$)
+{$J = R_{\mathrm{SR}} \,+\, \lambda_1 R_{\mathrm{DV}} \,+\, \lambda_2 R_{\mathrm{DA}} \,+\, R_{\mathrm{Q}}$};
 
-% ---- internal tiny links in output (short and clean) ----
-\draw[arrow,draw=c5!80] (head.south) -- (q95.north);
-\draw[arrow,draw=c5!80] (head.south) -- (q50.north);
-\draw[arrow,draw=c5!80] (head.south) -- (q05.north);
+\node[cbox=purpleA, text width=2.0cm, minimum height=0.95cm] (p32) at ($(p3.center)+(-4.0,-0.545)$)
+{$R_{\mathrm{SR}}$\\Structural Risk};
+\node[cbox=purpleA, text width=2.0cm, minimum height=0.95cm] (p33) at ($(p3.center)+(-1.33,-0.545)$)
+{$R_{\mathrm{DV}}$\\Distribution Variance};
+\node[cbox=purpleA, text width=2.0cm, minimum height=0.95cm] (p34) at ($(p3.center)+(1.33,-0.545)$)
+{$R_{\mathrm{DA}}$\\Domain Rdaptation};
+\node[cbox=purpleA, text width=2.0cm, minimum height=0.95cm] (p35) at ($(p3.center)+(4.0,-0.545)$)
+{$R_{\mathrm{Q}}$\\Weighted Pinball Loss};
 
-% =================== Main backbone (only 4 arrows) ===================
-\draw[arrow] (input.east) -- (adapt.west);
-\draw[arrow] (adapt.east) -- (obj.west);
-\draw[arrow] (obj.east) -- (solver.west);
-\draw[arrow] (solver.east) -- (out.west);
+\node[font=\large\bfseries,text=ink] at ($(p32.east)!0.5!(p33.west)$) {$+$};
+\node[font=\large\bfseries,text=ink] at ($(p33.east)!0.5!(p34.west)$) {$+$};
+\node[font=\large\bfseries,text=ink] at ($(p34.east)!0.5!(p35.west)$) {$+$};
+
+\draw[draw=purpleA!70, line width=0.75pt, dashed, shorten >=1pt, shorten <=1pt, -{Stealth[length=2.8pt,width=3.5pt]}] (p31.south) ++(-2.65,0) -- (p32.north);
+\draw[draw=purpleA!70, line width=0.75pt, dashed, shorten >=1pt, shorten <=1pt, -{Stealth[length=2.8pt,width=3.5pt]}] (p31.south) ++(-0.85,0) -- (p33.north);
+\draw[draw=purpleA!70, line width=0.75pt, dashed, shorten >=1pt, shorten <=1pt, -{Stealth[length=2.8pt,width=3.5pt]}] (p31.south) ++(0.95,0)  -- (p34.north);
+\draw[draw=purpleA!70, line width=0.75pt, dashed, shorten >=1pt, shorten <=1pt, -{Stealth[length=2.8pt,width=3.5pt]}] (p31.south) ++(2.75,0)  -- (p35.north);
+
+% ------------------------------------------------------------------
+% Panel 4: optimization
+\node[cbox=orangeA, text width=2.55cm, minimum height=0.95cm] (p41) at ($(p4.center)+(-3.55,0)$)
+{Exact dual solver\\Quadratic programming};
+\node[cbox=orangeA, text width=2.55cm, minimum height=0.95cm] (p42) at ($(p4.center)+(0,0)$)
+{Scalable solver\\Nystr\"om + SGD};
+\node[cboxfill=orangeA, text width=2.55cm, minimum height=0.95cm] (p43) at ($(p4.center)+(3.55,0)$)
+{Complexity reduction\\$O(N^3)\rightarrow O(T \cdot N \cdot m)$};
+
+\draw[soft=orangeA] (p41.east) -- (p42.west);
+\draw[soft=orangeA] (p42.east) -- (p43.west);
+
+% ------------------------------------------------------------------
+% Panel 5: outputs
+\node[cboxfill=tealA, minimum width=3.9cm, minimum height=1.3cm] (p51) at ($(p5.center)+(-2.45,0)$) {};
+\node[cboxfill=tealA, minimum width=3.9cm, minimum height=1.3cm] (p53) at ($(p5.center)+(2.45,0)$) {};
+
+\node[anchor=north,font=\scriptsize\bfseries,text=tealA,inner sep=2pt] at ($(p51.north)+(0,-0.06)$) {Point forecast};
+\node[anchor=north,font=\scriptsize\bfseries,text=tealA,inner sep=2pt] at ($(p53.north)+(0,-0.06)$) {Prediction interval};
+
+% Tiny plot 1
+\begin{scope}[shift={($(p51.south west)+(0.3,0.2)$)}]
+  \draw[draw=grayA!60, line width=0.7pt] (0,0) -- (0,0.6);
+  \draw[draw=grayA!60, line width=0.7pt] (0,0) -- (3.2,0);
+  \draw[draw=grayA!70, line width=0.9pt]
+    plot[smooth] coordinates {
+      (0.1, 0.2)
+      (0.6, 0.3)
+      (1.1, 0.5)
+      (1.6, 0.4)
+      (2.1, 0.6)
+      (2.6, 0.3)
+      (3.1, 0.5)};
+  \draw[draw=tealA!100, line width=1.3pt]
+    plot[smooth] coordinates {
+      (0.1, 0.15)
+      (0.6, 0.35)
+      (1.1, 0.55)
+      (1.6, 0.42)
+      (2.1, 0.65)
+      (2.6, 0.32)
+      (3.1, 0.52)};
+\end{scope}
+
+% Tiny plot 3
+\begin{scope}[shift={($(p53.south west)+(0.3,0.2)$)}]
+  \draw[draw=grayA!60, line width=0.7pt] (0,0) -- (0,0.6);
+  \draw[draw=grayA!60, line width=0.7pt] (0,0) -- (3.2,0);
+  \fill[tealA!25]
+    plot[smooth] coordinates {
+      (0.1, 0.45)
+      (0.6, 0.6)
+      (1.1, 0.7)
+      (1.6, 0.55)
+      (2.1, 0.75)
+      (2.6, 0.45)
+      (3.1, 0.65)}
+    --
+    plot[smooth] coordinates {
+      (3.1, 0.35)
+      (2.6, 0.15)
+      (2.1, 0.45)
+      (1.6, 0.25)
+      (1.1, 0.4)
+      (0.6, 0.3)
+      (0.1, 0.15)}
+    -- cycle;
+  \draw[draw=tealA!100, line width=1.3pt]
+    plot[smooth] coordinates {
+      (0.1, 0.3)
+      (0.6, 0.45)
+      (1.1, 0.55)
+      (1.6, 0.4)
+      (2.1, 0.6)
+      (2.6, 0.3)
+      (3.1, 0.5)};
+\end{scope}
 
 \end{tikzpicture}
 \end{document}
