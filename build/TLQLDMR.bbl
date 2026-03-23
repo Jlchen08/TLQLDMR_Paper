@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{48}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -160,13 +160,6 @@
 \newblock {\it \bibinfo{journal}{European Journal of Operational Research}\/},
   {\it \bibinfo{volume}{295}\/}, \bibinfo{pages}{634--647}.
   \DOIprefix\doi{10.1016/j.ejor.2020.12.024}.
-%Type = Article
-\bibitem[{Kingma \& Ba(2015)}]{kingma2015adam}
-\bibinfo{author}{Kingma, D.~P.}, \& \bibinfo{author}{Ba, J.}
-  (\bibinfo{year}{2015}).
-\newblock \bibinfo{title}{Adam: A method for stochastic optimization}.
-\newblock {\it \bibinfo{journal}{arXiv preprint arXiv:1412.6980}\/}, .
-  \DOIprefix\doi{10.48550/arXiv.1412.6980}.
 %Type = Article
 \bibitem[{Kumar et~al.(2012)Kumar, Mohri \& Talwalkar}]{kumar2012sampling}
 \bibinfo{author}{Kumar, S.}, \bibinfo{author}{Mohri, M.}, \&

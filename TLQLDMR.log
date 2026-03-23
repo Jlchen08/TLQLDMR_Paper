@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  22 MAR 2026 19:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.9)  22 MAR 2026 21:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,42 +1026,42 @@ $[]$
  []
 
 [14]
-<experiment1/outputs/plots/farm1_domain_shift.jpg, id=498, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm1_domain_shift.jpg, id=495, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm1_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm1_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm1_domain_shift.jpg  used
  on input line 102.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm0_domain_shift.jpg, id=499, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm0_domain_shift.jpg, id=496, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm0_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm0_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm0_domain_shift.jpg  used
  on input line 104.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm2_domain_shift.jpg, id=500, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm2_domain_shift.jpg, id=497, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm2_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm2_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm2_domain_shift.jpg  used
  on input line 107.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm4_domain_shift.jpg, id=501, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm4_domain_shift.jpg, id=498, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm4_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm4_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm4_domain_shift.jpg  used
  on input line 109.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm5_domain_shift.jpg, id=502, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm5_domain_shift.jpg, id=499, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm5_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm5_domain_shift.jpg>
 Package pdftex.def Info: experiment1/outputs/plots/farm5_domain_shift.jpg  used
  on input line 112.
 (pdftex.def)             Requested size: 224.79755pt x 170.34178pt.
-<experiment1/outputs/plots/farm3_domain_shift.jpg, id=503, 2860.6875pt x 2168.1
+<experiment1/outputs/plots/farm3_domain_shift.jpg, id=500, 2860.6875pt x 2168.1
 pt>
 File: experiment1/outputs/plots/farm3_domain_shift.jpg Graphic file (type jpg)
 <use experiment1/outputs/plots/farm3_domain_shift.jpg>
@@ -1083,7 +1083,7 @@ $[]$
 jpg> <./experiment1/outputs/plots/farm4_domain_shift.jpg> <./experiment1/output
 s/plots/farm5_domain_shift.jpg> <./experiment1/outputs/plots/farm3_domain_shift
 .jpg>]
-<experiment2/plots_selected/farm3_Standard-LDMR.pdf, id=530, 592.61403pt x 274.
+<experiment2/plots_selected/farm3_Standard-LDMR.pdf, id=527, 592.61403pt x 274.
 626pt>
 File: experiment2/plots_selected/farm3_Standard-LDMR.pdf Graphic file (type pdf
 )
@@ -1091,26 +1091,26 @@ File: experiment2/plots_selected/farm3_Standard-LDMR.pdf Graphic file (type pdf
 Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-LDMR.pdf  us
 ed on input line 196.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_BLSSVR.pdf, id=531, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_BLSSVR.pdf, id=528, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_BLSSVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_BLSSVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_BLSSVR.pdf  used on i
 nput line 201.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_ARA-SVR.pdf, id=532, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_ARA-SVR.pdf, id=529, 592.61403pt x 274.626pt>
 
 File: experiment2/plots_selected/farm3_ARA-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_ARA-SVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_ARA-SVR.pdf  used on 
 input line 212.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_FLSVR.pdf, id=533, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_FLSVR.pdf, id=530, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_FLSVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_FLSVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_FLSVR.pdf  used on in
 put line 217.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_Standard-SVR.pdf, id=534, 592.61403pt x 274.6
+<experiment2/plots_selected/farm3_Standard-SVR.pdf, id=531, 592.61403pt x 274.6
 26pt>
 File: experiment2/plots_selected/farm3_Standard-SVR.pdf Graphic file (type pdf)
 
@@ -1118,34 +1118,34 @@ File: experiment2/plots_selected/farm3_Standard-SVR.pdf Graphic file (type pdf)
 Package pdftex.def Info: experiment2/plots_selected/farm3_Standard-SVR.pdf  use
 d on input line 228.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_HHO-SVR.pdf, id=535, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_HHO-SVR.pdf, id=532, 592.61403pt x 274.626pt>
 
 File: experiment2/plots_selected/farm3_HHO-SVR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_HHO-SVR.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_HHO-SVR.pdf  used on 
 input line 233.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_BRF-WPF.pdf, id=536, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_BRF-WPF.pdf, id=533, 592.61403pt x 274.626pt>
 
 File: experiment2/plots_selected/farm3_BRF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_BRF-WPF.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_BRF-WPF.pdf  used on 
 input line 244.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_KMeans-GBT.pdf, id=537, 592.61403pt x 274.626
+<experiment2/plots_selected/farm3_KMeans-GBT.pdf, id=534, 592.61403pt x 274.626
 pt>
 File: experiment2/plots_selected/farm3_KMeans-GBT.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_KMeans-GBT.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_KMeans-GBT.pdf  used 
 on input line 249.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_RF-WPF.pdf, id=538, 592.61403pt x 274.626pt>
+<experiment2/plots_selected/farm3_RF-WPF.pdf, id=535, 592.61403pt x 274.626pt>
 File: experiment2/plots_selected/farm3_RF-WPF.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_RF-WPF.pdf>
 Package pdftex.def Info: experiment2/plots_selected/farm3_RF-WPF.pdf  used on i
 nput line 260.
 (pdftex.def)             Requested size: 229.48544pt x 106.34523pt.
-<experiment2/plots_selected/farm3_TL-QLDMR.pdf, id=539, 635.97598pt x 296.307pt
+<experiment2/plots_selected/farm3_TL-QLDMR.pdf, id=536, 635.97598pt x 296.307pt
 >
 File: experiment2/plots_selected/farm3_TL-QLDMR.pdf Graphic file (type pdf)
 <use experiment2/plots_selected/farm3_TL-QLDMR.pdf>
@@ -1185,7 +1185,7 @@ $[]$
  []
 
 [21]
-<experiment4/plots/residual_distribution.png, id=1124, 520.344pt x 303.534pt>
+<experiment4/plots/residual_distribution.png, id=1121, 520.344pt x 303.534pt>
 File: experiment4/plots/residual_distribution.png Graphic file (type png)
 <use experiment4/plots/residual_distribution.png>
 Package pdftex.def Info: experiment4/plots/residual_distribution.png  used on i
@@ -1256,11 +1256,11 @@ Package rerunfilecheck Info: File `TLQLDMR.out' has not changed.
 Here is how much of TeX's memory you used:
  19670 strings out of 467870
  308932 string characters out of 5428399
- 736906 words of memory out of 5000000
+ 737308 words of memory out of 5000000
  47998 multiletter control sequences out of 15000+600000
  749021 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,19n,98p,2150b,664s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,19n,98p,2097b,664s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
 600\ectt0800.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fonts/pk/ljfour/j
 knappen/ec/dpi600\ectt1000.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\fon
@@ -1293,9 +1293,9 @@ rs/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathscr.pf
 b><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/stix/stix-m
 athsf.pfb><C:/Users/Administrator/AppData/Roaming/MiKTeX/fonts/type1/public/sti
 x/stix-mathtt.pfb>
-Output written on TLQLDMR.pdf (27 pages, 3844590 bytes).
+Output written on TLQLDMR.pdf (27 pages, 3846087 bytes).
 PDF statistics:
- 1493 PDF objects out of 1728 (max. 8388607)
+ 1491 PDF objects out of 1728 (max. 8388607)
  235 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

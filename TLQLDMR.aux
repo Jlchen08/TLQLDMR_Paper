@@ -47,9 +47,9 @@
 \newlabel{novel}{{3}{5}{Proposed Methodology}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Notations}{5}{subsection.3.1}\protected@file@percent }
 \newlabel{not}{{3.1}{5}{Notations}{subsection.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall workflow of the proposed TL-QLDMR model. Normal-weather source samples and scarce extreme-weather target samples are first organized as cross-domain inputs, then processed through supervised transfer adaptation with shared kernel representation, MMD-based feature alignment, and weighted label learning. These components are integrated into a quantile-aware LDMR objective and optimized either by exact dual quadratic programming or by the scalable Nystr\"om + mini-batch SGD solver, yielding both point forecasts and probabilistic prediction intervals.}}{6}{figure.caption.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall architecture of the proposed TL-QLDMR model. The left column shows the five-stage pipeline: cross-domain data preparation, supervised transfer learning, quantile-aware objective construction, scalable optimization, and forecast outputs. Each stage is elaborated in the corresponding right panel. In the supervised transfer stage, the shared kernel representation branches into feature-space alignment via MMD in RKHS and label-space adaptation via target-weighted pinball loss (indicated by dashed arrows). The quantile-aware objective decomposes into four additive terms: structural risk $R_{\mathrm  {SR}}$, distribution variance $R_{\mathrm  {DV}}$, domain adaptation $R_{\mathrm  {DA}}$, and weighted pinball loss $R_{\mathrm  {Q}}$. The optimization stage provides both an exact dual QP solver and a scalable Nystr\"om-SGD solver with complexity reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$. The final outputs include deterministic point forecasts and probabilistic prediction intervals.}}{6}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:framework}{{1}{6}{Overall workflow of the proposed TL-QLDMR model. Normal-weather source samples and scarce extreme-weather target samples are first organized as cross-domain inputs, then processed through supervised transfer adaptation with shared kernel representation, MMD-based feature alignment, and weighted label learning. These components are integrated into a quantile-aware LDMR objective and optimized either by exact dual quadratic programming or by the scalable Nystr\"om + mini-batch SGD solver, yielding both point forecasts and probabilistic prediction intervals}{figure.caption.1}{}}
+\newlabel{fig:framework}{{1}{6}{Overall architecture of the proposed TL-QLDMR model. The left column shows the five-stage pipeline: cross-domain data preparation, supervised transfer learning, quantile-aware objective construction, scalable optimization, and forecast outputs. Each stage is elaborated in the corresponding right panel. In the supervised transfer stage, the shared kernel representation branches into feature-space alignment via MMD in RKHS and label-space adaptation via target-weighted pinball loss (indicated by dashed arrows). The quantile-aware objective decomposes into four additive terms: structural risk $R_{\mathrm {SR}}$, distribution variance $R_{\mathrm {DV}}$, domain adaptation $R_{\mathrm {DA}}$, and weighted pinball loss $R_{\mathrm {Q}}$. The optimization stage provides both an exact dual QP solver and a scalable Nystr\"om-SGD solver with complexity reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$. The final outputs include deterministic point forecasts and probabilistic prediction intervals}{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}TL-QLDMR Model Formulation}{6}{subsection.3.2}\protected@file@percent }
 \newlabel{MODEL}{{3.2}{6}{TL-QLDMR Model Formulation}{subsection.3.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Objective Function}{6}{subsubsection.3.2.1}\protected@file@percent }
@@ -83,9 +83,9 @@
 \newlabel{alg_section}{{3.4}{10}{The Algorithm and Complexity Analysis}{subsection.3.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Scalable Optimization via Nystr\"{o}m Approximation}{10}{subsection.3.5}\protected@file@percent }
 \newlabel{fast_alg}{{3.5}{10}{Scalable Optimization via Nystr\"{o}m Approximation}{subsection.3.5}{}}
-\citation{kingma2015adam}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Nystr\"{o}m Feature Mapping}{10}{subsubsection.3.5.1}\protected@file@percent }
 \citation{bottou2018optimization}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Nystr\"{o}m Feature Mapping}{11}{subsubsection.3.5.1}\protected@file@percent }
+\citation{kumar2012sampling,zhang2010clustered}
 \newlabel{eq:nystrom_feature}{{22}{11}{Nystr\"{o}m Feature Mapping}{equation.22}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Primal Formulation with Explicit Features}{11}{subsubsection.3.5.2}\protected@file@percent }
 \newlabel{eq:reg_matrix}{{23}{11}{Primal Formulation with Explicit Features}{equation.23}{}}
@@ -93,8 +93,7 @@
 \newlabel{eq:subgradient}{{24}{11}{Stochastic Gradient Descent Optimization}{equation.24}{}}
 \newlabel{eq:param_gradients}{{25}{11}{Stochastic Gradient Descent Optimization}{equation.25}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.4}Complexity Analysis of the Scalable Algorithm}{11}{subsubsection.3.5.4}\protected@file@percent }
-\citation{kumar2012sampling,zhang2010clustered}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Fast TL-QLDMR via Nystr\"{o}m Approximation}}{12}{algocf.2}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces TL-QLDMR via Nystr\"{o}m-SGD}}{12}{algocf.2}\protected@file@percent }
 \newlabel{alg:fast_TL-QLDMR}{{2}{12}{Stochastic Gradient Descent Optimization}{algocf.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Complexity Comparison between Standard QP and Scalable Algorithm}}{12}{table.caption.4}\protected@file@percent }
 \newlabel{tab:complexity}{{1}{12}{Complexity Comparison between Standard QP and Scalable Algorithm}{table.caption.4}{}}

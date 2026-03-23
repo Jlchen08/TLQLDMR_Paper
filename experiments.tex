@@ -1,7 +1,7 @@
 %------------------------ Experiments Section for TL-QLDMR Paper ------------------------%
 \section{Experiments}\label{Experiments}
 
-In this section, we conduct a comprehensive experimental evaluation of the proposed TL-QLDMR model for wind power forecasting under extreme weather conditions. The experiments are organized into five progressive stages: (1) extreme weather sample screening and domain shift quantification across multiple wind farms (Section~\ref{sec:exp1}); (2) deterministic point prediction comparison on the wind farm exhibiting the most severe distribution shift (Section~\ref{sec:exp2}); (3) probabilistic interval prediction evaluation under a 95\% confidence level (Section~\ref{sec:exp3}); (4) ablation study to validate the contribution of each core component (Section~\ref{sec:exp4}); and (5) scalable optimization validation to assess the computational efficiency of the proposed Nystr\"{o}m + SGD solver (Section~\ref{sec:exp5}). 
+In this section, we conduct a comprehensive experimental evaluation of the proposed TL-QLDMR model for wind power forecasting under extreme weather conditions. The experiments are organized into five progressive stages: (1) extreme weather sample screening and domain shift quantification across multiple wind farms (Section~\ref{sec:exp1}); (2) deterministic point prediction comparison on the wind farm exhibiting the most severe distribution shift (Section~\ref{sec:exp2}); (3) probabilistic interval prediction evaluation under a 95\% confidence level (Section~\ref{sec:exp3}); (4) ablation study to validate the contribution of each core component (Section~\ref{sec:exp4}); and (5) scalable optimization validation to assess the computational efficiency of the proposed Nystr\"{o}m-SGD solver (Section~\ref{sec:exp5}). 
 
 %---------------- Dataset Description --------------------%
 \subsection{Dataset Description}\label{sec:data}
@@ -284,7 +284,7 @@ The $R^2$ results under different noise levels are summarized in Table~\ref{tab:
 \centering
 \caption{Model performance ($R^2$) under varying SNR on the Farm~6 extreme weather test set.}
 \setlength{\tabcolsep}{3.5mm}
-\begin{tabular}{lccccc}
+\begin{tabular}{lccc}
 \toprule
 Model & SNR = 30 dB & SNR = 40 dB & SNR = 60 dB \\
 \midrule
@@ -307,7 +307,7 @@ RF-WPF        & 0.9471 & 0.9485 & 0.9469 \\
 \label{tab:exp2_noise}
 \end{table}
 
-The results confirm that TL-QLDMR consistently maintains the highest $R^2$ across all noise levels, achieving 0.9584, 0.9560, and 0.9603 at SNR = 30, 40, and 60\,dB, respectively. The strongest baseline under noisy inputs is HHO-SVR, but it remains below TL-QLDMR at all three settings ($R^2$ = 0.9542, 0.9538, and 0.9537). BLSSVR remains slightly better than Standard LDMR under noise ($R^2$ = 0.9121 vs. 0.9084 at SNR = 30\,dB), but still trails the stronger kernel baselines by a clear margin, again indicating that bounded-loss robustness alone does not resolve the cross-domain mismatch. Standard SVR demonstrates moderate robustness ($R^2$ = 0.9409 at SNR = 30\,dB), outperforming both Standard LDMR and BLSSVR but remaining substantially below TL-QLDMR. Among ensemble methods, BRF-WPF exhibits the steepest degradation, indicating higher sensitivity to measurement perturbations. The transfer learning framework, reinforced by asymmetric variance regularization, effectively mitigates overfitting to noisy target samples and demonstrates the strongest noise resilience among all comparative models.
+The results confirm that TL-QLDMR consistently maintains the highest $R^2$ across all noise levels, achieving 0.9584, 0.9560, and 0.9603 at SNR = 30, 40, and 60\,dB, respectively. The strongest baseline under noisy inputs is HHO-SVR, but it remains below TL-QLDMR at all three settings ($R^2$ = 0.9442, 0.9438, and 0.9437). BLSSVR remains slightly better than Standard LDMR under noise ($R^2$ = 0.9121 vs. 0.9084 at SNR = 30\,dB), but still trails the stronger kernel baselines by a clear margin, again indicating that bounded-loss robustness alone does not resolve the cross-domain mismatch. Standard SVR demonstrates moderate robustness ($R^2$ = 0.9409 at SNR = 30\,dB), outperforming both Standard LDMR and BLSSVR but remaining substantially below TL-QLDMR. Among ensemble methods, BRF-WPF exhibits the steepest degradation, indicating higher sensitivity to measurement perturbations. The transfer learning framework, reinforced by asymmetric variance regularization, effectively mitigates overfitting to noisy target samples and demonstrates the strongest noise resilience among all comparative models.
 \FloatBarrier
 %---------------- Experiment 3 --------------------%
 \subsection{Experiment 3: Probabilistic Interval Prediction under Extreme Weather}\label{sec:exp3}
@@ -345,7 +345,7 @@ The interval prediction baselines are organized into two categories:
 \textbf{Recent wind power interval prediction models:}
 \begin{enumerate}
     \setcounter{enumi}{6}
-    \item \textbf{HybridDL-Interval} \citep{hybriddl2025}: A hybrid deep learning framework for day-ahead wind power interval forecasting, combining temporal attention and quantile loss (approximate implementation);
+    \item \textbf{HybridDL-Interval} \citep{hybriddl2025}: A hybrid deep learning framework for day-ahead wind power interval forecasting, combining temporal attention and quantile loss;
     \item \textbf{AMQRNN} \citep{amqrnn2025}: A recurrent attention encoder-decoder network for multi-step interval wind power prediction, implemented using an attention-GRU network;
     \item \textbf{QGBR} \citep{hu2025ncqgbr}: Quantile Gradient Boosted Regression, representing the improved quantile ensemble learning framework for wind power prediction;
     \item \textbf{CQR-MLP} \citep{hu2025nescqr}: MLP quantile ensemble with dynamic conformalized quantile regression, acting as a simplified baseline for neural ensemble search methods.
@@ -479,7 +479,7 @@ w/o LDMR (Variance)     & 8.205 & 0.9461 & 0.949 & 25.925 & 0.2697 & 0.3507 \\
 w/o Transfer            & 7.930 & 0.9497 & 0.952 & 26.891 & 0.2797 & 0.2797 \\
 LDMR-Quantile (SymVar)  & 7.868 & 0.9472 & 0.952 & 29.114 & 0.3029 & 0.3029 \\
 w/o MMD                 & 7.745 & 0.9520 & 0.947 & 26.049 & 0.2710 & 0.3528 \\
-\textbf{TL-QLDMR (Full)} & \textbf{7.476} & \textbf{0.9553} & \textbf{0.959} & \textbf{25.791} & \textbf{0.2683} & \textbf{0.2683} \\
+\textbf{TL-QLDMR (Full)} & \textbf{7.476} & \textbf{0.9557} & \textbf{0.959} & \textbf{25.791} & \textbf{0.2683} & \textbf{0.2683} \\
 \bottomrule
 \end{tabular}
 \label{tab:ablation_results}
@@ -492,7 +492,7 @@ w/o MMD                 & 7.745 & 0.9520 & 0.947 & 26.049 & 0.2710 & 0.3528 \\
 \label{fig:ablation_residual}
 \end{figure}
 
-The ablation outcomes confirm that each component contributes materially to robustness. Removing transfer learning reduces both point accuracy ($R^2$: 0.9553 $\rightarrow$ 0.9497) and interval quality (CWC: 0.2683 $\rightarrow$ 0.2797), indicating that target-only training is insufficient under strong domain shift. Removing LDMR regularization or MMD alignment causes clear interval-quality degradation (CWC rises to 0.3507 and 0.3528), even when point-metric changes are smaller, showing that residual-shape control and feature alignment are central to reliable uncertainty estimation.
+The ablation outcomes confirm that each component contributes materially to robustness. Removing transfer learning reduces both point accuracy ($R^2$: 0.9557 $\rightarrow$ 0.9497) and interval quality (CWC: 0.2683 $\rightarrow$ 0.2797), indicating that target-only training is insufficient under strong domain shift. Removing LDMR regularization or MMD alignment causes clear interval-quality degradation (CWC rises to 0.3507 and 0.3528), even when point-metric changes are smaller, showing that residual-shape control and feature alignment are central to reliable uncertainty estimation.
 
 Critically, the LDMR-Quantile (SymVar) variant—which replaces asymmetric variance with symmetric variance minimization—exhibits degraded performance on both point prediction (RMSE: 7.868 vs. 7.476) and interval prediction (CWC: 0.3029 vs. 0.2683, PINAW: 0.3029 vs. 0.2683). This degradation empirically validates our theoretical analysis in Section~\ref{novel}: symmetric variance minimization, while effective for mean regression, conflicts with the asymmetric residual distribution required for accurate quantile estimation. The symmetric regularizer forces errors toward a centered, Gaussian-like distribution, thereby degrading interval calibration at non-median quantiles. 
 
@@ -505,7 +505,7 @@ The residual-density comparison in Fig.~\ref{fig:ablation_residual} supports thi
 %---------------- Experiment 5 --------------------%
 \subsection{Experiment 5: Scalable Optimization Validation}\label{sec:exp5}
 
-Experiment~5 evaluates whether the proposed Nystr\"{o}m + SGD solver can maintain computational efficiency as the training scale increases, in comparison with three representative optimization baselines: (i) exact dual quadratic programming solved by CVXOPT, (ii) gradient-based optimization of the QP objective (Torch-GD), (iii) mini-batch SGD with kernel-slice approximation, and (iv) the proposed primal Nystr\"{o}m + Fast SGD solver.
+Experiment~5 evaluates whether the proposed Nystr\"{o}m-SGD solver can maintain computational efficiency as the training scale increases. The proposed solver is compared against three representative optimization baselines: (i) exact dual quadratic programming solved by CVXOPT, (ii) gradient-based optimization of the QP objective (Torch-GD), and (iii) mini-batch SGD with kernel-slice approximation.
 
 To stress-test scalability, we consider seven training scales, increasing the combined training size from 100 to the full $N=69{,}737$. The evaluated sizes are $N=100, 500, 1{,}000, 3{,}000, 10{,}000, 30{,}000$, and $69{,}737$.
 %  The full setting corresponds to 66{,}009 source-domain normal samples and 3{,}728 target-domain extreme samples. When subsampling, a target-domain ratio of 0.3 is used. Because the target-domain training set contains only 3{,}728 samples, the target count saturates once $N > 12{,}427$; therefore, the additional samples at the largest two settings are drawn entirely from the source domain. The regression hyperparameters follow Experiment~2 ($\lambda_1 = 5 \times 10^{-4}$, $\lambda_2 = 10^{-4}$, $C_S = 0.05$, $C_T = 150$, $\gamma = 0.002$, and $\tau = 0.5$), while the fast solver fixes $m = 80$, learning rate 0.01, 20 epochs, and batch size 256 throughout.
@@ -518,7 +518,7 @@ For each configuration, wall-clock training time (seconds) is recorded. Table~\r
 \setlength{\tabcolsep}{2.6mm}
 \begin{tabular}{rcccc}
 \toprule
-$N$ & CVXOPT & Torch-GD & Batch SGD & Fast Solver (Ours) \\
+$N$ & CVXOPT & Torch-GD & Batch SGD & Nystr\"{o}m-SGD (Ours) \\
 \midrule
 100      & 0.509 & 2.155 & 2.746 & \textbf{0.035} \\
 500      & 1.052 & 2.618 & 4.637 & \textbf{1.035} \\
@@ -535,7 +535,7 @@ $N$ & CVXOPT & Torch-GD & Batch SGD & Fast Solver (Ours) \\
 
 The full-QP routes lose practicality quickly as the scale increases. CVXOPT grows from 0.509 seconds at $N=100$ to 7.655 seconds at $N=1{,}000$ and is not extended further thereafter. Torch-GD remains workable slightly longer, but already requires 20.395 seconds at $N=3{,}000$, indicating that direct optimization of the kernel QP becomes inefficient well before the full training regime is reached.
 
-Batch SGD avoids exact QP solving but remains substantially slower than the proposed fast solver at medium and large scales; for example, at $N=30{,}000$ it requires 25.338 seconds, compared with 3.483 seconds for the Nystr\"{o}m + Fast SGD route. By contrast, the proposed solver is the only optimization route that completes the entire uncapped training set, reaching $N=69{,}737$ in 5.021 seconds. This trend is consistent with the theoretical reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$: runtime growth remains comparatively mild even after the target-domain sample count saturates and the additional data come almost entirely from the source domain. 
+Batch SGD avoids exact QP solving but remains substantially slower than the proposed Nystr\"{o}m-SGD solver at medium and large scales; for example, at $N=30{,}000$ it requires 25.338 seconds, compared with 3.483 seconds for the Nystr\"{o}m-SGD route. By contrast, the proposed solver is the only optimization route that completes the entire uncapped training set, reaching $N=69{,}737$ in 5.021 seconds. This trend is consistent with the theoretical reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$: runtime growth remains comparatively mild even after the target-domain sample count saturates and the additional data come almost entirely from the source domain. 
 % A simple log-log fit further supports this pattern, yielding an empirical slope of approximately 1.049 for CVXOPT versus 0.626 for the proposed fast solver.
 
 %---------------- Discussion --------------------%
@@ -551,6 +551,6 @@ The extended experimental evaluations yield the following conclusive insights:
 
 \textbf{Ablation confirms the necessity of each component.} Removing transfer learning reduces both point and interval performance under severe domain shift; removing asymmetric LDMR variance regularization degrades distributional robustness and interval calibration; removing MMD alignment weakens feature-space adaptation. Critically, the LDMR-Quantile (SymVar) variant confirms that symmetric variance minimization conflicts with quantile-specific asymmetry requirements, validating our theoretical analysis. Residual-density plots provide complementary evidence for this degradation.
 
-\textbf{The scalable optimizer materially reduces computational burden.} Experiment~5 shows that the Nystr\"{o}m + Fast SGD solver is the only optimization route that reaches the full uncapped training scale ($N=69{,}737$), completing training in 5.021 seconds, whereas CVXOPT, Torch-GD, and batch SGD stall much earlier due to rapidly increasing computational cost.
+\textbf{The scalable optimizer materially reduces computational burden.} Experiment~5 shows that the Nystr\"{o}m-SGD solver is the only optimization route that reaches the full uncapped training scale ($N=69{,}737$), completing training in 5.021 seconds, whereas CVXOPT, Torch-GD, and batch SGD stall much earlier due to rapidly increasing computational cost.
 
 \textbf{Limitations and future work.} The present evaluation is based on onshore wind farms and fixed feature engineering pipelines; extension to offshore assets, dynamic re-calibration strategies, and hybrid deep-kernel transfer formulations remains a relevant direction.
