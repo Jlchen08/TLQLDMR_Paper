@@ -273,7 +273,7 @@ Extreme weather
 %------------------------ Introduction ------------------------
 \section{Introduction}
 
-The global transition toward renewable energy has positioned wind power as a cornerstone of sustainable electricity generation. However, the inherent intermittency and volatility of wind resources pose significant challenges to power grid stability and dispatch optimality. Accurate wind power forecasting is therefore critical for balancing supply and demand, reducing operational costs, and ensuring reliable grid integration \citep{wang2019review, zhang2024kde}. While substantial progress has been achieved in short-term forecasting under normal meteorological conditions, prediction performance can degrade significantly during extreme weather events—such as typhoons, cold waves, or heat waves—with error increases of 30-50\% commonly observed, when wind power fluctuations are most severe and grid stability is most vulnerable \citep{s41597-022-01696-6}.
+The global transition toward renewable energy has positioned wind power as a cornerstone of sustainable electricity generation. However, the inherent intermittency and volatility of wind resources pose significant challenges to power grid stability and dispatch optimality \citep{yuan2023conditional}. Accurate wind power forecasting is therefore critical for balancing supply and demand, reducing operational costs, and ensuring reliable grid integration \citep{petersen2026offshore, wen2026value}. While substantial progress has been achieved in short-term forecasting under normal meteorological conditions, prediction performance can degrade significantly during extreme weather events—such as typhoons, cold waves, or heat waves—with error increases of 30-50\% commonly observed, when wind power fluctuations are most severe and grid stability is most vulnerable \citep{yan2025economic, jonkers2024regional}.
 
 Extreme weather events present a dual challenge for data-driven forecasting models. First, such events are inherently rare, resulting in severe data scarcity: extreme-condition samples typically constitute less than 5\% of historical records \citep{s41597-022-01696-6}. Second, the meteorological dynamics during extreme conditions differ fundamentally from normal regimes, inducing substantial distribution shifts in both feature space (e.g., wind speed, temperature) and label space. For instance, during typhoon events, wind speeds may exceed 25 m/s, triggering turbine cut-out operations that produce near-zero power output—a pattern rarely observed in normal weather training data. This creates a covariate shift in the input space and a label shift in the output space, both of which challenge conventional machine learning models that assume training and testing data are independently and identically distributed (i.i.d.) \citep{mustaffa2025rf, chen2025brf}.
 
@@ -348,7 +348,7 @@ A fundamental challenge in transfer learning is measuring and reducing the distr
 where $\phi(\cdot)$ is the feature mapping induced by the kernel. By minimizing the MMD distance during training, the model learns a feature representation where the source and target domains are statistically aligned, enabling the classifier or regressor trained on the source domain to generalize well to the target domain. This alignment is particularly crucial for extreme weather forecasting, as it ensures that the learned predictor is robust to the feature-space shift between normal and extreme meteorological regimes.
 
 
-\section{Proposed Methodology}\label{novel}
+\section{Proposed Method}\label{novel}
 This section presents the construction of TL-QLDMR. Necessary notation is introduced first, followed by the final objective function integrating structural risk, distribution variance, domain adaptation, and weighted pinball loss. The constraints required to handle the non-differentiability of the quantile loss are then described.
 
 \subsection{Notations}\label{not}
@@ -400,7 +400,7 @@ the physical meaning of each term is as follows:
 \end{enumerate}
 
 \subsubsection{Constraints}
-To handle the non-differentiability of the Pinball Loss, we introduce slack variables $\xi_k, \xi_k^*$ to transform it into linear constraints. These constraints apply uniformly to all samples $k$ in the combined training set $D = D_S \cup D_T$, while domain-specific weighting is handled through $C_S$ and $C_T$ in the objective function
+To handle the non-differentiability of the pinball loss, we introduce slack variables $\xi_k, \xi_k^*$ to transform it into linear constraints. These constraints apply uniformly to all samples $k$ in the combined training set $D = D_S \cup D_T$, while domain-specific weighting is handled through $C_S$ and $C_T$ in the objective function
 \begin{equation}
 \label{eq:constraints}
 \begin{cases}
@@ -641,7 +641,7 @@ The overall time complexity is $O(T \cdot N \cdot m + m^3)$. Since $m \ll N$ (ty
 
 \begin{table}[htbp]
 \centering
-\caption{Complexity Comparison between Standard QP and Scalable Algorithm}
+\caption{Complexity comparison between standard QP and scalable algorithm}
 \label{tab:complexity}
 \begin{tabular}{lcc}
 \toprule
@@ -689,7 +689,7 @@ The authors declare that they have no known competing financial interests or per
 
 %------------------------ Acknowledgments ------------------------
 \section*{Acknowledgments}
-This work is supported by the National Key Research and  Development  Program  of  China (No. 2021YFB3101500) and the Chongqing Municipal Training Program of Innovation and Entrepreneurship for Undergraduate (No. X202310635204).
+This work was supported in part by the National Natural Science Foundation of China under Grant 72471109 and Grant 62106205.
 
 
 
