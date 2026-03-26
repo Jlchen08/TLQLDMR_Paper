@@ -1,6 +1,7 @@
 \documentclass[a4paper]{cas-sc}
 
 \usepackage[authoryear]{natbib}
+\usepackage{setspace}
 % Author macros
 \def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
 \tsc{WGM}
@@ -9,7 +10,14 @@
 \usepackage{amssymb}
 \usepackage{amsmath,amsfonts}
 \usepackage{caption}
-\captionsetup[figure]{name={Fig.},labelsep=period,singlelinecheck=off}
+\captionsetup[figure]{name={Fig.},labelsep=period,singlelinecheck=off,skip=4pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.8}
 % Patch cas-common.sty: replace \sffamily with \rmfamily in caption functions to match body text
 \ExplSyntaxOn
 \cs_set:Npn \__make_tbl_caption:nn #1#2
@@ -17,7 +25,7 @@
   \l_tbl_align_tl
   \skip_vertical:N \l_tbl_abovecap_skip
   {\parbox{\dimexpr(\l_tbl_width_dim)}
-    {\rightskip=0pt\rmfamily\small\textbf{\color{scolor}#1}\par#2\par\vskip4pt}}
+    {\setstretch{1}\rightskip=0pt\rmfamily\small\textbf{\color{scolor}#1}\par#2\par\vskip2pt}}
   \skip_vertical:N \l_tbl_belowcap_skip
 }
 \cs_set:Npn \__make_fig_caption:nn #1#2
@@ -25,13 +33,13 @@
   \l_fig_align_tl
   \skip_vertical:N \l_fig_abovecap_skip
   \setbox\cascaptionbox=\hbox{%
-    \rmfamily\small\textbf{\color{scolor}#1:}~#2}
+    \setstretch{1}\rmfamily\small\textbf{\color{scolor}#1:}~#2}
   \ifdim\the\wd\cascaptionbox<\dim_use:N \l_fig_width_dim\relax
     \parbox{\l_fig_width_dim}
-      {\unskip\ignorespaces\hfil\rmfamily\small\textbf{\color{scolor}#1:}~#2\hfil\par}
+      {\setstretch{1}\unskip\ignorespaces\hfil\rmfamily\small\textbf{\color{scolor}#1:}~#2\hfil\par}
   \else
     \parbox{\l_fig_width_dim}
-      {\rightskip=0pt\unskip\ignorespaces\rmfamily\small\textbf{\color{scolor}#1:}~#2\par}
+      {\setstretch{1}\rightskip=0pt\unskip\ignorespaces\rmfamily\small\textbf{\color{scolor}#1:}~#2\par}
   \fi
   \skip_vertical:N \l_fig_belowcap_skip
 }
@@ -76,6 +84,7 @@
 \captionsetup[table]{
   labelsep=newline,
   singlelinecheck=false,
+  skip=4pt,
 }
 \AtBeginEnvironment{table}{\rmfamily\normalsize}
 \AtBeginEnvironment{table*}{\rmfamily\normalsize}
@@ -90,6 +99,8 @@
 \renewcommand{\qedsymbol}{}
 \renewcommand{\theenumi}{\arabic{enumi}}
 \renewcommand{\labelenumi}{(\theenumi)}
+\setlength{\bibsep}{0pt}
+\AtBeginEnvironment{thebibliography}{\singlespacing\scriptsize\setlength{\parskip}{0pt}\setlength{\itemsep}{0pt}}
 
 % Keep abstract in main.tex to make SyncTeX jump to the source file.
 \makeatletter
@@ -104,12 +115,14 @@
 }
 { }
 
+\AtBeginDocument{\onehalfspacing}
+
 \RenewDocumentCommand \MaketitleBox { O{} }
 {
   \tl_if_blank:nTF { #1 } { }
   { \keys_set:nn { stm / mktitle } { #1 } }
   \processbreakafter
-  \tex_def:D \baselinestretch{1}
+  \singlespacing
   \group_begin:
   \@title
   \group_end:
@@ -135,6 +148,7 @@
   \dashrule{6pt}{3pt}
   \bool_if:NTF \g_stm_breakafter_abstract_bool
   { \newpage } { }
+  \onehalfspacing
 }
 
 \RenewDocumentCommand \LongMaketitleBox { O{} }
@@ -143,7 +157,7 @@
   { \keys_set:nn { stm / mktitle } { #1 } }
   \vbox_gset:Nn \g_stm_front_box
   {
-    \tex_def:D \baselinestretch{1}
+    \singlespacing
     \group_begin:
     \@title
     \group_end:
@@ -185,7 +199,7 @@
 
 % \title [mode = title]{Subspace Learning Based on Cross-Domain Large Margin Distribution Machine}
 \title [mode = title]{TL-QLDMR: A Transfer Learning Quantile Regression Model for Wind Power Forecasting under Extreme Events}
-\shorttitle{TL-QLDMR for Extreme-Event Wind Power Forecasting}
+\shorttitle{}
 
 %------------------------ Authors ------------------------
 % short author
@@ -225,7 +239,7 @@
 %% ---- Second Author ----
 \author[1]{Bo Wang}
 \cormark[1]
-\credit{Visualization, Data curation}
+\credit{Writing -- review $\&$ editing, Funding acquisition}
 \cortext[cor1]{Corresponding author: Bo Wang\\
 \qquad \qquad E-mail address: jlchen08@163.com (J. Chen), bowangsme@nju.edu.cn (B. Wang), zhihangyu@smail.nju.edu.cn (Z. Yu),\\
 \qquad \qquad peiclin@fcu.edu.tw (P. Lin), lbzhang@swu.edu.cn (L. Zhang), junzo.watada@gmail.com (J. Watada)
@@ -238,17 +252,17 @@
 
 %% ---- Fourth Author ----
 \author[2]{Pei-chun Lin}
-\credit{Writing – review $\&$ editing}
+\credit{Validation, Supervision}
 
 
 %% ---- Fifth Author ----
 \author[3]{Libo Zhang}
-\credit{Funding acquisition, Validation, Supervision}
+\credit{Funding acquisition}
 
 
 %% ---- sixth Author ----
 \author[4]{Junzo Watada}
-\credit{Funding acquisition, Validation, Supervision}
+\credit{Validation, Supervision}
 
 
 %------------------------ Abstract ------------------------
@@ -279,11 +293,11 @@ Extreme events present a dual challenge for data-driven forecasting models. Firs
 
 Among the diverse landscape of forecasting methodologies, kernel-based approaches—particularly Support Vector Regression (SVR) and its variants—have been extensively applied to wind power forecasting and have demonstrated competitive performance under normal-operating conditions \citep{wang2019review, li2021cuckoo, luo2024fsvr, yuan2022jellyfish}. The SVR methodology continues to evolve, with recent advances in optimization algorithms, convergence properties, and robustness enhancements. These kernel methods offer several distinctive advantages over black-box deep learning models: strong generalization guarantees rooted in statistical learning theory, effective handling of high-dimensional feature spaces through the kernel trick, convex optimization formulations that guarantee global optima, and robust performance on small-to-medium-sized datasets where deep models tend to overfit. Moreover, their interpretability and theoretical foundations make them particularly attractive for safety-critical applications such as grid dispatch, where model transparency is often required by regulatory standards. Recent studies have further enriched kernel regression through robust SVM formulations \citep{trafalis2006robust}, bounded-loss regression \citep{fu2023bounded}, and multiple-kernel learning with compound regularization \citep{jiang2021rlmkl}, reinforcing the continuing relevance of robustness-oriented kernel learning for forecast tasks involving noisy and heterogeneous data.
 
-However, existing kernel-based wind power forecasting studies predominantly focus on normal-operating conditions with deterministic point prediction objectives. Traditional SVR minimizes the $\epsilon$-insensitive loss to estimate the conditional mean, achieving robust point predictions under Gaussian noise assumptions. More generally, direct quantile-based forecasting has long been recognized as an effective route to interval generation under skewed and heteroscedastic demand patterns \citep{taylor2007ewqr}. To address the need for uncertainty quantification, Support Vector Quantile Regression (SVQR) extends SVR by replacing the symmetric $\epsilon$-loss with the asymmetric pinball loss, enabling estimation of conditional quantiles for prediction intervals \citep{ye2025nfs, tsvqr2023}. Recent SVQR variants incorporate twin-hyperplane designs \citep{tsvqr2023}, robustness-enhancing loss formulations \citep{wang2024ssvqr}, and nonlinear feature selection \citep{ye2025nfs} to improve scalability and robustness. Despite these methodological advances, the application of kernel-based methods to extreme-event forecasting remains largely unexplored, presenting both challenges and opportunities for methodological extension.
+Despite these strengths, existing kernel-based wind power forecasting studies predominantly focus on normal-operating conditions with deterministic point prediction objectives. Traditional SVR minimizes the $\epsilon$-insensitive loss to estimate the conditional mean, achieving robust point predictions under Gaussian noise assumptions. More generally, direct quantile-based forecasting has long been recognized as an effective route to interval generation under skewed and heteroscedastic demand patterns \citep{taylor2007ewqr}. To address the need for uncertainty quantification, Support Vector Quantile Regression (SVQR) extends SVR by replacing the symmetric $\epsilon$-loss with the asymmetric pinball loss, enabling estimation of conditional quantiles for prediction intervals \citep{ye2025nfs, tsvqr2023}. Recent SVQR variants incorporate twin-hyperplane designs \citep{tsvqr2023}, robustness-enhancing loss formulations \citep{wang2024ssvqr}, and nonlinear feature selection \citep{ye2025nfs} to improve scalability and robustness. Despite these methodological advances, the application of kernel-based methods to extreme-event forecasting remains largely unexplored, presenting both challenges and opportunities for methodological extension.
 
-However, a fundamental limitation shared by both SVR and SVQR is that they optimize only the minimum margin while ignoring the statistical distribution of margins across the entire dataset. This focus on worst-case samples can lead to overfitting and poor generalization, particularly when training data contains outliers or label noise. To overcome this limitation, the Large-margin Distribution Machine-based Regression (LDMR) paradigm was introduced, which explicitly optimizes both the mean and variance of the margin distribution \citep{zhang2019optimal, gupta2021least}. By concentrating prediction errors tightly around zero, LDMR achieves superior generalization compared to classical SVR on a wide range of regression tasks \citep{gupta2021least, hazarika2023mode}. Variants of LDMR have been successfully applied to wind turbine fault detection \citep{tang2019cost}, imbalanced classification \citep{CHENG2016107}, and structural health monitoring \citep{doi:10.1177/14759217231159948}, demonstrating its robustness in noisy industrial environments. However, LDMR has not been systematically applied to wind power forecasting, particularly under extreme-event conditions where both distributional robustness and probabilistic interval prediction are required. These characteristics---combined with LDMR's theoretical foundations---make it a promising candidate for extension to forecasting in the extreme-event domain.
+At the methodological level, a fundamental limitation shared by both SVR and SVQR is that they optimize only the minimum margin while ignoring the statistical distribution of margins across the entire dataset. This focus on worst-case samples can lead to overfitting and poor generalization, particularly when training data contains outliers or label noise. To overcome this limitation, the Large-margin Distribution Machine-based Regression (LDMR) paradigm was introduced, which explicitly optimizes both the mean and variance of the margin distribution \citep{zhang2019optimal, gupta2021least}. By concentrating prediction errors tightly around zero, LDMR achieves superior generalization compared to classical SVR on a wide range of regression tasks \citep{gupta2021least, hazarika2023mode}. Variants of LDMR have been successfully applied to wind turbine fault detection \citep{tang2019cost}, imbalanced classification \citep{CHENG2016107}, and structural health monitoring \citep{doi:10.1177/14759217231159948}, demonstrating its robustness in noisy industrial environments. However, LDMR has not been systematically applied to wind power forecasting, particularly under extreme-event conditions where both distributional robustness and probabilistic interval prediction are required. These characteristics---combined with LDMR's theoretical foundations---make it a promising candidate for extension to forecasting in the extreme-event domain.
 
-However, extending kernel-based methods from the normal-operating domain to the extreme-event domain introduces three critical challenges that require methodological innovation. First, the i.i.d. assumption---that training and testing data are drawn from the same distribution---is a foundational premise of both SVR/SVQR and LDMR. While this assumption holds reasonably well within a single operating regime, it is systematically violated when transferring knowledge from normal (source domain) to extreme-event (target domain) conditions. For example, in our preliminary analysis of six wind farms, the Wasserstein distance between normal and extreme power distributions ranges from 5.96 to 21.06, indicating substantial distributional discrepancy. A model trained solely on abundant normal-domain data will inevitably exhibit performance degradation when deployed under extreme conditions, regardless of how well the margin distribution is optimized within the source domain. While transfer learning and domain adaptation techniques have been extensively studied in computer vision \citep{TAO20123962} and sensor drift compensation \citep{YAN2022107664, GUO2022118237, dp2, ss2}, their principled integration with kernel-based regression for wind power forecasting remains an open research question.
+Against this backdrop, extending kernel-based methods from the normal-operating domain to the extreme-event domain introduces three critical challenges that require methodological innovation. First, the i.i.d. assumption---that training and testing data are drawn from the same distribution---is a foundational premise of both SVR/SVQR and LDMR. While this assumption holds reasonably well within a single operating regime, it is systematically violated when transferring knowledge from normal (source domain) to extreme-event (target domain) conditions. For example, in our preliminary analysis of six wind farms, the Wasserstein distance between normal and extreme power distributions ranges from 5.96 to 21.06, indicating substantial distributional discrepancy. A model trained solely on abundant normal-domain data will inevitably exhibit performance degradation when deployed under extreme conditions, regardless of how well the margin distribution is optimized within the source domain. While transfer learning and domain adaptation techniques have been extensively studied in computer vision \citep{TAO20123962} and sensor drift compensation \citep{YAN2022107664, GUO2022118237, dp2, ss2}, their principled integration with kernel-based regression for wind power forecasting remains an open research question.
 
 Second, there exists a fundamental theoretical tension between LDMR's distributional robustness mechanism and the requirements of quantile regression. The core principle of LDMR—minimizing the variance of prediction residuals—implicitly encourages a symmetric, concentrated error distribution around zero. This is theoretically appropriate and empirically effective for conditional mean estimation, as evidenced by LDMR's superior performance over SVR in numerous regression benchmarks. However, quantile regression at level $\tau \neq 0.5$ requires an inherently asymmetric residual distribution: for example, when estimating the 95th percentile, approximately 95\% of errors should be negative and only 5\% positive. Naively applying LDMR's variance minimization to quantile regression will force the error distribution toward symmetry, thereby degrading interval calibration and violating the target coverage probability. This theoretical conflict has received limited attention in the literature, as existing LDMR studies focus primarily on mean regression, and existing SVQR studies do not incorporate distributional robustness. Reconciling these two objectives—distributional robustness and quantile-specific asymmetry—requires a principled modification of the LDMR framework.
 
@@ -299,7 +313,7 @@ Third, because the standard quadratic programming (QP) formulation of kernel-bas
 
 TL-QLDMR is evaluated on a publicly available multi-site wind farm SCADA dataset encompassing six wind farms with capacities ranging from 36 MW to 200 MW, in comparison with recent kernel-based methods, ensemble approaches, and deep learning baselines. Experimental results demonstrate that TL-QLDMR achieves competitive performance in both deterministic and probabilistic forecasting in the extreme-event domain, with consistent improvements across multiple evaluation metrics. Ablation studies confirm the contribution of each component, and scalability analysis validates the efficiency of the proposed Nystr\"{o}m-SGD solver.
 
-It is important to clarify the scope and positioning of this work. TL-QLDMR is designed for scenarios where kernel-based methods' distinctive advantages---theoretical guarantees, interpretability, sample efficiency, and convex optimization---are particularly valuable. Such scenarios are common in practice: (i) extreme events are inherently rare, providing limited training data where kernel methods' sample efficiency is advantageous, (ii) grid dispatch applications often require model transparency for regulatory compliance, and (iii) real-time forecasting systems benefit from the computational efficiency and stability of convex optimization. Our contribution is to extend the LDMR framework with quantile-aware asymmetry and supervised domain adaptation, demonstrating that kernel-based methods, when properly extended, remain a competitive and theoretically grounded choice for extreme-event forecasting.
+% It is important to clarify the scope and positioning of this work. TL-QLDMR is designed for scenarios where kernel-based methods' distinctive advantages---theoretical guarantees, interpretability, sample efficiency, and convex optimization---are particularly valuable. Such scenarios are common in practice: (i) extreme events are inherently rare, providing limited training data where kernel methods' sample efficiency is advantageous, (ii) grid dispatch applications often require model transparency for regulatory compliance, and (iii) real-time forecasting systems benefit from the computational efficiency and stability of convex optimization. Our contribution is to extend the LDMR framework with quantile-aware asymmetry and supervised domain adaptation, demonstrating that kernel-based methods, when properly extended, remain a competitive and theoretically grounded choice for extreme-event forecasting.
 
 The remainder of this paper is organized as follows. Section~\ref{rel} reviews the theoretical foundations of SVQR, LDMR, and transfer learning with MMD, establishing the building blocks for our method. Section~\ref{novel} presents the TL-QLDMR formulation, including the asymmetric variance regularizer, supervised transfer framework, and scalable optimization algorithm. Section~\ref{Experiments} describes the dataset, experimental setup, and comprehensive evaluation results across deterministic prediction, probabilistic interval forecasting, ablation studies, and computational efficiency analysis. Finally, Section~\ref{conclusion} concludes the paper and discusses future research directions.
 
@@ -708,6 +722,5 @@ This work was supported in part by the National Natural Science Foundation of Ch
 \bibliographystyle{model5-names} 
 \bibliography{ref.bib}
 %\end{refcontext}
-\vfill
 
 \end{document}
