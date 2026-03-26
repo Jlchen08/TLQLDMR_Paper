@@ -2,12 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\creditauthor{Methodology, Software, Writing - original draft}{***}
-\creditauthor{Visualization, Data curation}{***}
-\creditauthor{Formal analysis, Software}{***}
-\creditauthor{Writing – review $\&$ editing}{***}
-\creditauthor{Funding acquisition, Validation, Supervision}{***}
-\csgdef{mark@corau5}{1}
+\creditauthor{Methodology, Software, Writing - original draft}{Junlin Chen}
+\csgdef{mark@corau2}{1}
+\creditauthor{Visualization, Data curation}{Bo Wang}
+\creditauthor{Formal analysis, Software}{Zhihang Yu}
+\creditauthor{Writing – review $\&$ editing}{Pei-chun Lin}
+\creditauthor{Funding acquisition, Validation, Supervision}{Libo Zhang}
+\creditauthor{Funding acquisition, Validation, Supervision}{Junzo Watada}
 \NewLabel{cor1}{1}
 \citation{wang2019review,zhang2024kde}
 \citation{s41597-022-01696-6}
@@ -52,11 +53,11 @@
 \newlabel{fig:framework}{{1}{6}{Overall architecture of the proposed TL-QLDMR model. The left column shows the five-stage pipeline: cross-domain data preparation, supervised transfer learning, quantile-aware objective construction, scalable optimization, and forecast outputs. Each stage is elaborated in the corresponding right panel. In the supervised transfer stage, the shared kernel representation branches into feature-space alignment via MMD in RKHS and label-space adaptation via target-weighted pinball loss (indicated by dashed arrows). The quantile-aware objective decomposes into four additive terms: structural risk $R_{\mathrm {SR}}$, distribution variance $R_{\mathrm {DV}}$, domain adaptation $R_{\mathrm {DA}}$, and weighted pinball loss $R_{\mathrm {Q}}$. The optimization stage provides both an exact dual QP solver and a scalable Nystr\"om-SGD solver with complexity reduction from $O(N^3)$ to $O(T \cdot N \cdot m)$. The final outputs include deterministic point forecasts and probabilistic prediction intervals}{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}TL-QLDMR Model Formulation}{6}{subsection.3.2}\protected@file@percent }
 \newlabel{MODEL}{{3.2}{6}{TL-QLDMR Model Formulation}{subsection.3.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Objective Function}{6}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Objective Function}{7}{subsubsection.3.2.1}\protected@file@percent }
 \newlabel{eq:objective}{{6}{7}{Objective Function}{equation.6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Constraints}{7}{subsubsection.3.2.2}\protected@file@percent }
-\newlabel{eq:constraints}{{7}{7}{Constraints}{equation.7}{}}
 \citation{scholkopf2001representer}
+\newlabel{eq:constraints}{{7}{8}{Constraints}{equation.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Model Optimization}{8}{subsection.3.3}\protected@file@percent }
 \newlabel{optimization}{{3.3}{8}{Model Optimization}{subsection.3.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Matrix Reformulation of the Primal Problem}{8}{subsubsection.3.3.1}\protected@file@percent }
@@ -65,7 +66,7 @@
 \newlabel{eq:matrix_M}{{10}{8}{Matrix Reformulation of the Primal Problem}{equation.10}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Representer Theorem and Kernelization}{8}{subsubsection.3.3.2}\protected@file@percent }
 \newlabel{eq:representer}{{11}{8}{Representer Theorem and Kernelization}{equation.11}{}}
-\newlabel{eq:Omega}{{12}{8}{Representer Theorem and Kernelization}{equation.12}{}}
+\newlabel{eq:Omega}{{12}{9}{Representer Theorem and Kernelization}{equation.12}{}}
 \newlabel{eq:kernel_primal}{{13}{9}{Representer Theorem and Kernelization}{equation.13}{}}
 \newlabel{eq:kernel_constraints}{{14}{9}{Representer Theorem and Kernelization}{equation.14}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Lagrangian and Dual Problem}{9}{subsubsection.3.3.3}\protected@file@percent }
@@ -77,10 +78,10 @@
 \newlabel{eq:dual_problem}{{20}{9}{Lagrangian and Dual Problem}{equation.20}{}}
 \newlabel{eq:dual_matrices}{{21}{9}{Lagrangian and Dual Problem}{equation.21}{}}
 \citation{zhang2010clustered}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces TL-QLDMR Training Algorithm}}{10}{algocf.1}\protected@file@percent }
-\newlabel{alg:TL-QLDMR}{{1}{10}{The Algorithm and Complexity Analysis}{algocf.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The Algorithm and Complexity Analysis}{10}{subsection.3.4}\protected@file@percent }
 \newlabel{alg_section}{{3.4}{10}{The Algorithm and Complexity Analysis}{subsection.3.4}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces TL-QLDMR Training Algorithm}}{10}{algocf.1}\protected@file@percent }
+\newlabel{alg:TL-QLDMR}{{1}{10}{The Algorithm and Complexity Analysis}{algocf.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Scalable Optimization via Nystr\"{o}m Approximation}{10}{subsection.3.5}\protected@file@percent }
 \newlabel{fast_alg}{{3.5}{10}{Scalable Optimization via Nystr\"{o}m Approximation}{subsection.3.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Nystr\"{o}m Feature Mapping}{10}{subsubsection.3.5.1}\protected@file@percent }
@@ -186,47 +187,46 @@
 \bibcite{duan2025ara}{{7}{2025}{{Duan et~al.}}{{}}}
 \bibcite{fu2023bounded}{{8}{2023}{{Fu et~al.}}{{Fu, Tian \& Tang}}}
 \bibcite{GUO2022118237}{{9}{2022}{{Guo et~al.}}{{Guo, Tan, Yang, Liang, Zhang \& Zhang}}}
-\bibcite{gupta2021least}{{10}{2021}{{Gupta \& Gupta}}{{}}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{25}{section.5}\protected@file@percent }
 \newlabel{conclusion}{{5}{25}{Conclusion}{section.5}{}}
+\bibcite{gupta2021least}{{10}{2021}{{Gupta \& Gupta}}{{}}}
 \bibcite{hazarika2023mode}{{11}{2023}{{Hazarika \& Gupta}}{{}}}
 \bibcite{wang2024ssvqr}{{12}{2023}{{Hazarika et~al.}}{{Hazarika, Gupta \& Borah}}}
 \bibcite{houssein2025hho}{{13}{2025}{{Houssein et~al.}}{{}}}
 \bibcite{hu2025nescqr}{{14}{2025}{{Hu et~al.}}{{Hu, Deng \& Che}}}
 \bibcite{hu2025ncqgbr}{{15}{2025}{{Hu \& Liu}}{{}}}
 \bibcite{jiang2021rlmkl}{{16}{2021}{{Jiang et~al.}}{{Jiang, Tao, Dong \& Xiong}}}
-\bibcite{kingma2015adam}{{17}{2015}{{Kingma \& Ba}}{{}}}
-\bibcite{kumar2012sampling}{{18}{2012}{{Kumar et~al.}}{{Kumar, Mohri \& Talwalkar}}}
-\bibcite{li2021cuckoo}{{19}{2021}{{Li et~al.}}{{Li, Zhao, Tseng \& Tan}}}
-\bibcite{liang2025coldwave}{{20}{2025}{{Liang et~al.}}{{Liang, Chai, Sun, Jiang \& Sun}}}
-\bibcite{liu2023eweld}{{21}{2023}{{Liu et~al.}}{{Liu, Liu, Bai, Wang, Wang, Zhao, Liang, Zhao \& Qiu}}}
-\bibcite{liu2024extreme}{{22}{2024}{{Liu et~al.}}{{Liu, Wang \& Liu}}}
-\bibcite{luo2024fsvr}{{23}{2024}{{Luo et~al.}}{{Luo, Hong, Gao \& Fang}}}
-\bibcite{hybriddl2025}{{24}{2025}{{Mao et~al.}}{{Mao, Song \& Huang}}}
-\bibcite{meena2025flsvr}{{25}{2025}{{Meena et~al.}}{{}}}
-\bibcite{mustaffa2025rf}{{26}{2025}{{Mustaffa \& Sulaiman}}{{}}}
-\bibcite{pan2010survey}{{27}{2010}{{Pan \& Yang}}{{}}}
-\bibcite{rabanal2019midas}{{28}{2019}{{Rabanal et~al.}}{{Rabanal, Ulazia, Ibarra-Berastegi, Saenz \& Elosegui}}}
-\bibcite{rizkallah2025kmeans}{{29}{2025}{{Rizkallah}}{{}}}
-\bibcite{romano2019cqr}{{30}{2019}{{Romano et~al.}}{{Romano, Patterson \& Cand{\`e}s}}}
-\bibcite{scholkopf2001representer}{{31}{2001}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Herbrich \& Smola}}}
-\bibcite{scholkopf2000new}{{32}{2000}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Smola, Williamson \& Bartlett}}}
-\bibcite{ss2}{{33}{2023}{{Se et~al.}}{{Se, Song, Liu, Zhang, Wang \& Liu}}}
-\bibcite{sideratos2012extreme}{{34}{2012}{{Sideratos \& Hatziargyriou}}{{}}}
-\bibcite{tang2019cost}{{35}{2019}{{Tang et~al.}}{{Tang, Ding, Yang, Cheng, Shardt, Long \& Liu}}}
-\bibcite{TAO20123962}{{36}{2012}{{Tao et~al.}}{{Tao, lai Chung \& Wang}}}
-\bibcite{taylor2007ewqr}{{37}{2007}{{Taylor}}{{}}}
-\bibcite{trafalis2006robust}{{38}{2006}{{Trafalis \& Gilbert}}{{}}}
-\bibcite{wang2019review}{{39}{2021}{{Wang et~al.}}{{Wang, Zou, Liu, Zhang \& Liu}}}
-\bibcite{YAN2022107664}{{40}{2022}{{Yan et~al.}}{{Yan, Chen, Liu, Zhang, Peng, Yi \& Duan}}}
-\bibcite{doi:10.1177/14759217231159948}{{41}{2024}{{Yang et~al.}}{{Yang, Zhang \& Chen}}}
-\bibcite{amqrnn2025}{{42}{2025{a}}{{Ye et~al.}}{{Ye, Liu, Xiong \& Qi}}}
-\bibcite{ye2025nfs}{{43}{2025{b}}{{Ye et~al.}}{{Ye, Wang \& Chen}}}
-\bibcite{tsvqr2023}{{44}{2023}{{Ye et~al.}}{{}}}
-\bibcite{yuan2022jellyfish}{{45}{2022}{{Yuan et~al.}}{{Yuan, Shi \& Xu}}}
-\bibcite{dp2}{{46}{2023}{{Zhai et~al.}}{{Zhai, Han, Li, Yang, Duan \& Yan}}}
-\bibcite{zhang2010clustered}{{47}{2010}{{Zhang \& Kwok}}{{}}}
-\bibcite{zhang2014large}{{48}{2014}{{Zhang \& Zhou}}{{}}}
-\bibcite{zhang2019optimal}{{49}{2020}{{Zhang \& Zhou}}{{}}}
+\bibcite{kumar2012sampling}{{17}{2012}{{Kumar et~al.}}{{Kumar, Mohri \& Talwalkar}}}
+\bibcite{li2021cuckoo}{{18}{2021}{{Li et~al.}}{{Li, Zhao, Tseng \& Tan}}}
+\bibcite{liang2025coldwave}{{19}{2025}{{Liang et~al.}}{{Liang, Chai, Sun, Jiang \& Sun}}}
+\bibcite{liu2023eweld}{{20}{2023}{{Liu et~al.}}{{Liu, Liu, Bai, Wang, Wang, Zhao, Liang, Zhao \& Qiu}}}
+\bibcite{liu2024extreme}{{21}{2024}{{Liu et~al.}}{{Liu, Wang \& Liu}}}
+\bibcite{luo2024fsvr}{{22}{2024}{{Luo et~al.}}{{Luo, Hong, Gao \& Fang}}}
+\bibcite{hybriddl2025}{{23}{2025}{{Mao et~al.}}{{Mao, Song \& Huang}}}
+\bibcite{meena2025flsvr}{{24}{2025}{{Meena et~al.}}{{}}}
+\bibcite{mustaffa2025rf}{{25}{2025}{{Mustaffa \& Sulaiman}}{{}}}
+\bibcite{pan2010survey}{{26}{2010}{{Pan \& Yang}}{{}}}
+\bibcite{rabanal2019midas}{{27}{2019}{{Rabanal et~al.}}{{Rabanal, Ulazia, Ibarra-Berastegi, Saenz \& Elosegui}}}
+\bibcite{rizkallah2025kmeans}{{28}{2025}{{Rizkallah}}{{}}}
+\bibcite{romano2019cqr}{{29}{2019}{{Romano et~al.}}{{Romano, Patterson \& Cand{\`e}s}}}
+\bibcite{scholkopf2001representer}{{30}{2001}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Herbrich \& Smola}}}
+\bibcite{scholkopf2000new}{{31}{2000}{{Sch{\"o}lkopf et~al.}}{{Sch{\"o}lkopf, Smola, Williamson \& Bartlett}}}
+\bibcite{ss2}{{32}{2023}{{Se et~al.}}{{Se, Song, Liu, Zhang, Wang \& Liu}}}
+\bibcite{sideratos2012extreme}{{33}{2012}{{Sideratos \& Hatziargyriou}}{{}}}
+\bibcite{tang2019cost}{{34}{2019}{{Tang et~al.}}{{Tang, Ding, Yang, Cheng, Shardt, Long \& Liu}}}
+\bibcite{TAO20123962}{{35}{2012}{{Tao et~al.}}{{Tao, lai Chung \& Wang}}}
+\bibcite{taylor2007ewqr}{{36}{2007}{{Taylor}}{{}}}
+\bibcite{trafalis2006robust}{{37}{2006}{{Trafalis \& Gilbert}}{{}}}
+\bibcite{wang2019review}{{38}{2021}{{Wang et~al.}}{{Wang, Zou, Liu, Zhang \& Liu}}}
+\bibcite{YAN2022107664}{{39}{2022}{{Yan et~al.}}{{Yan, Chen, Liu, Zhang, Peng, Yi \& Duan}}}
+\bibcite{doi:10.1177/14759217231159948}{{40}{2024}{{Yang et~al.}}{{Yang, Zhang \& Chen}}}
+\bibcite{amqrnn2025}{{41}{2025{a}}{{Ye et~al.}}{{Ye, Liu, Xiong \& Qi}}}
+\bibcite{ye2025nfs}{{42}{2025{b}}{{Ye et~al.}}{{Ye, Wang \& Chen}}}
+\bibcite{tsvqr2023}{{43}{2023}{{Ye et~al.}}{{}}}
+\bibcite{yuan2022jellyfish}{{44}{2022}{{Yuan et~al.}}{{Yuan, Shi \& Xu}}}
+\bibcite{dp2}{{45}{2023}{{Zhai et~al.}}{{Zhai, Han, Li, Yang, Duan \& Yan}}}
+\bibcite{zhang2010clustered}{{46}{2010}{{Zhang \& Kwok}}{{}}}
+\bibcite{zhang2014large}{{47}{2014}{{Zhang \& Zhou}}{{}}}
+\bibcite{zhang2019optimal}{{48}{2020}{{Zhang \& Zhou}}{{}}}
 \csxdef{lastpage}{27}
 \gdef \@abspage@last{27}

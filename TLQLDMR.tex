@@ -35,6 +35,20 @@
   \fi
   \skip_vertical:N \l_fig_belowcap_skip
 }
+% Patch cas-common.sty: suppress ORCID line and customize first-page footer text
+\RenewDocumentCommand \printorcid { } { }
+\cs_set:Npn \__first_footerline:
+{
+  \group_begin:
+  \scriptsize
+  \sffamily
+  \ifnum\theblind>0\relax
+  \else
+    \__short_authors: :~
+  \fi
+  { \rmfamily \itshape Preprint~submitted~to~European~Journal~of~Operational~Research }
+  \group_end:
+}
 \ExplSyntaxOff
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{array}
@@ -178,44 +192,63 @@
 \shortauthors{Junlin Chen et~al.}
 
 %% ---- First Author ----
-\author[1]{***}
+\author[1]{Junlin Chen}
 \credit{Methodology, Software, Writing - original draft}
 \affiliation[1]{
-    organization={Schoo of Artificial Intelligence, Southwest University},
+    organization={School of Management and Engineering, Nanjing University},
+    city={Nanjing},
+    citysep={},
+    postcode={210093}, 
+    country={China}}
+
+\affiliation[2]{
+    organization={Department of Information Engineering and Computer Science, Feng Chia University},
+    city={Taiwan},
+    citysep={},
+    postcode={40724}, 
+    country={China}}
+
+\affiliation[3]{
+    organization={College of Artificial Intelligence, Southwest University},
     city={Chongqing},
     citysep={},
     postcode={400715}, 
     country={China}}
 
-\affiliation[2]{
-    organization={Business school, Jiangsu open University},
-    city={Jiangsu},
+\affiliation[4]{
+    organization={Graduate School of Information, Production and Systems, Waseda University},
+    city={Kitakyyushu},
     citysep={},
-    postcode={210036}, 
-    country={China}}
+    postcode={808-0135}, 
+    country={Japan}}
 
 %% ---- Second Author ----
-\author[1]{***}
+\author[1]{Bo Wang}
+\cormark[1]
 \credit{Visualization, Data curation}
-
+\cortext[cor1]{Corresponding author: Bo Wang\\
+\qquad \qquad E-mail address: jlchen08@163.com (J. Chen), bowangsme@nju.edu.cn (B. Wang), zhihangyu@smail.nju.edu.cn (Z. Yu),\\
+\qquad \qquad peiclin@fcu.edu.tw (P. Lin), lbzhang@swu.edu.cn (L. Zhang), junzo.watada@gmail.com (J. Watada)
+}
 
 %% ---- Third Author ----
-\author[2]{***}
+\author[1]{Zhihang Yu}
 \credit{Formal analysis, Software}
 
 
 %% ---- Fourth Author ----
-\author[1]{***}
+\author[2]{Pei-chun Lin}
 \credit{Writing – review $\&$ editing}
 
 
 %% ---- Fifth Author ----
-\author[1]{***}
+\author[3]{Libo Zhang}
 \credit{Funding acquisition, Validation, Supervision}
-\cormark[1]
-\cortext[cor1]{Corresponding author: ***\\
-\qquad \qquad E-mail address: ***
-}
+
+
+%% ---- sixth Author ----
+\author[4]{Junzo Watada}
+\credit{Funding acquisition, Validation, Supervision}
 
 
 %------------------------ Abstract ------------------------
