@@ -10,7 +10,15 @@
 \usepackage{amssymb}
 \usepackage{amsmath,amsfonts}
 \usepackage{caption}
-\captionsetup[figure]{name={Fig.},labelsep=period,singlelinecheck=off,skip=4pt}
+\captionsetup[figure]{
+  name={Fig.},
+  labelsep=colon,
+  font={rm,small},
+  labelfont=bf,
+  justification=raggedright,
+  singlelinecheck=off,
+  skip=4pt,
+}
 \setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
 \setlength{\floatsep}{8pt plus 2pt minus 2pt}
 \setlength{\intextsep}{8pt plus 2pt minus 2pt}
@@ -36,10 +44,10 @@
     \setstretch{1}\rmfamily\small\textbf{\color{scolor}#1:}~#2}
   \ifdim\the\wd\cascaptionbox<\dim_use:N \l_fig_width_dim\relax
     \parbox{\l_fig_width_dim}
-      {\setstretch{1}\unskip\ignorespaces\hfil\rmfamily\small\textbf{\color{scolor}#1:}~#2\hfil\par}
+      {\setstretch{1}\raggedright\unskip\ignorespaces\rmfamily\small\textbf{\color{scolor}#1:}~#2\par}
   \else
     \parbox{\l_fig_width_dim}
-      {\setstretch{1}\rightskip=0pt\unskip\ignorespaces\rmfamily\small\textbf{\color{scolor}#1:}~#2\par}
+      {\setstretch{1}\raggedright\unskip\ignorespaces\rmfamily\small\textbf{\color{scolor}#1:}~#2\par}
   \fi
   \skip_vertical:N \l_fig_belowcap_skip
 }
@@ -54,7 +62,7 @@
   \else
     \__short_authors: :~
   \fi
-  { \rmfamily \itshape Preprint~submitted~to~European~Journal~of~Operational~Research }
+  { \rmfamily \itshape Preprint~submitted~to~Energy }
   \group_end:
 }
 \ExplSyntaxOff
@@ -242,13 +250,15 @@
 \credit{Writing -- review $\&$ editing, Funding acquisition}
 \cortext[cor1]{Corresponding author: Bo Wang\\
 \qquad \qquad E-mail address: jlchen08@163.com (J. Chen), bowangsme@nju.edu.cn (B. Wang), zhihangyu@smail.nju.edu.cn (Z. Yu),\\
-\qquad \qquad peiclin@fcu.edu.tw (P. Lin), lbzhang@swu.edu.cn (L. Zhang), junzo.watada@gmail.com (J. Watada)
+\qquad \qquad  linrenju7@163.com (R. Lin), peiclin@fcu.edu.tw (P. Lin), lbzhang@swu.edu.cn (L. Zhang), junzo.watada.ips@gmail.com (J. Watada)
 }
 
 %% ---- Third Author ----
 \author[1]{Zhihang Yu}
 \credit{Formal analysis, Software}
 
+\author[1]{Renju Lin}
+\credit{Software}
 
 %% ---- Fourth Author ----
 \author[2]{Pei-chun Lin}
@@ -287,9 +297,9 @@ Extreme events
 %------------------------ Introduction ------------------------
 \section{Introduction}
 
-The global transition toward renewable energy has positioned wind power as a cornerstone of sustainable electricity generation. However, the inherent intermittency and volatility of wind resources pose significant challenges to power grid stability and dispatch optimality \citep{yuan2023conditional}. Accurate wind power forecasting is therefore critical for balancing supply and demand, reducing operational costs, and ensuring reliable grid integration \citep{petersen2026offshore, wen2026value}. While substantial progress has been achieved in short-term forecasting under normal meteorological conditions, prediction performance can degrade significantly during extreme events, particularly those associated with typhoons, cold waves, or heat waves, with error increases of 30-50\% commonly observed when wind power fluctuations are most severe and grid stability is most vulnerable \citep{yan2025economic, jonkers2024regional}.
+The global transition toward renewable energy has positioned wind power as a cornerstone of sustainable electricity generation. However, the inherent intermittency and volatility of wind resources pose significant challenges to power-system reliability, reserve allocation, and dispatch efficiency \citep{yuan2023conditional}. Accurate wind power forecasting is therefore critical for reducing balancing costs, supporting storage planning, and enabling secure grid integration \citep{yan2025economic, wang2025ensemble}. While substantial progress has been achieved in short-term forecasting under normal meteorological conditions, prediction performance can degrade significantly during extreme events, particularly those associated with typhoons, cold waves, or heat waves, when wind power fluctuations are most severe and energy-system operations are under the greatest stress \citep{wang2024scarcity, jonkers2024regional}.
 
-Extreme events present a dual challenge for data-driven forecasting models. First, such events are inherently rare, resulting in severe data scarcity: extreme-condition samples typically constitute less than 5\% of historical records \citep{s41597-022-01696-6}. Second, the dynamics under extreme-event conditions differ fundamentally from normal operating regimes, inducing substantial distribution shifts in both feature space (e.g., wind speed, temperature) and label space. In this work, the term extreme events is used in a broad operational sense: it includes, but is not limited to, named severe-weather processes and instead denotes rare, high-risk, and out-of-distribution states induced by extreme meteorological deviations and their associated turbine responses. For instance, during typhoon events, wind speeds may exceed 25 m/s, triggering turbine cut-out operations that produce near-zero power output---a pattern rarely observed in normal-domain training data. This creates a covariate shift in the input space and a label shift in the output space, both of which challenge conventional machine learning models that assume training and testing data are independently and identically distributed (i.i.d.) \citep{mustaffa2025rf, chen2025brf}.
+Extreme events present a dual challenge for data-driven forecasting models. First, such events are inherently rare, resulting in severe data scarcity: extreme-condition samples typically constitute only a small fraction of historical records \citep{s41597-022-01696-6, wang2024scarcity}. Second, the dynamics under extreme-event conditions differ fundamentally from normal operating regimes, inducing substantial distribution shifts in both feature space (e.g., wind speed, temperature) and label space. In this work, the term extreme events is used in a broad operational sense: it includes, but is not limited to, named severe-weather processes and instead denotes rare, high-risk, and out-of-distribution states induced by extreme meteorological deviations and their associated turbine responses. For instance, during typhoon events, wind speeds may exceed 25 m/s, triggering turbine cut-out operations that produce near-zero power output---a pattern rarely observed in normal-domain training data. This creates a covariate shift in the input space and a label shift in the output space, both of which challenge conventional machine learning models that assume training and testing data are independently and identically distributed (i.i.d.) \citep{dong2023mdan, yin2021serioparallel}.
 
 Among the diverse landscape of forecasting methodologies, kernel-based approaches—particularly Support Vector Regression (SVR) and its variants—have been extensively applied to wind power forecasting and have demonstrated competitive performance under normal-operating conditions \citep{wang2019review, li2021cuckoo, luo2024fsvr, yuan2022jellyfish}. The SVR methodology continues to evolve, with recent advances in optimization algorithms, convergence properties, and robustness enhancements. These kernel methods offer several distinctive advantages over black-box deep learning models: strong generalization guarantees rooted in statistical learning theory, effective handling of high-dimensional feature spaces through the kernel trick, convex optimization formulations that guarantee global optima, and robust performance on small-to-medium-sized datasets where deep models tend to overfit. Moreover, their interpretability and theoretical foundations make them particularly attractive for safety-critical applications such as grid dispatch, where model transparency is often required by regulatory standards. Recent studies have further enriched kernel regression through robust SVM formulations \citep{trafalis2006robust}, bounded-loss regression \citep{fu2023bounded}, and multiple-kernel learning with compound regularization \citep{jiang2021rlmkl}, reinforcing the continuing relevance of robustness-oriented kernel learning for forecast tasks involving noisy and heterogeneous data.
 
@@ -297,11 +307,11 @@ Despite these strengths, existing kernel-based wind power forecasting studies pr
 
 At the methodological level, a fundamental limitation shared by both SVR and SVQR is that they optimize only the minimum margin while ignoring the statistical distribution of margins across the entire dataset. This focus on worst-case samples can lead to overfitting and poor generalization, particularly when training data contains outliers or label noise. To overcome this limitation, the Large-margin Distribution Machine-based Regression (LDMR) paradigm was introduced, which explicitly optimizes both the mean and variance of the margin distribution \citep{zhang2019optimal, gupta2021least}. By concentrating prediction errors tightly around zero, LDMR achieves superior generalization compared to classical SVR on a wide range of regression tasks \citep{gupta2021least, hazarika2023mode}. Variants of LDMR have been successfully applied to wind turbine fault detection \citep{tang2019cost}, imbalanced classification \citep{CHENG2016107}, and structural health monitoring \citep{doi:10.1177/14759217231159948}, demonstrating its robustness in noisy industrial environments. However, LDMR has not been systematically applied to wind power forecasting, particularly under extreme-event conditions where both distributional robustness and probabilistic interval prediction are required. These characteristics---combined with LDMR's theoretical foundations---make it a promising candidate for extension to forecasting in the extreme-event domain.
 
-Against this backdrop, extending kernel-based methods from the normal-operating domain to the extreme-event domain introduces three critical challenges that require methodological innovation. First, the i.i.d. assumption---that training and testing data are drawn from the same distribution---is a foundational premise of both SVR/SVQR and LDMR. While this assumption holds reasonably well within a single operating regime, it is systematically violated when transferring knowledge from normal (source domain) to extreme-event (target domain) conditions. For example, in our preliminary analysis of six wind farms, the Wasserstein distance between normal and extreme power distributions ranges from 5.96 to 21.06, indicating substantial distributional discrepancy. A model trained solely on abundant normal-domain data will inevitably exhibit performance degradation when deployed under extreme conditions, regardless of how well the margin distribution is optimized within the source domain. While transfer learning and domain adaptation techniques have been extensively studied in computer vision \citep{TAO20123962} and sensor drift compensation \citep{YAN2022107664, GUO2022118237, dp2, ss2}, their principled integration with kernel-based regression for wind power forecasting remains an open research question.
+Against this backdrop, extending kernel-based methods from the normal-operating domain to the extreme-event domain introduces three critical challenges that require methodological innovation. First, the i.i.d. assumption---that training and testing data are drawn from the same distribution---is a foundational premise of both SVR/SVQR and LDMR. While this assumption holds reasonably well within a single operating regime, it is systematically violated when transferring knowledge from normal (source domain) to extreme-event (target domain) conditions. For example, in our preliminary analysis of six wind farms, the Wasserstein distance between normal and extreme power distributions ranges from 5.96 to 21.06, indicating substantial distributional discrepancy. A model trained solely on abundant normal-domain data will inevitably exhibit performance degradation when deployed under extreme conditions, regardless of how well the margin distribution is optimized within the source domain. Recent wind-power studies have explored transfer learning and domain adaptation to alleviate data scarcity and domain shift in newly built or heterogeneous wind farms \citep{yin2021serioparallel, wang2024scarcity, dong2023mdan}; however, their principled integration with kernel-based regression remains an open research question.
 
 Second, there exists a fundamental theoretical tension between LDMR's distributional robustness mechanism and the requirements of quantile regression. The core principle of LDMR—minimizing the variance of prediction residuals—implicitly encourages a symmetric, concentrated error distribution around zero. This is theoretically appropriate and empirically effective for conditional mean estimation, as evidenced by LDMR's superior performance over SVR in numerous regression benchmarks. However, quantile regression at level $\tau \neq 0.5$ requires an inherently asymmetric residual distribution: for example, when estimating the 95th percentile, approximately 95\% of errors should be negative and only 5\% positive. Naively applying LDMR's variance minimization to quantile regression will force the error distribution toward symmetry, thereby degrading interval calibration and violating the target coverage probability. This theoretical conflict has received limited attention in the literature, as existing LDMR studies focus primarily on mean regression, and existing SVQR studies do not incorporate distributional robustness. Reconciling these two objectives—distributional robustness and quantile-specific asymmetry—requires a principled modification of the LDMR framework.
 
-Third, existing transfer learning approaches for wind power forecasting predominantly adopt unsupervised domain adaptation strategies, focusing exclusively on aligning feature distributions while treating target-domain labels---even when available in small quantities---as entirely unused supervision signals \citep{TAO20123962, GUO2022118237}. This design choice is reasonable when target labels are completely unavailable, but is suboptimal for extreme-event forecasting, where scarce target samples represent high-value information that captures critical domain-specific dynamics such as cut-out behavior and power curtailment. A more effective transfer learning framework should leverage both feature-space alignment and label-space supervision, strategically weighting target samples to guide model adaptation. This supervised transfer learning paradigm has been successfully applied in computer vision and natural language processing, but its integration with kernel-based quantile regression for wind power forecasting remains unexplored.
+Third, existing transfer learning approaches for wind power forecasting predominantly adopt unsupervised or weakly supervised adaptation strategies, focusing primarily on aligning feature distributions while underutilizing scarce target-domain labels \citep{yin2021serioparallel, wang2024scarcity, dong2023mdan}. This design choice is reasonable when target labels are completely unavailable, but is suboptimal for extreme-event forecasting, where scarce target samples represent high-value information that captures critical domain-specific dynamics such as cut-out behavior and power curtailment. A more effective transfer learning framework should leverage both feature-space alignment and label-space supervision, strategically weighting target samples to guide model adaptation. This supervised transfer learning paradigm has been successfully applied in computer vision and natural language processing, but its integration with kernel-based quantile regression for wind power forecasting remains unexplored.
 
 To address these challenges and extend kernel-based regression to extreme-event forecasting, Transfer Learning Quantile Large-margin Distribution Machine for Regression (TL-QLDMR) is proposed as a principled extension of the classical LDMR paradigm for cross-domain probabilistic wind power prediction. The resulting framework preserves the theoretical strengths of kernel-based methods---convex optimization, generalization guarantees, and robustness on limited data---while introducing three synergistic innovations tailored to the extreme-event setting.
 
