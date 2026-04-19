@@ -500,7 +500,7 @@ Once the optimal $\boldsymbol{\alpha}, \boldsymbol{\alpha}^*$ are found using a 
 
 
 \subsection{Scalable Optimization via Nystr\"{o}m Approximation}\label{fast_alg}
-The standard QP-based solver incurs $O(N^3)$ complexity due to full kernel-matrix computation and inversion, which becomes prohibitive for large-scale SCADA datasets. To address this, we develop a scalable Nystr\"{o}m-SGD algorithm that reduces the complexity to $O(T \cdot N \cdot m)$, where $T$ is the number of SGD iterations and $m \ll N$ is the number of landmark points.
+The standard QP-based solver incurs $O(N^3)$ complexity due to full kernel-matrix computation and inversion, which becomes prohibitive for large-scale datasets. To address this, we develop a scalable Nystr\"{o}m-SGD algorithm that reduces the complexity to $O(T \cdot N \cdot m)$, where $T$ is the number of SGD iterations and $m \ll N$ is the number of landmark points.
 
 To keep the scalable solver consistent with the exact kernelized problem in Eq. (\ref{eq:kernel_primal}), we replace the implicit RKHS mapping $\phi(\boldsymbol{x})$ with an explicit $m$-dimensional Nystr\"{o}m feature map. We select $m$ landmark points $Z = \{z_1, \ldots, z_m\}$ from the combined training set $D = D_S \cup D_T$ via K-Means clustering \citep{zhang2010clustered}. Let $\boldsymbol{W} \in \mathbb{R}^{m \times m}$ denote the kernel matrix among landmarks, where $W_{ij} = k(z_i, z_j)$. The explicit feature mapping $\psi: \mathcal{X} \to \mathbb{R}^m$ is
 \begin{equation}
@@ -526,6 +526,7 @@ and the linear term induced by the source-domain variance is
 \label{eq:nystrom_linear}
 \boldsymbol{c} = \lambda_1 \boldsymbol{\Psi}_S^T \boldsymbol{H}_S \boldsymbol{y}_S.
 \end{equation}
+
 Here $\boldsymbol{H}_S = \boldsymbol{I}_{n_S} - \frac{1}{n_S} \boldsymbol{1}_{n_S} \boldsymbol{1}_{n_S}^T$ is the centering matrix. Therefore, the scalable solver preserves the same four components as the exact formulation: structural risk, source-domain variance regularization, MMD-based alignment, and weighted pinball loss. The only change is that optimization is performed in an explicit $m$-dimensional feature space instead of the $N$-dimensional dual coefficient space.
 
 For each sample $k$ in a mini-batch $\mathcal{B}$, a valid subgradient of the pinball loss with respect to the prediction $\hat{y}_k = f(\boldsymbol{x}_k)$ is
@@ -537,12 +538,14 @@ g_k \in \partial_{\hat{y}_k} L_{\tau}(y_k, \hat{y}_k)= \begin{cases}
     -\tau, & \text{if } \hat{y}_k < y_k.
 \end{cases}
 \end{equation}
+
 In implementation, we use $g_k = 1-\tau$ when $\hat{y}_k > y_k$ and $g_k = -\tau$ otherwise. The weighted subgradient $\tilde{g}_k = C_k g_k$ (where $C_k \in \{C_S, C_T\}$) yields the stochastic gradients
 \begin{equation}
 \label{eq:param_gradients}
 \nabla_{\boldsymbol{w}} J = \boldsymbol{R} \boldsymbol{w} - \boldsymbol{c} + \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k \psi(\boldsymbol{x}_k), \quad \nabla_b J = \frac{1}{|\mathcal{B}|} \sum_{k \in \mathcal{B}} \tilde{g}_k.
 \end{equation}
-The complete procedure is summarized in Algorithm \ref{alg:fast_TL-QLDMR}.
+
+The complete procedure is summarized in Algorithm \ref{alg:fast_TL-QLDMR}. The overall time complexity is $O(T \cdot N \cdot m + m^3)$. Since $m \ll N$, this represents a substantial reduction from the $O(N^3)$ complexity of the standard QP solver. Table \ref{tab:complexity} summarizes the comparison.
 
 \begin{algorithm}[t]
 \SetKwInOut{Input}{Input}
@@ -577,7 +580,6 @@ Initialize $\boldsymbol{w} \leftarrow \boldsymbol{0}$, $b \leftarrow 0$\;
 \Return $\boldsymbol{w}$, $b$\;
 \end{algorithm}
 
-The overall time complexity is $O(T \cdot N \cdot m + m^3)$. Since $m \ll N$, this represents a substantial reduction from the $O(N^3)$ complexity of the standard QP solver. Table \ref{tab:complexity} summarizes the comparison.
 
 \begin{table}[htbp]
 \centering
@@ -596,7 +598,7 @@ Optimization & $O(N^3)$ & $O(T N m)$ \\
 \end{tabular}
 \end{table}
 
-The correspondence with the exact QP route is therefore explicit: Eq. (\ref{eq:nystrom_primal}) is the Nystr\"{o}m-feature counterpart of Eq. (\ref{eq:kernel_primal}), and Eqs. (\ref{eq:reg_matrix})--(\ref{eq:param_gradients}) preserve the same structural terms after replacing the implicit kernel representation with a low-rank explicit one. Moreover, $\boldsymbol{R}$ is positive definite because $\boldsymbol{I}$ is positive definite and the remaining two matrices are positive semi-definite. Hence the approximate primal objective is strongly convex, and standard stochastic subgradient results apply under appropriate step-size schedules \citep{bottou2018optimization}. As the number of landmarks increases, the Nystr\"{o}m approximation becomes increasingly faithful to the exact kernel matrix, so the scalable solution approaches that of the exact QP solver \citep{kumar2012sampling, zhang2010clustered}.
+The correspondence with the exact QP route is therefore explicit: Eq. (\ref{eq:nystrom_primal}) is the Nystr\"{o}m-feature counterpart of Eq. (\ref{eq:kernel_primal}), and Eqs. (\ref{eq:reg_matrix})--(\ref{eq:param_gradients}) preserve the same structural terms after replacing the implicit kernel representation with a low-rank explicit one. Moreover, $\boldsymbol{R}$ is positive definite because $\boldsymbol{I}$ is positive definite and the remaining two matrices are positive semi-definite. Hence the approximate primal objective is strongly convex, and SGD converges to the global optimum at a rate of $O(1/T)$ under a decaying step-size schedule \citep{bottou2018optimization}. As the number of landmarks increases, the Nystr\"{o}m approximation becomes increasingly faithful to the exact kernel matrix, so the scalable solution approaches that of the exact QP solver \citep{kumar2012sampling, zhang2010clustered}.
 
 
 %------------------------- Experiments --------------------%
@@ -724,7 +726,7 @@ The data partition for Farm~6 is as follows:
     \item \textbf{Target domain} (extreme-event domain): 4{,}143 samples.
 \end{itemize}
 
-We compare TL-QLDMR against nine baselines. The kernel-based baselines are Standard SVR, Standard LDMR, bounded-loss SVR (BLSSVR) \citep{fu2023bounded}, Harris hawks optimization SVR (HHO-SVR) \citep{houssein2025hho}, functional-iterative Lagrangian SVR (FLSVR) \citep{meena2025flsvr}, and associated-road-analysis SVR (ARA-SVR) \citep{duan2025ara}. The ensemble baselines are K-means clustering with gradient-boosted trees (KMeans-GBT) \citep{rizkallah2025kmeans}, random-forest wind power forecasting (RF-WPF) \citep{mustaffa2025rf}, and broad random-forest wind power forecasting (BRF-WPF) \citep{chen2025brf}.
+We compare TL-QLDMR against nine baselines. The kernel-based baselines are SVR, LDMR, bounded-loss SVR (BLSSVR) \citep{fu2023bounded}, Harris hawks optimization SVR (HHO-SVR) \citep{houssein2025hho}, functional-iterative Lagrangian SVR (FLSVR) \citep{meena2025flsvr}, and associated-road-analysis SVR (ARA-SVR) \citep{duan2025ara}. The ensemble baselines are K-means clustering with gradient-boosted trees (KMeans-GBT) \citep{rizkallah2025kmeans}, random-forest wind power forecasting (RF-WPF) \citep{mustaffa2025rf}, and broad random-forest wind power forecasting (BRF-WPF) \citep{chen2025brf}.
 
 \begin{table}[ht]
 \centering
@@ -734,19 +736,15 @@ We compare TL-QLDMR against nine baselines. The kernel-based baselines are Stand
 \toprule
 Model & RMSE & MAE & $R^2$ \\
 \midrule
-\multicolumn{4}{l}{\textit{Kernel-based methods}} \\
-Standard LDMR & 10.692 & 6.327 & 0.9085 \\
+LDMR & 10.692 & 6.327 & 0.9085 \\
 BLSSVR        & 10.273 & 6.140 & 0.9155 \\
 ARA-SVR       & 9.246 & 5.954 & 0.9316 \\
 FLSVR         & 8.794 & 6.301 & 0.9381 \\
-Standard SVR  & 8.564 & 5.537 & 0.9413 \\
+SVR  & 8.564 & 5.537 & 0.9413 \\
 HHO-SVR       & 7.603 & 5.530 & 0.9537 \\
-\midrule
-\multicolumn{4}{l}{\textit{Ensemble methods}} \\
 BRF-WPF       & 9.719 & 6.870 & 0.9244 \\
 KMeans-GBT    & 9.620 & 6.695 & 0.9259 \\
 RF-WPF        & 7.967 & 5.344 & 0.9492 \\
-\midrule
 \textbf{TL-QLDMR (Ours)} & \textbf{7.478} & \textbf{5.248} & \textbf{0.9557} \\
 \bottomrule
 \end{tabular}
@@ -757,7 +755,7 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 \centering
 \begin{minipage}[t]{0.49\linewidth}
 \centering
-(a) Standard LDMR\par
+(a) LDMR\par
 \includegraphics[width=\linewidth]{experiment2/plots_selected/farm3_Standard-LDMR.pdf}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.49\linewidth}
@@ -789,7 +787,7 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 \centering
 \begin{minipage}[t]{0.49\linewidth}
 \centering
-(e) Standard SVR\par
+(e) SVR\par
 \includegraphics[width=\linewidth]{experiment2/plots_selected/farm3_Standard-SVR.pdf}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.49\linewidth}
@@ -833,7 +831,7 @@ RF-WPF        & 7.967 & 5.344 & 0.9492 \\
 \label{fig:exp2_curves_e}
 \end{center}
 
-Table~\ref{tab:exp2_results} and Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} jointly demonstrate that TL-QLDMR provides the most accurate and stable point forecasts on the Farm~6 extreme-event test set. Standard LDMR exhibits the weakest performance among kernel methods (RMSE = 10.692, $R^2$ = 0.9085), confirming that symmetric variance regularization alone is insufficient in the cross-domain extreme-event setting. TL-QLDMR improves on the strongest non-transfer baselines: relative to HHO-SVR, it raises $R^2$ from 0.9537 to 0.9557 and reduces RMSE from 7.603 to 7.478; it also improves on RF-WPF (RMSE from 7.967 to 7.478). The segment-level evidence in Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} confirms that TL-QLDMR tracks abrupt ramps and low-power transitions more closely than weaker baselines.
+Table~\ref{tab:exp2_results} and Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} jointly demonstrate that TL-QLDMR provides the most accurate and stable point forecasts on the Farm~6 extreme-event test set. LDMR exhibits the weakest performance among kernel methods (RMSE = 10.692, $R^2$ = 0.9085), confirming that symmetric variance regularization alone is insufficient in the cross-domain extreme-event setting. TL-QLDMR improves on the strongest non-transfer baselines: relative to HHO-SVR, it raises $R^2$ from 0.9537 to 0.9557 and reduces RMSE from 7.603 to 7.478; it also improves on RF-WPF (RMSE from 7.967 to 7.478). The segment-level evidence in Figs.~\ref{fig:exp2_curves_a}--\ref{fig:exp2_curves_e} confirms that TL-QLDMR tracks abrupt ramps and low-power transitions more closely than weaker baselines.
 
 To assess the robustness of the models against measurement noise, which is prevalent in SCADA systems during extreme events, we evaluate the point prediction performance by injecting Gaussian noise into both the training and testing input features at signal-to-noise ratios (SNRs) of 60, 40, and 30\,dB.
 The $R^2$ results under different noise levels are summarized in Table~\ref{tab:exp2_noise}.
@@ -846,19 +844,15 @@ The $R^2$ results under different noise levels are summarized in Table~\ref{tab:
 \toprule
 Model & SNR = 30 dB & SNR = 40 dB & SNR = 60 dB \\
 \midrule
-\multicolumn{4}{l}{\textit{Kernel-based methods}} \\
-Standard LDMR & 0.9084 & 0.9080 & 0.9084 \\
+LDMR & 0.9084 & 0.9080 & 0.9084 \\
 BLSSVR        & 0.9121 & 0.9146 & 0.9154 \\
 ARA-SVR       & 0.9311 & 0.9316 & 0.9316 \\
 FLSVR         & 0.9380 & 0.9381 & 0.9381 \\
-Standard SVR  & 0.9409 & 0.9414 & 0.9413 \\
+SVR  & 0.9409 & 0.9414 & 0.9413 \\
 HHO-SVR       & 0.9442 & 0.9438 & 0.9437 \\
-\midrule
-\multicolumn{4}{l}{\textit{Ensemble methods}} \\
 BRF-WPF       & 0.9177 & 0.9250 & 0.9253 \\
 KMeans-GBT    & 0.9209 & 0.9230 & 0.9262 \\
 RF-WPF        & 0.9471 & 0.9485 & 0.9469 \\
-\midrule
 \textbf{TL-QLDMR (Ours)} & \textbf{0.9584} & \textbf{0.9560} & \textbf{0.9603} \\
 \bottomrule
 \end{tabular}
@@ -872,7 +866,7 @@ TL-QLDMR consistently maintains the highest $R^2$ across all noise levels (0.958
 
 The third experiment extends evaluation from point prediction to probabilistic interval forecasting. The objective is to verify whether TL-QLDMR can achieve reliable 95\% prediction intervals while keeping interval width sufficiently sharp under extreme-event volatility.
 
-The interval prediction baselines include Standard SVQR, twin support vector quantile regression (TSVQR) \citep{tsvqr2023}, a robust truncated-pinball SVQR baseline (UQSVM-SSVQR) \citep{wang2024ssvqr}, nonlinear feature selection SVQR (NFS-SVQR) \citep{ye2025nfs}, $\nu$-support vector regression with conformalized intervals (NuSVR-CI) \citep{romano2019cqr}, robust low-rank multiple kernel learning (RLMKL) \citep{jiang2021rlmkl}, a hybrid deep-learning interval model (HybridDL-Interval) \citep{hybriddl2025}, an attention-based recurrent neural network interval model (AMQRNN) \citep{amqrnn2025}, quantile gradient boosted regression (QGBR) \citep{hu2025ncqgbr}, and conformalized quantile regression multilayer perceptron (CQR-MLP) \citep{hu2025nescqr}.
+The interval prediction baselines include SVQR, twin support vector quantile regression (TSVQR) \citep{tsvqr2023}, a robust truncated-pinball SVQR baseline (UQSVM-SSVQR) \citep{wang2024ssvqr}, nonlinear feature selection SVQR (NFS-SVQR) \citep{ye2025nfs}, $\nu$-support vector regression with conformalized intervals (NuSVR-CI) \citep{romano2019cqr}, robust low-rank multiple kernel learning (RLMKL) \citep{jiang2021rlmkl}, a hybrid deep-learning interval model (HybridDL-Interval) \citep{hybriddl2025}, an attention-based recurrent neural network interval model (AMQRNN) \citep{amqrnn2025}, quantile gradient boosted regression (QGBR) \citep{hu2025ncqgbr}, and conformalized quantile regression multilayer perceptron (CQR-MLP) \citep{hu2025nescqr}.
 
 Table~\ref{tab:exp3_results} presents the interval prediction results on the extreme-event test set of Farm~6 at the 95\% confidence level ($\alpha = 0.05$).
 
@@ -888,7 +882,7 @@ NuSVR-CI            & 0.843 & \textbf{19.970} & \textbf{0.208} & 0.285 & 54.603 
 HybridDL-Interval   & 0.954 & 31.645 & 0.329 & 0.329 & 60.224 \\
 RLMKL               & 0.957 & 31.804 & 0.331 & 0.331 & 39.275 \\
 TSVQR               & 0.889 & 24.592 & 0.256 & 0.342 & 48.178 \\
-Standard SVQR       & \textbf{0.959} & 34.342 & 0.357 & 0.357 & 42.067 \\
+SVQR       & \textbf{0.959} & 34.342 & 0.357 & 0.357 & 42.067 \\
 QGBR                & 0.949 & 31.715 & 0.330 & 0.429 & 37.643 \\
 CQR-MLP             & 0.942 & 31.750 & 0.330 & 0.431 & 46.772 \\
 AMQRNN              & 0.940 & 32.432 & 0.337 & 0.441 & 66.874 \\
@@ -900,7 +894,7 @@ UQSVM-SSVQR         & 0.928 & 81.710 & 0.850 & 1.117 & 85.162 \\
 \label{tab:exp3_results}
 \end{table*}
 
-TL-QLDMR reaches the nominal 95\% coverage target (PICP = 0.959) while obtaining the best composite quality (CWC = 0.268) and the best Winkler score (34.506). Standard SVQR achieves the same coverage but produces substantially wider intervals (PINAW = 0.357 vs. 0.268). RLMKL provides a stronger robust-kernel baseline than conventional SVQR variants (Winkler = 39.275), but TL-QLDMR still achieves materially sharper and better-calibrated intervals. NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage (PICP = 0.843 and 0.889), whereas deep learning baselines require wider intervals to approach acceptable coverage.
+TL-QLDMR reaches the nominal 95\% coverage target (PICP = 0.959) while obtaining the best composite quality (CWC = 0.268) and the best Winkler score (34.506). SVQR achieves the same coverage but produces substantially wider intervals (PINAW = 0.357 vs. 0.268). RLMKL provides a stronger robust-kernel baseline than conventional SVQR variants (Winkler = 39.275), but TL-QLDMR still achieves materially sharper and better-calibrated intervals. NuSVR-CI and TSVQR produce narrow intervals but severe under-coverage (PICP = 0.843 and 0.889), whereas deep learning baselines require wider intervals to approach acceptable coverage.
 
 To assess interval robustness under sensor perturbation, Gaussian noise is injected into test inputs at SNR $\in \{60,40,30\}$ dB.
 Table~\ref{tab:exp3_noise} reports the full set of interval metrics under this noisy-test protocol.
@@ -931,7 +925,7 @@ Model & SNR (dB) & PICP & MPIW & PINAW & CWC & Winkler \\
   & 30 & 0.8892 & 24.570 & 0.2556 & 0.3422 & 48.306 \\
   & 40 & 0.8892 & 24.588 & 0.2558 & 0.3424 & 48.140 \\
   & 60 & 0.8892 & 24.592 & 0.2558 & 0.3425 & 48.169 \\
-\multirow{3}{*}{Standard SVQR}
+\multirow{3}{*}{SVQR}
   & 30 & 0.9446 & 29.704 & 0.3090 & 0.4027 & 41.541 \\
   & 40 & 0.9422 & 29.725 & 0.3092 & 0.4034 & 41.429 \\
   & 60 & 0.9446 & 29.728 & 0.3092 & 0.4030 & 41.420 \\
